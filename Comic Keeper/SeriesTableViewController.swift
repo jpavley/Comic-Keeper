@@ -10,11 +10,6 @@ import UIKit
 
 class SeriesTableViewController: UITableViewController {
     
-    let dummyDataPublishers = ["DC Comics", "Dark Horse Comics", "Marvel Comics"]
-    let dummyDataDCSeries = ["Batman", "Superman", "Wonder Woman"]
-    let dummyDataDHSeries = ["Aliens", "Mask", "Preditor", "Terminator"]
-    let dummyDataMarvelSeries = ["Fanstic Four","Hulk", "Iron Man","Thor", "X-Men"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,16 +30,7 @@ class SeriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        switch section {
-        case 0:
-            return dummyDataDCSeries.count
-        case 1:
-            return dummyDataDHSeries.count
-        case 2:
-            return dummyDataMarvelSeries.count
-        default:
-            return 0
-        }
+        return series(for: section)!.count
     }
 
     
@@ -52,7 +38,9 @@ class SeriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeriesCell", for: indexPath)
 
         // Configure the cell...
-        cell.detailTextLabel?.text = "test"
+        let seriesList = series(for: indexPath.section)!
+        cell.textLabel?.text = seriesList[indexPath.row]
+        cell.detailTextLabel?.text = "\(issueCount(for: indexPath))"
 
         return cell
     }
