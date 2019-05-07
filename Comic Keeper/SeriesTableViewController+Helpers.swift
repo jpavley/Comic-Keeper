@@ -19,7 +19,7 @@ extension SeriesTableViewController {
         return ["Batman", "Superman", "Wonder Woman"]
     }
     var dummyDataDHSeries: [String] {
-        return ["Aliens", "Mask", "Preditor", "Terminator"]
+        return ["Aliens", "Mask", "Prediter", "Terminator"]
     }
     var dummyDataMarvelSeries: [String] {
         return ["Fanstic Four","Hulk", "Iron Man","Thor", "X-Men"]

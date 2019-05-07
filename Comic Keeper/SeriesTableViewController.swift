@@ -26,6 +26,10 @@ class SeriesTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return dummyDataPublishers.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dummyDataPublishers[section]
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
