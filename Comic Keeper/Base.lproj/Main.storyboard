@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="VVn-Xm-d3z" kind="show" identifier="IssuesSegue" trigger="accessoryAction" id="kVS-Ju-45m"/>
+                                    <segue destination="VVn-Xm-d3z" kind="show" identifier="SeriesSegue" id="6oD-aE-PGc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="IssueCell" textLabel="YZb-6f-4kT" detailTextLabel="cqm-Zx-zK2" style="IBUITableViewCellStyleValue1" id="hgH-tD-jfm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="IssuesCell" textLabel="YZb-6f-4kT" detailTextLabel="cqm-Zx-zK2" style="IBUITableViewCellStyleValue1" id="hgH-tD-jfm">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgH-tD-jfm" id="Ue4-Tm-dt1">
@@ -91,7 +91,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ZVS-ZY-zOZ" kind="show" identifier="VariantsSegue" trigger="accessoryAction" id="e1Q-dt-Oso"/>
+                                    <segue destination="ZVS-ZY-zOZ" kind="show" identifier="IssuesSegue" id="vRZ-8v-lj8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

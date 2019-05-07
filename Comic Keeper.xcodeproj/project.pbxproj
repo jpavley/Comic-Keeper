@@ -66,12 +66,12 @@
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
+				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
 				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */,
-				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
