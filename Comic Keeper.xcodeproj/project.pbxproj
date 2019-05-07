@@ -15,6 +15,7 @@
 		B8106A662280F65C00D0A2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */; };
 		B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */; };
 		B8106A702281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */; };
+		B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B8106A672280F65C00D0A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewController.swift; sourceTree = "<group>"; };
 		B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeriesTableViewController+Helpers.swift"; sourceTree = "<group>"; };
+		B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */,
+				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
+				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8106A702281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift in Sources */,
