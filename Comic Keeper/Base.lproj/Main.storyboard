@@ -100,7 +100,7 @@
                             <outlet property="delegate" destination="VVn-Xm-d3z" id="mHG-9X-Bbr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Issues" id="RKq-yE-lgn"/>
+                    <navigationItem key="navigationItem" title="Issues" largeTitleDisplayMode="never" id="RKq-yE-lgn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jg-as-MAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -797,8 +797,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fom-8C-dcm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collection" image="first" id="vc5-fC-asE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nQg-8Z-DFi">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nQg-8Z-DFi">
+                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
