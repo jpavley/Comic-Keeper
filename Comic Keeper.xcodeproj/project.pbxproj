@@ -13,6 +13,7 @@
 		B8106A612280F65B00D0A2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8106A5F2280F65B00D0A2C2 /* Main.storyboard */; };
 		B8106A632280F65C00D0A2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8106A622280F65C00D0A2C2 /* Assets.xcassets */; };
 		B8106A662280F65C00D0A2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */; };
+		B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B8106A622280F65C00D0A2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8106A652280F65C00D0A2C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8106A672280F65C00D0A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
-				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
-				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
-				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
-				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
+				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
+				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
+				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
+				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
+				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8106A5C2280F65B00D0A2C2 /* FirstViewController.swift in Sources */,
