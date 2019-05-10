@@ -20,6 +20,7 @@
 		B8106A762282407100D0A2C2 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A752282407100D0A2C2 /* Book.swift */; };
 		B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
 		B8106A7A2282431300D0A2C2 /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
+		B85C0E6F2286321600AA444E /* Comic_Keeper_Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,12 +40,22 @@
 		B8106A752282407100D0A2C2 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B8106A77228242A800D0A2C2 /* ComicBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBook.swift; sourceTree = "<group>"; };
 		B8106A792282431300D0A2C2 /* ComicBookCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBookCollection.swift; sourceTree = "<group>"; };
-		B85C0E652286318600AA444E /* Comic Keeper.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Comic Keeper.playground"; sourceTree = "<group>"; };
+		B85C0E652286318600AA444E /* Comic Keeper.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Comic Keeper.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Comic_Keeper_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comic_Keeper_Framework.h; sourceTree = "<group>"; };
+		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B8106A532280F65B00D0A2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85C0E682286321600AA444E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +70,7 @@
 			children = (
 				B85C0E652286318600AA444E /* Comic Keeper.playground */,
 				B8106A582280F65B00D0A2C2 /* Comic Keeper */,
+				B85C0E6C2286321600AA444E /* Comic Keeper Framework */,
 				B8106A572280F65B00D0A2C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				B8106A562280F65B00D0A2C2 /* Comic Keeper.app */,
+				B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,7 +106,27 @@
 			path = "Comic Keeper";
 			sourceTree = "<group>";
 		};
+		B85C0E6C2286321600AA444E /* Comic Keeper Framework */ = {
+			isa = PBXGroup;
+			children = (
+				B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */,
+				B85C0E6E2286321600AA444E /* Info.plist */,
+			);
+			path = "Comic Keeper Framework";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B85C0E662286321600AA444E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85C0E6F2286321600AA444E /* Comic_Keeper_Framework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		B8106A552280F65B00D0A2C2 /* Comic Keeper */ = {
@@ -113,6 +146,24 @@
 			productReference = B8106A562280F65B00D0A2C2 /* Comic Keeper.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B85C0E6A2286321600AA444E /* Comic Keeper Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B85C0E702286321600AA444E /* Build configuration list for PBXNativeTarget "Comic Keeper Framework" */;
+			buildPhases = (
+				B85C0E662286321600AA444E /* Headers */,
+				B85C0E672286321600AA444E /* Sources */,
+				B85C0E682286321600AA444E /* Frameworks */,
+				B85C0E692286321600AA444E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Comic Keeper Framework";
+			productName = "Comic Keeper Framework";
+			productReference = B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -124,6 +175,9 @@
 				ORGANIZATIONNAME = "John Pavley";
 				TargetAttributes = {
 					B8106A552280F65B00D0A2C2 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					B85C0E6A2286321600AA444E = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -142,6 +196,7 @@
 			projectRoot = "";
 			targets = (
 				B8106A552280F65B00D0A2C2 /* Comic Keeper */,
+				B85C0E6A2286321600AA444E /* Comic Keeper Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +209,13 @@
 				B8106A662280F65C00D0A2C2 /* LaunchScreen.storyboard in Resources */,
 				B8106A632280F65C00D0A2C2 /* Assets.xcassets in Resources */,
 				B8106A612280F65B00D0A2C2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85C0E692286321600AA444E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +237,13 @@
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8106A702281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift in Sources */,
 				B8106A5C2280F65B00D0A2C2 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85C0E672286321600AA444E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +421,62 @@
 			};
 			name = Release;
 		};
+		B85C0E712286321600AA444E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QZ7SMYA7GB;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Comic Keeper Framework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pavley.Comic-Keeper-Framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B85C0E722286321600AA444E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QZ7SMYA7GB;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Comic Keeper Framework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pavley.Comic-Keeper-Framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -369,6 +494,15 @@
 			buildConfigurations = (
 				B8106A6B2280F65C00D0A2C2 /* Debug */,
 				B8106A6C2280F65C00D0A2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B85C0E702286321600AA444E /* Build configuration list for PBXNativeTarget "Comic Keeper Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B85C0E712286321600AA444E /* Debug */,
+				B85C0E722286321600AA444E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
