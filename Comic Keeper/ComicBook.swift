@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ComicBook {
+public class ComicBook {
     
     var comic: Comic
     var book: Book

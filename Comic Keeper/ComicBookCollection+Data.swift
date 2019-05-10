@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ComicBookCollection {
+public extension ComicBookCollection {
     
     class func createComicBookCollection() -> ComicBookCollection {
         

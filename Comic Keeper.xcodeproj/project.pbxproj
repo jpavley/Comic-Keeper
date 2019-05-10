@@ -21,6 +21,11 @@
 		B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
 		B8106A7A2282431300D0A2C2 /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
 		B85C0E6F2286321600AA444E /* Comic_Keeper_Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B85C0E732286325E00AA444E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A752282407100D0A2C2 /* Book.swift */; };
+		B85C0E742286325E00AA444E /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A7322823ED100D0A2C2 /* Comic.swift */; };
+		B85C0E752286325E00AA444E /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
+		B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
+		B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 /* End PBXBuildFile section */
 
@@ -244,6 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85C0E752286325E00AA444E /* ComicBook.swift in Sources */,
+				B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */,
+				B85C0E732286325E00AA444E /* Book.swift in Sources */,
+				B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */,
+				B85C0E742286325E00AA444E /* Comic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

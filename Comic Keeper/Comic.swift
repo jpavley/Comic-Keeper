@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Comic {
+public class Comic {
     
     var publisher: String
     var series: String

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Book {
+public class Book {
     
     var purchasePrice: Decimal
     var purchaseDate: Date
