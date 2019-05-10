@@ -10,7 +10,7 @@ import Foundation
 
 public class ComicBookCollection {
     
-    var comicbooks: [ComicBook]
+    public var comicbooks: [ComicBook]
     
     init() {
         comicbooks = [ComicBook]()

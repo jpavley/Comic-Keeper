@@ -10,12 +10,12 @@ import Foundation
 
 public class Comic {
     
-    var publisher: String
-    var series: String
-    var era: String
-    var issueNumber: String
-    var legacyIssueNumber: String
-    var variant: String
+    public var publisher: String
+    public var series: String
+    public var era: String
+    public var issueNumber: String
+    public var legacyIssueNumber: String
+    public var variant: String
     
     init(publisher: String,
          series: String,

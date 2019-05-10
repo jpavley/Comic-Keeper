@@ -10,11 +10,10 @@ import Foundation
 
 public class ComicBook {
     
-    var comic: Comic
-    var book: Book
+    public var comic: Comic
+    public var book: Book
     
-    init(comic: Comic,
-         book: Book) {
+    init(comic: Comic, book: Book) {
         
         self.comic = comic
         self.book = book

@@ -10,11 +10,11 @@ import Foundation
 
 public class Book {
     
-    var purchasePrice: Decimal
-    var purchaseDate: Date
-    var sellPrice: Decimal
-    var sellDate: Date
-    var condition: String
+    public var purchasePrice: Decimal
+    public var purchaseDate: Date
+    public var sellPrice: Decimal
+    public var sellDate: Date
+    public var condition: String
     
     init(purchasePrice: Decimal,
          purchaseDate: Date,
