@@ -108,7 +108,6 @@ public extension ComicBookCollection {
         let b1 = Book(purchasePrice: purchasePrice, purchaseDate: purchaseDate, sellPrice: sellPrice, sellDate: sellDate, condition: condition)
         
         return ComicBook(comic: c1, book: b1)
-        
     }
 
     

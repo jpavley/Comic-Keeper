@@ -17,9 +17,16 @@ public class ComicBookCollection {
     }
     
     var publisherNames: [String] {
-        return [String]()
+        let publisherNames = comicbooks.map {$0.comic.publisher}
+        var filteredNames = [String]()
+        publisherNames.forEach { name in
+            if !filteredNames.contains(name) {
+                filteredNames.append(name)
+            }
+        }
+        return filteredNames
     }
-    
+        
     func seriesNames(for publisher: String) -> [String] {
         return [String]()
     }
