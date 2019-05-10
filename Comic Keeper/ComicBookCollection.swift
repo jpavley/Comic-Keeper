@@ -26,11 +26,18 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
-        
-    func seriesNames(for publisher: String) -> [String] {
-        return [String]()
-    }
     
+    func seriesNames(for publisherName: String) -> [String] {
+        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.comic.series : nil}
+        var filteredNames = [String]()
+        seriesNames.forEach { name in
+            if !filteredNames.contains(name) {
+                filteredNames.append(name)
+            }
+        }
+        return filteredNames
+    }
+
     func comicBooks(for publisher: String) -> [ComicBook] {
         return [ComicBook]()
     }

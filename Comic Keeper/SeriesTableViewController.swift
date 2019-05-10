@@ -34,7 +34,8 @@ class SeriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let publisherName = comicBookCollection.publisherNames[section]
-        return comicBookCollection.seriesNames(for: publisherName).count
+        let seriesNames = comicBookCollection.seriesNames(for: publisherName)
+        return seriesNames.count
     }
 
     
