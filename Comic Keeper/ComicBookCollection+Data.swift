@@ -20,12 +20,12 @@ public extension ComicBookCollection {
         let cb2 = createComicBook("DC Comics", "Batman", "1950", "101", "1235", "b", 13.21, Date(), 16.85, Date(), "g")
         let cb3 = createComicBook("DC Comics", "Batman", "1950", "102", "1236", "a", 1.21, Date(), 15.05, Date(), "f")
         
-        // Superman
+        // Wonder Woman
         
-        let cb4 = createComicBook("DC Comics", "Superman", "1970", "1", "3456", "x", 2.31, Date(), 15.05, Date(), "vg")
-        let cb5 = createComicBook("DC Comics", "Superman", "1970", "3", "3457", "xx", 4.61, Date(), 19.05, Date(), "f")
-        let cb6 = createComicBook("DC Comics", "Superman", "1970", "5", "3459", "xxx", 6.71, Date(), 20.05, Date(), "g")
-        let cb7 = createComicBook("DC Comics", "Superman", "1970", "8", "3461", "xxx", 0.71, Date(), 20.05, Date(), "p")
+        let cb4 = createComicBook("DC Comics", "Wonder Woman", "1970", "1", "3456", "x", 2.31, Date(), 15.05, Date(), "vg")
+        let cb5 = createComicBook("DC Comics", "Wonder Woman", "1970", "3", "3457", "xx", 4.61, Date(), 19.05, Date(), "f")
+        let cb6 = createComicBook("DC Comics", "Wonder Woman", "1970", "5", "3459", "xxx", 6.71, Date(), 20.05, Date(), "g")
+        let cb7 = createComicBook("DC Comics", "Wonder Woman", "1970", "8", "3461", "xxx", 0.71, Date(), 20.05, Date(), "p")
         
         // Wonder Woman
         
@@ -44,14 +44,14 @@ public extension ComicBookCollection {
         let cb14 = createComicBook("Dark Horse", "The Mask", "1995", "20", "20", "a", 2.31, Date(), 15.05, Date(), "g")
         let cb15 = createComicBook("Dark Horse", "The Mask", "1995", "34", "34", "n", 2.31, Date(), 15.05, Date(), "vg")
         
-        // Preditor
-        
-        let cb16 = createComicBook("Dark Horse", "Preditor", "1985", "10", "10", "q", 2.31, Date(), 15.05, Date(), "vg")
-        let cb17 = createComicBook("Dark Horse", "Preditor", "1985", "20", "20", "a", 2.31, Date(), 15.05, Date(), "g")
-        
-        // Preditor
+        // Terminator
         
         let cb18 = createComicBook("Dark Horse", "Terminator", "1999", "1", "1", "m", 2.31, Date(), 15.05, Date(), "vg")
+        
+        // The Mask
+        
+        let cb16 = createComicBook("Dark Horse", "The Mask", "1985", "10", "10", "q", 2.31, Date(), 15.05, Date(), "vg")
+        let cb17 = createComicBook("Dark Horse", "The Mask", "1985", "20", "20", "a", 2.31, Date(), 15.05, Date(), "g")
         
         // Fantastic Four
         
@@ -79,9 +79,9 @@ public extension ComicBookCollection {
         let cb31 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "7", "7", "a", 2.31, Date(), 15.05, Date(), "f")
         let cb32 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "8", "8", "a", 2.31, Date(), 15.05, Date(), "f")
         
-        // X-men
+        // Fantastic Four
         
-        let cb33 = createComicBook("Marvel Comics", "X-men", "1968", "101", "101", "x", 2.31, Date(), 15.05, Date(), "vf")
+        let cb33 = createComicBook("Marvel Comics", "Fantastic Four", "1968", "101", "101", "x", 2.31, Date(), 15.05, Date(), "vf")
         
         
         cbc.comicbooks = [cb1,cb2,cb3,cb4,cb5,cb6,cb7,cb8,cb9,cb10,cb11,cb12,cb13,cb14,cb15,cb16,

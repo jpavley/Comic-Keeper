@@ -28,7 +28,7 @@ public class ComicBookCollection {
     }
     
     func seriesNames(for publisherName: String) -> [String] {
-        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.comic.series : nil}
+        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? "\($0.comic.series) \($0.comic.era)" : nil}
         var filteredNames = [String]()
         seriesNames.forEach { name in
             if !filteredNames.contains(name) {
@@ -40,7 +40,7 @@ public class ComicBookCollection {
     
     func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
         let issueNumbers = comicbooks.compactMap {
-            $0.comic.publisher == publisherName && $0.comic.series == seriesName ? $0.comic.issueNumber : nil
+            $0.comic.publisher == publisherName && "\($0.comic.series) \($0.comic.era)" == seriesName ? $0.comic.issueNumber : nil
         }
         return issueNumbers
     }
