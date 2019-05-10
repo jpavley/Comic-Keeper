@@ -40,6 +40,7 @@
 		B8106A77228242A800D0A2C2 /* ComicBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBook.swift; sourceTree = "<group>"; };
 		B8106A792282431300D0A2C2 /* ComicBookCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBookCollection.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
+		B8C772CF22862EC600952F14 /* Scratch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratch.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */,
+				B8C772CF22862EC600952F14 /* Scratch.playground */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
