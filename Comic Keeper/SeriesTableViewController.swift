@@ -44,10 +44,11 @@ class SeriesTableViewController: UITableViewController {
 
         // Configure the cell...
         let publisherName = comicBookCollection.publisherNames[indexPath.section]
-        let comicBooks = comicBookCollection.comicBooks(for: publisherName)
-        let seriesName = comicBooks[indexPath.row].comic.series
+        let seriesNames = comicBookCollection.seriesNames(for: publisherName)
+        let seriesName = seriesNames[indexPath.row]
+        let issueNumbers = comicBookCollection.issuesNumbers(seriesName: seriesName, publisherName: publisherName)
         cell.textLabel?.text = seriesName
-        cell.detailTextLabel?.text = "\(comicBookCollection.issueCount(for: seriesName))"
+        cell.detailTextLabel?.text = "\(issueNumbers.count)"
 
         return cell
     }

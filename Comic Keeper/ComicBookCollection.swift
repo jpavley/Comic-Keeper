@@ -37,12 +37,15 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
+        let issueNumbers = comicbooks.compactMap {
+            $0.comic.publisher == publisherName && $0.comic.series == seriesName ? $0.comic.issueNumber : nil
+        }
+        return issueNumbers
+    }
 
     func comicBooks(for publisher: String) -> [ComicBook] {
         return [ComicBook]()
-    }
-    
-    func issueCount(for comicBookSeries: String) -> Int {
-        return 0
     }
 }
