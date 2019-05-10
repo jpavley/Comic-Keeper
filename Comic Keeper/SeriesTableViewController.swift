@@ -25,18 +25,16 @@ class SeriesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return dummyDataPublishers.count
+        return comicBookCollection.publisherNames.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dummyDataPublishers[section]
+        return comicBookCollection.publisherNames[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
-        return series(for: section)!.count
+        let publisherName = comicBookCollection.publisherNames[section]
+        return comicBookCollection.seriesNames(for: publisherName).count
     }
 
     
@@ -44,9 +42,11 @@ class SeriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeriesCell", for: indexPath)
 
         // Configure the cell...
-        let seriesList = series(for: indexPath.section)!
-        cell.textLabel?.text = seriesList[indexPath.row]
-        cell.detailTextLabel?.text = "\(issueCount(for: indexPath))"
+        let publisherName = comicBookCollection.publisherNames[indexPath.section]
+        let comicBooks = comicBookCollection.comicBooks(for: publisherName)
+        let seriesName = comicBooks[indexPath.row].comic.series
+        cell.textLabel?.text = seriesName
+        cell.detailTextLabel?.text = "\(comicBookCollection.issueCount(for: seriesName))"
 
         return cell
     }
