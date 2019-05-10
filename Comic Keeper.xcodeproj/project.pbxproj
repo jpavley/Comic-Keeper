@@ -20,6 +20,7 @@
 		B8106A762282407100D0A2C2 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A752282407100D0A2C2 /* Book.swift */; };
 		B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
 		B8106A7A2282431300D0A2C2 /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
+		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B8106A752282407100D0A2C2 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B8106A77228242A800D0A2C2 /* ComicBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBook.swift; sourceTree = "<group>"; };
 		B8106A792282431300D0A2C2 /* ComicBookCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBookCollection.swift; sourceTree = "<group>"; };
+		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
 				B8106A792282431300D0A2C2 /* ComicBookCollection.swift */,
+				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				B8106A7A2282431300D0A2C2 /* ComicBookCollection.swift in Sources */,
 				B8106A762282407100D0A2C2 /* Book.swift in Sources */,
 				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
+				B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8106A7422823ED100D0A2C2 /* Comic.swift in Sources */,
