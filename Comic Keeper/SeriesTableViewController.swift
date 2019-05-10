@@ -10,6 +10,8 @@ import UIKit
 
 class SeriesTableViewController: UITableViewController {
     
+    var comicBookCollection: ComicBookCollection!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class IssuesTableViewController: UITableViewController {
+    
+    var comicBookCollection: ComicBookCollection!
 
     override func viewDidLoad() {
         super.viewDidLoad()

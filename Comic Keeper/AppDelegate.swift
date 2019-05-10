@@ -12,10 +12,32 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let collectionNavigationIndex = 0
+    let seriesTableIndex = 0
+    let issuesTableIndex = 1
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Dependency Injection :)
+        // When the app launches inject ComicBookCollection data into each top level view controller
+        // (Which in turn will inject ComicBookCollection data into each lower level view controller)
+        
+        let tabController = window!.rootViewController as! UITabBarController
+        let comicBookCollection = ComicBookCollection.createComicBookCollection()
+        
+        if let tabViewControllers = tabController.viewControllers {
+            
+            // Collection Tab View Controller
+            
+            let seriesNavigationViewController = tabViewControllers[collectionNavigationIndex] as! UINavigationController
+            
+            // Series Table View Controller
+            
+            let seriesTableViewController = seriesNavigationViewController.viewControllers[seriesTableIndex] as! SeriesTableViewController
+            seriesTableViewController.comicBookCollection = comicBookCollection
+        }
+        
         return true
     }
 
