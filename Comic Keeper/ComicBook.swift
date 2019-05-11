@@ -13,6 +13,10 @@ public class ComicBook {
     public var comic: Comic
     public var book: Book
     
+    public var publisherName: String {
+        return comic.publisher
+    }
+    
     public var seriesTitle: String {
         return "\(comic.series) \(comic.era)"
     }

@@ -86,6 +86,8 @@ public extension ComicBookCollection {
         
         cbc.comicbooks = [cb11, cb12, cb13, cb14, cb15, cb16, cb17, cb18, cb19, cb20, cb21, cb22, cb23, cb24, cb25, cb26, cb27, cb28, cb29, cb30, cb31, cb32, cb33, cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10]
         
+        cbc.comicbooks = cbc.comicbooks.sorted()
+        
         return cbc
     }
     
