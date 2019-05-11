@@ -27,6 +27,7 @@
 		B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
 		B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
+		B8EE177F2287226E006F5B0D /* VariantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EE177E2287226E006F5B0D /* VariantTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comic_Keeper_Framework.h; sourceTree = "<group>"; };
 		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
+		B8EE177E2287226E006F5B0D /* VariantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,21 +94,22 @@
 		B8106A582280F65B00D0A2C2 /* Comic Keeper */ = {
 			isa = PBXGroup;
 			children = (
+				B8106A672280F65C00D0A2C2 /* Info.plist */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
-				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
 				B8106A792282431300D0A2C2 /* ComicBookCollection.swift */,
 				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
-				B8106A672280F65C00D0A2C2 /* Info.plist */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
-				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
-				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */,
+				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
+				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
+				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
+				B8EE177E2287226E006F5B0D /* VariantTableViewController.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
+				B8EE177F2287226E006F5B0D /* VariantTableViewController.swift in Sources */,
 				B8106A7422823ED100D0A2C2 /* Comic.swift in Sources */,
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
