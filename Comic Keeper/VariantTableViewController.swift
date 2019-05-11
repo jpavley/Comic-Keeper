@@ -51,6 +51,11 @@ class VariantTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VariantCell", for: indexPath)
+        performSegue(withIdentifier: "VariantSegue", sender: cell)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,14 +92,26 @@ class VariantTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "VariantSegue" {
+            let destination = segue.destination as! VariantController
+            destination.comicBookCollection = comicBookCollection
+            destination.currentPublisherName = currentPublisherName
+            destination.currentSeriesName = currentSeriesName
+            destination.currentIssueNumber = currentIssueNumber
+            
+            if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+                destination.currentVariantSignifier = variants[selectedIndexPath.row]
+            }
+        }
     }
-    */
+    
 
 }

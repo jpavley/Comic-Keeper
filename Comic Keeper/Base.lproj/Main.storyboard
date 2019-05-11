@@ -139,7 +139,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ArC-Hl-Aic" kind="show" identifier="VarientSegue" trigger="accessoryAction" id="0nK-UV-chm"/>
+                                    <segue destination="ArC-Hl-Aic" kind="show" identifier="VariantSegue" trigger="accessoryAction" id="0nK-UV-chm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -157,7 +157,7 @@
         <!--Variant-->
         <scene sceneID="s1e-eN-zTj">
             <objects>
-                <viewController id="ArC-Hl-Aic" sceneMemberID="viewController">
+                <viewController id="ArC-Hl-Aic" customClass="VariantController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gip-0W-mnT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,6 +182,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="coverView" destination="3fO-ek-H1e" id="PQa-2u-J09"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYK-4V-hXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
