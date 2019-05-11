@@ -11,15 +11,19 @@ import UIKit
 class IssuesTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
+    var currentPublisherName: String!
+    var currentSeriesName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        title = currentPublisherName
     }
 
     // MARK: - Table view data source
@@ -31,7 +35,9 @@ class IssuesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        
+        let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+        return issues.count
     }
 
     
@@ -39,6 +45,9 @@ class IssuesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IssuesCell", for: indexPath)
 
         // Configure the cell...
+        let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+        cell.textLabel?.text = currentSeriesName
+        cell.detailTextLabel?.text = issues[indexPath.row]
 
         return cell
     }

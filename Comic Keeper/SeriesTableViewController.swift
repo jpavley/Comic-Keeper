@@ -95,6 +95,17 @@ class SeriesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "SeriesSegue" {
+            let destination = segue.destination as! IssuesTableViewController
+            destination.comicBookCollection = comicBookCollection
+            
+            if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                let publisherName = comicBookCollection.publisherNames[selectedIndexPath.section]
+                let seriesNames = comicBookCollection.seriesNames(for: publisherName)
+                destination.currentPublisherName = publisherName
+                destination.currentSeriesName = seriesNames[selectedIndexPath.row]
+            }
+        }
     }
-
 }
