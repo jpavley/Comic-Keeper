@@ -26,7 +26,15 @@ public extension ComicBookCollection {
         let cb5 = createComicBook("DC Comics", "Wonder Woman", "1970", "3", "3457", "xx", 4.61, Date(), 19.05, Date(), "f")
         let cb6 = createComicBook("DC Comics", "Wonder Woman", "1970", "5", "3459", "xxx", 6.71, Date(), 20.05, Date(), "g")
         let cb7 = createComicBook("DC Comics", "Wonder Woman", "1970", "8", "3461", "xxx", 0.71, Date(), 20.05, Date(), "p")
-        
+        let cb4a = createComicBook("DC Comics", "Wonder Woman", "1970", "1", "3456", "a", 2.31, Date(), 15.05, Date(), "vg")
+        let cb5a = createComicBook("DC Comics", "Wonder Woman", "1970", "3", "3457", "a", 4.61, Date(), 19.05, Date(), "f")
+        let cb6a = createComicBook("DC Comics", "Wonder Woman", "1970", "5", "3459", "a", 6.71, Date(), 20.05, Date(), "g")
+        let cb7a = createComicBook("DC Comics", "Wonder Woman", "1970", "8", "3461", "a", 0.71, Date(), 20.05, Date(), "p")
+        let cb4b = createComicBook("DC Comics", "Wonder Woman", "1970", "1", "3456", "b", 2.31, Date(), 15.05, Date(), "vg")
+        let cb5b = createComicBook("DC Comics", "Wonder Woman", "1970", "3", "3457", "b", 4.61, Date(), 19.05, Date(), "f")
+        let cb6b = createComicBook("DC Comics", "Wonder Woman", "1970", "5", "3459", "b", 6.71, Date(), 20.05, Date(), "g")
+        let cb7b = createComicBook("DC Comics", "Wonder Woman", "1970", "8", "3461", "b", 0.71, Date(), 20.05, Date(), "p")
+
         // Wonder Woman 1980
         
         let cb8 = createComicBook("DC Comics", "Wonder Woman", "1980", "500", "1500", "w", 2.31, Date(), 15.05, Date(), "vg")
@@ -52,7 +60,9 @@ public extension ComicBookCollection {
         
         let cb16 = createComicBook("Dark Horse", "The Mask", "1985", "10", "10", "q", 2.31, Date(), 15.05, Date(), "vg")
         let cb17 = createComicBook("Dark Horse", "The Mask", "1985", "20", "20", "a", 2.31, Date(), 15.05, Date(), "g")
-        
+        let cb16a = createComicBook("Dark Horse", "The Mask", "1985", "10", "10", "n", 2.31, Date(), 15.05, Date(), "vg")
+        let cb17a = createComicBook("Dark Horse", "The Mask", "1985", "20", "20", "o", 2.31, Date(), 15.05, Date(), "g")
+
         // Fantastic Four 1961
         
         let cb19 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "1", "1", "a", 2.31, Date(), 15.05, Date(), "vg")
@@ -73,7 +83,10 @@ public extension ComicBookCollection {
         let cb28 = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "1", "a", 2.31, Date(), 15.05, Date(), "p")
         let cb29 = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "18", "a", 2.31, Date(), 15.05, Date(), "p")
         let cb30 = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "19", "a", 2.31, Date(), 15.05, Date(), "p")
-        
+        let cb28a = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "1", "b", 2.31, Date(), 15.05, Date(), "p")
+        let cb29b = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "18", "c", 2.31, Date(), 15.05, Date(), "p")
+        let cb30c = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "19", "x", 2.31, Date(), 15.05, Date(), "p")
+
         // Thor
         
         let cb31 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "7", "7", "a", 2.31, Date(), 15.05, Date(), "f")
@@ -84,7 +97,7 @@ public extension ComicBookCollection {
         let cb33 = createComicBook("Marvel Comics", "Fantastic Four", "1968", "101", "101", "x", 2.31, Date(), 15.05, Date(), "vf")
         
         
-        cbc.comicbooks = [cb11, cb12, cb13, cb14, cb15, cb16, cb17, cb18, cb19, cb20, cb21, cb22, cb23, cb24, cb25, cb26, cb27, cb28, cb29, cb30, cb31, cb32, cb33, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb2, cb1, cb3]
+        cbc.comicbooks = [cb11, cb12, cb13, cb14, cb15, cb16, cb17, cb18, cb19, cb20, cb21, cb22, cb23, cb24, cb25, cb26, cb27, cb28, cb29, cb30, cb31, cb32, cb33, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb2, cb1, cb3, cb4a, cb5a, cb6a, cb7a, cb4b, cb5b, cb6b, cb7b, cb16a, cb17a, cb28a, cb29b, cb30c]
         
         cbc.comicbooks = cbc.comicbooks.sorted()
         
