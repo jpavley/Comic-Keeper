@@ -27,6 +27,7 @@
 		B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
 		B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
+		B8EE177D228705B8006F5B0D /* ComicBook+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EE177C228705B8006F5B0D /* ComicBook+Comparable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comic_Keeper_Framework.h; sourceTree = "<group>"; };
 		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
+		B8EE177C228705B8006F5B0D /* ComicBook+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBook+Comparable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
+				B8EE177C228705B8006F5B0D /* ComicBook+Comparable.swift */,
 				B8106A792282431300D0A2C2 /* ComicBookCollection.swift */,
 				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
@@ -239,6 +242,7 @@
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8106A7422823ED100D0A2C2 /* Comic.swift in Sources */,
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
+				B8EE177D228705B8006F5B0D /* ComicBook+Comparable.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8106A702281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift in Sources */,
 				B8106A5C2280F65B00D0A2C2 /* FirstViewController.swift in Sources */,

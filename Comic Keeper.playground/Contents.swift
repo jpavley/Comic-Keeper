@@ -58,6 +58,15 @@ print("Fantastic Four 1961", issuesNumbers(seriesName: "Fantastic Four 1961", pu
 
 print("Bogus Four", issuesNumbers(seriesName: "Bogus Four", publisherName: "Marvel Comics", from: cbc))
 
+let comicbook1 = cbc.comicbooks[0]
+print(comicbook1.identifier)
+
+let comicbook2 = cbc.comicbooks[3]
+print(comicbook2.identifier)
+
+let comparison = comicbook1.identifier < comicbook2.identifier
+print(comparison)
+
 
 
 

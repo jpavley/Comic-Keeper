@@ -13,6 +13,14 @@ public class ComicBook {
     public var comic: Comic
     public var book: Book
     
+    public var seriesTitle: String {
+        return "\(comic.series) \(comic.era)"
+    }
+    
+    public var identifier: String {
+        return "\(seriesTitle) \(comic.issueNumber)\(comic.variant)"
+    }
+    
     init(comic: Comic, book: Book) {
         
         self.comic = comic
