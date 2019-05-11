@@ -52,8 +52,9 @@ class VariantTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VariantCell", for: indexPath)
-        performSegue(withIdentifier: "VariantSegue", sender: cell)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let selectedVariant = variants[indexPath.row]
+        performSegue(withIdentifier: "VariantSegue", sender: selectedVariant)
     }
     
 
@@ -106,9 +107,8 @@ class VariantTableViewController: UITableViewController {
             destination.currentSeriesName = currentSeriesName
             destination.currentIssueNumber = currentIssueNumber
             
-            if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
-                destination.currentVariantSignifier = variants[selectedIndexPath.row]
+            if let selectedVariant = sender as? String {
+                destination.currentVariantSignifier = selectedVariant
             }
         }
     }

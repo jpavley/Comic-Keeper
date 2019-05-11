@@ -23,6 +23,7 @@ class VariantController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "#\(currentIssueNumber!)\(currentVariantSignifier!)"
     }
     
 
