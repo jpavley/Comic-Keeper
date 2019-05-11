@@ -48,6 +48,7 @@ public class ComicBookCollection {
     /// List of issue numbers for a series in this collection.
     /// - *Why are issue numbers strings?* Publishers are creative in numbering and might create
     ///   "issue numbers" that include non-numeric characters.
+    /// - No duplicates!
     ///
     /// - Parameters:
     ///   - seriesName: series title (name + era)
@@ -57,6 +58,12 @@ public class ComicBookCollection {
         let issueNumbers = comicbooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesName ? $0.comic.issueNumber : nil
         }
-        return issueNumbers
+        var filteredNumbers = [String]()
+        issueNumbers.forEach { name in
+            if !filteredNumbers.contains(name) {
+                filteredNumbers.append(name)
+            }
+        }
+        return filteredNumbers
     }
 }

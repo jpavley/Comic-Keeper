@@ -49,12 +49,20 @@ func issuesNumbers(seriesName: String, publisherName: String, from cbc: ComicBoo
     let issueNumbers = cbc.comicbooks.compactMap {
         $0.comic.publisher == publisherName && seriesTitle(for: $0.comic) == seriesName ? $0.comic.issueNumber : nil
     }
-    return issueNumbers
+    var filteredNumbers = [String]()
+    issueNumbers.forEach { name in
+        if !filteredNumbers.contains(name) {
+            filteredNumbers.append(name)
+        }
+    }
+    return filteredNumbers
 }
 
 print("Batman 1950", issuesNumbers(seriesName: "Batman 1950", publisherName: "DC Comics", from: cbc))
 print("Aliens 1990", issuesNumbers(seriesName: "Aliens 1990", publisherName: "Dark Horse", from: cbc))
 print("Fantastic Four 1961", issuesNumbers(seriesName: "Fantastic Four 1961", publisherName: "Marvel Comics", from: cbc))
+print("Wonder Woman 1970", issuesNumbers(seriesName: "Wonder Woman 1970", publisherName: "DC Comics", from: cbc))
+
 
 print("Bogus Four", issuesNumbers(seriesName: "Bogus Four", publisherName: "Marvel Comics", from: cbc))
 

@@ -21,6 +21,10 @@ public class ComicBook {
         return "\(comic.series) \(comic.era)"
     }
     
+    public var issueIdentifier: String {
+        return "\(seriesTitle) \(comic.issueNumber)"
+    }
+    
     public var identifier: String {
         return "\(seriesTitle) \(comic.issueNumber)\(comic.variant)"
     }

@@ -45,7 +45,7 @@ class IssuesTableViewController: UITableViewController {
         // Configure the cell...
         let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
         cell.textLabel?.text = currentSeriesName
-        cell.detailTextLabel?.text = issues[indexPath.row]
+        cell.detailTextLabel?.text = "#\(issues[indexPath.row])"
 
         return cell
     }
