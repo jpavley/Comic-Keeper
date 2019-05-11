@@ -18,7 +18,7 @@ public class ComicBookCollection {
     
     /// The names of all the publishers in this collection.
     /// - No duplicates!
-    var publisherNames: [String] {
+    public var publisherNames: [String] {
         let publisherNames = comicbooks.map {$0.comic.publisher}
         var filteredNames = [String]()
         publisherNames.forEach { name in
@@ -34,7 +34,7 @@ public class ComicBookCollection {
     ///
     /// - Parameter publisherName: unique name of the publisher
     /// - Returns: list of series unique names (name + era)
-    func seriesNames(for publisherName: String) -> [String] {
+    public func seriesNames(for publisherName: String) -> [String] {
         let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesTitle : nil}
         var filteredNames = [String]()
         seriesNames.forEach { name in
@@ -54,7 +54,7 @@ public class ComicBookCollection {
     ///   - seriesName: series title (name + era)
     ///   - publisherName: unique name of the publisher
     /// - Returns: list of issues numbers as list of strings
-    func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
+    public func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
         let issueNumbers = comicbooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesName ? $0.comic.issueNumber : nil
         }
@@ -67,7 +67,7 @@ public class ComicBookCollection {
         return filteredNumbers
     }
     
-    func variantSignifiers(issueNumber: String, seriesName: String, publisherName: String) -> [String] {
+    public func variantSignifiers(issueNumber: String, seriesName: String, publisherName: String) -> [String] {
         let variants = comicbooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesName && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
         }
