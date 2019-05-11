@@ -27,6 +27,10 @@ public class ComicBookCollection {
         return filteredNames
     }
     
+    func seriesTitle(for comic: Comic) -> String {
+        return "\(comic.series) \(comic.era)"
+    }
+    
     func seriesNames(for publisherName: String) -> [String] {
         let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? "\($0.comic.series) \($0.comic.era)" : nil}
         var filteredNames = [String]()
