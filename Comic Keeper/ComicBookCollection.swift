@@ -28,24 +28,14 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
-    
-    /// The full title of series (name + era).
-    /// - Series are rebooted and restart from issue #1.
-    /// - Publishers unreliably use legacy numbering and volume numbering.
-    ///
-    /// - Parameter comic: object that contains series and era info
-    /// - Returns: series name + era
-    func seriesTitle(for comic: Comic) -> String {
-        return "\(comic.series) \(comic.era)"
-    }
-    
+        
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!
     ///
     /// - Parameter publisherName: unique name of the publisher
     /// - Returns: list of series unique names (name + era)
     func seriesNames(for publisherName: String) -> [String] {
-        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? seriesTitle(for: $0.comic) : nil}
+        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesTitle : nil}
         var filteredNames = [String]()
         seriesNames.forEach { name in
             if !filteredNames.contains(name) {
@@ -65,7 +55,7 @@ public class ComicBookCollection {
     /// - Returns: list of issues numbers as list of strings
     func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
         let issueNumbers = comicbooks.compactMap {
-            $0.comic.publisher == publisherName && seriesTitle(for: $0.comic) == seriesName ? $0.comic.issueNumber : nil
+            $0.comic.publisher == publisherName && $0.seriesTitle == seriesName ? $0.comic.issueNumber : nil
         }
         return issueNumbers
     }
