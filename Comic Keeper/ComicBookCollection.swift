@@ -66,4 +66,11 @@ public class ComicBookCollection {
         }
         return filteredNumbers
     }
+    
+    func variantSignifiers(issueNumber: String, seriesName: String, publisherName: String) -> [String] {
+        let variants = comicbooks.compactMap {
+            $0.comic.publisher == publisherName && $0.seriesTitle == seriesName && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
+        }
+        return variants
+    }
 }

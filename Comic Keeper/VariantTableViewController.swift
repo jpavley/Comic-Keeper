@@ -9,6 +9,12 @@
 import UIKit
 
 class VariantTableViewController: UITableViewController {
+    
+    var comicBookCollection: ComicBookCollection!
+    var currentPublisherName: String!
+    var currentSeriesName: String!
+    var currentIssueNumber: String!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,18 +24,18 @@ class VariantTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        title = currentSeriesName
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        return variants.count
     }
 
     
@@ -37,6 +43,10 @@ class VariantTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VariantCell", for: indexPath)
 
         // Configure the cell...
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        cell.textLabel?.text = "#\(currentIssueNumber!)"
+        cell.detailTextLabel?.text = "variant \(variants[indexPath.row])"
+
 
         return cell
     }

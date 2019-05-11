@@ -93,7 +93,16 @@ class IssuesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "IssuesSegue" {
+            let destination = segue.destination as! VariantTableViewController
+            destination.comicBookCollection = comicBookCollection
+            
+            if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                destination.currentPublisherName = currentPublisherName
+                destination.currentSeriesName = currentSeriesName
+                let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+                destination.currentIssueNumber = issues[selectedIndexPath.row]
+            }
+        }
     }
-    
-
 }
