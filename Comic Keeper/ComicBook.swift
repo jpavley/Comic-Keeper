@@ -27,3 +27,17 @@ public class ComicBook {
         self.book = book
     }
 }
+
+// Note this extention can't be in a seperate file because protocol implementations can not be
+// public so the seperate file has default access.
+
+extension ComicBook: Comparable {
+    
+    public static func < (lhs: ComicBook, rhs: ComicBook) -> Bool {
+        return lhs.identifier < rhs.identifier
+    }
+    
+    public static func == (lhs: ComicBook, rhs: ComicBook) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}

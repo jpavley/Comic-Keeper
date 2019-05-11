@@ -64,8 +64,8 @@ print(comicbook1.identifier)
 let comicbook2 = cbc.comicbooks[3]
 print(comicbook2.identifier)
 
-let comparison = comicbook1.identifier < comicbook2.identifier
-print(comparison)
+let comparison = comicbook1 < comicbook2
+print("[\(comicbook1.identifier)] is less than [\(comicbook2.identifier)]", comparison)
 
 
 
