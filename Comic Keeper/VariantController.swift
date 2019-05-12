@@ -24,6 +24,7 @@ class VariantController: UIViewController {
 
         // Do any additional setup after loading the view.
         title = "#\(currentIssueNumber!)\(currentVariantSignifier!)"
+        coverView.image = UIImage(named: "test cover")
     }
     
 
