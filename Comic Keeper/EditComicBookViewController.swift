@@ -25,6 +25,12 @@ class EditComicBookViewController: UITableViewController {
     @IBOutlet weak var salesPriceLabel: UILabel!
     @IBOutlet weak var salesDateLabel: UILabel!
     
+    var comicBookCollection: ComicBookCollection!
+    var currentPublisherName: String!
+    var currentSeriesName: String!
+    var currentIssueNumber: String!
+    var currentVariantSignifier: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
