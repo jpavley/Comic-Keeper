@@ -33,6 +33,13 @@ class EditComicBookViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        publisherLabel.text = currentPublisherName
+        eraLabel.text = "TBD"
+        seriesLabel.text = currentSeriesName
+        issueNumberLabel.text = currentIssueNumber
+        legacyIssueNumberLabel.text = "TBD"
+        variantLabel.text = currentVariantSignifier
     }
 
     
