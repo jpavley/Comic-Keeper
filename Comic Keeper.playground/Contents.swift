@@ -79,10 +79,10 @@ let variants = cbc.variantSignifiers(issueNumber: "1", seriesName: "Wonder Woman
 print("Wonder Woman 1970 #1 variants:", variants)
 
 print(comicbook1.identifier, "condition:", comicbook1.book.condition)
-print(comicbook1.identifier, "purchase date:", comicbook1.book.purchaseDate ?? "none")
-print(comicbook1.identifier, "purchase price:", comicbook1.book.purchasePrice ?? "none")
-print(comicbook1.identifier, "sell date:", comicbook1.book.sellDate ?? "none")
-print(comicbook1.identifier, "sell price:", comicbook1.book.sellPrice ?? "none")
+print(comicbook1.identifier, "purchase date:", comicbook1.book.purchaseDateText)
+print(comicbook1.identifier, "purchase price:", comicbook1.book.purchasePriceText)
+print(comicbook1.identifier, "sell date:", comicbook1.book.sellDateText)
+print(comicbook1.identifier, "sell price:", comicbook1.book.sellPriceText)
 
 
 

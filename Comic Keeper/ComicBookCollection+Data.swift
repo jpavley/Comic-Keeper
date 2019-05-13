@@ -43,8 +43,8 @@ public extension ComicBookCollection {
         
         // Aliens
         
-        let cb11 = createComicBook("Dark Horse", "Aliens", "1990", "1", "1", "a", 2.31, nil, nil, Date(), "vg")
-        let cb12 = createComicBook("Dark Horse", "Aliens", "1990", "2", "2", "b", 2.31, Date(), 15.05, Date(), "g")
+        let cb11 = createComicBook("Dark Horse", "Aliens", "1990", "1", "1", "a", 2.22, nil, 3.33, Date(), "vg")
+        let cb12 = createComicBook("Dark Horse", "Aliens", "1990", "2", "2", "b", 3.33, Date(), 15.05, Date(), "g")
         
         // The Mask 1995
         

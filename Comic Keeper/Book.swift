@@ -28,4 +28,48 @@ public class Book {
         self.sellDate = sellDate
         self.condition = condition
     }
+    
+    // MARK:- Date Text
+    
+    private func dateText(from date: Date!) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        var result = "none"
+        if let d = date {
+            result = formatter.string(from: d)
+        }
+        return result
+
+    }
+    
+    public var purchaseDateText: String {
+        return dateText(from: purchaseDate)
+    }
+    
+    public var sellDateText: String {
+        return dateText(from: sellDate)
+    }
+    
+    // MARK:- Price Text
+    
+    func priceText(from price: Decimal!) -> String {
+        if let p = price {
+            return "$\(p)"
+        } else {
+            return "none"
+        }
+
+    }
+    
+    public var purchasePriceText: String {
+        return priceText(from: purchasePrice)
+    }
+    
+    public var sellPriceText: String {
+        return priceText(from: sellPrice)
+    }
+
 }
