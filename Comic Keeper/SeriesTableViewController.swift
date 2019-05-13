@@ -35,8 +35,8 @@ class SeriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let publisherName = comicBookCollection.publisherNames[section]
-        let seriesNames = comicBookCollection.seriesNames(for: publisherName)
-        return seriesNames.count
+        let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
+        return seriesTitles.count
     }
 
     
@@ -45,8 +45,8 @@ class SeriesTableViewController: UITableViewController {
 
         // Configure the cell...
         let publisherName = comicBookCollection.publisherNames[indexPath.section]
-        let seriesNames = comicBookCollection.seriesNames(for: publisherName)
-        let seriesName = seriesNames[indexPath.row]
+        let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
+        let seriesName = seriesTitles[indexPath.row]
         let issueNumbers = comicBookCollection.issuesNumbers(seriesName: seriesName, publisherName: publisherName)
         cell.textLabel?.text = seriesName
         cell.detailTextLabel?.text = "\(issueNumbers.count) issues"
@@ -103,9 +103,9 @@ class SeriesTableViewController: UITableViewController {
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 let publisherName = comicBookCollection.publisherNames[selectedIndexPath.section]
-                let seriesNames = comicBookCollection.seriesNames(for: publisherName)
+                let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
                 destination.currentPublisherName = publisherName
-                destination.currentSeriesName = seriesNames[selectedIndexPath.row]
+                destination.currentSeriesName = seriesTitles[selectedIndexPath.row]
             }
         }
     }
