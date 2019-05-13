@@ -73,4 +73,11 @@ public class ComicBookCollection {
         }
         return variants
     }
+    
+    public func comicBook(publisherName: String, seriesName: String, era: String, issueNumber: String, variantSignifier: String) -> ComicBook? {
+        let comicBook = comicbooks.filter {
+            $0.comic.publisher == publisherName && $0.comic.series == seriesName && $0.comic.era == era && $0.comic.issueNumber == issueNumber && $0.comic.variant == variantSignifier
+        }
+        return comicBook.first
+    }
 }

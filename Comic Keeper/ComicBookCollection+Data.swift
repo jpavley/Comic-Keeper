@@ -37,9 +37,9 @@ public extension ComicBookCollection {
 
         // Wonder Woman 1980
         
-        let cb8 = createComicBook("DC Comics", "Wonder Woman", "1980", "500", "1500", "w", nil, nil, 15.05, Date(), "vg")
-        let cb9 = createComicBook("DC Comics", "Wonder Woman", "1980", "502", "1502", "q", nil, nil, 15.05, Date(), "vg")
-        let cb10 = createComicBook("DC Comics", "Wonder Woman", "1980", "511", "1511", "w", 2.31, nil, nil, Date(), "vg")
+        let cb8 = createComicBook("DC Comics", "Wonder Woman", "1980", "1", "1500", "a", nil, nil, 15.05, Date(), "vg")
+        let cb9 = createComicBook("DC Comics", "Wonder Woman", "1980", "1", "1502", "b", nil, nil, 15.05, Date(), "vg")
+        let cb10 = createComicBook("DC Comics", "Wonder Woman", "1980", "1", "1511", "x", 2.31, nil, nil, Date(), "vg")
         
         // Aliens
         

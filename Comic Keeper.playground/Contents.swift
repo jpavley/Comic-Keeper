@@ -84,6 +84,34 @@ print(comicbook1.identifier, "purchase price:", comicbook1.book.purchasePriceTex
 print(comicbook1.identifier, "sell date:", comicbook1.book.sellDateText)
 print(comicbook1.identifier, "sell price:", comicbook1.book.sellPriceText)
 
+for i in 0..<cbc.comicbooks.count {
+    print(i,cbc.comicbooks[i].identifier)
+}
+
+// ww 1970 variants
+
+let ww70_1a = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1970", issueNumber: "1", variantSignifier: "a")
+print("ww70_1a", ww70_1a?.identifier ?? "not found")
+
+let ww70_1b = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1970", issueNumber: "1", variantSignifier: "b")
+print("ww70_1b", ww70_1b?.identifier ?? "not found")
+
+let ww70_1x = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1970", issueNumber: "1", variantSignifier: "x")
+print("ww70_1x", ww70_1x?.identifier ?? "not found")
+
+// ww 1980 variants
+
+let ww80_1a = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1980", issueNumber: "1", variantSignifier: "a")
+print("ww80_1a", ww80_1a?.identifier ?? "not found")
+
+let ww80_1b = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1980", issueNumber: "1", variantSignifier: "b")
+print("ww80_1b", ww80_1b?.identifier ?? "not found")
+
+let ww80_1x = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1980", issueNumber: "1", variantSignifier: "x")
+print("ww80_1x", ww80_1x?.identifier ?? "not found")
+
+
+
 
 
 
