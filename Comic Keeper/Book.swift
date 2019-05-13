@@ -56,8 +56,13 @@ public class Book {
     // MARK:- Price Text
     
     func priceText(from price: Decimal!) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        
         if let p = price {
-            return "$\(p)"
+            return formatter.string(for: p)!
         } else {
             return "none"
         }
