@@ -102,6 +102,7 @@ class VariantsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "VariantSegue" {
             let destination = segue.destination as! VariantController
+            
             destination.comicBookCollection = comicBookCollection
             destination.currentPublisherName = currentPublisherName
             destination.currentSeriesName = currentSeriesName
@@ -109,6 +110,8 @@ class VariantsTableViewController: UITableViewController {
             
             if let selectedVariant = sender as? String {
                 destination.currentVariantSignifier = selectedVariant
+                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesName!) \(currentIssueNumber!)\(selectedVariant)"
+
             }
         }
     }

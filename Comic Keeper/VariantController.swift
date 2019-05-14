@@ -15,6 +15,7 @@ class VariantController: UIViewController {
     var currentSeriesName: String!
     var currentIssueNumber: String!
     var currentVariantSignifier: String!
+    var currentIdentifier: String!
 
 
     @IBOutlet weak var coverView: UIImageView!
