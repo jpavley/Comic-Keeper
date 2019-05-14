@@ -39,10 +39,7 @@ class VariantController: UIViewController {
         if segue.identifier == "EditVariantSegue" {
             let destination = segue.destination as! EditComicBookViewController
             destination.comicBookCollection = comicBookCollection
-            destination.currentPublisherName = currentPublisherName
-            destination.currentSeriesName = currentSeriesTitle
-            destination.currentIssueNumber = currentIssueNumber
-            destination.currentVariantSignifier = currentVariantSignifier
+            destination.currentIdentifier = currentIdentifier
         }
     }
     

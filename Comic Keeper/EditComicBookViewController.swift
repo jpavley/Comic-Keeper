@@ -26,20 +26,19 @@ class EditComicBookViewController: UITableViewController {
     @IBOutlet weak var salesDateLabel: UILabel!
     
     var comicBookCollection: ComicBookCollection!
-    var currentPublisherName: String!
-    var currentSeriesName: String!
-    var currentIssueNumber: String!
-    var currentVariantSignifier: String!
+    var currentIdentifier: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        publisherLabel.text = currentPublisherName
-        eraLabel.text = "TBD"
-        seriesLabel.text = currentSeriesName
-        issueNumberLabel.text = currentIssueNumber
-        legacyIssueNumberLabel.text = "TBD"
-        variantLabel.text = currentVariantSignifier
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        
+        publisherLabel.text = currentComicBook?.publisherName
+        eraLabel.text = currentComicBook?.seriesEra
+        seriesLabel.text = currentComicBook?.seriesName
+        issueNumberLabel.text = currentComicBook?.comic.issueNumber
+        legacyIssueNumberLabel.text = currentComicBook?.comic.era
+        variantLabel.text = currentComicBook?.comic.variant
     }
 
     
