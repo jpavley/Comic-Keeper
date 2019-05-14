@@ -2,7 +2,7 @@
 
 ## Navigation Hierarchy
 
-Series -> Issues -> Variants -> Variant -> Edit Variant
+Series -> Issues -> Variants -> Variant -> Edit Variant -> Picker
 
 ### Series Table View
 
@@ -26,4 +26,9 @@ Series -> Issues -> Variants -> Variant -> Edit Variant
 
 ### Picker Views
 
-- Publisher, Series, Era, Issue, Legacy Issue, Variant, Photo, Purchase Price and Date, Sales Price and Date, Condition
+- Based on data type
+- List: Publisher, Series
+- Number: Era, Issue, Legacy Issue, Purchase Price, Sell Price
+- Date: Purchase Date, Sell Date
+- Free Text: Variant, Condition
+- Photo: Cover
