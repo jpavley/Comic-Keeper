@@ -52,6 +52,7 @@
 		B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Comic_Keeper_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comic_Keeper_Framework.h; sourceTree = "<group>"; };
 		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B86078DB228A3D7F0095D168 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 		B8EB262722873E5C007F47F9 /* VariantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantController.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		B8106A4D2280F65B00D0A2C2 = {
 			isa = PBXGroup;
 			children = (
+				B86078DB228A3D7F0095D168 /* README.md */,
 				B85C0E652286318600AA444E /* Comic Keeper.playground */,
 				B8106A582280F65B00D0A2C2 /* Comic Keeper */,
 				B85C0E6C2286321600AA444E /* Comic Keeper Framework */,
