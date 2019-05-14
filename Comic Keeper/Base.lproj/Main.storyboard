@@ -490,8 +490,8 @@
                         <outlet property="publisherLabel" destination="eY4-FI-b5w" id="Jto-Eg-MzH"/>
                         <outlet property="purchaseDateLabel" destination="VYk-6F-QdO" id="4su-Fp-OGS"/>
                         <outlet property="purchasePriceLabel" destination="LGJ-1I-wAm" id="Ysb-2P-AdQ"/>
-                        <outlet property="salesDateLabel" destination="caY-7s-Hl5" id="s7G-AT-hZo"/>
-                        <outlet property="salesPriceLabel" destination="6uW-VU-kcw" id="4a0-uK-frL"/>
+                        <outlet property="sellDateLabel" destination="caY-7s-Hl5" id="s7G-AT-hZo"/>
+                        <outlet property="sellPriceLabel" destination="6uW-VU-kcw" id="4a0-uK-frL"/>
                         <outlet property="seriesLabel" destination="bSC-P6-0A5" id="HyS-Z0-y6S"/>
                         <outlet property="variantLabel" destination="8JJ-VT-Eoi" id="1rw-eB-t8a"/>
                     </connections>

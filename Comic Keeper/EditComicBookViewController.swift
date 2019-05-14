@@ -22,8 +22,8 @@ class EditComicBookViewController: UITableViewController {
     
     @IBOutlet weak var purchasePriceLabel: UILabel!
     @IBOutlet weak var purchaseDateLabel: UILabel!
-    @IBOutlet weak var salesPriceLabel: UILabel!
-    @IBOutlet weak var salesDateLabel: UILabel!
+    @IBOutlet weak var sellPriceLabel: UILabel!
+    @IBOutlet weak var sellDateLabel: UILabel!
     
     var comicBookCollection: ComicBookCollection!
     var currentIdentifier: String!
@@ -42,12 +42,9 @@ class EditComicBookViewController: UITableViewController {
         
         purchasePriceLabel.text = currentComicBook?.book.purchasePriceText
         purchaseDateLabel.text = currentComicBook?.book.purchaseDateText
-        salesPriceLabel.text = currentComicBook?.book.sellPriceText
-        salesDateLabel.text = currentComicBook?.book.sellDateText
-
-        
+        sellPriceLabel.text = currentComicBook?.book.sellPriceText
+        sellDateLabel.text = currentComicBook?.book.sellDateText
     }
-
     
     // MARK: - Navigation
 
