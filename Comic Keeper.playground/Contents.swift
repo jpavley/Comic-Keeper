@@ -75,7 +75,7 @@ print(comicbook2.identifier)
 let comparison = comicbook1 < comicbook2
 print("[\(comicbook1.identifier)] is less than [\(comicbook2.identifier)]", comparison)
 
-let variants = cbc.variantSignifiers(issueNumber: "1", seriesName: "Wonder Woman 1970", publisherName: "DC Comics")
+let variants = cbc.variantSignifiers(issueNumber: "1", seriesTitle: "Wonder Woman 1970", publisherName: "DC Comics")
 print("Wonder Woman 1970 #1 variants:", variants)
 
 print(comicbook1.identifier, "condition:", comicbook1.book.condition)
