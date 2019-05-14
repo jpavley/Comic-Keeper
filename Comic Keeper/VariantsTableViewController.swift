@@ -1,5 +1,5 @@
 //
-//  VariantTableViewController.swift
+//  VariantsTableViewController.swift
 //  Comic Keeper
 //
 //  Created by John Pavley on 5/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VariantTableViewController: UITableViewController {
+class VariantsTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!

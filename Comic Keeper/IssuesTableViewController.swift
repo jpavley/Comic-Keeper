@@ -94,7 +94,7 @@ class IssuesTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "IssuesSegue" {
-            let destination = segue.destination as! VariantTableViewController
+            let destination = segue.destination as! VariantsTableViewController
             destination.comicBookCollection = comicBookCollection
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
