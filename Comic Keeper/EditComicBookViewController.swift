@@ -20,6 +20,7 @@ class EditComicBookViewController: UITableViewController {
 
     @IBOutlet weak var coverImage: UIImageView!
     
+    @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var purchasePriceLabel: UILabel!
     @IBOutlet weak var purchaseDateLabel: UILabel!
     @IBOutlet weak var sellPriceLabel: UILabel!
@@ -40,6 +41,7 @@ class EditComicBookViewController: UITableViewController {
         legacyIssueNumberLabel.text = currentComicBook?.comic.era
         variantLabel.text = currentComicBook?.comic.variant
         
+        conditionLabel.text = currentComicBook?.book.condition
         purchasePriceLabel.text = currentComicBook?.book.purchasePriceText
         purchaseDateLabel.text = currentComicBook?.book.purchaseDateText
         sellPriceLabel.text = currentComicBook?.book.sellPriceText
