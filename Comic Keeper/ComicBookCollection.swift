@@ -75,9 +75,12 @@ public class ComicBookCollection {
     }
     
     public func comicBook(publisherName: String, seriesName: String, era: String, issueNumber: String, variantSignifier: String) -> ComicBook? {
-        let comicBook = comicbooks.filter {
-            $0.comic.publisher == publisherName && $0.comic.series == seriesName && $0.comic.era == era && $0.comic.issueNumber == issueNumber && $0.comic.variant == variantSignifier
-        }
+        let identifier = "\(publisherName) \(seriesName) \(era) \(issueNumber)\(variantSignifier)"
+        return comicBook(from: identifier)
+    }
+    
+    public func comicBook(from identifier: String) -> ComicBook? {
+        let comicBook = comicbooks.filter { $0.identifier == identifier }
         return comicBook.first
     }
 }
