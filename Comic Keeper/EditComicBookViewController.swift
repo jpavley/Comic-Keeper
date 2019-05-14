@@ -39,6 +39,13 @@ class EditComicBookViewController: UITableViewController {
         issueNumberLabel.text = currentComicBook?.comic.issueNumber
         legacyIssueNumberLabel.text = currentComicBook?.comic.era
         variantLabel.text = currentComicBook?.comic.variant
+        
+        purchasePriceLabel.text = currentComicBook?.book.purchasePriceText
+        purchaseDateLabel.text = currentComicBook?.book.purchaseDateText
+        salesPriceLabel.text = currentComicBook?.book.sellPriceText
+        salesDateLabel.text = currentComicBook?.book.sellDateText
+
+        
     }
 
     
