@@ -44,7 +44,7 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
-    
+        
     /// List of issue numbers for a series in this collection.
     /// - *Why are issue numbers strings?* Publishers are creative in numbering and might create
     ///   "issue numbers" that include non-numeric characters.
