@@ -26,7 +26,6 @@ func seriesTitle(for comic: Comic) -> String {
 print("Series Title (series + era)", seriesTitle(for: cbc.comicbooks[0].comic))
 print("Series Title (series + era)", seriesTitle(for: cbc.comicbooks[3].comic))
 
-
 func seriesNames(publisherName: String, from cbc: ComicBookCollection) -> [String] {
     let seriesNames = cbc.comicbooks.compactMap {$0.comic.publisher == publisherName ? seriesTitle(for: $0.comic) : nil}
     var filteredNames = [String]()

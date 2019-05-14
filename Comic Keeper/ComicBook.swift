@@ -17,16 +17,20 @@ public class ComicBook {
         return comic.publisher
     }
     
-    public var seriesTitle: String {
-        return "\(publisherName) \(comic.series) \(comic.era)"
+    public var seriesName: String {
+        return comic.series
     }
     
-//    public var issueIdentifier: String {
-//        return "\(seriesTitle) \(comic.issueNumber)"
-//    }
-//    
+    public var seriesEra: String {
+        return comic.era
+    }
+    
+    public var seriesTitle: String {
+        return "\(comic.series) \(comic.era)"
+    }
+    
     public var identifier: String {
-        return "\(seriesTitle) \(comic.issueNumber)\(comic.variant)"
+        return "\(publisherName) \(seriesName) \(seriesEra) \(comic.issueNumber)\(comic.variant)"
     }
     
     init(comic: Comic, book: Book) {
