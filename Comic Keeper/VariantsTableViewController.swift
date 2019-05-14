@@ -12,7 +12,7 @@ class VariantsTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!
-    var currentSeriesName: String!
+    var currentSeriesTitle: String!
     var currentIssueNumber: String!
 
 
@@ -24,7 +24,7 @@ class VariantsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        title = currentSeriesName
+        title = currentSeriesTitle
     }
 
     // MARK: - Table view data source
@@ -34,7 +34,7 @@ class VariantsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
         return variants.count
     }
 
@@ -43,7 +43,7 @@ class VariantsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VariantCell", for: indexPath)
 
         // Configure the cell...
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
         cell.textLabel?.text = "#\(currentIssueNumber!)"
         cell.detailTextLabel?.text = "variant \(variants[indexPath.row])"
 
@@ -52,7 +52,7 @@ class VariantsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
         let selectedVariant = variants[indexPath.row]
         performSegue(withIdentifier: "VariantSegue", sender: selectedVariant)
     }
@@ -105,12 +105,12 @@ class VariantsTableViewController: UITableViewController {
             
             destination.comicBookCollection = comicBookCollection
             destination.currentPublisherName = currentPublisherName
-            destination.currentSeriesName = currentSeriesName
+            destination.currentSeriesTitle = currentSeriesTitle
             destination.currentIssueNumber = currentIssueNumber
             
             if let selectedVariant = sender as? String {
                 destination.currentVariantSignifier = selectedVariant
-                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesName!) \(currentIssueNumber!)\(selectedVariant)"
+                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesTitle!) \(currentIssueNumber!)\(selectedVariant)"
 
             }
         }

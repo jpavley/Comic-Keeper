@@ -12,7 +12,7 @@ class IssuesTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!
-    var currentSeriesName: String!
+    var currentSeriesTitle: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class IssuesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
         return issues.count
     }
 
@@ -43,8 +43,8 @@ class IssuesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IssuesCell", for: indexPath)
 
         // Configure the cell...
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
-        cell.textLabel?.text = currentSeriesName
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
+        cell.textLabel?.text = currentSeriesTitle
         cell.detailTextLabel?.text = "#\(issues[indexPath.row])"
 
         return cell
@@ -99,8 +99,8 @@ class IssuesTableViewController: UITableViewController {
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 destination.currentPublisherName = currentPublisherName
-                destination.currentSeriesName = currentSeriesName
-                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
+                destination.currentSeriesTitle = currentSeriesTitle
+                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
                 destination.currentIssueNumber = issues[selectedIndexPath.row]
             }
         }

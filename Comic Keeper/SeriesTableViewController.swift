@@ -108,7 +108,7 @@ class SeriesTableViewController: UITableViewController {
                 let publisherName = comicBookCollection.publisherNames[selectedIndexPath.section]
                 let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
                 destination.currentPublisherName = publisherName
-                destination.currentSeriesName = seriesTitles[selectedIndexPath.row]
+                destination.currentSeriesTitle = seriesTitles[selectedIndexPath.row]
             }
         }
     }

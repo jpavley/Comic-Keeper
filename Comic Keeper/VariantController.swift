@@ -12,7 +12,7 @@ class VariantController: UIViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!
-    var currentSeriesName: String!
+    var currentSeriesTitle: String!
     var currentIssueNumber: String!
     var currentVariantSignifier: String!
     var currentIdentifier: String!
@@ -40,7 +40,7 @@ class VariantController: UIViewController {
             let destination = segue.destination as! EditComicBookViewController
             destination.comicBookCollection = comicBookCollection
             destination.currentPublisherName = currentPublisherName
-            destination.currentSeriesName = currentSeriesName
+            destination.currentSeriesName = currentSeriesTitle
             destination.currentIssueNumber = currentIssueNumber
             destination.currentVariantSignifier = currentVariantSignifier
         }
