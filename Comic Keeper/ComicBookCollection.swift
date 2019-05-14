@@ -54,9 +54,9 @@ public class ComicBookCollection {
     ///   - seriesName: series title (name + era)
     ///   - publisherName: unique name of the publisher
     /// - Returns: list of issues numbers as list of strings
-    public func issuesNumbers(seriesName: String, publisherName: String) -> [String] {
+    public func issuesNumbers(seriesTitle: String, publisherName: String) -> [String] {
         let issueNumbers = comicbooks.compactMap {
-            $0.comic.publisher == publisherName && $0.seriesTitle == seriesName ? $0.comic.issueNumber : nil
+            $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle ? $0.comic.issueNumber : nil
         }
         var filteredNumbers = [String]()
         issueNumbers.forEach { name in
@@ -67,9 +67,9 @@ public class ComicBookCollection {
         return filteredNumbers
     }
     
-    public func variantSignifiers(issueNumber: String, seriesName: String, publisherName: String) -> [String] {
+    public func variantSignifiers(issueNumber: String, seriesTitle: String, publisherName: String) -> [String] {
         let variants = comicbooks.compactMap {
-            $0.comic.publisher == publisherName && $0.seriesTitle == seriesName && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
+            $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
         }
         return variants
     }

@@ -34,7 +34,7 @@ class IssuesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
         return issues.count
     }
 
@@ -43,7 +43,7 @@ class IssuesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IssuesCell", for: indexPath)
 
         // Configure the cell...
-        let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
         cell.textLabel?.text = currentSeriesName
         cell.detailTextLabel?.text = "#\(issues[indexPath.row])"
 
@@ -100,7 +100,7 @@ class IssuesTableViewController: UITableViewController {
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 destination.currentPublisherName = currentPublisherName
                 destination.currentSeriesName = currentSeriesName
-                let issues = comicBookCollection.issuesNumbers(seriesName: currentSeriesName, publisherName: currentPublisherName)
+                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesName, publisherName: currentPublisherName)
                 destination.currentIssueNumber = issues[selectedIndexPath.row]
             }
         }

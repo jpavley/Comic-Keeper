@@ -34,7 +34,7 @@ class VariantTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
         return variants.count
     }
 
@@ -43,7 +43,7 @@ class VariantTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VariantCell", for: indexPath)
 
         // Configure the cell...
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
         cell.textLabel?.text = "#\(currentIssueNumber!)"
         cell.detailTextLabel?.text = "variant \(variants[indexPath.row])"
 
@@ -52,7 +52,7 @@ class VariantTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesName: currentSeriesName, publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesName, publisherName: currentPublisherName)
         let selectedVariant = variants[indexPath.row]
         performSegue(withIdentifier: "VariantSegue", sender: selectedVariant)
     }
