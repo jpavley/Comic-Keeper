@@ -9,6 +9,11 @@
 import UIKit
 
 class PickerTableViewController: UITableViewController {
+    
+    var itemList: [String]!
+    var selectedItemIndex = IndexPath()
+    var selectedItemName: String!
+    var pickerTitle: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +22,7 @@ class PickerTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

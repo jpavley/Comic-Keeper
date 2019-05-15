@@ -518,6 +518,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="KqH-05-k1n" kind="unwind" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -528,6 +531,7 @@
                     <navigationItem key="navigationItem" title="List Picker" id="PmK-T0-Lc9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fr-Rv-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KqH-05-k1n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4973" y="-342"/>
         </scene>

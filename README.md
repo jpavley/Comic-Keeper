@@ -18,7 +18,7 @@ Series -> Issues -> Variants ->  Edit Variant -> Picker(s)
 
 ### Edit Variant View
 
-- Propties of a particular variant including all comic book data fields
+- Properties of a particular variant including all comic book data fields
 
 ### Picker Views
 

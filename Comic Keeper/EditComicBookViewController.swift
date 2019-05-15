@@ -30,6 +30,7 @@ class EditComicBookViewController: UITableViewController {
     var currentIdentifier: String!
     var image: UIImage?
     var imageHeight: CGFloat = 260
+    var listPickerKind = "Publisher"
     
     let photoSection = 1
     let photoRow = 0
@@ -70,6 +71,40 @@ class EditComicBookViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier) {
+            var pickerList = [String]()
+            if segue.identifier == "ChoosePublisherSegue" {
+                listPickerKind = "Publisher"
+                pickerList = comicBookCollection.publisherNames
+            } else if segue.identifier == "ChooseSeriesSegue" {
+                listPickerKind = "Series"
+                pickerList = comicBookCollection.seriesTitles(for: currentComicBook.publisherName)
+            }
+            
+            let controller = segue.destination as! PickerTableViewController
+            controller.itemList = comicBookCollection.publisherNames
+            controller.pickerTitle = listPickerKind
+            
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                controller.selectedItemName = pickerList[indexPath.row]
+            }
+        }
+   }
+    
+    /// Unwind/exit segue from list picker to edit comic book view controller.
+    @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! PickerTableViewController
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        
+        if listPickerKind == "Publisher" {
+            currentComicBook?.comic.publisher = controller.selectedItemName
+        } else if listPickerKind == "Series" {
+            currentComicBook?.comic.series = controller.selectedItemName
+        }
+        
+        tableView.reloadData()
     }
 }
 
