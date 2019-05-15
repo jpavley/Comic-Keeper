@@ -119,7 +119,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = kind
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
         imagePicker.view.tintColor = view.tintColor
         return imagePicker
     }
@@ -138,7 +138,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         if let theImage = image {
             show(image: theImage)
         }
