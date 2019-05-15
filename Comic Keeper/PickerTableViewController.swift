@@ -16,6 +16,16 @@ class PickerTableViewController: UITableViewController {
     var pickerTitle: String!
 
     override func viewDidLoad() {
+        
+        func setSelectedItemIndex() {
+            for i in 0..<itemList.count {
+                if itemList[i] == selectedItemName {
+                    selectedItemIndex = IndexPath(row: i, section: 0)
+                    break
+                }
+            }
+        }
+
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -24,8 +34,9 @@ class PickerTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         title = pickerTitle
+        setSelectedItemIndex()
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,11 +54,35 @@ class PickerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPickerCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = itemList![indexPath.row]
+        let itemName = itemList![indexPath.row]
+        cell.textLabel?.text = itemName
+        
+        // check mark management
+        if itemName == selectedItemName {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row != selectedItemIndex.row {
+            
+            if let newCell = tableView.cellForRow(at: indexPath) {
+                newCell.accessoryType = .checkmark
+            }
+            
+            if let oldCell = tableView.cellForRow(
+                at: selectedItemIndex) {
+                oldCell.accessoryType = .none
+            }
+            
+            selectedItemIndex = indexPath
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -84,14 +119,21 @@ class PickerTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "PickedItem" {
+            // PickedItem is the identifier of the unwind segue.
+            // The unwind segue triggers the action listPickerDidPickItem in
+            // EditComicBookViewController.
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                selectedItemName = itemList[indexPath.row]
+            }
+        }
     }
-    */
+    
 
 }

@@ -519,7 +519,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KqH-05-k1n" kind="unwind" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
+                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -865,6 +865,6 @@
         <image name="test thumb" width="200" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wrT-af-ykl"/>
+        <segue reference="CJG-qb-gvF"/>
     </inferredMetricsTieBreakers>
 </document>
