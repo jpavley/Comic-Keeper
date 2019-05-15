@@ -36,7 +36,6 @@ class EditComicBookViewController: UITableViewController {
         
         title = "#\(currentComicBook?.comic.issueNumber ?? "Edit Comicbook")\(currentComicBook?.comic.variant ?? "")"
         
-        
         publisherLabel.text = currentComicBook?.publisherName
         eraLabel.text = currentComicBook?.seriesEra
         seriesLabel.text = currentComicBook?.seriesName
@@ -58,6 +57,4 @@ class EditComicBookViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    
-
 }
