@@ -79,11 +79,11 @@ class EditComicBookViewController: UITableViewController {
                 pickerList = comicBookCollection.publisherNames
             } else if segue.identifier == "ChooseSeriesSegue" {
                 listPickerKind = "Series"
-                pickerList = comicBookCollection.seriesTitles(for: currentComicBook.publisherName)
+                pickerList = comicBookCollection.seriesNames(for: currentComicBook.publisherName)
             }
             
             let controller = segue.destination as! PickerTableViewController
-            controller.itemList = comicBookCollection.publisherNames
+            controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
             
             let cell = sender as! UITableViewCell

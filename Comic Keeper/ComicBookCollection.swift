@@ -44,6 +44,18 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    public func seriesNames(for publisherName: String) -> [String] {
+        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesName : nil}
+        var filteredNames = [String]()
+        seriesNames.forEach { name in
+            if !filteredNames.contains(name) {
+                filteredNames.append(name)
+            }
+        }
+        return filteredNames
+    }
+
         
     /// List of issue numbers for a series in this collection.
     /// - *Why are issue numbers strings?* Publishers are creative in numbering and might create
