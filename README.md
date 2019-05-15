@@ -2,7 +2,7 @@
 
 ## Navigation Hierarchy
 
-Series -> Issues -> Variants -> Variant -> Edit Variant -> Picker
+Series -> Issues -> Variants ->  Edit Variant -> Picker(s)
 
 ### Series Table View
 
@@ -15,10 +15,6 @@ Series -> Issues -> Variants -> Variant -> Edit Variant -> Picker
 ### Variants Table View
 
 - List of variants belonging to a particular issue
-
-### Variant View
-
-- Cover view of a particular variant
 
 ### Edit Variant View
 

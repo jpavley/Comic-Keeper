@@ -51,11 +51,11 @@ class VariantsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
-        let selectedVariant = variants[indexPath.row]
-        performSegue(withIdentifier: "VariantSegue", sender: selectedVariant)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
+//        let selectedVariant = variants[indexPath.row]
+//        performSegue(withIdentifier: "EditComicBookSegue", sender: selectedVariant)
+//    }
     
 
     /*
@@ -100,21 +100,16 @@ class VariantsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "VariantSegue" {
-            let destination = segue.destination as! VariantController
+        if segue.identifier == "EditComicBookSegue" {
+            let destination = segue.destination as! EditComicBookViewController
             
             destination.comicBookCollection = comicBookCollection
-            destination.currentPublisherName = currentPublisherName
-            destination.currentSeriesTitle = currentSeriesTitle
-            destination.currentIssueNumber = currentIssueNumber
             
-            if let selectedVariant = sender as? String {
-                destination.currentVariantSignifier = selectedVariant
-                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesTitle!) \(currentIssueNumber!)\(selectedVariant)"
+            if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
 
+                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesTitle!) \(currentIssueNumber!)\(variants[selectedIndexPath.row])"
             }
         }
     }
-    
-
 }

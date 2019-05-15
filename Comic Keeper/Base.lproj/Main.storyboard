@@ -139,7 +139,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ArC-Hl-Aic" kind="show" identifier="VariantSegue" trigger="accessoryAction" id="0nK-UV-chm"/>
+                                    <segue destination="MBk-Cu-HCP" kind="show" identifier="EditComicBookSegue" id="yyQ-il-Nnq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,42 +153,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gks-ye-gTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3326" y="-342"/>
-        </scene>
-        <!--Variant-->
-        <scene sceneID="s1e-eN-zTj">
-            <objects>
-                <viewController id="ArC-Hl-Aic" customClass="VariantController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gip-0W-mnT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3fO-ek-H1e">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="3fO-ek-H1e" firstAttribute="bottom" secondItem="TTm-4g-3gi" secondAttribute="bottom" id="AuY-re-Kth"/>
-                            <constraint firstItem="3fO-ek-H1e" firstAttribute="top" secondItem="TTm-4g-3gi" secondAttribute="top" id="eAP-XJ-q5s"/>
-                            <constraint firstItem="3fO-ek-H1e" firstAttribute="leading" secondItem="TTm-4g-3gi" secondAttribute="leading" id="jtH-dE-Jhf"/>
-                            <constraint firstItem="3fO-ek-H1e" firstAttribute="trailing" secondItem="TTm-4g-3gi" secondAttribute="trailing" id="wYP-hZ-6M1"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="TTm-4g-3gi"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Variant" id="Ay0-Sp-d4M">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WW5-pW-lqA">
-                            <connections>
-                                <segue destination="MBk-Cu-HCP" kind="show" identifier="EditVariantSegue" id="CF8-d4-lFX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="coverView" destination="3fO-ek-H1e" id="PQa-2u-J09"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PYK-4V-hXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4147.5" y="-342.25352112676057"/>
         </scene>
         <!--Edit Comic Book-->
         <scene sceneID="jod-EM-d8R">
@@ -527,7 +491,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zq6-kF-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4929" y="-342"/>
+            <point key="canvasLocation" x="4134" y="-342"/>
         </scene>
         <!--List Picker-->
         <scene sceneID="uSh-2w-AaZ">
@@ -556,7 +520,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fr-Rv-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5768" y="-342"/>
+            <point key="canvasLocation" x="4973" y="-342"/>
         </scene>
         <!--Capture-->
         <scene sceneID="wg7-f3-ORb">
