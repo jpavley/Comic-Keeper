@@ -109,6 +109,8 @@ print("ww80_1b", ww80_1b?.identifier ?? "not found")
 let ww80_1x = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woman", era: "1980", issueNumber: "1", variantSignifier: "x")
 print("ww80_1x", ww80_1x?.identifier ?? "not found")
 
+let id = ww80_1x?.guid
+
 
 
 
