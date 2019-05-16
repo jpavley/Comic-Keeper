@@ -110,6 +110,8 @@ let ww80_1x = cbc.comicBook(publisherName: "DC Comics", seriesName: "Wonder Woma
 print("ww80_1x", ww80_1x?.identifier ?? "not found")
 
 let id = ww80_1x?.guid
+let comicByID = cbc.comicBook(guid: id!)
+print(ww80_1x!.identifier, comicByID!.identifier)
 
 
 

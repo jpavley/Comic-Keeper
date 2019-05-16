@@ -95,4 +95,9 @@ public class ComicBookCollection {
         let comicBook = comicbooks.filter { $0.identifier == identifier }
         return comicBook.first
     }
+    
+    public func comicBook(guid: UUID) -> ComicBook? {
+        let comicBook = comicbooks.filter { $0.guid == guid }
+        return comicBook.first
+    }
 }
