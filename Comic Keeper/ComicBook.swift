@@ -12,7 +12,6 @@ public class ComicBook {
     
     public var comic: Comic
     public var book: Book
-    public var guid: UUID
     
     public var publisherName: String {
         return comic.publisher
@@ -38,7 +37,6 @@ public class ComicBook {
         
         self.comic = comic
         self.book = book
-        guid = UUID()
     }
 }
 
