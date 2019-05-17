@@ -72,26 +72,22 @@ class EditComicBookViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier) {
-            var pickerList = [String]()
-            if segue.identifier == "ChoosePublisherSegue" {
-                listPickerKind = "Publisher"
-                pickerList = comicBookCollection.publisherNames
-            } else if segue.identifier == "ChooseSeriesSegue" {
-                listPickerKind = "Series"
-                pickerList = comicBookCollection.seriesNames(for: currentComicBook.publisherName)
-            }
-            
-            let controller = segue.destination as! PickerTableViewController
-            controller.itemList = pickerList
-            controller.pickerTitle = listPickerKind
-            
-            let cell = sender as! UITableViewCell
-            if let indexPath = tableView.indexPath(for: cell) {
-                controller.selectedItemName = pickerList[indexPath.row]
-            }
-        } else {
-            assert(true, "bad identifier \(currentIdentifier!)")
+        var pickerList = [String]()
+        if segue.identifier == "ChoosePublisherSegue" {
+            listPickerKind = "Publisher"
+            pickerList = comicBookCollection.publisherNames
+        } else if segue.identifier == "ChooseSeriesSegue" {
+            listPickerKind = "Series"
+            pickerList = comicBookCollection.seriesNames
+        }
+        
+        let controller = segue.destination as! PickerTableViewController
+        controller.itemList = pickerList
+        controller.pickerTitle = listPickerKind
+        
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            controller.selectedItemName = pickerList[indexPath.row]
         }
    }
     

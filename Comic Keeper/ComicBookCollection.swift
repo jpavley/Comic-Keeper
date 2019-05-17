@@ -28,6 +28,17 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    public var seriesNames: [String] {
+        let seriesNames = comicbooks.map {$0.comic.series}
+        var filteredNames = [String]()
+        seriesNames.forEach { name in
+            if !filteredNames.contains(name) {
+                filteredNames.append(name)
+            }
+        }
+        return filteredNames
+    }
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!
