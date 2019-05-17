@@ -528,12 +528,50 @@
                             <outlet property="delegate" destination="DeC-I5-iAl" id="Nby-PO-okk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List Picker" id="PmK-T0-Lc9"/>
+                    <navigationItem key="navigationItem" title="List Picker" id="PmK-T0-Lc9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qMo-pU-hEA">
+                            <connections>
+                                <segue destination="Lbx-p7-yJ5" kind="show" identifier="AddItemSegue" id="sQE-aZ-6K4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fr-Rv-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KqH-05-k1n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4973" y="-342"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="JgT-UW-1hv">
+            <objects>
+                <viewController id="Lbx-p7-yJ5" customClass="AddItemViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Udp-Hp-Ta7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
+                                <rect key="frame" x="16" y="99" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ul6-an-xs1" firstAttribute="top" secondItem="1lc-nz-jOh" secondAttribute="top" constant="35" id="PWn-95-jrv"/>
+                            <constraint firstItem="ul6-an-xs1" firstAttribute="leading" secondItem="1lc-nz-jOh" secondAttribute="leading" constant="16" id="R2o-8I-lup"/>
+                            <constraint firstItem="1lc-nz-jOh" firstAttribute="trailing" secondItem="ul6-an-xs1" secondAttribute="trailing" constant="16" id="kHL-Zy-5Rt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1lc-nz-jOh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Item" id="yfS-KG-s15"/>
+                    <connections>
+                        <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wp-OU-C6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5756" y="-342"/>
         </scene>
         <!--Capture-->
         <scene sceneID="wg7-f3-ORb">

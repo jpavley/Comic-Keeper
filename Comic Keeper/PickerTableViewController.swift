@@ -33,16 +33,11 @@ class PickerTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
         title = pickerTitle
         setSelectedItemIndex()
     }
-    
-    @objc func addTapped() {
-        print("addTapped()")
-    }
-    
+        
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,6 +133,10 @@ class PickerTableViewController: UITableViewController {
             if let indexPath = tableView.indexPath(for: cell) {
                 selectedItemName = itemList[indexPath.row]
             }
+        } else if segue.identifier == "AddItemSegue" {
+            let destination = segue.destination as! AddItemViewController
+            destination.viewTitle = "Add \(pickerTitle!)"
+
         }
     }
     
