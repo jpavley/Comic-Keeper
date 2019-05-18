@@ -136,9 +136,49 @@ class PickerTableViewController: UITableViewController {
         } else if segue.identifier == "AddItemSegue" {
             let destination = segue.destination as! AddItemViewController
             destination.viewTitle = "Add \(pickerTitle!)"
-
         }
     }
     
+    /// Unwind/exit segue from list picker to edit comic book view controller.
+    @IBAction func itemAddDidAddItem(_ segue: UIStoryboardSegue) {
+        
+        // get the add item view controller
+        let controller = segue.source as! AddItemViewController
+        
+        if let newItem = controller.newItemTextField.text {
+            
+            // if there is text in the new item text field
+            
+            if !newItem.isEmpty && !itemList.contains(newItem) {
+                
+                // if the text is not "" nor a duplicate
+                
+                itemList.append(newItem)
+                itemList.sort()
+                tableView.reloadData()
+                
+                // set the new item text as the selection
+                
+                selectedItemName = newItem
+                
+                // check mark management
+                
+                if let oldCell = tableView.cellForRow(
+                    at: selectedItemIndex) {
+                    oldCell.accessoryType = .none
+                }
+                
+                if let newRow = itemList.firstIndex(of: selectedItemName) {
+                    selectedItemIndex = IndexPath(row: newRow, section: 1)
+                    
+                    if let newCell = tableView.cellForRow(at: selectedItemIndex) {
+                        newCell.accessoryType = .checkmark
+                    }
+                }
+                
+            }
+        }
+        
+    }
 
 }

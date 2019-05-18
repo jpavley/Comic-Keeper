@@ -103,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
+				B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
@@ -120,7 +121,6 @@
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
 				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
-				B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";

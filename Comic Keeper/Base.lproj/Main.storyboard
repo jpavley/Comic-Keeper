@@ -567,9 +567,11 @@
                     <navigationItem key="navigationItem" title="Add Item" id="yfS-KG-s15"/>
                     <connections>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
+                        <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="itemAddDidAddItem:" id="3bU-kI-Uvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wp-OU-C6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GzX-Gx-owm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5756" y="-342"/>
         </scene>

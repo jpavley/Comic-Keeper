@@ -100,14 +100,18 @@ class EditComicBookViewController: UITableViewController {
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerTableViewController
         
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        let _ = comicBookCollection.comicBook(from: currentIdentifier)
         
         if listPickerKind == "Publisher" {
             publisherLabel.text = controller.selectedItemName
-            currentComicBook?.comic.publisher = controller.selectedItemName
+            
+            // TODO: Update data model
+            // currentComicBook?.comic.publisher = controller.selectedItemName
         } else if listPickerKind == "Series" {
             seriesLabel.text = controller.selectedItemName
-            currentComicBook?.comic.series = controller.selectedItemName
+            
+            // TODO: Update data model
+            // currentComicBook?.comic.series = controller.selectedItemName
         }
     }
 }

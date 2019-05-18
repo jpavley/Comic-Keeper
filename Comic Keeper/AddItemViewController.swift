@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newItemTextField: UITextField!
     
@@ -21,18 +21,31 @@ class AddItemViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         newItemTextField.becomeFirstResponder()
+        newItemTextField.delegate = self
+        
         title = viewTitle
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        newItemTextField.resignFirstResponder()
+        
+        performSegue(withIdentifier: "AddedItem", sender: self)
+        
+        return true
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AddedItem" {
+            // I don't think there is anything to do yet...
+        }
     }
-    */
+    
 
 }
