@@ -156,7 +156,7 @@ class PickerTableViewController: UITableViewController {
                 let processedItem = newItem.capitalized
                 
                 itemList.append(processedItem)
-                itemList.sort()
+                itemList = itemList.sorted()
                 tableView.reloadData()
                 
                 // set the new item text as the selection
