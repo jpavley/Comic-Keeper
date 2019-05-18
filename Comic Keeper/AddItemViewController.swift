@@ -14,23 +14,28 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     var viewTitle = "Add Item"
     
+    @IBAction func doneAction(_ sender: Any) {
+        newItemTextField.resignFirstResponder()
+        performSegue(withIdentifier: "AddedItem", sender: self)
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        // show the keyboard by default
         newItemTextField.becomeFirstResponder()
         newItemTextField.delegate = self
         
         title = viewTitle
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newItemTextField.resignFirstResponder()
-        
         performSegue(withIdentifier: "AddedItem", sender: self)
-        
         return true
     }
     

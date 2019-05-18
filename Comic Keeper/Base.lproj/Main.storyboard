@@ -564,7 +564,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1lc-nz-jOh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Item" id="yfS-KG-s15"/>
+                    <navigationItem key="navigationItem" title="Add Item" id="yfS-KG-s15">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="0MY-vW-O5d">
+                            <connections>
+                                <action selector="doneAction:" destination="Lbx-p7-yJ5" id="zVG-jn-tOB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="itemAddDidAddItem:" id="3bU-kI-Uvl"/>
