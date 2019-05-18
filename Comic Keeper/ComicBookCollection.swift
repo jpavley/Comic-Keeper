@@ -87,6 +87,9 @@ public class ComicBookCollection {
                 filteredNumbers.append(name)
             }
         }
+        
+        filteredNumbers = filteredNumbers.sorted() {$0.localizedStandardCompare($1) == .orderedAscending}
+        
         return filteredNumbers
     }
     

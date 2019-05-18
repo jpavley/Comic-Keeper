@@ -74,9 +74,9 @@ public extension ComicBookCollection {
         // Fantastic Four
         
         let cb24 = createComicBook("Marvel Comics", "Hulk", "1962", "1", "1", "a", nil, nil, nil, nil, "vg")
-        let cb25 = createComicBook("Marvel Comics", "Hulk", "1962", "3", "3", "a", nil, nil, nil, nil, "vg")
-        let cb26 = createComicBook("Marvel Comics", "Hulk", "1962", "4", "5", "a", nil, nil, nil, nil, "vg")
-        let cb27 = createComicBook("Marvel Comics", "Hulk", "1962", "10", "10", "a", 2.31, Date(), 15.05, Date(), "f")
+        let cb25 = createComicBook("Marvel Comics", "Hulk", "1962", "3", "3", "b", nil, nil, nil, nil, "vg")
+        let cb26 = createComicBook("Marvel Comics", "Hulk", "1962", "4", "5", "c", nil, nil, nil, nil, "vg")
+        let cb27 = createComicBook("Marvel Comics", "Hulk", "1962", "10", "10", "d", 2.31, Date(), 15.05, Date(), "f")
         
         // Iron Man
         
