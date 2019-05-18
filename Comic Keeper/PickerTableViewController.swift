@@ -153,13 +153,15 @@ class PickerTableViewController: UITableViewController {
                 
                 // if the text is not "" nor a duplicate
                 
-                itemList.append(newItem)
+                let processedItem = newItem.capitalized
+                
+                itemList.append(processedItem)
                 itemList.sort()
                 tableView.reloadData()
                 
                 // set the new item text as the selection
                 
-                selectedItemName = newItem
+                selectedItemName = processedItem
                 
                 // check mark management
                 
