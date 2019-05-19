@@ -27,6 +27,7 @@
 		B85C0E752286325E00AA444E /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
 		B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
 		B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
+		B8BF61DB2291DC9E00AF63F4 /* ChooseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* ChooseItemViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
@@ -55,6 +56,7 @@
 		B85C0E6D2286321600AA444E /* Comic_Keeper_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comic_Keeper_Framework.h; sourceTree = "<group>"; };
 		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86078DB228A3D7F0095D168 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B8BF61DA2291DC9E00AF63F4 /* ChooseItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseItemViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 		B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
+				B8BF61DA2291DC9E00AF63F4 /* ChooseItemViewController.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
 				B8106A792282431300D0A2C2 /* ComicBookCollection.swift */,
@@ -253,6 +256,7 @@
 				B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */,
+				B8BF61DB2291DC9E00AF63F4 /* ChooseItemViewController.swift in Sources */,
 				B848AA19228C55DA001B06E3 /* PickerTableViewController.swift in Sources */,
 				B8EE177F2287226E006F5B0D /* VariantsTableViewController.swift in Sources */,
 				B8106A7422823ED100D0A2C2 /* Comic.swift in Sources */,

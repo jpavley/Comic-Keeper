@@ -9,7 +9,7 @@
 import UIKit
 
 class EditComicBookViewController: UITableViewController {
-
+    
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var eraLabel: UILabel!
     @IBOutlet weak var seriesLabel: UILabel!
@@ -17,7 +17,7 @@ class EditComicBookViewController: UITableViewController {
     @IBOutlet weak var issueNumberLabel: UILabel!
     @IBOutlet weak var legacyIssueNumberLabel: UILabel!
     @IBOutlet weak var variantLabel: UILabel!
-
+    
     @IBOutlet weak var coverImage: UIImageView!
     
     @IBOutlet weak var conditionLabel: UILabel!
@@ -71,30 +71,47 @@ class EditComicBookViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
         var pickerList = [String]()
+
+        
+        func configurePickerTable() {
+            let controller = segue.destination as! PickerTableViewController
+            controller.itemList = pickerList
+            controller.pickerTitle = listPickerKind
+            
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                controller.selectedItemName = pickerList[indexPath.row]
+            }
+        }
+        
+        func configurePickerDial() {
+            let controller = segue.destination as! ChooseItemViewController
+            controller.itemList = pickerList
+            controller.pickerTitle = listPickerKind
+
+        }
+        
         if segue.identifier == "ChoosePublisherSegue" {
             listPickerKind = "Publisher"
             pickerList = comicBookCollection.publisherNames
+            configurePickerTable()
         } else if segue.identifier == "ChooseSeriesSegue" {
             listPickerKind = "Series"
             pickerList = comicBookCollection.seriesNames
+            configurePickerTable()
+        } else if segue.identifier == "ChooseEraSegue" {
+            listPickerKind = "Era"
         }
         
-        let controller = segue.destination as! PickerTableViewController
-        controller.itemList = pickerList
-        controller.pickerTitle = listPickerKind
-        
-        let cell = sender as! UITableViewCell
-        if let indexPath = tableView.indexPath(for: cell) {
-            controller.selectedItemName = pickerList[indexPath.row]
-        }
-   }
+    }
+    
     
     /// Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
@@ -185,7 +202,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         if let theImage = image {
             show(image: theImage)
         }
-
+        
         dismiss(animated: true, completion: nil)
     }
     
