@@ -78,7 +78,7 @@ class EditComicBookViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         var pickerList = [String]()
-
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
         func configurePickerTable() {
             let controller = segue.destination as! PickerTableViewController
@@ -95,7 +95,12 @@ class EditComicBookViewController: UITableViewController {
             let controller = segue.destination as! ChooseItemViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
-
+            
+            let selectedItem = currentComicBook?.seriesEra
+            controller.selectedItemName = selectedItem
+            
+            let row = pickerList.firstIndex(of: selectedItem!)
+            controller.selectedItemRow = row
         }
         
         if segue.identifier == "ChoosePublisherSegue" {
@@ -108,6 +113,8 @@ class EditComicBookViewController: UITableViewController {
             configurePickerTable()
         } else if segue.identifier == "ChooseEraSegue" {
             listPickerKind = "Era"
+            pickerList = comicBookCollection.eras
+            configurePickerDial()
         }
         
     }

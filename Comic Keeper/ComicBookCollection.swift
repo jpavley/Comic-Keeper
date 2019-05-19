@@ -39,6 +39,20 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    public var eras: [String] {
+        
+        var result = [String]()
+        let now = Date()
+        let calendar = Calendar.current
+        let currentYear = calendar.component(.year, from: now)
+        
+        for year in 1900...currentYear {
+            result.append("\(year)")
+        }
+        
+        return result
+    }
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!

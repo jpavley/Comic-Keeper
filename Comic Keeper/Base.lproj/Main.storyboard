@@ -561,6 +561,10 @@
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
                                 <rect key="frame" x="0.0" y="128" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
+                                    <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niM-YI-TvW">
                                 <rect key="frame" x="142" y="352" width="37" height="30"/>

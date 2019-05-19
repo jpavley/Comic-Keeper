@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseItemViewController: UIViewController {
+class ChooseItemViewController: UIViewController  {
     
     @IBOutlet weak var currentItemLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
@@ -17,7 +17,6 @@ class ChooseItemViewController: UIViewController {
     var selectedItemRow: Int!
     var selectedItemName: String!
     var pickerTitle: String!
-
     
     @IBAction func addItemButton(_ sender: Any) {
     }
@@ -30,9 +29,9 @@ class ChooseItemViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         title = pickerTitle
-        currentItemLabel.text = selectedItemName
+        currentItemLabel.text = "Original Value: \(selectedItemName!)"
+        itemPicker.selectRow(selectedItemRow, inComponent: 0, animated: true)
     }
-    
 
     /*
     // MARK: - Navigation
@@ -43,5 +42,19 @@ class ChooseItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension ChooseItemViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return itemList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return itemList[row]
+    }
 }
