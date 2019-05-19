@@ -562,15 +562,22 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
                                 <rect key="frame" x="0.0" y="128" width="320" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mET-0m-PIW">
+                                <rect key="frame" x="129" y="352" width="62" height="30"/>
+                                <state key="normal" title="Add Item"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" id="3RI-7b-Ujd"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="8" id="4bN-bs-IgC"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="HMa-jV-SE6"/>
+                            <constraint firstItem="mET-0m-PIW" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="129" id="OcS-Yl-Xlg"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="trailing" secondItem="zsD-Jz-9PY" secondAttribute="trailing" id="Xe2-cB-eIc"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="b2p-HG-ezS"/>
+                            <constraint firstItem="mET-0m-PIW" firstAttribute="top" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="eWT-D7-OTx"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="35" id="hDX-4U-42o"/>
+                            <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="mET-0m-PIW" secondAttribute="trailing" constant="129" id="qgh-nn-KQH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsD-Jz-9PY"/>
                     </view>
