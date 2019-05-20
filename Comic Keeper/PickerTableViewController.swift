@@ -32,11 +32,12 @@ class PickerTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
         title = pickerTitle
         setSelectedItemIndex()
     }
-    
+        
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -132,8 +133,54 @@ class PickerTableViewController: UITableViewController {
             if let indexPath = tableView.indexPath(for: cell) {
                 selectedItemName = itemList[indexPath.row]
             }
+        } else if segue.identifier == "AddItemSegue" {
+            let destination = segue.destination as! AddItemViewController
+            destination.viewTitle = "Add \(pickerTitle!)"
         }
     }
     
+    /// Unwind/exit segue from list picker to edit comic book view controller.
+    @IBAction func itemAddDidAddItem(_ segue: UIStoryboardSegue) {
+        
+        // get the add item view controller
+        let controller = segue.source as! AddItemViewController
+        
+        if let newItem = controller.newItemTextField.text {
+            
+            // if there is text in the new item text field
+            
+            if !newItem.isEmpty && !itemList.contains(newItem) {
+                
+                // if the text is not "" nor a duplicate
+                
+                let processedItem = newItem.capitalized
+                
+                itemList.append(processedItem)
+                itemList = itemList.sorted()
+                tableView.reloadData()
+                
+                // set the new item text as the selection
+                
+                selectedItemName = processedItem
+                
+                // check mark management
+                
+                if let oldCell = tableView.cellForRow(
+                    at: selectedItemIndex) {
+                    oldCell.accessoryType = .none
+                }
+                
+                if let newRow = itemList.firstIndex(of: selectedItemName) {
+                    selectedItemIndex = IndexPath(row: newRow, section: 1)
+                    
+                    if let newCell = tableView.cellForRow(at: selectedItemIndex) {
+                        newCell.accessoryType = .checkmark
+                    }
+                }
+                
+            }
+        }
+        
+    }
 
 }

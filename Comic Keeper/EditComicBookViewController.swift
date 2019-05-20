@@ -9,7 +9,7 @@
 import UIKit
 
 class EditComicBookViewController: UITableViewController {
-
+    
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var eraLabel: UILabel!
     @IBOutlet weak var seriesLabel: UILabel!
@@ -17,7 +17,7 @@ class EditComicBookViewController: UITableViewController {
     @IBOutlet weak var issueNumberLabel: UILabel!
     @IBOutlet weak var legacyIssueNumberLabel: UILabel!
     @IBOutlet weak var variantLabel: UILabel!
-
+    
     @IBOutlet weak var coverImage: UIImageView!
     
     @IBOutlet weak var conditionLabel: UILabel!
@@ -37,6 +37,7 @@ class EditComicBookViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
@@ -56,6 +57,10 @@ class EditComicBookViewController: UITableViewController {
         sellDateLabel.text = currentComicBook?.book.sellDateText
     }
     
+    @objc func addTapped() {
+        print("addTapped()")
+    }
+    
     // MARK:- Table View
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -66,22 +71,16 @@ class EditComicBookViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier) {
-            var pickerList = [String]()
-            if segue.identifier == "ChoosePublisherSegue" {
-                listPickerKind = "Publisher"
-                pickerList = comicBookCollection.publisherNames
-            } else if segue.identifier == "ChooseSeriesSegue" {
-                listPickerKind = "Series"
-                pickerList = comicBookCollection.seriesNames(for: currentComicBook.publisherName)
-            }
-            
+        var pickerList = [String]()
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        
+        func configurePickerTable() {
             let controller = segue.destination as! PickerTableViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
@@ -90,23 +89,53 @@ class EditComicBookViewController: UITableViewController {
             if let indexPath = tableView.indexPath(for: cell) {
                 controller.selectedItemName = pickerList[indexPath.row]
             }
-        } else {
-            assert(true, "bad identifier \(currentIdentifier!)")
         }
-   }
+        
+        func configurePickerDial() {
+            let controller = segue.destination as! ChooseItemViewController
+            controller.itemList = pickerList
+            controller.pickerTitle = listPickerKind
+            
+            let selectedItem = currentComicBook?.seriesEra
+            controller.selectedItemName = selectedItem
+            
+            let row = pickerList.firstIndex(of: selectedItem!)
+            controller.selectedItemRow = row
+        }
+        
+        if segue.identifier == "ChoosePublisherSegue" {
+            listPickerKind = "Publisher"
+            pickerList = comicBookCollection.publisherNames
+            configurePickerTable()
+        } else if segue.identifier == "ChooseSeriesSegue" {
+            listPickerKind = "Series"
+            pickerList = comicBookCollection.seriesNames
+            configurePickerTable()
+        } else if segue.identifier == "ChooseEraSegue" {
+            listPickerKind = "Era"
+            pickerList = comicBookCollection.eras
+            configurePickerDial()
+        }
+        
+    }
+    
     
     /// Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerTableViewController
         
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        let _ = comicBookCollection.comicBook(from: currentIdentifier)
         
         if listPickerKind == "Publisher" {
             publisherLabel.text = controller.selectedItemName
-            currentComicBook?.comic.publisher = controller.selectedItemName
+            
+            // TODO: Update data model
+            // currentComicBook?.comic.publisher = controller.selectedItemName
         } else if listPickerKind == "Series" {
             seriesLabel.text = controller.selectedItemName
-            currentComicBook?.comic.series = controller.selectedItemName
+            
+            // TODO: Update data model
+            // currentComicBook?.comic.series = controller.selectedItemName
         }
     }
 }
@@ -180,7 +209,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         if let theImage = image {
             show(image: theImage)
         }
-
+        
         dismiss(animated: true, completion: nil)
     }
     

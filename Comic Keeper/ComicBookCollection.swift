@@ -28,6 +28,31 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    public var seriesNames: [String] {
+        let seriesNames = comicbooks.map {$0.comic.series}
+        var filteredNames = [String]()
+        seriesNames.forEach { name in
+            if !filteredNames.contains(name) {
+                filteredNames.append(name)
+            }
+        }
+        return filteredNames
+    }
+    
+    public var eras: [String] {
+        
+        var result = [String]()
+        let now = Date()
+        let calendar = Calendar.current
+        let currentYear = calendar.component(.year, from: now)
+        
+        for year in 1900...currentYear {
+            result.append("\(year)")
+        }
+        
+        return result
+    }
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!
@@ -76,6 +101,9 @@ public class ComicBookCollection {
                 filteredNumbers.append(name)
             }
         }
+        
+        filteredNumbers = filteredNumbers.sorted() {$0.localizedStandardCompare($1) == .orderedAscending}
+        
         return filteredNumbers
     }
     
