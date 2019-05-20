@@ -91,7 +91,7 @@ class EditComicBookViewController: UITableViewController {
             }
         }
         
-        func configurePickerDial() {
+        func configureEraPicker() {
             let controller = segue.destination as! ChooseItemViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
@@ -101,6 +101,19 @@ class EditComicBookViewController: UITableViewController {
             
             let row = pickerList.firstIndex(of: selectedItem!)
             controller.selectedItemRow = row
+        }
+        
+        func configureIssueNumberPicker() {
+            let controller = segue.destination as! ChooseItemViewController
+            controller.itemList = pickerList
+            controller.pickerTitle = listPickerKind
+            
+            let selectedItem = currentComicBook?.comic.issueNumber
+            controller.selectedItemName = selectedItem
+            
+            let row = pickerList.firstIndex(of: selectedItem!)
+            controller.selectedItemRow = row
+
         }
         
         if segue.identifier == "ChoosePublisherSegue" {
@@ -114,9 +127,12 @@ class EditComicBookViewController: UITableViewController {
         } else if segue.identifier == "ChooseEraSegue" {
             listPickerKind = "Era"
             pickerList = comicBookCollection.eras
-            configurePickerDial()
+            configureEraPicker()
+        } else if segue.identifier == "ChooseIssueNumber" {
+            listPickerKind = "Issue Number"
+            pickerList = comicBookCollection.allPossibleIssueNumbers
+            configureIssueNumberPicker()
         }
-        
     }
     
     

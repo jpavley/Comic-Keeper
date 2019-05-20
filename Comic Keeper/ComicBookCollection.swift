@@ -53,6 +53,16 @@ public class ComicBookCollection {
         
         return result
     }
+    
+    public var allPossibleIssueNumbers: [String] {
+        var result = [String]()
+        
+        for i in 1...9999 {
+            result.append("\(i)")
+        }
+        
+        return result
+    }
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!

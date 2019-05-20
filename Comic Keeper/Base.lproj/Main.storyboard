@@ -269,6 +269,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gE7-Jh-VJR" kind="show" identifier="ChooseIssueNumber" id="PaZ-j4-CYa"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="7VD-rb-gLQ" detailTextLabel="rp3-ks-dwW" style="IBUITableViewCellStyleValue1" id="0Gi-wI-nAM">
                                         <rect key="frame" x="0.0" y="231.5" width="320" height="44"/>
@@ -974,6 +977,7 @@
         <image name="test thumb" width="200" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PaZ-j4-CYa"/>
         <segue reference="wrT-af-ykl"/>
     </inferredMetricsTieBreakers>
 </document>
