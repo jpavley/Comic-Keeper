@@ -47,7 +47,7 @@ class EditComicBookViewController: UITableViewController {
         eraLabel.text = currentComicBook?.seriesEra
         seriesLabel.text = currentComicBook?.seriesName
         issueNumberLabel.text = currentComicBook?.comic.issueNumber
-        legacyIssueNumberLabel.text = currentComicBook?.comic.era
+        legacyIssueNumberLabel.text = currentComicBook?.comic.legacyIssueNumber
         variantLabel.text = currentComicBook?.comic.variant
         
         conditionLabel.text = currentComicBook?.book.condition
@@ -103,15 +103,13 @@ class EditComicBookViewController: UITableViewController {
             controller.selectedItemRow = row
         }
         
-        func configureIssueNumberPicker() {
+        func configureIssueNumberPicker(selectedItem: String) {
             let controller = segue.destination as! ChooseItemViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
-            
-            let selectedItem = currentComicBook?.comic.issueNumber
             controller.selectedItemName = selectedItem
             
-            let row = pickerList.firstIndex(of: selectedItem!)
+            let row = pickerList.firstIndex(of: selectedItem)
             controller.selectedItemRow = row
 
         }
@@ -131,7 +129,13 @@ class EditComicBookViewController: UITableViewController {
         } else if segue.identifier == "ChooseIssueNumber" {
             listPickerKind = "Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
-            configureIssueNumberPicker()
+            let si = currentComicBook?.comic.issueNumber
+            configureIssueNumberPicker(selectedItem: si!)
+        } else if segue.identifier == "ChooseLegacyIssueNumber" {
+            listPickerKind = "Legacy Issue Number"
+            pickerList = comicBookCollection.allPossibleIssueNumbers
+            let si = currentComicBook?.comic.legacyIssueNumber
+            configureIssueNumberPicker(selectedItem: si!)
         }
     }
     
