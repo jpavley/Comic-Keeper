@@ -79,7 +79,6 @@ class EditComicBookViewController: UITableViewController {
                 pickerList = comicBookCollection.publisherNames
             } else if segue.identifier == "ChooseSeriesSegue" {
                 listPickerKind = "Series"
-                // BUG: index out of range for series names, because a series title includes the era
                 pickerList = comicBookCollection.seriesNames(for: currentComicBook.publisherName)
             }
             
