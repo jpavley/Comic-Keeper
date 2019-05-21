@@ -114,28 +114,31 @@ class EditComicBookViewController: UITableViewController {
 
         }
         
-        if segue.identifier == "ChoosePublisherSegue" {
+        switch segue.identifier {
+        case "ChoosePublisherSegue":
             listPickerKind = "Publisher"
             pickerList = comicBookCollection.publisherNames
             configurePickerTable()
-        } else if segue.identifier == "ChooseSeriesSegue" {
+        case "ChooseSeriesSegue":
             listPickerKind = "Series"
             pickerList = comicBookCollection.seriesNames
             configurePickerTable()
-        } else if segue.identifier == "ChooseEraSegue" {
+        case "ChooseEraSegue":
             listPickerKind = "Era"
             pickerList = comicBookCollection.eras
             configureEraPicker()
-        } else if segue.identifier == "ChooseIssueNumber" {
+        case "ChooseIssueNumber":
             listPickerKind = "Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
             configureIssueNumberPicker(selectedItem: si!)
-        } else if segue.identifier == "ChooseLegacyIssueNumber" {
+        case "ChooseLegacyIssueNumber":
             listPickerKind = "Legacy Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
             configureIssueNumberPicker(selectedItem: si!)
+       default:
+            assert(true, "unsupported seque in EditComicBookViewController")
         }
     }
     
