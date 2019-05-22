@@ -1,5 +1,5 @@
 //
-//  ChooseItemViewController.swift
+//  PickerDialViewController.swift
 //  Comic Keeper
 //
 //  Created by John Pavley on 5/19/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseItemViewController: UIViewController  {
+class PickerDialViewController: UIViewController  {
     
     @IBOutlet weak var currentItemLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
@@ -45,7 +45,7 @@ class ChooseItemViewController: UIViewController  {
     */
 }
 
-extension ChooseItemViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension PickerDialViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

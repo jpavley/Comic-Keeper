@@ -88,7 +88,7 @@ class EditComicBookViewController: UITableViewController {
         }
         
         func configureIssuePickerDial(selectedItem: String) {
-            let controller = segue.destination as! ChooseItemViewController
+            let controller = segue.destination as! PickerDialViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
             controller.selectedItemName = selectedItem
