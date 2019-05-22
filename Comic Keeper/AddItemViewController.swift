@@ -13,6 +13,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newItemTextField: UITextField!
     
     var viewTitle = "Add Item"
+    var currentItem = ""
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()
@@ -28,6 +29,11 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         // show the keyboard by default
         newItemTextField.becomeFirstResponder()
         newItemTextField.delegate = self
+        
+        if !currentItem.isEmpty {
+            newItemTextField.placeholder = ""
+            newItemTextField.text = currentItem
+        }
         
         title = viewTitle
         navigationItem.setHidesBackButton(true, animated: true)

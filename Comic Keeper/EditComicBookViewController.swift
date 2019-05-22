@@ -108,6 +108,13 @@ class EditComicBookViewController: UITableViewController {
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
             configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!)
+        case "EditVariantSignifierSegue":
+            let controller = segue.destination as! AddItemViewController
+            let i = currentComicBook?.comic.issueNumber
+            controller.viewTitle = "#\(i!) Variant Info"
+            if let v = currentComicBook?.comic.variant {
+                controller.currentItem = v
+            }
        default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
