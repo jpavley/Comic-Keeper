@@ -79,7 +79,6 @@ class EditComicBookViewController: UITableViewController {
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
-        
         func configurePicker(kind: String, pickerList: [String], selectedItem: String) {
             listPickerKind = kind
             let picker = segue.destination as! StandardPicker
@@ -90,11 +89,11 @@ class EditComicBookViewController: UITableViewController {
         
         switch segue.identifier {
         case "ChoosePublisherSegue":
-            let pl = comicBookCollection.publisherNames
+            let pl = comicBookCollection.publisherNames.sorted()
             let si = currentComicBook?.comic.publisher
             configurePicker(kind: "Publisher", pickerList: pl, selectedItem: si!)
         case "ChooseSeriesSegue":
-            let pl = comicBookCollection.seriesNames
+            let pl = comicBookCollection.seriesNames.sorted()
             let si = currentComicBook?.comic.series
             configurePicker(kind: "Series", pickerList: pl, selectedItem: si!)
         case "ChooseEraSegue":
