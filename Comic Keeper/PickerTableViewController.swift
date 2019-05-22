@@ -17,15 +17,6 @@ class PickerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         
-        func setSelectedItemIndex() {
-            for i in 0..<itemList.count {
-                if itemList[i] == selectedItemName {
-                    selectedItemIndex = IndexPath(row: i, section: 0)
-                    break
-                }
-            }
-        }
-
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -35,7 +26,9 @@ class PickerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
         title = pickerTitle
-        setSelectedItemIndex()
+        let selectedItemRow = itemList.firstIndex(of: selectedItemName)
+        selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
+
     }
         
     // MARK: - Table view data source
