@@ -94,6 +94,11 @@ class EditComicBookViewController: UITableViewController {
             controller.selectedItemName = selectedItem
         }
         
+        func configurePicker(selectedItem: String, controller: UIViewController) {
+            // TODO: Create PickerProtocol that implements selectedItemName, itemList,
+            //       and selectedItemName
+        }
+        
         switch segue.identifier {
         case "ChoosePublisherSegue":
             listPickerKind = "Publisher"
