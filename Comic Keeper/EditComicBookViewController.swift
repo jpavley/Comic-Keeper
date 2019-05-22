@@ -80,23 +80,10 @@ class EditComicBookViewController: UITableViewController {
         var pickerList = [String]()
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
-        func configurePickerTable(selectedItem: String) {
-            let controller = segue.destination as! PickerTableViewController
-            controller.itemList = pickerList
-            controller.pickerTitle = listPickerKind
-            controller.selectedItemName = selectedItem
-        }
-        
-        func configureIssuePickerDial(selectedItem: String) {
-            let controller = segue.destination as! PickerDialViewController
-            controller.itemList = pickerList
-            controller.pickerTitle = listPickerKind
-            controller.selectedItemName = selectedItem
-        }
-        
-        func configurePicker(selectedItem: String, controller: UIViewController) {
-            // TODO: Create PickerProtocol that implements selectedItemName, itemList,
-            //       and selectedItemName
+        func configurePicker(selectedItem: String, picker: StandardPicker) {
+            picker.itemList = pickerList
+            picker.pickerTitle = listPickerKind
+            picker.selectedItemName = selectedItem
         }
         
         switch segue.identifier {
@@ -104,27 +91,32 @@ class EditComicBookViewController: UITableViewController {
             listPickerKind = "Publisher"
             pickerList = comicBookCollection.publisherNames
             let si = currentComicBook?.comic.publisher
-            configurePickerTable(selectedItem: si!)
+            let controller = segue.destination as! StandardPicker
+            configurePicker(selectedItem: si!, picker: controller)
         case "ChooseSeriesSegue":
             listPickerKind = "Series"
             pickerList = comicBookCollection.seriesNames
             let si = currentComicBook?.comic.series
-            configurePickerTable(selectedItem: si!)
+            let controller = segue.destination as! StandardPicker
+            configurePicker(selectedItem: si!, picker: controller)
         case "ChooseEraSegue":
             listPickerKind = "Era"
             pickerList = comicBookCollection.eras
             let si = currentComicBook?.seriesEra
-            configureIssuePickerDial(selectedItem: si!)
+            let controller = segue.destination as! StandardPicker
+            configurePicker(selectedItem: si!, picker: controller)
         case "ChooseIssueNumber":
             listPickerKind = "Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
-            configureIssuePickerDial(selectedItem: si!)
+            let controller = segue.destination as! StandardPicker
+            configurePicker(selectedItem: si!, picker: controller)
         case "ChooseLegacyIssueNumber":
             listPickerKind = "Legacy Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configureIssuePickerDial(selectedItem: si!)
+            let controller = segue.destination as! StandardPicker
+            configurePicker(selectedItem: si!, picker: controller)
        default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
