@@ -133,7 +133,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     }
     
     /// Unwind/exit segue from list picker to edit comic book view controller.
-    @IBAction func itemAddDidAddItem(_ segue: UIStoryboardSegue) {
+    @IBAction func addItemDidAddItem(_ segue: UIStoryboardSegue) {
         
         // get the add item view controller
         let controller = segue.source as! AddItemViewController
