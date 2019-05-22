@@ -646,6 +646,7 @@
                     <connections>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="addItemDidAddItem:" id="HX9-VJ-JyV"/>
+                        <segue destination="GzX-Gx-owm" kind="unwind" identifier="EditedItem" unwindAction="addItemDidEditItem:" id="HLg-Db-6g2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wp-OU-C6H" userLabel="First Responder" sceneMemberID="firstResponder"/>

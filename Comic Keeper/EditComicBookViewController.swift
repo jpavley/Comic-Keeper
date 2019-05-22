@@ -35,6 +35,19 @@ class EditComicBookViewController: UITableViewController {
     let photoSection = 1
     let photoRow = 0
     
+    // Unwind/exit segue from AddItemViewController
+    @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! AddItemViewController
+        
+        guard let newVariantText = controller.newItemTextField.text else {
+            return
+        }
+        
+        if controller.viewTitle.contains("Variant") {
+            variantLabel.text = newVariantText
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))

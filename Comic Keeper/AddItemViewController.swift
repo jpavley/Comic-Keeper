@@ -17,9 +17,8 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()
-        performSegue(withIdentifier: "AddedItem", sender: self)
+        chooseSegueToPerform()
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +36,27 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         
         title = viewTitle
         navigationItem.setHidesBackButton(true, animated: true)
+        
+        if viewTitle.contains("Variant") {
+            newItemTextField.autocapitalizationType = .none
+        } else {
+            newItemTextField.autocapitalizationType = .words
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newItemTextField.resignFirstResponder()
-        performSegue(withIdentifier: "AddedItem", sender: self)
+        chooseSegueToPerform()
         return true
     }
     
+    func chooseSegueToPerform() {
+        if viewTitle.contains("Variant") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
+        } else {
+            performSegue(withIdentifier: "AddedItem", sender: self)
+        }
+    }
 
     
     // MARK: - Navigation
