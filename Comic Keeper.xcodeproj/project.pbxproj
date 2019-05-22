@@ -30,6 +30,7 @@
 		B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */; };
+		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
 		B8EE177F2287226E006F5B0D /* VariantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EE177E2287226E006F5B0D /* VariantsTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 		B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
 		B8EE177E2287226E006F5B0D /* VariantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,9 +106,9 @@
 		B8106A582280F65B00D0A2C2 /* Comic Keeper */ = {
 			isa = PBXGroup;
 			children = (
-				B8106A672280F65C00D0A2C2 /* Info.plist */,
 				B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
+				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
@@ -114,16 +116,17 @@
 				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
+				B8106A672280F65C00D0A2C2 /* Info.plist */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
+				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
+				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
 				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A6F2281A84A00D0A2C2 /* SeriesTableViewController+Helpers.swift */,
+				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
 				B8EE177E2287226E006F5B0D /* VariantsTableViewController.swift */,
-				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
-				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
-				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B8106A762282407100D0A2C2 /* Book.swift in Sources */,
 				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
 				B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */,
+				B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickerTableViewController: UITableViewController {
+class PickerTableViewController: UITableViewController, StandardPicker {
     
     var itemList: [String]!
     var selectedItemIndex = IndexPath()

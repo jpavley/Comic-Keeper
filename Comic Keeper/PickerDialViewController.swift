@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickerDialViewController: UIViewController  {
+class PickerDialViewController: UIViewController, StandardPicker  {
     
     @IBOutlet weak var currentItemLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
