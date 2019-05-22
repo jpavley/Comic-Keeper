@@ -92,9 +92,6 @@ class EditComicBookViewController: UITableViewController {
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
             controller.selectedItemName = selectedItem
-            
-            let row = pickerList.firstIndex(of: selectedItem)
-            controller.selectedItemRow = row
         }
         
         switch segue.identifier {

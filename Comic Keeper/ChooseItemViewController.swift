@@ -14,7 +14,6 @@ class ChooseItemViewController: UIViewController  {
     @IBOutlet weak var itemPicker: UIPickerView!
     
     var itemList: [String]!
-    var selectedItemRow: Int!
     var selectedItemName: String!
     var pickerTitle: String!
     
@@ -30,7 +29,9 @@ class ChooseItemViewController: UIViewController  {
         // Do any additional setup after loading the view.
         title = pickerTitle
         currentItemLabel.text = "Original Value: \(selectedItemName!)"
-        itemPicker.selectRow(selectedItemRow, inComponent: 0, animated: true)
+        
+        let selectedItemRow = itemList.firstIndex(of: selectedItemName)
+        itemPicker.selectRow(selectedItemRow!, inComponent: 0, animated: true)
     }
 
     /*
