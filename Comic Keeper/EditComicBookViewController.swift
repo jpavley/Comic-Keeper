@@ -80,30 +80,14 @@ class EditComicBookViewController: UITableViewController {
         var pickerList = [String]()
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
-        func configurePickerTable() {
+        func configurePickerTable(selectedItem: String) {
             let controller = segue.destination as! PickerTableViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
-            
-            let cell = sender as! UITableViewCell
-            if let indexPath = tableView.indexPath(for: cell) {
-                controller.selectedItemName = pickerList[indexPath.row]
-            }
-        }
-        
-        func configureEraPicker() {
-            let controller = segue.destination as! ChooseItemViewController
-            controller.itemList = pickerList
-            controller.pickerTitle = listPickerKind
-            
-            let selectedItem = currentComicBook?.seriesEra
             controller.selectedItemName = selectedItem
-            
-            let row = pickerList.firstIndex(of: selectedItem!)
-            controller.selectedItemRow = row
         }
         
-        func configureIssueNumberPicker(selectedItem: String) {
+        func configureIssuePickerDial(selectedItem: String) {
             let controller = segue.destination as! ChooseItemViewController
             controller.itemList = pickerList
             controller.pickerTitle = listPickerKind
@@ -111,32 +95,34 @@ class EditComicBookViewController: UITableViewController {
             
             let row = pickerList.firstIndex(of: selectedItem)
             controller.selectedItemRow = row
-
         }
         
         switch segue.identifier {
         case "ChoosePublisherSegue":
             listPickerKind = "Publisher"
             pickerList = comicBookCollection.publisherNames
-            configurePickerTable()
+            let si = currentComicBook?.comic.publisher
+            configurePickerTable(selectedItem: si!)
         case "ChooseSeriesSegue":
             listPickerKind = "Series"
             pickerList = comicBookCollection.seriesNames
-            configurePickerTable()
+            let si = currentComicBook?.comic.series
+            configurePickerTable(selectedItem: si!)
         case "ChooseEraSegue":
             listPickerKind = "Era"
             pickerList = comicBookCollection.eras
-            configureEraPicker()
+            let si = currentComicBook?.seriesEra
+            configureIssuePickerDial(selectedItem: si!)
         case "ChooseIssueNumber":
             listPickerKind = "Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
-            configureIssueNumberPicker(selectedItem: si!)
+            configureIssuePickerDial(selectedItem: si!)
         case "ChooseLegacyIssueNumber":
             listPickerKind = "Legacy Issue Number"
             pickerList = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configureIssueNumberPicker(selectedItem: si!)
+            configureIssuePickerDial(selectedItem: si!)
        default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
