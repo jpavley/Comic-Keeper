@@ -128,7 +128,11 @@ class EditComicBookViewController: UITableViewController {
             if let v = currentComicBook?.comic.variant {
                 controller.currentItem = v
             }
-       default:
+        case "ChooseConditionSegue":
+            let pl = comicBookCollection.allPossibileConditions
+            let si = currentComicBook?.book.condition
+            configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!)
+        default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
     }
@@ -152,6 +156,8 @@ class EditComicBookViewController: UITableViewController {
             
             // TODO: Update data model
             // currentComicBook?.comic.series = controller.selectedItemName
+        } else if listPickerKind == "Condition" {
+            conditionLabel.text = controller.selectedItemName
         }
     }
     

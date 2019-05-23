@@ -325,6 +325,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="DeC-I5-iAl" kind="show" identifier="ChooseConditionSegue" id="EJW-N4-UEM"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="e1T-tI-ICs" detailTextLabel="LGJ-1I-wAm" style="IBUITableViewCellStyleValue1" id="XI5-l5-Wjf">
                                         <rect key="frame" x="0.0" y="742.5" width="320" height="44"/>
@@ -924,6 +927,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Sla-8j-kx6"/>
         <segue reference="PaZ-j4-CYa"/>
-        <segue reference="CJG-qb-gvF"/>
+        <segue reference="EJW-N4-UEM"/>
     </inferredMetricsTieBreakers>
 </document>

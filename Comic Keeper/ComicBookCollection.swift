@@ -63,6 +63,10 @@ public class ComicBookCollection {
         
         return result
     }
+    
+    public var allPossibileConditions: [String] {
+        return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
+    }
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!

@@ -2,7 +2,7 @@
 
 ## Navigation Hierarchy
 
-Series -> Issues -> Variants ->  Edit Variant -> Picker(s)
+Series -> Issues ->  Edit ComicBook -> Picker(s)
 
 ### Series Table View
 
@@ -11,10 +11,6 @@ Series -> Issues -> Variants ->  Edit Variant -> Picker(s)
 ### Issues Table View
 
 - List of issues belonging to a particular series
-
-### Variants Table View
-
-- List of variants belonging to a particular issue
 
 ### Edit Variant View
 
