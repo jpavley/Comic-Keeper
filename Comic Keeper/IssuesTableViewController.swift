@@ -13,96 +13,123 @@ class IssuesTableViewController: UITableViewController {
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!
     var currentSeriesTitle: String!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        title = currentPublisherName
+        title = currentSeriesTitle
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
+                                                       publisherName: currentPublisherName)
         return issues.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
+                                                       publisherName: currentPublisherName)
+        let currentIssueNumber = issues[section]
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
+                                                             seriesTitle: currentSeriesTitle,
+                                                             publisherName: currentPublisherName)
+        return variants.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
+                                                       publisherName: currentPublisherName)
+        return "Issue #\(issues[section])"
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // get data for the cell
+        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
+                                                       publisherName: currentPublisherName)
+        let currentIssueNumber = issues[indexPath.section]
+        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
+                                                             seriesTitle: currentSeriesTitle,
+                                                             publisherName: currentPublisherName)
+        let currentVariant = variants[indexPath.row]
+        let currentIssue = issues[indexPath.section]
+        
+        // update the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "IssuesCell", for: indexPath)
-
-        // Configure the cell...
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
-        cell.textLabel?.text = currentSeriesTitle
-        cell.detailTextLabel?.text = "#\(issues[indexPath.row])"
-
+        cell.textLabel?.text = "#\(currentIssue) variant \(currentVariant)"
         return cell
     }
     
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "IssuesSegue" {
-            let destination = segue.destination as! VariantsTableViewController
+        if segue.identifier == "EditComicBookSegue" {
+            
+            let destination = segue.destination as! EditComicBookViewController
             destination.comicBookCollection = comicBookCollection
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                destination.currentPublisherName = currentPublisherName
-                destination.currentSeriesTitle = currentSeriesTitle
+                
                 let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
-                destination.currentIssueNumber = issues[selectedIndexPath.row]
+                let currentIssueNumber = issues[selectedIndexPath.section]
+
+                
+                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
+                let variant = variants[selectedIndexPath.row]
+                
+                destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesTitle!) \(currentIssueNumber)\(variant)"
             }
+        } else {
+            print(segue.identifier!)
         }
     }
 }
