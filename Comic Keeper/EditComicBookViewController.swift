@@ -35,21 +35,6 @@ class EditComicBookViewController: UITableViewController {
     let photoSection = 1
     let photoRow = 0
     
-    // Unwind/exit segue from AddItemViewController
-    @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
-        let controller = segue.source as! AddItemViewController
-        
-        guard let newText = controller.newItemTextField.text else {
-            return
-        }
-        
-        if controller.viewTitle.contains("Variant") {
-            variantLabel.text = newText
-        } else if controller.viewTitle.contains("Purchase") {
-            purchasePriceLabel.text = newText
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -146,8 +131,27 @@ class EditComicBookViewController: UITableViewController {
         }
     }
     
+    // MARK:- Unwind/Exit Segues
     
-    /// Unwind/exit segue from list picker to edit comic book view controller.
+    // TODO: Update data if changed
+    // TODO: Detect navigtaion breaking change and prevent it from crashing app. If the currentComicBook can't be found because the publisher, series, issue number, or variant info changed, then alert user and pop back to the SeriesTableViewController.
+    
+    // Unwind/exit segue from AddItemViewController
+    @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! AddItemViewController
+        
+        guard let newText = controller.newItemTextField.text else {
+            return
+        }
+        
+        if controller.viewTitle.contains("Variant") {
+            variantLabel.text = newText
+        } else if controller.viewTitle.contains("Purchase") {
+            purchasePriceLabel.text = newText
+        }
+    }
+    
+    // Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
         // TODO: Back button on AddItemViewController doesn't trigger listPickerDidPickItem when an item is added
@@ -157,19 +161,14 @@ class EditComicBookViewController: UITableViewController {
         
         if listPickerKind == "Publisher" {
             publisherLabel.text = controller.selectedItemName
-            
-            // TODO: Update data model
-            // currentComicBook?.comic.publisher = controller.selectedItemName
         } else if listPickerKind == "Series" {
             seriesLabel.text = controller.selectedItemName
-            
-            // TODO: Update data model
-            // currentComicBook?.comic.series = controller.selectedItemName
         } else if listPickerKind == "Condition" {
             conditionLabel.text = controller.selectedItemName
         }
     }
     
+    // Unwind/exit segue from dial picker to edit comic book view controller.
     @IBAction func dialPickerDidPickItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerDialViewController
         
