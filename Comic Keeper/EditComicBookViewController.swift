@@ -125,8 +125,8 @@ class EditComicBookViewController: UITableViewController {
             configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!)
         case "EditVariantSignifierSegue":
             let controller = segue.destination as! AddItemViewController
-            let i = currentComicBook?.comic.issueNumber
-            controller.viewTitle = "#\(i!) Variant Info"
+            controller.viewTitle = "Variant Info"
+            controller.hintText = currentComicBook!.identifier
             if let v = currentComicBook?.comic.variant {
                 controller.currentItem = v
             }
@@ -136,8 +136,8 @@ class EditComicBookViewController: UITableViewController {
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!)
         case "EditPurchasePriceSegue":
             let controller = segue.destination as! AddItemViewController
-            let i = currentComicBook?.comic.issueNumber
-            controller.viewTitle = "#\(i!) Purchase Price"
+            controller.viewTitle = "Purchase Price"
+            controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.purchasePriceText {
                 controller.currentItem = price
             }

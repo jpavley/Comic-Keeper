@@ -10,10 +10,12 @@ import UIKit
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var newItemTextField: UITextField!
     
     var viewTitle = "Add Item"
     var currentItem = ""
+    var hintText = ""
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()
@@ -27,6 +29,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
 
         // show the keyboard by default
         title = viewTitle
+        hintLabel.text = hintText
         navigationItem.setHidesBackButton(true, animated: true)
         configureNewItemTextField()
     }

@@ -514,13 +514,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Item: 1950" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-SC-dh5">
-                                <rect key="frame" x="8" y="99" width="304" height="21"/>
+                                <rect key="frame" x="8" y="100" width="304" height="21"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="128" width="320" height="383"/>
+                                <rect key="frame" x="0.0" y="137" width="320" height="374"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
@@ -530,12 +530,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" id="3RI-7b-Ujd"/>
-                            <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="8" id="4bN-bs-IgC"/>
+                            <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="16" id="4bN-bs-IgC"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="HMa-jV-SE6"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="trailing" secondItem="zsD-Jz-9PY" secondAttribute="trailing" id="Xe2-cB-eIc"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="bottom" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="XqW-rU-J3P"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="b2p-HG-ezS"/>
-                            <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="35" id="hDX-4U-42o"/>
+                            <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="36" id="hDX-4U-42o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsD-Jz-9PY"/>
                     </view>
@@ -565,8 +565,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFE-4c-iWd">
+                                <rect key="frame" x="16" y="100" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
-                                <rect key="frame" x="16" y="99" width="288" height="30"/>
+                                <rect key="frame" x="16" y="137" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -574,7 +580,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ul6-an-xs1" firstAttribute="top" secondItem="1lc-nz-jOh" secondAttribute="top" constant="35" id="PWn-95-jrv"/>
+                            <constraint firstItem="ul6-an-xs1" firstAttribute="top" secondItem="MFE-4c-iWd" secondAttribute="bottom" constant="16" id="3W4-Q1-YWh"/>
+                            <constraint firstItem="1lc-nz-jOh" firstAttribute="trailing" secondItem="MFE-4c-iWd" secondAttribute="trailing" constant="16" id="5rY-9z-66B"/>
+                            <constraint firstItem="MFE-4c-iWd" firstAttribute="leading" secondItem="1lc-nz-jOh" secondAttribute="leading" constant="16" id="9rK-EC-KIc"/>
+                            <constraint firstItem="MFE-4c-iWd" firstAttribute="top" secondItem="1lc-nz-jOh" secondAttribute="top" constant="36" id="QKa-Aq-xly"/>
                             <constraint firstItem="ul6-an-xs1" firstAttribute="leading" secondItem="1lc-nz-jOh" secondAttribute="leading" constant="16" id="R2o-8I-lup"/>
                             <constraint firstItem="1lc-nz-jOh" firstAttribute="trailing" secondItem="ul6-an-xs1" secondAttribute="trailing" constant="16" id="kHL-Zy-5Rt"/>
                         </constraints>
@@ -588,6 +597,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="hintLabel" destination="MFE-4c-iWd" id="FSo-Fn-9c3"/>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="addItemDidAddItem:" id="HX9-VJ-JyV"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="EditedItem" unwindAction="addItemDidEditItem:" id="HLg-Db-6g2"/>
@@ -596,7 +606,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wp-OU-C6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GzX-Gx-owm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6204" y="-370"/>
+            <point key="canvasLocation" x="6202.5" y="-370.77464788732397"/>
         </scene>
         <!--Capture-->
         <scene sceneID="wg7-f3-ORb">
