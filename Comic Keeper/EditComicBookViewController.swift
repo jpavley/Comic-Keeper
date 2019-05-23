@@ -152,6 +152,18 @@ class EditComicBookViewController: UITableViewController {
             // currentComicBook?.comic.series = controller.selectedItemName
         }
     }
+    
+    @IBAction func dialPickerDidPickItem(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! PickerDialViewController
+        
+        if listPickerKind == "Era" {
+            eraLabel.text = controller.selectedItemName
+        } else if listPickerKind == "Issue Number" {
+            issueNumberLabel.text = controller.selectedItemName
+        } else if listPickerKind == "Legacy Issue Number" {
+            legacyIssueNumberLabel.text = controller.selectedItemName
+        }
+    }
 }
 
 extension EditComicBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

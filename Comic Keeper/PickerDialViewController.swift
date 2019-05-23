@@ -17,10 +17,8 @@ class PickerDialViewController: UIViewController, StandardPicker  {
     var selectedItemName: String!
     var pickerTitle: String!
     
-    @IBAction func addItemButton(_ sender: Any) {
-    }
-    
     @IBAction func doneButton(_ sender: Any) {
+        performSegue(withIdentifier: "ChooseItemSegue", sender: self)
     }
     
     override func viewDidLoad() {
@@ -32,6 +30,8 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
         itemPicker.selectRow(selectedItemRow!, inComponent: 0, animated: true)
+        
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 
     /*
@@ -57,5 +57,9 @@ extension PickerDialViewController: UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return itemList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedItemName = itemList[row]
     }
 }

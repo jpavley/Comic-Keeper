@@ -542,19 +542,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsD-Jz-9PY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HCN-ms-nhn">
-                            <connections>
-                                <action selector="addItemButton:" destination="gE7-Jh-VJR" id="jbp-B8-5Kf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca"/>
                     <connections>
                         <outlet property="currentItemLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
+                        <segue destination="cNt-4U-qHV" kind="unwind" identifier="ChooseItemSegue" unwindAction="dialPickerDidPickItem:" id="yPK-gK-Na8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncP-Xb-zGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cNt-4U-qHV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5374" y="44"/>
         </scene>
@@ -929,8 +925,8 @@
         <image name="test thumb" width="200" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sQE-aZ-6K4"/>
-        <segue reference="vWG-XK-eMz"/>
+        <segue reference="Sla-8j-kx6"/>
+        <segue reference="PaZ-j4-CYa"/>
         <segue reference="CJG-qb-gvF"/>
     </inferredMetricsTieBreakers>
 </document>
