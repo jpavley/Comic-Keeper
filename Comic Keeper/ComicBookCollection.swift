@@ -64,7 +64,7 @@ public class ComicBookCollection {
         return result
     }
     
-    public var allPossibileConditions: [String] {
+    public var allPossibleConditions: [String] {
         return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
     }
         

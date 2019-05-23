@@ -131,7 +131,7 @@ class EditComicBookViewController: UITableViewController {
                 controller.currentItem = v
             }
         case "ChooseConditionSegue":
-            let pl = comicBookCollection.allPossibileConditions
+            let pl = comicBookCollection.allPossibleConditions
             let si = currentComicBook?.book.condition
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!)
         case "EditPurchasePriceSegue":
