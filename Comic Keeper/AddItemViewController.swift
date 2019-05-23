@@ -26,22 +26,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
 
         // show the keyboard by default
-        newItemTextField.becomeFirstResponder()
-        newItemTextField.delegate = self
-        
-        if !currentItem.isEmpty {
-            newItemTextField.placeholder = ""
-            newItemTextField.text = currentItem
-        }
-        
         title = viewTitle
         navigationItem.setHidesBackButton(true, animated: true)
-        
-        if viewTitle.contains("Variant") {
-            newItemTextField.autocapitalizationType = .none
-        } else {
-            newItemTextField.autocapitalizationType = .words
-        }
+        configureNewItemTextField()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -50,14 +37,45 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func chooseSegueToPerform() {
+    // MARK: - Helpers
+    
+    func configureNewItemTextField() {
+        
+        newItemTextField.becomeFirstResponder()
+        newItemTextField.delegate = self
+        
         if viewTitle.contains("Variant") {
+            newItemTextField.autocapitalizationType = .none
+            newItemTextField.keyboardType = .default
+            newItemTextField.placeholder = ""
+            newItemTextField.text = currentItem
+        } else if viewTitle.contains("Purchase") {
+            newItemTextField.autocapitalizationType = .none
+            newItemTextField.keyboardType = .decimalPad
+            
+            if currentItem.contains("none") {
+                newItemTextField.placeholder = "Enter purchase amount"
+            } else {
+                newItemTextField.placeholder = ""
+                newItemTextField.text = currentItem
+            }
+        } else {
+            newItemTextField.autocapitalizationType = .words
+            newItemTextField.keyboardType = .default
+            newItemTextField.placeholder = "Enter name"
+        }
+    }
+    
+    func chooseSegueToPerform() {
+        
+        if viewTitle.contains("Variant") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
+        } else if  viewTitle.contains("Purchase") {
             performSegue(withIdentifier: "EditedItem", sender: self)
         } else {
             performSegue(withIdentifier: "AddedItem", sender: self)
         }
     }
-
     
     // MARK: - Navigation
 

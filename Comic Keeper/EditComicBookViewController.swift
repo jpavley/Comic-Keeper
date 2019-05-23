@@ -39,12 +39,14 @@ class EditComicBookViewController: UITableViewController {
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! AddItemViewController
         
-        guard let newVariantText = controller.newItemTextField.text else {
+        guard let newText = controller.newItemTextField.text else {
             return
         }
         
         if controller.viewTitle.contains("Variant") {
-            variantLabel.text = newVariantText
+            variantLabel.text = newText
+        } else if controller.viewTitle.contains("Purchase") {
+            purchasePriceLabel.text = newText
         }
     }
     
@@ -132,6 +134,13 @@ class EditComicBookViewController: UITableViewController {
             let pl = comicBookCollection.allPossibileConditions
             let si = currentComicBook?.book.condition
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!)
+        case "EditPurchasePriceSegue":
+            let controller = segue.destination as! AddItemViewController
+            let i = currentComicBook?.comic.issueNumber
+            controller.viewTitle = "#\(i!) Purchase Price"
+            if let price = currentComicBook?.book.purchasePriceText {
+                controller.currentItem = price
+            }
         default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
