@@ -520,7 +520,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="137" width="320" height="374"/>
+                                <rect key="frame" x="0.0" y="137" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
@@ -533,7 +533,6 @@
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="16" id="4bN-bs-IgC"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="HMa-jV-SE6"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="trailing" secondItem="zsD-Jz-9PY" secondAttribute="trailing" id="Xe2-cB-eIc"/>
-                            <constraint firstItem="zsD-Jz-9PY" firstAttribute="bottom" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="XqW-rU-J3P"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="b2p-HG-ezS"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="36" id="hDX-4U-42o"/>
                         </constraints>
