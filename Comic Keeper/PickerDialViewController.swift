@@ -10,12 +10,13 @@ import UIKit
 
 class PickerDialViewController: UIViewController, StandardPicker  {
     
-    @IBOutlet weak var currentItemLabel: UILabel!
+    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
     
     var itemList: [String]!
     var selectedItemName: String!
     var pickerTitle: String!
+    var hintText: String!
     
     @IBAction func doneButton(_ sender: Any) {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
@@ -26,7 +27,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
 
         // Do any additional setup after loading the view.
         title = pickerTitle
-        currentItemLabel.text = "Original Value: \(selectedItemName!)"
+        hintLabel.text = hintText
         
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
         itemPicker.selectRow(selectedItemRow!, inComponent: 0, animated: true)

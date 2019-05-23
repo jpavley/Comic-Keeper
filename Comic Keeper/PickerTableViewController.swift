@@ -14,6 +14,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     var selectedItemIndex = IndexPath()
     var selectedItemName: String!
     var pickerTitle: String!
+    var hintText: String!
 
     override func viewDidLoad() {
         

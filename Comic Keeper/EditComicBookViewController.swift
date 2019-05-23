@@ -85,6 +85,7 @@ class EditComicBookViewController: UITableViewController {
             picker.itemList = pickerList
             picker.pickerTitle = listPickerKind
             picker.selectedItemName = selectedItem
+            picker.hintText = currentComicBook!.identifier
         }
         
         switch segue.identifier {

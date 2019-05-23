@@ -12,4 +12,5 @@ protocol StandardPicker: class {
     var itemList: [String]! { get set }
     var selectedItemName: String! { get set }
     var pickerTitle: String! { get set }
+    var hintText: String! { get set }
 }

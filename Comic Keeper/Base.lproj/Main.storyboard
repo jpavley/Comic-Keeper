@@ -547,7 +547,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="currentItemLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
+                        <outlet property="hintLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
                         <segue destination="cNt-4U-qHV" kind="unwind" identifier="ChooseItemSegue" unwindAction="dialPickerDidPickItem:" id="yPK-gK-Na8"/>
                     </connections>
