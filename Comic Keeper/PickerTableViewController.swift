@@ -158,13 +158,12 @@ class PickerTableViewController: UITableViewController, StandardPicker {
                 
                 // check mark management
                 
-                if let oldCell = tableView.cellForRow(
-                    at: selectedItemIndex) {
+                if let oldCell = tableView.cellForRow(at: selectedItemIndex) {
                     oldCell.accessoryType = .none
                 }
                 
                 if let newRow = itemList.firstIndex(of: selectedItemName) {
-                    selectedItemIndex = IndexPath(row: newRow, section: 1)
+                    selectedItemIndex = IndexPath(row: newRow, section: 0)
                     
                     if let newCell = tableView.cellForRow(at: selectedItemIndex) {
                         newCell.accessoryType = .checkmark

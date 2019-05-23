@@ -136,8 +136,10 @@ class EditComicBookViewController: UITableViewController {
     
     /// Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
-        let controller = segue.source as! PickerTableViewController
         
+        // TODO: Back button on AddItemViewController doesn't trigger listPickerDidPickItem when an item is added
+        
+        let controller = segue.source as! PickerTableViewController
         let _ = comicBookCollection.comicBook(from: currentIdentifier)
         
         if listPickerKind == "Publisher" {
