@@ -520,29 +520,25 @@
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niM-YI-TvW">
-                                <rect key="frame" x="142" y="352" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="doneButton:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="nq2-xq-63F"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" id="3RI-7b-Ujd"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="8" id="4bN-bs-IgC"/>
-                            <constraint firstItem="niM-YI-TvW" firstAttribute="top" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="FD1-k7-Mmn"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="HMa-jV-SE6"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="trailing" secondItem="zsD-Jz-9PY" secondAttribute="trailing" id="Xe2-cB-eIc"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="b2p-HG-ezS"/>
-                            <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="niM-YI-TvW" secondAttribute="trailing" constant="141" id="ekb-TC-hgj"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="35" id="hDX-4U-42o"/>
-                            <constraint firstItem="niM-YI-TvW" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="142" id="oaT-ls-BgU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsD-Jz-9PY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca"/>
+                    <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ple-mz-cte">
+                            <connections>
+                                <action selector="doneButton:" destination="gE7-Jh-VJR" id="1jQ-o9-lSR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentItemLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
