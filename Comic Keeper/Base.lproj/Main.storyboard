@@ -379,6 +379,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9C6-6i-qZ2" kind="show" identifier="EditDateSegue" id="OPf-sK-ccW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="s6Z-Ux-EBu" detailTextLabel="6uW-VU-kcw" style="IBUITableViewCellStyleValue1" id="cqU-Im-cQ9">
                                         <rect key="frame" x="0.0" y="830.5" width="320" height="44"/>
@@ -555,6 +558,46 @@
                 <exit id="cNt-4U-qHV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5374" y="117"/>
+        </scene>
+        <!--Date Picker-->
+        <scene sceneID="rth-vg-vnZ">
+            <objects>
+                <viewController id="9C6-6i-qZ2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rr6-9T-KfV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5i-Sy-af1">
+                                <rect key="frame" x="16" y="100" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
+                                <rect key="frame" x="0.0" y="137" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="580414492.79634404">
+                                    <!--2019-05-24 18:14:52 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="N5i-Sy-af1" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" constant="16" id="80w-Ps-ith"/>
+                            <constraint firstItem="k5a-tG-FBA" firstAttribute="top" secondItem="N5i-Sy-af1" secondAttribute="bottom" constant="16" id="Mdw-ro-g5X"/>
+                            <constraint firstItem="rtF-tm-bKx" firstAttribute="trailing" secondItem="N5i-Sy-af1" secondAttribute="trailing" constant="16" id="Yf2-mM-1TA"/>
+                            <constraint firstItem="k5a-tG-FBA" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" id="Yx6-hY-nOd"/>
+                            <constraint firstItem="N5i-Sy-af1" firstAttribute="top" secondItem="rtF-tm-bKx" secondAttribute="top" constant="36" id="s2i-kU-7Hs"/>
+                            <constraint firstItem="k5a-tG-FBA" firstAttribute="trailing" secondItem="rtF-tm-bKx" secondAttribute="trailing" id="srI-Bx-77O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rtF-tm-bKx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Date Picker" id="df2-ip-S9a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="YTG-TY-PbH"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdC-Ju-6On" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5373.75" y="947.53521126760563"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="JgT-UW-1hv">
