@@ -406,6 +406,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Lbx-p7-yJ5" kind="show" identifier="EditSalesPriceSegue" id="9Qk-Vt-ARA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="iyh-X3-T5J" detailTextLabel="caY-7s-Hl5" style="IBUITableViewCellStyleValue1" id="EGS-HF-k46">
                                         <rect key="frame" x="0.0" y="874.5" width="320" height="44"/>
@@ -993,7 +996,7 @@
         <image name="test thumb" width="200" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n8i-Re-5y0"/>
+        <segue reference="9Qk-Vt-ARA"/>
         <segue reference="PaZ-j4-CYa"/>
         <segue reference="EJW-N4-UEM"/>
     </inferredMetricsTieBreakers>

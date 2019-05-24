@@ -137,6 +137,13 @@ class EditComicBookViewController: UITableViewController {
             } else {
                 controller.selectedItemDate = Date()
             }
+        case "EditSalesPriceSegue":
+            let controller = segue.destination as! AddItemViewController
+            controller.viewTitle = "Sales Price"
+            controller.hintText = currentComicBook!.identifier
+            if let price = currentComicBook?.book.sellPriceText {
+                controller.currentItem = price
+            }
         default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
@@ -159,6 +166,8 @@ class EditComicBookViewController: UITableViewController {
             variantLabel.text = newText
         } else if controller.viewTitle.contains("Purchase") {
             purchasePriceLabel.text = newText
+        } else if controller.viewTitle.contains("Sales") {
+            sellPriceLabel.text = newText
         }
     }
     

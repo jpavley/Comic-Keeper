@@ -62,6 +62,16 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
                 newItemTextField.placeholder = ""
                 newItemTextField.text = currentItem
             }
+        } else if viewTitle.contains("Sales") {
+            newItemTextField.autocapitalizationType = .none
+            newItemTextField.keyboardType = .decimalPad
+            
+            if currentItem.contains("none") {
+                newItemTextField.placeholder = "Enter sales amount"
+            } else {
+                newItemTextField.placeholder = ""
+                newItemTextField.text = currentItem
+            }
         } else {
             newItemTextField.autocapitalizationType = .words
             newItemTextField.keyboardType = .default
@@ -74,6 +84,8 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         if viewTitle.contains("Variant") {
             performSegue(withIdentifier: "EditedItem", sender: self)
         } else if  viewTitle.contains("Purchase") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
+        } else if  viewTitle.contains("Sales") {
             performSegue(withIdentifier: "EditedItem", sender: self)
         } else {
             performSegue(withIdentifier: "AddedItem", sender: self)
