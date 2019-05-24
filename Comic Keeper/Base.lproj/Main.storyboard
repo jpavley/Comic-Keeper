@@ -562,7 +562,7 @@
         <!--Date Picker-->
         <scene sceneID="rth-vg-vnZ">
             <objects>
-                <viewController id="9C6-6i-qZ2" sceneMemberID="viewController">
+                <viewController id="9C6-6i-qZ2" customClass="PickerDateViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rr6-9T-KfV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -573,11 +573,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
                                 <rect key="frame" x="0.0" y="137" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="580414492.79634404">
                                     <!--2019-05-24 18:14:52 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="9C6-6i-qZ2" eventType="valueChanged" id="AMf-zf-eHx"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -592,8 +595,16 @@
                         <viewLayoutGuide key="safeArea" id="rtF-tm-bKx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Date Picker" id="df2-ip-S9a">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="YTG-TY-PbH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="YTG-TY-PbH">
+                            <connections>
+                                <action selector="doneButton:" destination="9C6-6i-qZ2" id="NFl-Ub-9rr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="k5a-tG-FBA" id="Eqd-Xx-zNg"/>
+                        <outlet property="hintLabel" destination="N5i-Sy-af1" id="hss-85-36X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdC-Ju-6On" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
