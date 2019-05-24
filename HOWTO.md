@@ -122,7 +122,7 @@ Add a case to the unwind/exit segue _EditComicBookViewController_ datePickerDidP
     
 ### Step 3.3
 
-Add an unwind/exit segue case to _PickerDateViewController_ chooseSegueToPerform(). This is when the user taps _Done_. You will almost always want to perform the "DatePickedSegue" segue which in turn calls _EditComicBookViewController_ datePickerDidPickDate(). Note: the segue identifier is that of the unwind/exit segue!
+Add an unwind/exit segue case to _PickerDateViewController_ doneButton(). This is when the user taps _Done_. You will almost always want to perform the "DatePickedSegue" segue which in turn calls _EditComicBookViewController_ datePickerDidPickDate(). Note: the segue identifier is that of the unwind/exit segue!
 
     @IBAction func doneButton(_ sender: Any) {
         performSegue(withIdentifier: "DatePickedSegue", sender: self)
