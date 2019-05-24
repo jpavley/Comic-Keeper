@@ -26,11 +26,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
     
     
     @IBAction func datePickerValueChanged(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        selectedItemName = dateFormatter.string(from: datePicker.date)
+        updateSelectedItemName(with: datePicker.date)
     }
     
     override func viewDidLoad() {
@@ -40,8 +36,17 @@ class PickerDateViewController: UIViewController, StandardPicker {
         title = pickerTitle
         hintLabel.text = hintText
         datePicker.date = selectedItemDate
+        updateSelectedItemName(with: datePicker.date)
         
         navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    func updateSelectedItemName(with date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        selectedItemName = dateFormatter.string(from: date)
     }
 
     
