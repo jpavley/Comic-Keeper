@@ -77,7 +77,7 @@ Add a configuration case to _AddItemViewController_ configureNewItemTextField().
 
 ### Step 2.4
 
-Add an unwind/exit segue case to _AddItemViewController_ chooseSegueToPerform(). This is when the user taps _Done_ or presses _Enter_ on the keyboard. You will almost always want to perform the "EditedItem" segue which in turn calls _EditComicBookViewController_ addItemDidEditItem().
+Add an unwind/exit segue case to _AddItemViewController_ chooseSegueToPerform(). This is when the user taps _Done_ or presses _Enter_ on the keyboard. You will almost always want to perform the "EditedItem" segue which in turn calls _EditComicBookViewController_ addItemDidEditItem(). Note: the segue identifier is that of the unwind/exit segue!
 
     } else if  viewTitle.contains("Purchase") {
        performSegue(withIdentifier: "EditedItem", sender: self)

@@ -127,6 +127,16 @@ class EditComicBookViewController: UITableViewController {
             if let price = currentComicBook?.book.purchasePriceText {
                 controller.currentItem = price
             }
+        case "EditPurchaseDateSegue":
+            let controller = segue.destination as! PickerDateViewController
+            listPickerKind = "Purchase Date"
+            controller.pickerTitle = listPickerKind
+            controller.hintText = currentComicBook!.identifier
+            if let purchaseDate = currentComicBook?.book.purchaseDate {
+                controller.selectedItemDate = purchaseDate
+            } else {
+                controller.selectedItemDate = Date()
+            }
         default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }
@@ -179,6 +189,14 @@ class EditComicBookViewController: UITableViewController {
             issueNumberLabel.text = controller.selectedItemName
         } else if listPickerKind == "Legacy Issue Number" {
             legacyIssueNumberLabel.text = controller.selectedItemName
+        }
+    }
+    
+    @IBAction func datePickerDidPickDate(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! PickerDateViewController
+        
+        if listPickerKind == "Purchase Date" {
+            purchaseDateLabel.text = controller.selectedItemName
         }
     }
 }

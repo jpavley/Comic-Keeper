@@ -380,7 +380,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9C6-6i-qZ2" kind="show" identifier="EditDateSegue" id="OPf-sK-ccW"/>
+                                            <segue destination="9C6-6i-qZ2" kind="show" identifier="EditPurchaseDateSegue" id="OPf-sK-ccW"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="s6Z-Ux-EBu" detailTextLabel="6uW-VU-kcw" style="IBUITableViewCellStyleValue1" id="cqU-Im-cQ9">
@@ -604,9 +604,11 @@
                     <connections>
                         <outlet property="datePicker" destination="k5a-tG-FBA" id="Eqd-Xx-zNg"/>
                         <outlet property="hintLabel" destination="N5i-Sy-af1" id="hss-85-36X"/>
+                        <segue destination="DAV-z1-xft" kind="unwind" identifier="DatePickedSegue" unwindAction="datePickerDidPickDate:" id="kRy-tS-455"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdC-Ju-6On" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DAV-z1-xft" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5373.75" y="947.53521126760563"/>
         </scene>
