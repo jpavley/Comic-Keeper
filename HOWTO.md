@@ -85,8 +85,57 @@ Add an unwind/exit segue case to _AddItemViewController_ chooseSegueToPerform().
 
 ### Step 2.5
 
-Create a segue from the field in _EditComicBookViewController_ to the _AddItemViewController_ to create a navigation connection. Give the segue the identifier you used in step one. When the user taps on the _EditComicBookViewController_ field the _PickerTableViewController_ will load with the proper configuration. In your storyboard control-drag from the _EditComicBookViewController_ _UITableViewCell_ to the _AddItemViewController_ and select _Show (e.g. push)_.
+Create a segue from the field in _EditComicBookViewController_ to the _AddItemViewController_ to create a navigation connection. Give the segue the identifier you used in step one. When the user taps on the _EditComicBookViewController_ field the _AddItemViewController_ will load with the proper configuration. In your storyboard control-drag from the _EditComicBookViewController_ _UITableViewCell_ to the _AddItemViewController_ and select _Show (e.g. push)_.
 
     <connections>
         <segue destination="Lbx-p7-yJ5" kind="show" identifier="EditPurchasePriceSegue" id="n8i-Re-5y0"/>
     </connections>
+    
+## HOWTO 3: Connect the _PickerDateViewController_ to an _EditComicBookViewController_ Field
+
+### Step 3.1
+
+Add a _PickerDateViewController_ configuration segue case in _EditComicBookViewController_ prepare(for:sender:). This is called before the  _PickerDateViewController_ is displayed.
+
+    case "EditPurchaseDateSegue":
+        let controller = segue.destination as! PickerDateViewController
+        listPickerKind = "Purchase Date"
+        controller.pickerTitle = listPickerKind
+        controller.hintText = currentComicBook!.identifier
+        if let purchaseDate = currentComicBook?.book.purchaseDate {
+            controller.selectedItemDate = purchaseDate
+        } else {
+            controller.selectedItemDate = Date()
+        }
+        
+### Step 3.2
+
+Add a case to the unwind/exit segue _EditComicBookViewController_ datePickerDidPickDate(). This is called after the user picks a date in _PickerDateViewController_ and before _EditComicBookViewController_ is displayed. Here you receive the user's data. The value of _listPickerKind_ is used to identify which field on _EditComicBookViewController_ is using the _PickerDateViewController_.
+
+    @IBAction func datePickerDidPickDate(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! PickerDateViewController
+        
+        if listPickerKind == "Purchase Date" {
+            purchaseDateLabel.text = controller.selectedItemName
+        }
+    }
+    
+### Step 3.3
+
+Add an unwind/exit segue case to _PickerDateViewController_ chooseSegueToPerform(). This is when the user taps _Done_. You will almost always want to perform the "DatePickedSegue" segue which in turn calls _EditComicBookViewController_ datePickerDidPickDate(). Note: the segue identifier is that of the unwind/exit segue!
+
+    @IBAction func doneButton(_ sender: Any) {
+        performSegue(withIdentifier: "DatePickedSegue", sender: self)
+    }
+
+### Step 3.4
+
+Create a segue from the field in _EditComicBookViewController_ to the _PickerDateViewController_ to create a navigation connection. Give the segue the identifier you used in step one. When the user taps on the _EditComicBookViewController_ field the _PickerDateViewController_ will load with the proper configuration. In your storyboard control-drag from the _EditComicBookViewController_ _UITableViewCell_ to the _PickerDateViewController_ and select _Show (e.g. push)_.
+
+If this is the first use case don't forget to create an unwind/exit segue from _PickerDateViewController_ to datePickerDidPickDate() in _EditComicBookViewController_.  In your storyboard control-drag the yellow circle (on the left) to the red circle (on the right) in the _Date Picker_ title bar and select datePickerDidPickDate().
+
+    <connections>
+        <segue destination="9C6-6i-qZ2" kind="show" identifier="EditDateSegue" id="OPf-sK-ccW"/>
+        <segue destination="9C6-6i-qZ2" kind="show" identifier="EditPurchaseDateSegue" id="OPf-sK-ccW"/>
+    </connections>
+
