@@ -508,9 +508,6 @@
                                         <constraint firstItem="iDc-qU-jIh" firstAttribute="top" secondItem="pGX-Sz-mvf" secondAttribute="top" constant="8" id="eud-7X-ldy"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListPickerCell" textLabel="SQa-4b-zTQ" style="IBUITableViewCellStyleDefault" id="n1i-TQ-gM5">
                                 <rect key="frame" x="0.0" y="188" width="320" height="44"/>
@@ -529,7 +526,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="Xgf-Bp-1gi"/>
+                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="Gbk-jc-B6a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
