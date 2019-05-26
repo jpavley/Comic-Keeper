@@ -37,7 +37,7 @@ class EditComicBookViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        // self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
@@ -57,9 +57,9 @@ class EditComicBookViewController: UITableViewController {
         sellDateLabel.text = currentComicBook?.book.sellDateText
     }
     
-    @objc func addTapped() {
-        print("addTapped()")
-    }
+//    @objc func addTapped() {
+//        print("addTapped()")
+//    }
     
     // MARK:- Table View
     
