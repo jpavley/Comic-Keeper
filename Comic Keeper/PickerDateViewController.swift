@@ -13,6 +13,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
 
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var coverImageView: UIImageView!
     
     var itemList: [String]!
     var selectedItemName: String!

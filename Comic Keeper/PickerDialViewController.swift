@@ -12,6 +12,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
     
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
+    @IBOutlet weak var coverImageView: UIImageView!
     
     var itemList: [String]!
     var selectedItemName: String!

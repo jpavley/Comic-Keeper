@@ -479,14 +479,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListPickerCell" textLabel="7Ok-O9-N7N" style="IBUITableViewCellStyleDefault" id="ld7-Vh-Er1">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="160" id="ld7-Vh-Er1">
+                                <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ld7-Vh-Er1" id="pGX-Sz-mvf">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-cover" translatesAutoresizingMaskIntoConstraints="NO" id="iDc-qU-jIh">
+                                            <rect key="frame" x="120" y="8" width="80" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="2jl-Kd-SZh"/>
+                                                <constraint firstAttribute="height" constant="100" id="lSr-2Q-M8G"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="200" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-Lw-Fmm">
+                                            <rect key="frame" x="24" y="116" width="272" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JgJ-Lw-Fmm" secondAttribute="trailing" constant="8" id="HSU-Bt-8h5"/>
+                                        <constraint firstItem="JgJ-Lw-Fmm" firstAttribute="top" secondItem="iDc-qU-jIh" secondAttribute="bottom" constant="8" id="LND-Ij-d8j"/>
+                                        <constraint firstItem="iDc-qU-jIh" firstAttribute="centerX" secondItem="pGX-Sz-mvf" secondAttribute="centerX" id="OHL-vU-V7G"/>
+                                        <constraint firstItem="JgJ-Lw-Fmm" firstAttribute="leading" secondItem="pGX-Sz-mvf" secondAttribute="leadingMargin" constant="8" id="YgP-pc-JBX"/>
+                                        <constraint firstItem="iDc-qU-jIh" firstAttribute="top" secondItem="pGX-Sz-mvf" secondAttribute="top" constant="8" id="eud-7X-ldy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListPickerCell" textLabel="SQa-4b-zTQ" style="IBUITableViewCellStyleDefault" id="n1i-TQ-gM5">
+                                <rect key="frame" x="0.0" y="188" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n1i-TQ-gM5" id="J1V-CN-1sx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Ok-O9-N7N">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SQa-4b-zTQ">
                                             <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -496,7 +529,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="eSX-Oq-pzG"/>
+                                    <segue destination="KqH-05-k1n" kind="unwind" identifier="PickedItem" unwindAction="listPickerDidPickItem:" id="Xgf-Bp-1gi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -568,6 +601,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="coverImageView" destination="Dao-m5-R6I" id="WTw-V6-Ruo"/>
                         <outlet property="hintLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
                         <segue destination="cNt-4U-qHV" kind="unwind" identifier="ChooseItemSegue" unwindAction="dialPickerDidPickItem:" id="yPK-gK-Na8"/>
@@ -630,6 +664,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="coverImageView" destination="AVx-eb-anI" id="F5i-vJ-Xoi"/>
                         <outlet property="datePicker" destination="k5a-tG-FBA" id="Eqd-Xx-zNg"/>
                         <outlet property="hintLabel" destination="N5i-Sy-af1" id="hss-85-36X"/>
                         <segue destination="DAV-z1-xft" kind="unwind" identifier="DatePickedSegue" unwindAction="datePickerDidPickDate:" id="kRy-tS-455"/>
@@ -1028,10 +1063,11 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="no-cover" width="994" height="1536"/>
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n8i-Re-5y0"/>
+        <segue reference="sQE-aZ-6K4"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="PaZ-j4-CYa"/>
         <segue reference="EJW-N4-UEM"/>

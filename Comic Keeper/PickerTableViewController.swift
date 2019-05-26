@@ -10,6 +10,9 @@ import UIKit
 
 class PickerTableViewController: UITableViewController, StandardPicker {
     
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var hintLabel: UILabel!
+    
     var itemList: [String]!
     var selectedItemIndex = IndexPath()
     var selectedItemName: String!
