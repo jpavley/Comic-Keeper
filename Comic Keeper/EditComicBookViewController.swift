@@ -111,10 +111,10 @@ class EditComicBookViewController: UITableViewController {
             configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!)
         case "EditVariantSignifierSegue":
             let controller = segue.destination as! AddItemViewController
-            controller.viewTitle = "Variant Info"
+            controller.pickerTitle = "Variant Info"
             controller.hintText = currentComicBook!.identifier
             if let v = currentComicBook?.comic.variant {
-                controller.currentItem = v
+                controller.selectedItemName = v
             }
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
@@ -122,10 +122,10 @@ class EditComicBookViewController: UITableViewController {
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!)
         case "EditPurchasePriceSegue":
             let controller = segue.destination as! AddItemViewController
-            controller.viewTitle = "Purchase Price"
+            controller.pickerTitle = "Purchase Price"
             controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.purchasePriceText {
-                controller.currentItem = price
+                controller.selectedItemName = price
             }
         case "EditPurchaseDateSegue":
             let controller = segue.destination as! PickerDateViewController
@@ -139,10 +139,10 @@ class EditComicBookViewController: UITableViewController {
             }
         case "EditSalesPriceSegue":
             let controller = segue.destination as! AddItemViewController
-            controller.viewTitle = "Sales Price"
+            controller.pickerTitle = "Sales Price"
             controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.sellPriceText {
-                controller.currentItem = price
+                controller.selectedItemName = price
             }
         case "EditSalesDateSegue":
             let controller = segue.destination as! PickerDateViewController
@@ -172,11 +172,11 @@ class EditComicBookViewController: UITableViewController {
             return
         }
         
-        if controller.viewTitle.contains("Variant") {
+        if controller.pickerTitle.contains("Variant") {
             variantLabel.text = newText
-        } else if controller.viewTitle.contains("Purchase") {
+        } else if controller.pickerTitle.contains("Purchase") {
             purchasePriceLabel.text = newText
-        } else if controller.viewTitle.contains("Sales") {
+        } else if controller.pickerTitle.contains("Sales") {
             sellPriceLabel.text = newText
         }
     }

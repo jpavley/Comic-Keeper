@@ -8,14 +8,16 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController, UITextFieldDelegate {
+class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPicker {
     
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var newItemTextField: UITextField!
     
-    var viewTitle = "Add Item"
-    var currentItem = ""
-    var hintText = ""
+    var itemList: [String]!
+    var selectedItemName: String!
+    var pickerTitle: String!
+    var hintText: String!
+    var coverImage: UIImage!
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()
@@ -28,7 +30,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
 
         // show the keyboard by default
-        title = viewTitle
+        title = pickerTitle
         hintLabel.text = hintText
         navigationItem.setHidesBackButton(true, animated: true)
         configureNewItemTextField()
@@ -47,30 +49,30 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         newItemTextField.becomeFirstResponder()
         newItemTextField.delegate = self
         
-        if viewTitle.contains("Variant") {
+        if pickerTitle.contains("Variant") {
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .default
             newItemTextField.placeholder = ""
-            newItemTextField.text = currentItem
-        } else if viewTitle.contains("Purchase") {
+            newItemTextField.text = selectedItemName
+        } else if pickerTitle.contains("Purchase") {
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .decimalPad
             
-            if currentItem.contains("none") {
+            if selectedItemName.contains("none") {
                 newItemTextField.placeholder = "Enter purchase amount"
             } else {
                 newItemTextField.placeholder = ""
-                newItemTextField.text = currentItem
+                newItemTextField.text = selectedItemName
             }
-        } else if viewTitle.contains("Sales") {
+        } else if pickerTitle.contains("Sales") {
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .decimalPad
             
-            if currentItem.contains("none") {
+            if selectedItemName.contains("none") {
                 newItemTextField.placeholder = "Enter sales amount"
             } else {
                 newItemTextField.placeholder = ""
-                newItemTextField.text = currentItem
+                newItemTextField.text = selectedItemName
             }
         } else {
             newItemTextField.autocapitalizationType = .words
@@ -81,11 +83,11 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     func chooseSegueToPerform() {
         
-        if viewTitle.contains("Variant") {
+        if pickerTitle.contains("Variant") {
             performSegue(withIdentifier: "EditedItem", sender: self)
-        } else if  viewTitle.contains("Purchase") {
+        } else if  pickerTitle.contains("Purchase") {
             performSegue(withIdentifier: "EditedItem", sender: self)
-        } else if  viewTitle.contains("Sales") {
+        } else if  pickerTitle.contains("Sales") {
             performSegue(withIdentifier: "EditedItem", sender: self)
         } else {
             performSegue(withIdentifier: "AddedItem", sender: self)

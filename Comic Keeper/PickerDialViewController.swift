@@ -17,6 +17,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
     var selectedItemName: String!
     var pickerTitle: String!
     var hintText: String!
+    var coverImage: UIImage!
     
     @IBAction func doneButton(_ sender: Any) {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)

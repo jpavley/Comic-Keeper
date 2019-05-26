@@ -15,6 +15,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     var selectedItemName: String!
     var pickerTitle: String!
     var hintText: String!
+    var coverImage: UIImage!
 
     override func viewDidLoad() {
         
@@ -131,7 +132,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
             }
         } else if segue.identifier == "AddItemSegue" {
             let destination = segue.destination as! AddItemViewController
-            destination.viewTitle = "Add \(pickerTitle!)"
+            destination.pickerTitle = "Add \(pickerTitle!)"
         }
     }
     

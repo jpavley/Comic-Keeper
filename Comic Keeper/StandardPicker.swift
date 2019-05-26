@@ -6,11 +6,12 @@
 //  Copyright © 2019 John Pavley. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol StandardPicker: class {
     var itemList: [String]! { get set }
     var selectedItemName: String! { get set }
     var pickerTitle: String! { get set }
     var hintText: String! { get set }
+    var coverImage: UIImage! { get set }
 }
