@@ -689,6 +689,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="coverImageView" destination="7mh-nx-QS6" id="Dzl-Jn-WsO"/>
                         <outlet property="hintLabel" destination="MFE-4c-iWd" id="FSo-Fn-9c3"/>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="addItemDidAddItem:" id="HX9-VJ-JyV"/>
