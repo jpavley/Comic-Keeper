@@ -12,6 +12,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPick
     
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var newItemTextField: UITextField!
+    @IBOutlet weak var coverImageView: UIImageView!
     
     var itemList: [String]!
     var selectedItemName: String!

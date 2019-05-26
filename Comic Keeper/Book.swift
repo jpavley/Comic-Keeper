@@ -10,17 +10,17 @@ import Foundation
 
 public class Book {
     
-    public var purchasePrice: Decimal!
-    public var purchaseDate: Date!
-    public var sellPrice: Decimal!
-    public var sellDate: Date!
+    public var purchasePrice: Decimal?
+    public var purchaseDate: Date?
+    public var sellPrice: Decimal?
+    public var sellDate: Date?
     public var condition: String
     
     init(condition: String,
-         purchasePrice: Decimal!,
-         purchaseDate: Date!,
-         sellPrice: Decimal!,
-         sellDate: Date!) {
+         purchasePrice: Decimal?,
+         purchaseDate: Date?,
+         sellPrice: Decimal?,
+         sellDate: Date?) {
         
         self.purchasePrice = purchasePrice
         self.purchaseDate = purchaseDate
