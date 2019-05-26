@@ -14,18 +14,22 @@ public class Book {
     public var purchaseDate: Date?
     public var sellPrice: Decimal?
     public var sellDate: Date?
+    public var photoID: Int?
     public var condition: String
+    
     
     init(condition: String,
          purchasePrice: Decimal?,
          purchaseDate: Date?,
          sellPrice: Decimal?,
-         sellDate: Date?) {
+         sellDate: Date?,
+         photoID: Int?) {
         
         self.purchasePrice = purchasePrice
         self.purchaseDate = purchaseDate
         self.sellPrice = sellPrice
         self.sellDate = sellDate
+        self.photoID = photoID
         self.condition = condition
     }
     

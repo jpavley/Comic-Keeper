@@ -118,7 +118,7 @@ public extension ComicBookCollection {
         
         let c1 = Comic(publisher: publisher, series: series, era: era, issueNumber: issueNumber, legacyIssueNumber: legacyIssueNumber, variant: variant)
         
-        let b1 = Book(condition: condition, purchasePrice: purchasePrice, purchaseDate: purchaseDate, sellPrice: sellPrice, sellDate: sellDate)
+        let b1 = Book(condition: condition, purchasePrice: purchasePrice, purchaseDate: purchaseDate, sellPrice: sellPrice, sellDate: sellDate, photoID: nil)
         
         return ComicBook(comic: c1, book: b1)
     }
