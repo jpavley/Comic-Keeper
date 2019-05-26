@@ -29,6 +29,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         title = pickerTitle
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
         selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
+        navigationController?.delegate = self
 
     }
         
@@ -119,6 +120,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "PickedItem" {
             // PickedItem is the identifier of the unwind segue.
             // The unwind segue triggers the action listPickerDidPickItem in
@@ -173,7 +175,23 @@ class PickerTableViewController: UITableViewController, StandardPicker {
                 
             }
         }
-        
     }
+}
 
+extension PickerTableViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              willShow viewController: UIViewController,
+                              animated: Bool) {
+        
+        if let _ = viewController as? EditComicBookViewController {
+            
+            let selectedItemRow = itemList.firstIndex(of: selectedItemName)
+            selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
+            
+            if let selectedCell = tableView.cellForRow(at: selectedItemIndex) {
+                performSegue(withIdentifier: "PickedItem", sender: selectedCell)
+            }
+        }
+    }
 }
