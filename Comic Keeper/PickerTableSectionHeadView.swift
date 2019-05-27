@@ -1,5 +1,5 @@
 //
-//  ListTableSectionHeadView.swift
+//  PickerTableSectionHeadView.swift
 //  Comic Keeper
 //
 //  Created by John Pavley on 5/27/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableSectionHeadView: UITableViewHeaderFooterView {
+class PickerTableSectionHeadView: UITableViewHeaderFooterView {
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var hintLabel: UILabel!

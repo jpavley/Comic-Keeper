@@ -30,7 +30,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.register(ListTableSectionHeadView.self, forHeaderFooterViewReuseIdentifier: "HeaderCell")
+        tableView.register(PickerTableSectionHeadView.self, forHeaderFooterViewReuseIdentifier: "HeaderCell")
 
         title = pickerTitle
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
@@ -87,7 +87,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderCell") as? ListTableSectionHeadView {
+        if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderCell") as? PickerTableSectionHeadView {
             view.hintText = hintText
             return view
         } else {
