@@ -694,7 +694,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
-                                <rect key="frame" x="16" y="227" width="288" height="30"/>
+                                <rect key="frame" x="16" y="225" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -702,7 +702,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ul6-an-xs1" firstAttribute="top" secondItem="MFE-4c-iWd" secondAttribute="bottom" constant="18" id="0Jg-VY-Mh8"/>
+                            <constraint firstItem="ul6-an-xs1" firstAttribute="top" secondItem="MFE-4c-iWd" secondAttribute="bottom" constant="16" id="0Jg-VY-Mh8"/>
                             <constraint firstItem="MFE-4c-iWd" firstAttribute="leading" secondItem="1lc-nz-jOh" secondAttribute="leading" constant="8" id="CpS-sg-ntR"/>
                             <constraint firstItem="1lc-nz-jOh" firstAttribute="trailing" secondItem="MFE-4c-iWd" secondAttribute="trailing" constant="8" id="FOe-4P-2EW"/>
                             <constraint firstItem="7mh-nx-QS6" firstAttribute="centerX" secondItem="Udp-Hp-Ta7" secondAttribute="centerX" id="Ifr-E8-Xjx"/>

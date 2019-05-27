@@ -30,6 +30,8 @@
 		B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */; };
+		B8CC0F25229C23B0009368FD /* LIstTableSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8CC0F24229C23B0009368FD /* LIstTableSectionHead.xib */; };
+		B8CC0F27229C2542009368FD /* ListTableSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F26229C2542009368FD /* ListTableSectionHeadView.swift */; };
 		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 		B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		B8CC0F24229C23B0009368FD /* LIstTableSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LIstTableSectionHead.xib; sourceTree = "<group>"; };
+		B8CC0F26229C2542009368FD /* ListTableSectionHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableSectionHeadView.swift; sourceTree = "<group>"; };
 		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +121,7 @@
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
+				B8CC0F26229C2542009368FD /* ListTableSectionHeadView.swift */,
 				B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */,
 				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
 				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
@@ -124,6 +129,7 @@
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
+				B8CC0F24229C23B0009368FD /* LIstTableSectionHead.xib */,
 				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
 				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
 			);
@@ -230,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CC0F25229C23B0009368FD /* LIstTableSectionHead.xib in Resources */,
 				B8106A662280F65C00D0A2C2 /* LaunchScreen.storyboard in Resources */,
 				B8106A632280F65C00D0A2C2 /* Assets.xcassets in Resources */,
 				B8106A612280F65B00D0A2C2 /* Main.storyboard in Resources */,
@@ -266,6 +273,7 @@
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8106A5C2280F65B00D0A2C2 /* FirstViewController.swift in Sources */,
+				B8CC0F27229C2542009368FD /* ListTableSectionHeadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
