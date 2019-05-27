@@ -20,16 +20,7 @@ class PickerTableSectionHeadView: UITableViewHeaderFooterView {
     @IBOutlet weak var hintLabel: UILabel!
     
     var photoID: Int!
-    var hintText: String!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        if let hintText = hintText {
-            hintLabel.text = hintText
-        }
-    }
-
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -88,7 +88,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: PickerTableSectionHeadView.reuseIdentifier) as? PickerTableSectionHeadView {
-            view.hintText = hintText
+            view.hintLabel.text = hintText
             return view
         } else {
             return nil
