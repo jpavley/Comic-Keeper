@@ -10,6 +10,12 @@ import UIKit
 
 class PickerTableSectionHeadView: UITableViewHeaderFooterView {
     
+    static let reuseIdentifier = "PickerTableSectionHead"
+    
+    static var nib: UINib {
+        return UINib(nibName: "PickerTableSectionHead", bundle: nil)
+    }
+    
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var hintLabel: UILabel!
     
@@ -23,7 +29,6 @@ class PickerTableSectionHeadView: UITableViewHeaderFooterView {
             hintLabel.text = hintText
         }
     }
-    
 
     /*
     // Only override draw() if you perform custom drawing.
