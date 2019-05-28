@@ -175,9 +175,17 @@ class EditComicBookViewController: UITableViewController {
         if controller.pickerTitle.contains("Variant") {
             variantLabel.text = newText
         } else if controller.pickerTitle.contains("Purchase") {
-            purchasePriceLabel.text = newText
+            if newText.isEmpty {
+                purchasePriceLabel.text = "none"
+            } else {
+                purchasePriceLabel.text = newText
+            }
         } else if controller.pickerTitle.contains("Sales") {
-            sellPriceLabel.text = newText
+            if newText.isEmpty {
+                sellPriceLabel.text = "none"
+            } else {
+                sellPriceLabel.text = newText
+            }
         }
     }
     
@@ -215,9 +223,17 @@ class EditComicBookViewController: UITableViewController {
         let controller = segue.source as! PickerDateViewController
         
         if listPickerKind == "Purchase Date" {
-            purchaseDateLabel.text = controller.selectedItemName
+            if controller.selectedItemName.isEmpty {
+                purchaseDateLabel.text = "none"
+            } else {
+                purchaseDateLabel.text = controller.selectedItemName
+            }
         } else if listPickerKind == "Sales Date" {
-            sellDateLabel.text = controller.selectedItemName
+            if controller.selectedItemName.isEmpty {
+                sellDateLabel.text = "none"
+            } else {
+                sellDateLabel.text = controller.selectedItemName
+            }
         }
     }
 }

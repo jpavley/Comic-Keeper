@@ -31,6 +31,12 @@ class PickerDateViewController: UIViewController, StandardPicker {
         updateSelectedItemName(with: datePicker.date)
     }
     
+    @IBAction func noneButton(_ sender: Any) {
+        selectedItemName = ""
+        performSegue(withIdentifier: "DatePickedSegue", sender: self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
