@@ -22,7 +22,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
     var coverImage: UIImage!
     var noneButtonVisible: Bool!
     
-    @IBAction func doneButton(_ sender: Any) {
+    @IBAction func doneButtonAction(_ sender: Any) {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
     }
     

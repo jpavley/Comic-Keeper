@@ -603,7 +603,7 @@
                     <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ple-mz-cte">
                             <connections>
-                                <action selector="doneButton:" destination="gE7-Jh-VJR" id="1jQ-o9-lSR"/>
+                                <action selector="doneButtonAction:" destination="gE7-Jh-VJR" id="1jQ-o9-lSR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
