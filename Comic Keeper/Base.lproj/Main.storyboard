@@ -580,7 +580,7 @@
                                 <rect key="frame" x="142" y="457" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
-                                    <action selector="noneButton:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
+                                    <action selector="noneButtonAction:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
                                 </connections>
                             </button>
                         </subviews>

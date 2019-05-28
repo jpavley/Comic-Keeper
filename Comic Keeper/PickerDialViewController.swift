@@ -26,7 +26,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
     }
     
-    @IBAction func noneButton(_ sender: Any) {
+    @IBAction func noneButtonAction(_ sender: Any) {
         selectedItemName = ""
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
     }
