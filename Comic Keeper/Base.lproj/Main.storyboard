@@ -654,7 +654,7 @@
                                 <rect key="frame" x="142" y="457" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
-                                    <action selector="noneButton:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
+                                    <action selector="noneButtonAction:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -677,7 +677,7 @@
                     <navigationItem key="navigationItem" title="Date Picker" id="df2-ip-S9a">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="YTG-TY-PbH">
                             <connections>
-                                <action selector="doneButton:" destination="9C6-6i-qZ2" id="NFl-Ub-9rr"/>
+                                <action selector="doneButtonAction:" destination="9C6-6i-qZ2" id="NFl-Ub-9rr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

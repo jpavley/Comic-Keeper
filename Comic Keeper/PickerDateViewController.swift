@@ -23,7 +23,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
     var coverImage: UIImage!
     var noneButtonVisible: Bool!
     
-    @IBAction func doneButton(_ sender: Any) {
+    @IBAction func doneButtonAction(_ sender: Any) {
         performSegue(withIdentifier: "DatePickedSegue", sender: self)
     }
     
@@ -32,7 +32,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
         updateSelectedItemName(with: datePicker.date)
     }
     
-    @IBAction func noneButton(_ sender: Any) {
+    @IBAction func noneButtonAction(_ sender: Any) {
         selectedItemName = ""
         performSegue(withIdentifier: "DatePickedSegue", sender: self)
     }
