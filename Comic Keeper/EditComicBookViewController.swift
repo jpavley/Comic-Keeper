@@ -172,6 +172,7 @@ class EditComicBookViewController: UITableViewController {
     
     // TODO: Update data if changed
     // TODO: Detect navigtaion breaking change and prevent it from crashing app. If the currentComicBook can't be found because the publisher, series, issue number, or variant info changed, then alert user and pop back to the SeriesTableViewController.
+    // TODO: Data validation
     
     // Unwind/exit segue from AddItemViewController
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
