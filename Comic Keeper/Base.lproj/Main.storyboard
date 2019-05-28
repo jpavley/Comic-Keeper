@@ -576,15 +576,25 @@
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
+                                <rect key="frame" x="142" y="457" width="37" height="30"/>
+                                <state key="normal" title="None"/>
+                                <connections>
+                                    <action selector="noneButton:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="16" id="3Lx-hJ-z9Z"/>
+                            <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="9PX-aa-A0V" secondAttribute="trailing" constant="141" id="8RO-o9-jSO"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="leading" secondItem="56T-E8-x2y" secondAttribute="leading" id="Cdv-mu-Ygy"/>
+                            <constraint firstItem="9PX-aa-A0V" firstAttribute="top" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="Qah-Wy-zuB"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="XcK-Ai-mX7"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="fbz-QF-asd"/>
                             <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="Dao-m5-R6I" secondAttribute="bottom" constant="16" id="fxk-oK-qpb"/>
                             <constraint firstItem="Dao-m5-R6I" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="16" id="hoA-ZN-Nke"/>
+                            <constraint firstItem="9PX-aa-A0V" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="142" id="jiS-u0-I3O"/>
                             <constraint firstItem="Dao-m5-R6I" firstAttribute="centerX" secondItem="56T-E8-x2y" secondAttribute="centerX" id="rQH-Cg-BFF"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="FR3-nV-VXi" secondAttribute="trailing" id="tfu-c5-ihn"/>
                         </constraints>
@@ -1074,9 +1084,9 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sQE-aZ-6K4"/>
+        <segue reference="9Qk-Vt-ARA"/>
         <segue reference="VAD-ZH-fmC"/>
-        <segue reference="PaZ-j4-CYa"/>
+        <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>
     </inferredMetricsTieBreakers>
 </document>

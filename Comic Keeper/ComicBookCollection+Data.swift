@@ -43,54 +43,54 @@ public extension ComicBookCollection {
         
         // Aliens
         
-        let cb11 = createComicBook("Dark Horse", "Aliens", "1990", "1", "1", "a", 2.22, nil, 3.33, Date(), "Very Good")
-        let cb12 = createComicBook("Dark Horse", "Aliens", "1990", "2", "2", "b", 3.33, Date(), 15.05, Date(), "Good")
+        let cb11 = createComicBook("Dark Horse", "Aliens", "1990", "1", "", "a", 2.22, nil, 3.33, Date(), "Very Good")
+        let cb12 = createComicBook("Dark Horse", "Aliens", "1990", "2", "", "b", 3.33, Date(), 15.05, Date(), "Good")
         
         // The Mask 1995
         
-        let cb13 = createComicBook("Dark Horse", "The Mask", "1995", "10", "10", "q", nil, nil, nil, nil, "Very Good")
-        let cb14 = createComicBook("Dark Horse", "The Mask", "1995", "20", "20", "a", nil, nil, nil, nil, "Good")
-        let cb15 = createComicBook("Dark Horse", "The Mask", "1995", "34", "34", "n", nil, nil, nil, nil, "Very Fine")
+        let cb13 = createComicBook("Dark Horse", "The Mask", "1995", "10", "", "q", nil, nil, nil, nil, "Very Good")
+        let cb14 = createComicBook("Dark Horse", "The Mask", "1995", "20", "", "a", nil, nil, nil, nil, "Good")
+        let cb15 = createComicBook("Dark Horse", "The Mask", "1995", "34", "", "n", nil, nil, nil, nil, "Very Fine")
         
         // Terminator
         
-        let cb18 = createComicBook("Dark Horse", "Terminator", "1999", "1", "1", "m", 2.31, Date(), 15.05, Date(), "Very Good")
+        let cb18 = createComicBook("Dark Horse", "Terminator", "1999", "1", "", "m", 2.31, Date(), 15.05, Date(), "Very Good")
         
         // The Mask 1985
         
-        let cb16 = createComicBook("Dark Horse", "The Mask", "1985", "10", "10", "q", 2.31, Date(), 15.05, Date(), "Very Good")
-        let cb17 = createComicBook("Dark Horse", "The Mask", "1985", "20", "20", "a", nil, nil, nil, nil, "Good")
-        let cb16a = createComicBook("Dark Horse", "The Mask", "1985", "10", "10", "n", 2.31, Date(), 15.05, Date(), "Very Good")
+        let cb16 = createComicBook("Dark Horse", "The Mask", "1985", "10", "", "q", 2.31, Date(), 15.05, Date(), "Very Good")
+        let cb17 = createComicBook("Dark Horse", "The Mask", "1985", "20", "", "a", nil, nil, nil, nil, "Good")
+        let cb16a = createComicBook("Dark Horse", "The Mask", "1985", "10", "", "n", 2.31, Date(), 15.05, Date(), "Very Good")
         let cb17a = createComicBook("Dark Horse", "The Mask", "1985", "20", "20", "o", nil, nil, nil, nil, "Good")
 
         // Fantastic Four 1961
         
-        let cb19 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "1", "1", "a", 2.31, Date(), 15.05, Date(), "Very Good")
-        let cb20 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "2", "2", "b", nil, nil, nil, nil, "Very Good")
-        let cb21 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "3", "3", "c", nil, nil, nil, nil, "Good")
-        let cb22 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "4", "4", "d", nil, nil, nil, nil, "Very Good")
-        let cb23 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "5", "5", "e", 2.31, Date(), 15.05, Date(), "Good")
+        let cb19 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "1", "", "a", 2.31, Date(), 15.05, Date(), "Very Good")
+        let cb20 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "2", "", "b", nil, nil, nil, nil, "Very Good")
+        let cb21 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "3", "", "c", nil, nil, nil, nil, "Good")
+        let cb22 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "4", "", "d", nil, nil, nil, nil, "Very Good")
+        let cb23 = createComicBook("Marvel Comics", "Fantastic Four", "1961", "5", "", "e", 2.31, Date(), 15.05, Date(), "Good")
         
         // Fantastic Four
         
-        let cb24 = createComicBook("Marvel Comics", "Hulk", "1962", "1", "1", "a", nil, nil, nil, nil, "Very Good")
-        let cb25 = createComicBook("Marvel Comics", "Hulk", "1962", "3", "3", "b", nil, nil, nil, nil, "Very Good")
-        let cb26 = createComicBook("Marvel Comics", "Hulk", "1962", "4", "5", "c", nil, nil, nil, nil, "Very Good")
-        let cb27 = createComicBook("Marvel Comics", "Hulk", "1962", "10", "10", "d", 2.31, Date(), 15.05, Date(), "Fine")
+        let cb24 = createComicBook("Marvel Comics", "Hulk", "1962", "1", "", "a", nil, nil, nil, nil, "Very Good")
+        let cb25 = createComicBook("Marvel Comics", "Hulk", "1962", "3", "", "b", nil, nil, nil, nil, "Very Good")
+        let cb26 = createComicBook("Marvel Comics", "Hulk", "1962", "4", "", "c", nil, nil, nil, nil, "Very Good")
+        let cb27 = createComicBook("Marvel Comics", "Hulk", "1962", "10", "", "d", 2.31, Date(), 15.05, Date(), "Fine")
         
         // Iron Man
         
-        let cb28 = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "1", "a", 2.31, Date(), 15.05, Date(), "Poor")
-        let cb29 = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "18", "a", nil, nil, nil, nil, "Poor")
-        let cb30 = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "19", "a", 2.31, Date(), 15.05, Date(), "Poor")
-        let cb28a = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "1", "b", nil, nil, nil, nil, "Poor")
-        let cb29b = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "18", "c", 2.31, Date(), 15.05, Date(), "Poor")
-        let cb30c = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "19", "x", 2.31, Date(), 15.05, Date(), "Poor")
+        let cb28 = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "", "a", 2.31, Date(), 15.05, Date(), "Poor")
+        let cb29 = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "", "a", nil, nil, nil, nil, "Poor")
+        let cb30 = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "", "a", 2.31, Date(), 15.05, Date(), "Poor")
+        let cb28a = createComicBook("Marvel Comics", "Iron Man", "1963", "1", "", "b", nil, nil, nil, nil, "Poor")
+        let cb29b = createComicBook("Marvel Comics", "Iron Man", "1963", "18", "", "c", 2.31, Date(), 15.05, Date(), "Poor")
+        let cb30c = createComicBook("Marvel Comics", "Iron Man", "1963", "19", "", "x", 2.31, Date(), 15.05, Date(), "Poor")
 
         // Thor
         
-        let cb31 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "7", "7", "a", 2.31, Date(), 15.05, Date(), "Fine")
-        let cb32 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "8", "8", "a", 2.31, Date(), 15.05, Date(), "Fine")
+        let cb31 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "7", "700", "a", 2.31, Date(), 15.05, Date(), "Fine")
+        let cb32 = createComicBook("Marvel Comics", "The Mighty Thor", "1964", "8", "800", "a", 2.21, Date(), 15.55, Date(), "Fine")
         
         // Fantastic Four 1968
         

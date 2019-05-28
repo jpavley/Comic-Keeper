@@ -24,6 +24,11 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
     }
     
+    @IBAction func noneButton(_ sender: Any) {
+        selectedItemName = ""
+        performSegue(withIdentifier: "ChooseItemSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +36,11 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         title = pickerTitle
         hintLabel.text = hintText
         
-        let selectedItemRow = itemList.firstIndex(of: selectedItemName)
-        itemPicker.selectRow(selectedItemRow!, inComponent: 0, animated: true)
+        if let selectedItemRow = itemList.firstIndex(of: selectedItemName) {
+            itemPicker.selectRow(selectedItemRow, inComponent: 0, animated: true)
+        } else {
+            itemPicker.selectRow(0, inComponent: 0, animated: true)
+        }
         
         navigationItem.setHidesBackButton(true, animated: true)
     }

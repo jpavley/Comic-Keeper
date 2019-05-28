@@ -47,7 +47,15 @@ class EditComicBookViewController: UITableViewController {
         eraLabel.text = currentComicBook?.seriesEra
         seriesLabel.text = currentComicBook?.seriesName
         issueNumberLabel.text = currentComicBook?.comic.issueNumber
-        legacyIssueNumberLabel.text = currentComicBook?.comic.legacyIssueNumber
+        
+        if let legacyIssueNumberText = currentComicBook?.comic.legacyIssueNumber {
+            if legacyIssueNumberText.isEmpty {
+                legacyIssueNumberLabel.text = "none"
+            } else {
+                legacyIssueNumberLabel.text = legacyIssueNumberText
+            }
+        }
+        
         variantLabel.text = currentComicBook?.comic.variant
         
         conditionLabel.text = currentComicBook?.book.condition
@@ -215,7 +223,13 @@ class EditComicBookViewController: UITableViewController {
         } else if listPickerKind == "Issue Number" {
             issueNumberLabel.text = controller.selectedItemName
         } else if listPickerKind == "Legacy Issue Number" {
-            legacyIssueNumberLabel.text = controller.selectedItemName
+            
+            if controller.selectedItemName.isEmpty {
+                legacyIssueNumberLabel.text = "none"
+            } else {
+                legacyIssueNumberLabel.text = controller.selectedItemName
+            }
+            
         }
     }
     
