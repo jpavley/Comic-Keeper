@@ -576,7 +576,7 @@
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
                                 <rect key="frame" x="142" y="457" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
@@ -611,6 +611,7 @@
                         <outlet property="coverImageView" destination="Dao-m5-R6I" id="WTw-V6-Ruo"/>
                         <outlet property="hintLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
+                        <outlet property="noneButton" destination="9PX-aa-A0V" id="6a7-gM-HmP"/>
                         <segue destination="cNt-4U-qHV" kind="unwind" identifier="ChooseItemSegue" unwindAction="dialPickerDidPickItem:" id="yPK-gK-Na8"/>
                     </connections>
                 </viewController>

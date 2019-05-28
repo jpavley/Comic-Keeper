@@ -19,6 +19,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPick
     var pickerTitle: String!
     var hintText: String!
     var coverImage: UIImage!
+    var noneButtonVisible: Bool!
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()

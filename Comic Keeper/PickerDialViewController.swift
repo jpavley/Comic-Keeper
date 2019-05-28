@@ -13,12 +13,14 @@ class PickerDialViewController: UIViewController, StandardPicker  {
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var noneButton: UIButton!
     
     var itemList: [String]!
     var selectedItemName: String!
     var pickerTitle: String!
     var hintText: String!
     var coverImage: UIImage!
+    var noneButtonVisible: Bool!
     
     @IBAction func doneButton(_ sender: Any) {
         performSegue(withIdentifier: "ChooseItemSegue", sender: self)
@@ -35,6 +37,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         // Do any additional setup after loading the view.
         title = pickerTitle
         hintLabel.text = hintText
+        noneButton.isHidden = !noneButtonVisible
         
         if let selectedItemRow = itemList.firstIndex(of: selectedItemName) {
             itemPicker.selectRow(selectedItemRow, inComponent: 0, animated: true)
