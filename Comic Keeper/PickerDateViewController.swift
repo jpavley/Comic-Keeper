@@ -11,9 +11,7 @@ import UIKit
 class PickerDateViewController: UIViewController, StandardPicker {
     
 
-    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var coverImageView: UIImageView!
     
     var itemList: [String]!
     var selectedItemName: String!
@@ -43,7 +41,6 @@ class PickerDateViewController: UIViewController, StandardPicker {
 
         // Do any additional setup after loading the view.
         title = pickerTitle
-        hintLabel.text = hintText
         datePicker.date = selectedItemDate
         updateSelectedItemName(with: datePicker.date)
         
@@ -65,6 +62,10 @@ class PickerDateViewController: UIViewController, StandardPicker {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SectionHeadSegue3" {
+            let destination = segue.destination as! PickerHeaderViewController
+            destination.hintText = hintText
+        }
     }
     
 }

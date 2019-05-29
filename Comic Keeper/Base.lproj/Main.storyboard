@@ -629,19 +629,6 @@
                                     <action selector="datePickerValueChanged:" destination="9C6-6i-qZ2" eventType="valueChanged" id="AMf-zf-eHx"/>
                                 </connections>
                             </datePicker>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-cover-thumb" translatesAutoresizingMaskIntoConstraints="NO" id="AVx-eb-anI">
-                                <rect key="frame" x="120" y="80" width="80" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="G2W-nT-cgn"/>
-                                    <constraint firstAttribute="width" constant="80" id="UxE-ar-7ak"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvel Comics Iron Man 22a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="N5i-Sy-af1">
-                                <rect key="frame" x="8" y="196" width="304" height="21"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-nc-6Je">
                                 <rect key="frame" x="142" y="457" width="37" height="30"/>
                                 <state key="normal" title="None"/>
@@ -649,17 +636,24 @@
                                     <action selector="noneButtonAction:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-pj-emI">
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="pu0-j1-rBk"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="G6B-eT-YBT" kind="embed" identifier="SectionHeadSegue3" id="tky-yU-hKy"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AVx-eb-anI" firstAttribute="centerX" secondItem="rr6-9T-KfV" secondAttribute="centerX" id="1xL-Mf-jq8"/>
-                            <constraint firstItem="AVx-eb-anI" firstAttribute="top" secondItem="rtF-tm-bKx" secondAttribute="top" constant="16" id="2fM-er-3XN"/>
+                            <constraint firstItem="l4X-pj-emI" firstAttribute="trailing" secondItem="rtF-tm-bKx" secondAttribute="trailing" id="0BQ-Dw-sxG"/>
+                            <constraint firstItem="l4X-pj-emI" firstAttribute="top" secondItem="rtF-tm-bKx" secondAttribute="top" id="6V7-bO-k73"/>
                             <constraint firstItem="4Yo-nc-6Je" firstAttribute="top" secondItem="k5a-tG-FBA" secondAttribute="bottom" constant="8" id="KnP-hj-XKE"/>
-                            <constraint firstItem="rtF-tm-bKx" firstAttribute="trailing" secondItem="N5i-Sy-af1" secondAttribute="trailing" constant="8" id="P8p-cD-s7G"/>
-                            <constraint firstItem="N5i-Sy-af1" firstAttribute="top" secondItem="AVx-eb-anI" secondAttribute="bottom" constant="16" id="RxT-7B-gNc"/>
+                            <constraint firstItem="l4X-pj-emI" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" id="RxF-w5-v5s"/>
                             <constraint firstItem="rtF-tm-bKx" firstAttribute="trailing" secondItem="4Yo-nc-6Je" secondAttribute="trailing" constant="141" id="ThG-cS-3Mc"/>
-                            <constraint firstItem="N5i-Sy-af1" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" constant="8" id="d8k-cL-YQg"/>
-                            <constraint firstItem="k5a-tG-FBA" firstAttribute="top" secondItem="N5i-Sy-af1" secondAttribute="bottom" constant="16" id="dSg-tF-Y3D"/>
+                            <constraint firstItem="k5a-tG-FBA" firstAttribute="top" secondItem="l4X-pj-emI" secondAttribute="bottom" constant="9" id="Urg-Ry-1e9"/>
                             <constraint firstItem="k5a-tG-FBA" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" id="etw-BE-2b7"/>
                             <constraint firstItem="k5a-tG-FBA" firstAttribute="trailing" secondItem="rtF-tm-bKx" secondAttribute="trailing" id="hNg-rk-ukY"/>
                             <constraint firstItem="4Yo-nc-6Je" firstAttribute="leading" secondItem="rtF-tm-bKx" secondAttribute="leading" constant="142" id="xSB-jC-x5T"/>
@@ -674,16 +668,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="coverImageView" destination="AVx-eb-anI" id="F5i-vJ-Xoi"/>
                         <outlet property="datePicker" destination="k5a-tG-FBA" id="Eqd-Xx-zNg"/>
-                        <outlet property="hintLabel" destination="N5i-Sy-af1" id="hss-85-36X"/>
                         <segue destination="DAV-z1-xft" kind="unwind" identifier="DatePickedSegue" unwindAction="datePickerDidPickDate:" id="kRy-tS-455"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdC-Ju-6On" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DAV-z1-xft" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4133" y="745"/>
+            <point key="canvasLocation" x="4132.5" y="744.71830985915494"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="JgT-UW-1hv">
@@ -781,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc8-SR-gJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7061" y="225"/>
+            <point key="canvasLocation" x="6203" y="745"/>
         </scene>
         <!--Capture-->
         <scene sceneID="wg7-f3-ORb">
@@ -1114,7 +1106,7 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GV9-mA-zrH"/>
+        <segue reference="tky-yU-hKy"/>
         <segue reference="sQE-aZ-6K4"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
