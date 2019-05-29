@@ -119,12 +119,10 @@
 				B8106A77228242A800D0A2C2 /* ComicBook.swift */,
 				B8106A792282431300D0A2C2 /* ComicBookCollection.swift */,
 				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
-				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
+				B8FDA5A7229ED46000CAD65D /* Main Views */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
-				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8FDA5A6229ED41700CAD65D /* Pickers */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
-				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */,
 				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
@@ -154,6 +152,16 @@
 				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
 			);
 			path = Pickers;
+			sourceTree = "<group>";
+		};
+		B8FDA5A7229ED46000CAD65D /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
+				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
+				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
+			);
+			path = "Main Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
