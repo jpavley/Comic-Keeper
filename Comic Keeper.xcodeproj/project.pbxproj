@@ -113,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
-				B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
@@ -123,14 +122,9 @@
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
-				B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */,
-				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
-				B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */,
-				B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */,
-				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
+				B8FDA5A6229ED41700CAD65D /* Pickers */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
-				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
 				B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */,
 				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
@@ -146,6 +140,20 @@
 				B85C0E6E2286321600AA444E /* Info.plist */,
 			);
 			path = "Comic Keeper Framework";
+			sourceTree = "<group>";
+		};
+		B8FDA5A6229ED41700CAD65D /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
+				B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */,
+				B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */,
+				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
+				B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */,
+				B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */,
+				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
