@@ -115,7 +115,7 @@
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8FDA5A8229ED4B900CAD65D /* Models */,
-				B8FDA5A7229ED46000CAD65D /* Main View Controllers */,
+				B8FDA5A7229ED46000CAD65D /* Collection View Controllers */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8FDA5A6229ED41700CAD65D /* Picker View Controllers */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
@@ -150,14 +150,14 @@
 			path = "Picker View Controllers";
 			sourceTree = "<group>";
 		};
-		B8FDA5A7229ED46000CAD65D /* Main View Controllers */ = {
+		B8FDA5A7229ED46000CAD65D /* Collection View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 			);
-			path = "Main View Controllers";
+			path = "Collection View Controllers";
 			sourceTree = "<group>";
 		};
 		B8FDA5A8229ED4B900CAD65D /* Models */ = {
