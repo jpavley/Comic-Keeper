@@ -34,6 +34,7 @@
 		B8CC0F29229C2BB3009368FD /* PickerTableSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */; };
 		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
+		B8FDA5A5229DEA3B00CAD65D /* PickerHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableSectionHeadView.swift; sourceTree = "<group>"; };
 		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
+		B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */,
 				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
+				B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */,
 				B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */,
 				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
 				B8106A5D2280F65B00D0A2C2 /* SecondViewController.swift */,
@@ -272,6 +275,7 @@
 				B8106A5E2280F65B00D0A2C2 /* SecondViewController.swift in Sources */,
 				B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */,
 				B8CC0F29229C2BB3009368FD /* PickerTableSectionHeadView.swift in Sources */,
+				B8FDA5A5229DEA3B00CAD65D /* PickerHeaderViewController.swift in Sources */,
 				B8106A5C2280F65B00D0A2C2 /* FirstViewController.swift in Sources */,
 				B8CC0F27229C2542009368FD /* PickerTableSectionHead.xib in Sources */,
 			);

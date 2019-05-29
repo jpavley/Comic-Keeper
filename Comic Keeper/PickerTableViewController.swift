@@ -156,6 +156,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         } else if segue.identifier == "AddItemSegue" {
             let destination = segue.destination as! AddItemViewController
             destination.pickerTitle = "Add \(pickerTitle!)"
+            destination.hintText = hintText
         }
     }
     

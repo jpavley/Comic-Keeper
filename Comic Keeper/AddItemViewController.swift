@@ -10,9 +10,7 @@ import UIKit
 
 class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPicker {
     
-    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var newItemTextField: UITextField!
-    @IBOutlet weak var coverImageView: UIImageView!
     
     var itemList: [String]!
     var selectedItemName: String!
@@ -33,7 +31,6 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPick
 
         // show the keyboard by default
         title = pickerTitle
-        hintLabel.text = hintText
         navigationItem.setHidesBackButton(true, animated: true)
         configureNewItemTextField()
     }
@@ -104,6 +101,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPick
         // Pass the selected object to the new view controller.
         if segue.identifier == "AddedItem" {
             // I don't think there is anything to do yet...
+        } else if segue.identifier == "SectionHeadSegue" {
+            let destination = segue.destination as! PickerHeaderViewController
+            destination.hintText = hintText
         }
     }
     
