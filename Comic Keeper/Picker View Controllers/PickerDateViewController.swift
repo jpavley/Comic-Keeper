@@ -44,7 +44,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
         datePicker.date = selectedItemDate
         updateSelectedItemName(with: datePicker.date)
         
-        navigationItem.setHidesBackButton(true, animated: true)
+        //navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func updateSelectedItemName(with date: Date) {

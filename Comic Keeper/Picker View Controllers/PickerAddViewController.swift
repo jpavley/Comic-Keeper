@@ -31,7 +31,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
 
         // show the keyboard by default
         title = pickerTitle
-        navigationItem.setHidesBackButton(true, animated: true)
+        //navigationItem.setHidesBackButton(true, animated: true)
         configureNewItemTextField()
     }
     

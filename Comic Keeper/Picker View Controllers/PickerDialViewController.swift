@@ -42,7 +42,7 @@ class PickerDialViewController: UIViewController, StandardPicker  {
             itemPicker.selectRow(0, inComponent: 0, animated: true)
         }
         
-        navigationItem.setHidesBackButton(true, animated: true)
+        //navigationItem.setHidesBackButton(true, animated: true)
     }
 
     
