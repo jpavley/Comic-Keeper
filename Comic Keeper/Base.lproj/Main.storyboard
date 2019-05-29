@@ -470,7 +470,7 @@
             </objects>
             <point key="canvasLocation" x="4134" y="-342"/>
         </scene>
-        <!--List Picker-->
+        <!--Picker Table-->
         <scene sceneID="uSh-2w-AaZ">
             <objects>
                 <tableViewController id="DeC-I5-iAl" customClass="PickerTableViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
@@ -535,7 +535,7 @@
                             <outlet property="delegate" destination="DeC-I5-iAl" id="Nby-PO-okk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List Picker" id="PmK-T0-Lc9">
+                    <navigationItem key="navigationItem" title="Picker Table" id="PmK-T0-Lc9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qMo-pU-hEA">
                             <connections>
                                 <segue destination="Lbx-p7-yJ5" kind="show" identifier="AddItemSegue" id="sQE-aZ-6K4"/>
@@ -548,7 +548,7 @@
             </objects>
             <point key="canvasLocation" x="5374" y="-765"/>
         </scene>
-        <!--Choose Item-->
+        <!--Picker Dial-->
         <scene sceneID="TOI-ij-l8g">
             <objects>
                 <viewController id="gE7-Jh-VJR" customClass="PickerDialViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
@@ -556,51 +556,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Item: 1950" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-SC-dh5">
-                                <rect key="frame" x="8" y="196" width="304" height="21"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-cover-thumb" translatesAutoresizingMaskIntoConstraints="NO" id="Dao-m5-R6I">
-                                <rect key="frame" x="120" y="80" width="80" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="H5j-nb-CcU"/>
-                                    <constraint firstAttribute="height" constant="100" id="w6j-5R-q2G"/>
-                                </constraints>
-                            </imageView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="233" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="232" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
-                                <rect key="frame" x="142" y="457" width="37" height="30"/>
+                                <rect key="frame" x="142" y="456" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-3X-GJ4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="CgS-6Z-ZbV"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="G6B-eT-YBT" kind="embed" identifier="SectionHeadSegue2" id="GV9-mA-zrH"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="U1o-SC-dh5" secondAttribute="bottom" constant="16" id="3Lx-hJ-z9Z"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="9PX-aa-A0V" secondAttribute="trailing" constant="141" id="8RO-o9-jSO"/>
                             <constraint firstItem="FR3-nV-VXi" firstAttribute="leading" secondItem="56T-E8-x2y" secondAttribute="leading" id="Cdv-mu-Ygy"/>
+                            <constraint firstItem="XD2-3X-GJ4" firstAttribute="trailing" secondItem="zsD-Jz-9PY" secondAttribute="trailing" id="K0s-dg-F5U"/>
                             <constraint firstItem="9PX-aa-A0V" firstAttribute="top" secondItem="FR3-nV-VXi" secondAttribute="bottom" constant="8" id="Qah-Wy-zuB"/>
-                            <constraint firstItem="U1o-SC-dh5" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="8" id="XcK-Ai-mX7"/>
-                            <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="U1o-SC-dh5" secondAttribute="trailing" constant="8" id="fbz-QF-asd"/>
-                            <constraint firstItem="U1o-SC-dh5" firstAttribute="top" secondItem="Dao-m5-R6I" secondAttribute="bottom" constant="16" id="fxk-oK-qpb"/>
-                            <constraint firstItem="Dao-m5-R6I" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" constant="16" id="hoA-ZN-Nke"/>
+                            <constraint firstItem="XD2-3X-GJ4" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" id="bbf-4M-1he"/>
                             <constraint firstItem="9PX-aa-A0V" firstAttribute="leading" secondItem="zsD-Jz-9PY" secondAttribute="leading" constant="142" id="jiS-u0-I3O"/>
-                            <constraint firstItem="Dao-m5-R6I" firstAttribute="centerX" secondItem="56T-E8-x2y" secondAttribute="centerX" id="rQH-Cg-BFF"/>
+                            <constraint firstItem="FR3-nV-VXi" firstAttribute="top" secondItem="XD2-3X-GJ4" secondAttribute="bottom" constant="8" id="tAM-LN-Mvn"/>
                             <constraint firstItem="zsD-Jz-9PY" firstAttribute="trailing" secondItem="FR3-nV-VXi" secondAttribute="trailing" id="tfu-c5-ihn"/>
+                            <constraint firstItem="XD2-3X-GJ4" firstAttribute="top" secondItem="zsD-Jz-9PY" secondAttribute="top" id="y5G-eu-h4c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsD-Jz-9PY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Item" id="GYC-B8-2Ca">
+                    <navigationItem key="navigationItem" title="Picker Dial" id="GYC-B8-2Ca">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ple-mz-cte">
                             <connections>
                                 <action selector="doneButtonAction:" destination="gE7-Jh-VJR" id="1jQ-o9-lSR"/>
@@ -608,8 +602,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="coverImageView" destination="Dao-m5-R6I" id="WTw-V6-Ruo"/>
-                        <outlet property="hintLabel" destination="U1o-SC-dh5" id="tk9-as-HeH"/>
                         <outlet property="itemPicker" destination="FR3-nV-VXi" id="zvM-qh-yez"/>
                         <outlet property="noneButton" destination="9PX-aa-A0V" id="6a7-gM-HmP"/>
                         <segue destination="cNt-4U-qHV" kind="unwind" identifier="ChooseItemSegue" unwindAction="dialPickerDidPickItem:" id="yPK-gK-Na8"/>
@@ -618,9 +610,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncP-Xb-zGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cNt-4U-qHV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5374" y="117"/>
+            <point key="canvasLocation" x="5373.75" y="116.19718309859155"/>
         </scene>
-        <!--Date Picker-->
+        <!--Picker Date-->
         <scene sceneID="rth-vg-vnZ">
             <objects>
                 <viewController id="9C6-6i-qZ2" customClass="PickerDateViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
@@ -674,7 +666,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rtF-tm-bKx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Date Picker" id="df2-ip-S9a">
+                    <navigationItem key="navigationItem" title="Picker Date" id="df2-ip-S9a">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="YTG-TY-PbH">
                             <connections>
                                 <action selector="doneButtonAction:" destination="9C6-6i-qZ2" id="NFl-Ub-9rr"/>
@@ -789,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc8-SR-gJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7058" y="-371"/>
+            <point key="canvasLocation" x="7061" y="225"/>
         </scene>
         <!--Capture-->
         <scene sceneID="wg7-f3-ORb">
@@ -1122,6 +1114,7 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GV9-mA-zrH"/>
         <segue reference="sQE-aZ-6K4"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>

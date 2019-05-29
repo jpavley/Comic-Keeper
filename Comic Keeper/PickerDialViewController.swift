@@ -10,9 +10,7 @@ import UIKit
 
 class PickerDialViewController: UIViewController, StandardPicker  {
     
-    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var itemPicker: UIPickerView!
-    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var noneButton: UIButton!
     
     var itemList: [String]!
@@ -36,7 +34,6 @@ class PickerDialViewController: UIViewController, StandardPicker  {
 
         // Do any additional setup after loading the view.
         title = pickerTitle
-        hintLabel.text = hintText
         noneButton.isHidden = !noneButtonVisible
         
         if let selectedItemRow = itemList.firstIndex(of: selectedItemName) {
@@ -48,15 +45,18 @@ class PickerDialViewController: UIViewController, StandardPicker  {
         navigationItem.setHidesBackButton(true, animated: true)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SectionHeadSegue2" {
+            let destination = segue.destination as! PickerHeaderViewController
+            destination.hintText = hintText
+        }
     }
-    */
 }
 
 extension PickerDialViewController: UIPickerViewDataSource, UIPickerViewDelegate {

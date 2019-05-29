@@ -138,4 +138,31 @@ If this is the first use case don't forget to create an unwind/exit segue from _
         <segue destination="9C6-6i-qZ2" kind="show" identifier="EditDateSegue" id="OPf-sK-ccW"/>
         <segue destination="9C6-6i-qZ2" kind="show" identifier="EditPurchaseDateSegue" id="OPf-sK-ccW"/>
     </connections>
+    
+## HOWTO 4: Connect any Picker View Controller to an _PickerHeaderViewController_
+
+The enabled all pickers to share a standard header which include a cover thumbnail image and a hint text label. It gives the user a sense of which comic book she is working with during editing. It also reduced repetitive code and controls by embedding the _PickerHeaderViewController_ within _UIContainerView_ and sharing data through an embed segue.
+
+### Step 4.1
+
+On the main storyboard disconnect and delete any outlets and controllers if the target picker view currently has a header. Delete references to these outlets in the pickers code.
+
+### Step 4.2
+
+Add a UIContainerView to the picker's view controller at its top. The container view should fill the width of the target view controller and be 160 points in height. Set the following contraints on the container view: top 0, left 0, right 0, height 160. Add a constraint to connect the top of the picker's first control to the bottom of the container view. All constraint warnings should be cleared.
+
+### Step 4.3
+
+Control drag from the container view in the target picker to the _PickerHeaderViewController_ in the main storyboard. Selected the embed segue. Give that that embed segue an ID that you will use later in the code for the picker's view controller's _prepare(for:sender:)_ function.
+
+### Step 4.4
+
+Add a _PickerHeaderViewController_ configuration segue case in the target picker's prepare(for:sender:) function. This is called before the  _PickerHeaderViewController_ is displayed.
+
+    if segue.identifier == "SectionHeadSegue2" {
+        let destination = segue.destination as! PickerHeaderViewController
+        destination.hintText = hintText
+    }
+
+
 
