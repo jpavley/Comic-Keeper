@@ -115,11 +115,9 @@
 				B8FDA5A7229ED46000CAD65D /* Collection View Controllers */,
 				B8106A5B2280F65B00D0A2C2 /* FirstViewController.swift */,
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
-				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
-				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
+				B8FDA5A9229F425E00CAD65D /* Storyboards */,
 				B8FDA5A8229ED4B900CAD65D /* Models */,
 				B8FDA5A6229ED41700CAD65D /* Picker View Controllers */,
-				B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -167,6 +165,16 @@
 				B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B8FDA5A9229F425E00CAD65D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B8106A642280F65C00D0A2C2 /* LaunchScreen.storyboard */,
+				B8106A5F2280F65B00D0A2C2 /* Main.storyboard */,
+				B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
