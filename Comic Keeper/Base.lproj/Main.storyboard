@@ -650,7 +650,7 @@
         <!--Add Item-->
         <scene sceneID="JgT-UW-1hv">
             <objects>
-                <viewController id="Lbx-p7-yJ5" customClass="AddItemViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lbx-p7-yJ5" customClass="PickerAddViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Udp-Hp-Ta7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

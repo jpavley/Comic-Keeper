@@ -154,7 +154,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
                 selectedItemName = itemList[indexPath.row]
             }
         } else if segue.identifier == "AddItemSegue" {
-            let destination = segue.destination as! AddItemViewController
+            let destination = segue.destination as! PickerAddViewController
             destination.pickerTitle = "Add \(pickerTitle!)"
             destination.hintText = hintText
         }
@@ -164,7 +164,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     @IBAction func addItemDidAddItem(_ segue: UIStoryboardSegue) {
         
         // get the add item view controller
-        let controller = segue.source as! AddItemViewController
+        let controller = segue.source as! PickerAddViewController
         
         if let newItem = controller.newItemTextField.text {
             

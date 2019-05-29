@@ -119,7 +119,7 @@ class EditComicBookViewController: UITableViewController {
             let si = currentComicBook?.comic.legacyIssueNumber
             configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
         case "EditVariantSignifierSegue":
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! PickerAddViewController
             controller.pickerTitle = "Variant Info"
             controller.hintText = currentComicBook!.identifier
             if let v = currentComicBook?.comic.variant {
@@ -130,7 +130,7 @@ class EditComicBookViewController: UITableViewController {
             let si = currentComicBook?.book.condition
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
         case "EditPurchasePriceSegue":
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! PickerAddViewController
             controller.pickerTitle = "Purchase Price"
             controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.purchasePriceText {
@@ -147,7 +147,7 @@ class EditComicBookViewController: UITableViewController {
                 controller.selectedItemDate = Date()
             }
         case "EditSalesPriceSegue":
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! PickerAddViewController
             controller.pickerTitle = "Sales Price"
             controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.sellPriceText {
@@ -176,7 +176,7 @@ class EditComicBookViewController: UITableViewController {
     
     // Unwind/exit segue from AddItemViewController
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
-        let controller = segue.source as! AddItemViewController
+        let controller = segue.source as! PickerAddViewController
         
         guard let newText = controller.newItemTextField.text else {
             return

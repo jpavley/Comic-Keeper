@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController, UITextFieldDelegate, StandardPicker {
+class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPicker {
     
     @IBOutlet weak var newItemTextField: UITextField!
     

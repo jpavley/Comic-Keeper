@@ -29,7 +29,7 @@
 		B87BF1EA22986D0F002A0BDB /* PickerDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */; };
 		B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
-		B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */; };
+		B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */; };
 		B8CC0F27229C2542009368FD /* PickerTableSectionHead.xib in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */; };
 		B8CC0F29229C2BB3009368FD /* PickerTableSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */; };
 		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
@@ -62,7 +62,7 @@
 		B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDateViewController.swift; sourceTree = "<group>"; };
 		B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
-		B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAddViewController.swift; sourceTree = "<group>"; };
 		B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableSectionHead.xib; sourceTree = "<group>"; };
 		B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableSectionHeadView.swift; sourceTree = "<group>"; };
 		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
-				B8C98CAC228F3E8F00322A4D /* AddItemViewController.swift */,
+				B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */,
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8106A752282407100D0A2C2 /* Book.swift */,
 				B8106A7322823ED100D0A2C2 /* Comic.swift */,
@@ -266,7 +266,7 @@
 				B87BF1EA22986D0F002A0BDB /* PickerDateViewController.swift in Sources */,
 				B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
-				B8C98CAD228F3E8F00322A4D /* AddItemViewController.swift in Sources */,
+				B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */,
 				B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */,
