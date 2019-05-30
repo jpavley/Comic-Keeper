@@ -26,6 +26,7 @@
 		B85C0E762286325E00AA444E /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
 		B85C0E772286325E00AA444E /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B878BB0B229F443C00F78C7B /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878BB0A229F443C00F78C7B /* CaptureViewController.swift */; };
+		B878BB0E229F48DC00F78C7B /* CKDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */; };
 		B87BF1EA22986D0F002A0BDB /* PickerDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */; };
 		B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
@@ -59,6 +60,7 @@
 		B85C0E6E2286321600AA444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86078DB228A3D7F0095D168 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B878BB0A229F443C00F78C7B /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		B878BB0D229F48DC00F78C7B /* CKDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CKDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDateViewController.swift; sourceTree = "<group>"; };
 		B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				B8FDA5A6229ED41700CAD65D /* Picker View Controllers */,
 				B878BB0A229F443C00F78C7B /* CaptureViewController.swift */,
 				B8106A5B2280F65B00D0A2C2 /* SummaryViewController.swift */,
+				B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
 				B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */,
 				B87BF1EA22986D0F002A0BDB /* PickerDateViewController.swift in Sources */,
+				B878BB0E229F48DC00F78C7B /* CKDataModel.xcdatamodeld in Sources */,
 				B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */,
@@ -586,6 +590,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B878BB0D229F48DC00F78C7B /* CKDataModel.xcdatamodel */,
+			);
+			currentVersion = B878BB0D229F48DC00F78C7B /* CKDataModel.xcdatamodel */;
+			path = CKDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B8106A4E2280F65B00D0A2C2 /* Project object */;
 }
