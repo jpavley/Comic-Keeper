@@ -7,11 +7,30 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    /// Create and return an NSPersistentContainer.
+    /// (Which will be used to generate a NSManagedObjectContect for the CKDataModel store.
+    lazy var presistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "CKDataModel")
+        
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error {
+                fatalError("Could not load CKDataModel: \(error)")
+            }
+        })
+        
+        return container
+    }()
+    
+    /// Create and return a NSManagedObjectContect Object.
+    /// (From the NSPersistentContainer connected to the CKDataModel store.
+    lazy var managedObjectContext: NSManagedObjectContext = self.presistentContainer.viewContext
     
     let collectionNavigationIndex = 0
     let seriesTableIndex = 0

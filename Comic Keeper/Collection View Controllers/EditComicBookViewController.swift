@@ -26,18 +26,53 @@ class EditComicBookViewController: UITableViewController {
     @IBOutlet weak var sellPriceLabel: UILabel!
     @IBOutlet weak var sellDateLabel: UILabel!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     var comicBookCollection: ComicBookCollection!
     var currentIdentifier: String!
     var image: UIImage?
     var imageHeight: CGFloat = 260
     var listPickerKind = "Publisher"
     
+    // MARK:- Two kinds of data changes...
+    
+    /// Tracks changes to navigational related properties.
+    ///
+    /// - _True_: User changed publisher, era, series, issue number, and/or variant info
+    ///   and so now the navigation hierarchy needs to be updated and the back button
+    ///   should be disabled.
+    ///   Save button should be used to exit view to the part of
+    ///   the view hierarchy that didn't change.
+    /// - _False_: Back button ok to use but might need to save data.
+    ///   Save button does what back button does.
+    var navigationBreakingChange = false
+    
+    /// Tracks changes to non-navigational related properties.
+    ///
+    /// - _True_: User changed non-navigational related properties and so the back button can be
+    /// used safely but data has to saved first. Save button does what the back button does.
+    /// - _False_: User didn't change non-navigational related properties.
+    ///   Back button can be safely used if no navigational changes were made.
+    ///   Save button does what back button does.
+    var dataPropertyChange = false
+    
+    // MARK:-
+    
     let photoSection = 1
     let photoRow = 0
     
+    @IBAction func saveAction(_ sender: Any) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
+        // Check for data changes that break navigation
+        saveButton.isEnabled = navigationBreakingChange
+        navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
+
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
@@ -64,10 +99,6 @@ class EditComicBookViewController: UITableViewController {
         sellPriceLabel.text = currentComicBook?.book.sellPriceText
         sellDateLabel.text = currentComicBook?.book.sellDateText
     }
-    
-//    @objc func addTapped() {
-//        print("addTapped()")
-//    }
     
     // MARK:- Table View
     

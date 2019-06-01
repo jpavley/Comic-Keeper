@@ -449,7 +449,13 @@
                             <outlet property="delegate" destination="MBk-Cu-HCP" id="LUQ-oG-bzK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Comic Book" id="NCM-IL-gkM"/>
+                    <navigationItem key="navigationItem" title="Edit Comic Book" id="NCM-IL-gkM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6a5-1C-TEh">
+                            <connections>
+                                <action selector="saveAction:" destination="MBk-Cu-HCP" id="NRT-ig-HhI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="1050"/>
                     <connections>
                         <outlet property="conditionLabel" destination="gyP-KJ-bW9" id="rrm-eN-TXd"/>
@@ -460,6 +466,7 @@
                         <outlet property="publisherLabel" destination="eY4-FI-b5w" id="Jto-Eg-MzH"/>
                         <outlet property="purchaseDateLabel" destination="VYk-6F-QdO" id="4su-Fp-OGS"/>
                         <outlet property="purchasePriceLabel" destination="LGJ-1I-wAm" id="Ysb-2P-AdQ"/>
+                        <outlet property="saveButton" destination="6a5-1C-TEh" id="7Jc-D6-vAH"/>
                         <outlet property="sellDateLabel" destination="caY-7s-Hl5" id="s7G-AT-hZo"/>
                         <outlet property="sellPriceLabel" destination="6uW-VU-kcw" id="4a0-uK-frL"/>
                         <outlet property="seriesLabel" destination="bSC-P6-0A5" id="HyS-Z0-y6S"/>
@@ -1076,7 +1083,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tky-yU-hKy"/>
-        <segue reference="sQE-aZ-6K4"/>
+        <segue reference="9Qk-Vt-ARA"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>
