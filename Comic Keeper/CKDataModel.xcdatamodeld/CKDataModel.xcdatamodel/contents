@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="ComicBook" representedClassName="ComicBook" syncable="YES" codeGenerationType="class">
+        <attribute name="condition" attributeType="String" syncable="YES"/>
+        <attribute name="issueNumber" attributeType="String" syncable="YES"/>
+        <attribute name="legacyIssueNumber" attributeType="String" syncable="YES"/>
+        <attribute name="photoID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="publisher" attributeType="String" syncable="YES"/>
+        <attribute name="purchaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="purchasePrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sellDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sellPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="series" attributeType="String" syncable="YES"/>
+        <attribute name="variant" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ComicBook" positionX="-63" positionY="-18" width="128" height="210"/>
+    </elements>
 </model>
