@@ -202,25 +202,16 @@ class EditComicBookViewController: UITableViewController {
         // Picker Add Cases
         
         case "EditVariantSignifierSegue":
-            if let v = currentComicBook?.comic.variant {
-                configureAddPicker(kind: "Variant Info", selectedItem: v)
-            } else {
-                fatalError("missing data in currentComicBook?.comic.variant")
-            }
+            let v = currentComicBook!.comic.variant // never nil
+            configureAddPicker(kind: "Variant Info", selectedItem: v)
             
         case "EditPurchasePriceSegue":
-            if let p = currentComicBook?.book.purchasePriceText {
-                configureAddPicker(kind: "Purchase Price", selectedItem: p)
-            } else {
-                fatalError("missing data in currentComicBook?.book.purchasePriceText")
-            }
+            let p = currentComicBook!.book.purchasePriceText // never nil
+            configureAddPicker(kind: "Purchase Price", selectedItem: p)
 
         case "EditSalesPriceSegue":
-            if let p = currentComicBook?.book.sellPriceText {
-                configureAddPicker(kind: "Sales Price", selectedItem: p)
-            } else {
-                fatalError("missing data in currentComicBook?.book.sellPriceText")
-            }
+            let p = currentComicBook!.book.sellPriceText // never nil
+            configureAddPicker(kind: "Sales Price", selectedItem: p)
             
         // Picker Date Cases
         
