@@ -139,6 +139,17 @@ class EditComicBookViewController: UITableViewController {
             transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
         }
         
+        func configureAddPicker(kind: String, selectedItem: String) {
+            let picker = segue.destination as! PickerAddViewController
+            listPickerKind = kind
+            picker.pickerTitle = listPickerKind
+            picker.hintText = currentComicBook!.identifier
+            picker.selectedItemName = selectedItem
+            
+            // save info about this transaction
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
+        }
+        
         switch segue.identifier {
         
         // Standard Picker Cases
@@ -176,32 +187,25 @@ class EditComicBookViewController: UITableViewController {
         // Picker Add Cases
         
         case "EditVariantSignifierSegue":
-            let controller = segue.destination as! PickerAddViewController
-            listPickerKind = "Variant Info"
-            controller.pickerTitle = listPickerKind
-            controller.hintText = currentComicBook!.identifier
             if let v = currentComicBook?.comic.variant {
-                controller.selectedItemName = v
-                // save info about this transaction
-                transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: v, outputValue: "")
+                configureAddPicker(kind: "Variant Info", selectedItem: v)
+            } else {
+                fatalError("missing data in currentComicBook?.comic.variant")
             }
             
         case "EditPurchasePriceSegue":
-            let controller = segue.destination as! PickerAddViewController
-            listPickerKind = "Purchase Price"
-            controller.pickerTitle = listPickerKind
-            controller.hintText = currentComicBook!.identifier
-            if let price = currentComicBook?.book.purchasePriceText {
-                controller.selectedItemName = price
+            if let p = currentComicBook?.book.purchasePriceText {
+                configureAddPicker(kind: "Purchase Price", selectedItem: p)
+            } else {
+                fatalError("missing data in currentComicBook?.book.purchasePriceText")
             }
-            
+
         case "EditSalesPriceSegue":
-            let controller = segue.destination as! PickerAddViewController
-            listPickerKind = "Sales Price"
-            controller.pickerTitle = listPickerKind
-            controller.hintText = currentComicBook!.identifier
-            if let price = currentComicBook?.book.sellPriceText {
-                controller.selectedItemName = price
+            
+            if let p = currentComicBook?.book.sellPriceText {
+                configureAddPicker(kind: "Sales Price", selectedItem: p)
+            } else {
+                fatalError("missing data in currentComicBook?.book.sellPriceText")
             }
             
         // Picker Date Cases
