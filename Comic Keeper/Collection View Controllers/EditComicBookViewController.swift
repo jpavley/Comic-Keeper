@@ -140,6 +140,9 @@ class EditComicBookViewController: UITableViewController {
         }
         
         switch segue.identifier {
+        
+        // Standard Picker Cases
+        
         case "ChoosePublisherSegue":
             let pl = comicBookCollection.publisherNames.sorted()
             let si = currentComicBook?.comic.publisher
@@ -170,6 +173,8 @@ class EditComicBookViewController: UITableViewController {
             let si = currentComicBook?.book.condition
             configureStandardPicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
+        // Picker Add Cases
+        
         case "EditVariantSignifierSegue":
             let controller = segue.destination as! PickerAddViewController
             listPickerKind = "Variant Info"
@@ -199,6 +204,8 @@ class EditComicBookViewController: UITableViewController {
                 controller.selectedItemName = price
             }
             
+        // Picker Date Cases
+        
         case "EditPurchaseDateSegue":
             let controller = segue.destination as! PickerDateViewController
             listPickerKind = "Purchase Date"
@@ -222,7 +229,7 @@ class EditComicBookViewController: UITableViewController {
             }
             
         default:
-            assert(true, "unsupported seque in EditComicBookViewController")
+            fatalError("unsupported seque in EditComicBookViewController")
         }
     }
     
