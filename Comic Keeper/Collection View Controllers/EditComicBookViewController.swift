@@ -158,9 +158,6 @@ class EditComicBookViewController: UITableViewController {
             controller.selectedItemDate = date
             
             // save info about this transaction
-            
-            // TODO: Create a way to share this code! It's copied from PickerDateViewController
-            
             let selectedItemName = currentComicBook?.book.dateText(from: date)
             transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName!, outputValue: "")
         }
