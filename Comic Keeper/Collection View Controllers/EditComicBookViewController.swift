@@ -65,6 +65,12 @@ class EditComicBookViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Check for data changes that break navigation
+        saveButton.isEnabled = navigationBreakingChange
+        navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +78,6 @@ class EditComicBookViewController: UITableViewController {
         // Check for data changes that break navigation
         saveButton.isEnabled = navigationBreakingChange
         navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
-
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
@@ -214,20 +219,27 @@ class EditComicBookViewController: UITableViewController {
         }
         
         if controller.pickerTitle.contains("Variant") {
+            navigationBreakingChange = true
             variantLabel.text = newText
+            
         } else if controller.pickerTitle.contains("Purchase") {
+            
             if newText.isEmpty {
                 purchasePriceLabel.text = "none"
             } else {
                 purchasePriceLabel.text = newText
             }
+            
         } else if controller.pickerTitle.contains("Sales") {
+            
             if newText.isEmpty {
                 sellPriceLabel.text = "none"
             } else {
                 sellPriceLabel.text = newText
             }
         }
+        
+        dataPropertyChange = true
     }
     
     // Unwind/exit segue from list picker to edit comic book view controller.
