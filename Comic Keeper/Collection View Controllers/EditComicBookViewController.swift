@@ -56,7 +56,7 @@ class EditComicBookViewController: UITableViewController {
     ///   Save button does what back button does.
     var dataPropertyChange = false
     
-    var transactionInfo: CKTransaction!
+    var transactionInfo: CKTransaction?
     
     // MARK:-
     
@@ -78,6 +78,7 @@ class EditComicBookViewController: UITableViewController {
         super.viewDidLoad()
         
         // Check for data changes that break navigation
+        transactionInfo = nil
         saveButton.isEnabled = navigationBreakingChange
         navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
         
@@ -133,6 +134,9 @@ class EditComicBookViewController: UITableViewController {
             picker.selectedItemName = selectedItem
             picker.hintText = currentComicBook!.identifier
             picker.noneButtonVisible = noneButtonVisible
+            
+            // save info about this transaction
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
         }
         
         switch segue.identifier {
@@ -140,40 +144,61 @@ class EditComicBookViewController: UITableViewController {
             let pl = comicBookCollection.publisherNames.sorted()
             let si = currentComicBook?.comic.publisher
             configurePicker(kind: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
         case "ChooseSeriesSegue":
             let pl = comicBookCollection.seriesNames.sorted()
             let si = currentComicBook?.comic.series
             configurePicker(kind: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
         case "ChooseEraSegue":
             let pl = comicBookCollection.eras
             let si = currentComicBook?.seriesEra
             configurePicker(kind: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
         case "ChooseIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
             configurePicker(kind: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
             configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
-        case "EditVariantSignifierSegue":
-            let controller = segue.destination as! PickerAddViewController
-            controller.pickerTitle = "Variant Info"
-            controller.hintText = currentComicBook!.identifier
-            if let v = currentComicBook?.comic.variant {
-                controller.selectedItemName = v
-            }
+            
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
             let si = currentComicBook?.book.condition
             configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
+        case "EditVariantSignifierSegue":
+            let controller = segue.destination as! PickerAddViewController
+            listPickerKind = "Variant Info"
+            controller.pickerTitle = listPickerKind
+            controller.hintText = currentComicBook!.identifier
+            if let v = currentComicBook?.comic.variant {
+                controller.selectedItemName = v
+                // save info about this transaction
+                transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: v, outputValue: "")
+            }
+            
         case "EditPurchasePriceSegue":
             let controller = segue.destination as! PickerAddViewController
-            controller.pickerTitle = "Purchase Price"
+            listPickerKind = "Purchase Price"
+            controller.pickerTitle = listPickerKind
             controller.hintText = currentComicBook!.identifier
             if let price = currentComicBook?.book.purchasePriceText {
                 controller.selectedItemName = price
             }
+            
+        case "EditSalesPriceSegue":
+            let controller = segue.destination as! PickerAddViewController
+            listPickerKind = "Sales Price"
+            controller.pickerTitle = listPickerKind
+            controller.hintText = currentComicBook!.identifier
+            if let price = currentComicBook?.book.sellPriceText {
+                controller.selectedItemName = price
+            }
+            
         case "EditPurchaseDateSegue":
             let controller = segue.destination as! PickerDateViewController
             listPickerKind = "Purchase Date"
@@ -184,13 +209,7 @@ class EditComicBookViewController: UITableViewController {
             } else {
                 controller.selectedItemDate = Date()
             }
-        case "EditSalesPriceSegue":
-            let controller = segue.destination as! PickerAddViewController
-            controller.pickerTitle = "Sales Price"
-            controller.hintText = currentComicBook!.identifier
-            if let price = currentComicBook?.book.sellPriceText {
-                controller.selectedItemName = price
-            }
+            
         case "EditSalesDateSegue":
             let controller = segue.destination as! PickerDateViewController
             listPickerKind = "Sales Date"
@@ -201,6 +220,7 @@ class EditComicBookViewController: UITableViewController {
             } else {
                 controller.selectedItemDate = Date()
             }
+            
         default:
             assert(true, "unsupported seque in EditComicBookViewController")
         }

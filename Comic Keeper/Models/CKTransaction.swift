@@ -13,9 +13,6 @@ import Foundation
 struct CKTransaction {
     
     var fieldName: String
-    var unWindSegueName: String
-    var showSegueName: String
-
     var inputValue: String
     var outputValue: String
     
