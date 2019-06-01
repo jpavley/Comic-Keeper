@@ -16,16 +16,16 @@ extension ComicBookDM {
         return NSFetchRequest<ComicBookDM>(entityName: "ComicBookDM")
     }
 
-    @NSManaged public var purchasePrice: NSDecimalNumber?
-    @NSManaged public var purchaseDate: NSDate?
-    @NSManaged public var sellPrice: NSDecimalNumber?
-    @NSManaged public var sellDate: NSDate?
-    @NSManaged public var photoID: Int32
-    @NSManaged public var condition: String?
-    @NSManaged public var publisher: String?
-    @NSManaged public var series: String?
-    @NSManaged public var issueNumber: String?
-    @NSManaged public var legacyIssueNumber: String?
-    @NSManaged public var variant: String?
+    @NSManaged public var purchasePrice: Decimal?
+    @NSManaged public var purchaseDate: Date?
+    @NSManaged public var sellPrice: Decimal?
+    @NSManaged public var sellDate: Date?
+    @NSManaged public var photoID: Int32?
+    @NSManaged public var condition: String
+    @NSManaged public var publisher: String
+    @NSManaged public var series: String
+    @NSManaged public var issueNumber: String
+    @NSManaged public var legacyIssueNumber: String
+    @NSManaged public var variant: String
 
 }
