@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Stores infomation about user edits for use in determinating what, if anything, has changed
-struct CKTransation {
+struct CKTransaction {
     
     var fieldName: String
     var unWindSegueName: String

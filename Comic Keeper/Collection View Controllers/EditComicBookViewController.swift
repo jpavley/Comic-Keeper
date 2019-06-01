@@ -56,6 +56,8 @@ class EditComicBookViewController: UITableViewController {
     ///   Save button does what back button does.
     var dataPropertyChange = false
     
+    var transactionInfo: CKTransaction!
+    
     // MARK:-
     
     let photoSection = 1
