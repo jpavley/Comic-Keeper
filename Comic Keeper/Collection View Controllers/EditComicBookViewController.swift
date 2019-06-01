@@ -150,6 +150,25 @@ class EditComicBookViewController: UITableViewController {
             transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
         }
         
+        func configureDatePicker(kind: String, date: Date) {
+            let controller = segue.destination as! PickerDateViewController
+            listPickerKind = kind
+            controller.pickerTitle = listPickerKind
+            controller.hintText = currentComicBook!.identifier
+            controller.selectedItemDate = date
+            
+            // save info about this transaction
+            
+            // TODO: Create a way to share this code! It's copied from PickerDateViewController
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            dateFormatter.locale = Locale(identifier: "en_US")
+            let selectedItemName = dateFormatter.string(from: date)
+
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName, outputValue: "")
+        }
+        
         switch segue.identifier {
         
         // Standard Picker Cases
@@ -201,7 +220,6 @@ class EditComicBookViewController: UITableViewController {
             }
 
         case "EditSalesPriceSegue":
-            
             if let p = currentComicBook?.book.sellPriceText {
                 configureAddPicker(kind: "Sales Price", selectedItem: p)
             } else {
@@ -211,26 +229,12 @@ class EditComicBookViewController: UITableViewController {
         // Picker Date Cases
         
         case "EditPurchaseDateSegue":
-            let controller = segue.destination as! PickerDateViewController
-            listPickerKind = "Purchase Date"
-            controller.pickerTitle = listPickerKind
-            controller.hintText = currentComicBook!.identifier
-            if let purchaseDate = currentComicBook?.book.purchaseDate {
-                controller.selectedItemDate = purchaseDate
-            } else {
-                controller.selectedItemDate = Date()
-            }
+            let purchaseDate = currentComicBook?.book.purchaseDate ?? Date()
+            configureDatePicker(kind: "Purchase Date", date: purchaseDate)
             
         case "EditSalesDateSegue":
-            let controller = segue.destination as! PickerDateViewController
-            listPickerKind = "Sales Date"
-            controller.pickerTitle = listPickerKind
-            controller.hintText = currentComicBook!.identifier
-            if let sellDate = currentComicBook?.book.sellDate {
-                controller.selectedItemDate = sellDate
-            } else {
-                controller.selectedItemDate = Date()
-            }
+            let sellDate = currentComicBook?.book.sellDate ?? Date()
+            configureDatePicker(kind: "Sales Date", date: sellDate)
             
         default:
             fatalError("unsupported seque in EditComicBookViewController")
