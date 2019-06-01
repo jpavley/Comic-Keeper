@@ -116,14 +116,14 @@
 			children = (
 				B8106A592280F65B00D0A2C2 /* AppDelegate.swift */,
 				B8106A622280F65C00D0A2C2 /* Assets.xcassets */,
+				B878BB0A229F443C00F78C7B /* CaptureViewController.swift */,
+				B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */,
 				B8FDA5A7229ED46000CAD65D /* Collection View Controllers */,
 				B8106A672280F65C00D0A2C2 /* Info.plist */,
-				B8FDA5A9229F425E00CAD65D /* Storyboards */,
 				B8FDA5A8229ED4B900CAD65D /* Models */,
 				B8FDA5A6229ED41700CAD65D /* Picker View Controllers */,
-				B878BB0A229F443C00F78C7B /* CaptureViewController.swift */,
+				B8FDA5A9229F425E00CAD65D /* Storyboards */,
 				B8106A5B2280F65B00D0A2C2 /* SummaryViewController.swift */,
-				B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */,
 			);
 			path = "Comic Keeper";
 			sourceTree = "<group>";
