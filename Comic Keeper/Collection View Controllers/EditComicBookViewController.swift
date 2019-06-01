@@ -160,13 +160,9 @@ class EditComicBookViewController: UITableViewController {
             // save info about this transaction
             
             // TODO: Create a way to share this code! It's copied from PickerDateViewController
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dateFormatter.timeStyle = .none
-            dateFormatter.locale = Locale(identifier: "en_US")
-            let selectedItemName = dateFormatter.string(from: date)
-
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName, outputValue: "")
+            
+            let selectedItemName = currentComicBook?.book.dateText(from: date)
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName!, outputValue: "")
         }
         
         switch segue.identifier {

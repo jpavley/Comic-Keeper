@@ -35,7 +35,7 @@ public class Book {
     
     // MARK:- Date Text
     
-    private func dateText(from date: Date!) -> String {
+    public func dateText(from date: Date!) -> String {
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
