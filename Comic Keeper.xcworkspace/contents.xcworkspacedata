@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Comic Keeper/ComicBookDM+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Comic Keeper/ComicBookDM+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "container:Comic Keeper.xcodeproj">
    </FileRef>
 </Workspace>
