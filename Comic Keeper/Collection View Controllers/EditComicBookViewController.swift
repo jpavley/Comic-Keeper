@@ -126,7 +126,7 @@ class EditComicBookViewController: UITableViewController {
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
-        func configurePicker(kind: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
+        func configureStandardPicker(kind: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
             listPickerKind = kind
             let picker = segue.destination as! StandardPicker
             picker.itemList = pickerList
@@ -143,32 +143,32 @@ class EditComicBookViewController: UITableViewController {
         case "ChoosePublisherSegue":
             let pl = comicBookCollection.publisherNames.sorted()
             let si = currentComicBook?.comic.publisher
-            configurePicker(kind: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(kind: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
             let pl = comicBookCollection.seriesNames.sorted()
             let si = currentComicBook?.comic.series
-            configurePicker(kind: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(kind: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseEraSegue":
             let pl = comicBookCollection.eras
             let si = currentComicBook?.seriesEra
-            configurePicker(kind: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(kind: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
-            configurePicker(kind: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(kind: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configurePicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
+            configureStandardPicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
             let si = currentComicBook?.book.condition
-            configurePicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "EditVariantSignifierSegue":
             let controller = segue.destination as! PickerAddViewController
