@@ -33,54 +33,28 @@ class EditComicBookViewController: UITableViewController {
     var image: UIImage?
     var imageHeight: CGFloat = 260
     var listPickerKind = "Publisher"
-    
-    // MARK:- Two kinds of data changes...
-    
-    /// Tracks changes to navigational related properties.
-    ///
-    /// - _True_: User changed publisher, era, series, issue number, and/or variant info
-    ///   and so now the navigation hierarchy needs to be updated and the back button
-    ///   should be disabled.
-    ///   Save button should be used to exit view to the part of
-    ///   the view hierarchy that didn't change.
-    /// - _False_: Back button ok to use but might need to save data.
-    ///   Save button does what back button does.
-    var navigationBreakingChange = false
-    
-    /// Tracks changes to non-navigational related properties.
-    ///
-    /// - _True_: User changed non-navigational related properties and so the back button can be
-    /// used safely but data has to saved first. Save button does what the back button does.
-    /// - _False_: User didn't change non-navigational related properties.
-    ///   Back button can be safely used if no navigational changes were made.
-    ///   Save button does what back button does.
-    var dataPropertyChange = false
-    
-    var transactionInfo: CKTransaction?
-    
-    // MARK:-
-    
+        
     let photoSection = 1
     let photoRow = 0
+    
+    var transactionInfo: CKTransaction?
+
     
     @IBAction func saveAction(_ sender: Any) {
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Check for data changes that break navigation
-        saveButton.isEnabled = navigationBreakingChange
-        navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
+        updateUI()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Check for data changes that break navigation
-        transactionInfo = nil
-        saveButton.isEnabled = navigationBreakingChange
-        navigationItem.setHidesBackButton(navigationBreakingChange, animated: true)
+        // initial state
+        transactionInfo = CKTransaction(fieldName: "", inputValue: "", outputValue: "", transactionChange: .nochange)
+        updateUI()
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
@@ -136,7 +110,7 @@ class EditComicBookViewController: UITableViewController {
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureAddPicker(kind: String, selectedItem: String) {
@@ -147,7 +121,7 @@ class EditComicBookViewController: UITableViewController {
             picker.selectedItemName = selectedItem
             
             // save info about this transaction
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "")
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureDatePicker(kind: String, date: Date) {
@@ -159,7 +133,7 @@ class EditComicBookViewController: UITableViewController {
             
             // save info about this transaction
             let selectedItemName = currentComicBook?.book.dateText(from: date)
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName!, outputValue: "")
+            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
         }
         
         switch segue.identifier {
@@ -240,7 +214,6 @@ class EditComicBookViewController: UITableViewController {
         }
         
         if controller.pickerTitle.contains("Variant") {
-            navigationBreakingChange = true
             variantLabel.text = newText
             
         } else if controller.pickerTitle.contains("Purchase") {
@@ -259,8 +232,6 @@ class EditComicBookViewController: UITableViewController {
                 sellPriceLabel.text = newText
             }
         }
-        
-        dataPropertyChange = true
     }
     
     // Unwind/exit segue from list picker to edit comic book view controller.
@@ -314,6 +285,30 @@ class EditComicBookViewController: UITableViewController {
             } else {
                 sellDateLabel.text = controller.selectedItemName
             }
+        }
+    }
+    
+    // MARK:- Helpers
+    
+    func updateUI() {
+        
+        guard let transactionChange = transactionInfo?.transactionChange else {
+            return
+        }
+        
+        switch transactionChange {
+            
+        case .nochange:
+            saveButton.isEnabled = false
+            navigationItem.setHidesBackButton(false, animated: true)
+            
+        case .navigationBreakingChange:
+            saveButton.isEnabled = true
+            navigationItem.setHidesBackButton(true, animated: true)
+            
+        case .dataPropertyChange:
+            saveButton.isEnabled = false
+            navigationItem.setHidesBackButton(true, animated: true)
         }
     }
 }
