@@ -209,6 +209,8 @@ class EditComicBookViewController: UITableViewController {
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerAddViewController
         
+        print("addItemDidEditItem", transactionInfo ?? "")
+        
         guard let newText = controller.newItemTextField.text else {
             return
         }
@@ -237,6 +239,8 @@ class EditComicBookViewController: UITableViewController {
     // Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
+        print("listPickerDidPickItem", transactionInfo ?? "")
+        
         // TODO: Back button on AddItemViewController doesn't trigger listPickerDidPickItem when an item is added
         
         let controller = segue.source as! PickerTableViewController
@@ -253,6 +257,9 @@ class EditComicBookViewController: UITableViewController {
     
     // Unwind/exit segue from dial picker to edit comic book view controller.
     @IBAction func dialPickerDidPickItem(_ segue: UIStoryboardSegue) {
+        
+        print("dialPickerDidPickItem", transactionInfo ?? "")
+
         let controller = segue.source as! PickerDialViewController
         
         if listPickerKind == "Era" {
@@ -271,6 +278,9 @@ class EditComicBookViewController: UITableViewController {
     }
     
     @IBAction func datePickerDidPickDate(_ segue: UIStoryboardSegue) {
+        
+        print("datePickerDidPickDate", transactionInfo ?? "")
+        
         let controller = segue.source as! PickerDateViewController
         
         if listPickerKind == "Purchase Date" {

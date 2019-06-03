@@ -209,6 +209,8 @@ extension PickerTableViewController: UINavigationControllerDelegate {
                               willShow viewController: UIViewController,
                               animated: Bool) {
         
+        print("PickerTableViewController", "navigationController")
+        
         if let _ = viewController as? EditComicBookViewController {
             
             let selectedItemRow = itemList.firstIndex(of: selectedItemName)
