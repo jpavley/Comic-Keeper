@@ -36,8 +36,6 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         title = pickerTitle
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
         selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
-        //navigationController?.delegate = self
-
     }
         
     // MARK: - Table view data source
@@ -159,66 +157,4 @@ class PickerTableViewController: UITableViewController, StandardPicker {
             destination.hintText = hintText
         }
     }
-    
-    /// Unwind/exit segue from list picker to edit comic book view controller.
-    @IBAction func addItemDidAddItem(_ segue: UIStoryboardSegue) {
-        
-        // get the add item view controller
-        let controller = segue.source as! PickerAddViewController
-        
-        if let newItem = controller.newItemTextField.text {
-            
-            // if there is text in the new item text field
-            
-            if !newItem.isEmpty && !itemList.contains(newItem) {
-                
-                // if the text is not "" nor a duplicate
-                
-                let processedItem = newItem.capitalized
-                
-                itemList.append(processedItem)
-                itemList = itemList.sorted()
-                tableView.reloadData()
-                
-                // set the new item text as the selection
-                
-                selectedItemName = processedItem
-                
-                // check mark management
-                
-                if let oldCell = tableView.cellForRow(at: selectedItemIndex) {
-                    oldCell.accessoryType = .none
-                }
-                
-                if let newRow = itemList.firstIndex(of: selectedItemName) {
-                    selectedItemIndex = IndexPath(row: newRow, section: 0)
-                    
-                    if let newCell = tableView.cellForRow(at: selectedItemIndex) {
-                        newCell.accessoryType = .checkmark
-                    }
-                }
-                
-            }
-        }
-    }
 }
-
-//extension PickerTableViewController: UINavigationControllerDelegate {
-//
-//    func navigationController(_ navigationController: UINavigationController,
-//                              willShow viewController: UIViewController,
-//                              animated: Bool) {
-//
-//        print("PickerTableViewController", "navigationController")
-//
-//        if let _ = viewController as? EditComicBookViewController {
-//
-//            let selectedItemRow = itemList.firstIndex(of: selectedItemName)
-//            selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
-//
-//            if let selectedCell = tableView.cellForRow(at: selectedItemIndex) {
-//                performSegue(withIdentifier: "PickedItem", sender: selectedCell)
-//            }
-//        }
-//    }
-//}

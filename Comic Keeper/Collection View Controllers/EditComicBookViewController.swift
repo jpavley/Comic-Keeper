@@ -233,6 +233,24 @@ class EditComicBookViewController: UITableViewController {
             } else {
                 sellPriceLabel.text = newText
             }
+            
+        } else if controller.pickerTitle.contains("Publisher") {
+            
+            if !newText.isEmpty {
+                publisherLabel.text = newText
+            }
+
+        } else if controller.pickerTitle.contains("Series") {
+            
+            if !newText.isEmpty {
+                seriesLabel.text = newText
+            }
+            
+        } else if controller.pickerTitle.contains("Condition") {
+            
+            if !newText.isEmpty {
+                conditionLabel.text = newText
+            }
         }
     }
     
@@ -240,8 +258,6 @@ class EditComicBookViewController: UITableViewController {
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
         print("listPickerDidPickItem", transactionInfo ?? "")
-        
-        // TODO: Back button on AddItemViewController doesn't trigger listPickerDidPickItem when an item is added
         
         let controller = segue.source as! PickerTableViewController
         let _ = comicBookCollection.comicBook(from: currentIdentifier)
@@ -277,6 +293,7 @@ class EditComicBookViewController: UITableViewController {
         }
     }
     
+    // Unwind/exit segue from date picker to edit comic book view controller.
     @IBAction func datePickerDidPickDate(_ segue: UIStoryboardSegue) {
         
         print("datePickerDidPickDate", transactionInfo ?? "")

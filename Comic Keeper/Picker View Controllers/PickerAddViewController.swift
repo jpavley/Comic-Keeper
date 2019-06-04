@@ -84,13 +84,23 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         
         if pickerTitle.contains("Variant") {
             performSegue(withIdentifier: "EditedItem", sender: self)
+            
         } else if  pickerTitle.contains("Purchase") {
             performSegue(withIdentifier: "EditedItem", sender: self)
+            
         } else if  pickerTitle.contains("Sales") {
             performSegue(withIdentifier: "EditedItem", sender: self)
-        } else {
-            performSegue(withIdentifier: "AddedItem", sender: self)
+            
+        } else if  pickerTitle.contains("Publisher") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
+
+        } else if  pickerTitle.contains("Series") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
+            
+        } else if  pickerTitle.contains("Condition") {
+            performSegue(withIdentifier: "EditedItem", sender: self)
         }
+
     }
     
     // MARK: - Navigation

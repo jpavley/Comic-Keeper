@@ -698,7 +698,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="newItemTextField" destination="ul6-an-xs1" id="22F-GO-vDh"/>
-                        <segue destination="GzX-Gx-owm" kind="unwind" identifier="AddedItem" unwindAction="addItemDidAddItem:" id="HX9-VJ-JyV"/>
                         <segue destination="GzX-Gx-owm" kind="unwind" identifier="EditedItem" unwindAction="addItemDidEditItem:" id="HLg-Db-6g2"/>
                     </connections>
                 </viewController>
@@ -1082,7 +1081,7 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tky-yU-hKy"/>
+        <segue reference="esz-NR-oHy"/>
         <segue reference="sQE-aZ-6K4"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
