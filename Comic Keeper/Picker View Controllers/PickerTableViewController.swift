@@ -36,7 +36,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         title = pickerTitle
         let selectedItemRow = itemList.firstIndex(of: selectedItemName)
         selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
-        navigationController?.delegate = self
+        //navigationController?.delegate = self
 
     }
         
@@ -203,22 +203,22 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     }
 }
 
-extension PickerTableViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              willShow viewController: UIViewController,
-                              animated: Bool) {
-        
-        print("PickerTableViewController", "navigationController")
-        
-        if let _ = viewController as? EditComicBookViewController {
-            
-            let selectedItemRow = itemList.firstIndex(of: selectedItemName)
-            selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
-            
-            if let selectedCell = tableView.cellForRow(at: selectedItemIndex) {
-                performSegue(withIdentifier: "PickedItem", sender: selectedCell)
-            }
-        }
-    }
-}
+//extension PickerTableViewController: UINavigationControllerDelegate {
+//
+//    func navigationController(_ navigationController: UINavigationController,
+//                              willShow viewController: UIViewController,
+//                              animated: Bool) {
+//
+//        print("PickerTableViewController", "navigationController")
+//
+//        if let _ = viewController as? EditComicBookViewController {
+//
+//            let selectedItemRow = itemList.firstIndex(of: selectedItemName)
+//            selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
+//
+//            if let selectedCell = tableView.cellForRow(at: selectedItemIndex) {
+//                performSegue(withIdentifier: "PickedItem", sender: selectedCell)
+//            }
+//        }
+//    }
+//}
