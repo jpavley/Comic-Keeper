@@ -31,7 +31,6 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
 
         // show the keyboard by default
         title = pickerTitle
-        //navigationItem.setHidesBackButton(true, animated: true)
         configureNewItemTextField()
     }
     
@@ -81,6 +80,8 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     }
     
     func chooseSegueToPerform() {
+        
+        // TODO: Is this function required given there is only on exit segue for all cases?
         
         if pickerTitle.contains("Variant") {
             performSegue(withIdentifier: "EditedItem", sender: self)
