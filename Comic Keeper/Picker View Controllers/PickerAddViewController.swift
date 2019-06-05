@@ -86,27 +86,18 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     
     func chooseSegueToPerform() {
         
-        // TODO: Is this function required given there is only on exit segue for all cases?
+        guard let pickerTitle = pickerTitle else {
+            fatalError("pickerTitle in PickerAddViewControler is nil!")
+        }
         
-        if pickerTitle.contains("Variant") {
-            performSegue(withIdentifier: "EditedItem", sender: self)
-            
-        } else if  pickerTitle.contains("Purchase") {
-            performSegue(withIdentifier: "EditedItem", sender: self)
-            
-        } else if  pickerTitle.contains("Sales") {
-            performSegue(withIdentifier: "EditedItem", sender: self)
-            
-        } else if  pickerTitle.contains("Publisher") {
+        switch pickerTitle {
+        case let name where name.contains("Purchase") || name.contains("Sales"):
+            // validate data here
             performSegue(withIdentifier: "EditedItem", sender: self)
 
-        } else if  pickerTitle.contains("Series") {
-            performSegue(withIdentifier: "EditedItem", sender: self)
-            
-        } else if  pickerTitle.contains("Condition") {
+        default:
             performSegue(withIdentifier: "EditedItem", sender: self)
         }
-
     }
     
     // MARK: - Navigation
