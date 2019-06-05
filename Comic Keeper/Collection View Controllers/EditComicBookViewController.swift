@@ -213,10 +213,6 @@ class EditComicBookViewController: UITableViewController {
             return
         }
         
-        if fieldName != originalTransactionInfo.fieldName {
-            fatalError("expected fieldName \(fieldName) does not match transaction info fieldName \(originalTransactionInfo.fieldName)")
-        }
-        
         let newText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let newTransactionInfo: CKTransaction
@@ -241,35 +237,34 @@ class EditComicBookViewController: UITableViewController {
         
         let newText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if fieldName.contains("Variant") {
+        switch fieldName {
             
-            transact(fieldName: fieldName, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
+        case let name where name.contains("Variant"):
+            transact(fieldName: name, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
             
-        } else if fieldName.contains("Purchase") {
+        case let name where name.contains("Purchase"):
+            transact(fieldName: name, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
             
-            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
-            
-        } else if fieldName.contains("Sales") {
-            
-            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
-            
-        } else if fieldName.contains("Publisher") {
-            
+        case let name where name.contains("Sales"):
+            transact(fieldName: name, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
+
+        case let name where name.contains("Publisher"):
             if !newText.isEmpty {
-                transact(fieldName: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+                transact(fieldName: name, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+            }
+
+        case let name where name.contains("Series"):
+            if !newText.isEmpty {
+                transact(fieldName: name, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             }
             
-        } else if fieldName.contains("Series") {
-            
+        case let name where name.contains("Condition"):
             if !newText.isEmpty {
-                transact(fieldName: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+                transact(fieldName: name, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
             }
-            
-        } else if fieldName.contains("Condition") {
-            
-            if !newText.isEmpty {
-                transact(fieldName: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
-            }
+
+        default:
+            fatalError("unexpected fieldName: \(fieldName)")
         }
         
         print("addItemDidEditItem", transactionInfo ?? "")
