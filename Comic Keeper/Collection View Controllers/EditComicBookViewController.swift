@@ -212,59 +212,68 @@ class EditComicBookViewController: UITableViewController {
     ///   - newText: Text the user entered
     ///   - label: The UILabel that needs updating
     ///   - transactionChange: Type of change
-    func transact(text: String, label: UILabel, transactionChange: TransactionChange) {
+    func transact(fieldName: String, text: String, label: UILabel, transactionChange: TransactionChange) {
         
         guard let originalTransactionInfo = transactionInfo else {
             return
         }
         
+        if fieldName != originalTransactionInfo.fieldName {
+            fatalError("expected fieldName \(fieldName) does not match transaction info fieldName \(originalTransactionInfo.fieldName)")
+        }
+        
         let newText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        let newTransactionInfo: CKTransaction
         if originalTransactionInfo.inputValue != newText {
-            let newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: transactionChange)
+            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: transactionChange)
             label.text = newTransactionInfo.outputValue
-            transactionInfo = newTransactionInfo
+        } else {
+            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: .nochange)
         }
+        transactionInfo = newTransactionInfo
     }
     
     // Unwind/exit segue from AddItemViewController
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerAddViewController
         
-        guard let rawText = controller.newItemTextField.text else {
-            return
+        guard
+            let rawText = controller.newItemTextField.text,
+            let fieldName = controller.pickerTitle else {
+                fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         let newText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if controller.pickerTitle.contains("Variant") {
+        if fieldName.contains("Variant") {
             
-            transact(text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
+            transact(fieldName: fieldName, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
             
-        } else if controller.pickerTitle.contains("Purchase") {
+        } else if fieldName.contains("Purchase") {
             
-            transact(text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
+            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
             
-        } else if controller.pickerTitle.contains("Sales") {
+        } else if fieldName.contains("Sales") {
             
-            transact(text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
+            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
             
-        } else if controller.pickerTitle.contains("Publisher") {
+        } else if fieldName.contains("Publisher") {
             
             if !newText.isEmpty {
-                transact(text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+                transact(fieldName: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             }
             
-        } else if controller.pickerTitle.contains("Series") {
+        } else if fieldName.contains("Series") {
             
             if !newText.isEmpty {
-                transact(text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+                transact(fieldName: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             }
             
-        } else if controller.pickerTitle.contains("Condition") {
+        } else if fieldName.contains("Condition") {
             
             if !newText.isEmpty {
-                transact(text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+                transact(fieldName: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
             }
         }
         
@@ -277,19 +286,23 @@ class EditComicBookViewController: UITableViewController {
         let controller = segue.source as! PickerTableViewController
         let _ = comicBookCollection.comicBook(from: currentIdentifier)
         
-        let newText = controller.selectedItemName! // never nil
+        guard
+            let newText = controller.selectedItemName,
+            let fieldName = controller.pickerTitle else {
+                fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
+        }
         
         if listPickerKind == "Publisher" {
             
-            transact(text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+            transact(fieldName: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             
         } else if listPickerKind == "Series" {
             
-            transact(text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+            transact(fieldName: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             
         } else if listPickerKind == "Condition" {
             
-            transact(text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+            transact(fieldName: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
         }
         
         print("listPickerDidPickItem", transactionInfo ?? "")
@@ -299,19 +312,24 @@ class EditComicBookViewController: UITableViewController {
     @IBAction func dialPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
         let controller = segue.source as! PickerDialViewController
-        let newText = controller.selectedItemName! // never nil
+        
+        guard
+            let newText = controller.selectedItemName,
+            let fieldName = controller.pickerTitle else {
+                fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
+        }
         
         if listPickerKind == "Era" {
             
-            transact(text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
+            transact(fieldName: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
             
         } else if listPickerKind == "Issue Number" {
             
-            transact(text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
+            transact(fieldName: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
             
         } else if listPickerKind == "Legacy Issue Number" {
             
-            transact(text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
+            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
         }
         
         print("dialPickerDidPickItem", transactionInfo ?? "")
@@ -320,23 +338,24 @@ class EditComicBookViewController: UITableViewController {
     // Unwind/exit segue from date picker to edit comic book view controller.
     @IBAction func datePickerDidPickDate(_ segue: UIStoryboardSegue) {
         
-        print("datePickerDidPickDate", transactionInfo ?? "")
-        
         let controller = segue.source as! PickerDateViewController
         
-        if listPickerKind == "Purchase Date" {
-            if controller.selectedItemName.isEmpty {
-                purchaseDateLabel.text = "none"
-            } else {
-                purchaseDateLabel.text = controller.selectedItemName
-            }
-        } else if listPickerKind == "Sales Date" {
-            if controller.selectedItemName.isEmpty {
-                sellDateLabel.text = "none"
-            } else {
-                sellDateLabel.text = controller.selectedItemName
-            }
+        guard
+            let newText = controller.selectedItemName,
+            let fieldName = controller.pickerTitle else {
+                fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
+
+        if listPickerKind == "Purchase Date" {
+            
+            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
+            
+        } else if listPickerKind == "Sales Date" {
+            
+            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
+        }
+        
+        print("datePickerDidPickDate", transactionInfo ?? "")
     }
     
     // MARK:- Helpers
