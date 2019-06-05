@@ -33,7 +33,7 @@ struct CKTransaction: CustomStringConvertible {
     var outputValue: String
     var transactionChange: TransactionChange = .nochange
     
-    var fieldHasChanged: Bool {
+    var valueChanged: Bool {
         return inputValue == outputValue
     }
 }
