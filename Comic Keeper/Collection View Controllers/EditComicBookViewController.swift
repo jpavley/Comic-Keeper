@@ -298,23 +298,23 @@ class EditComicBookViewController: UITableViewController {
     // Unwind/exit segue from dial picker to edit comic book view controller.
     @IBAction func dialPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
-        print("dialPickerDidPickItem", transactionInfo ?? "")
-
         let controller = segue.source as! PickerDialViewController
+        let newText = controller.selectedItemName! // never nil
         
         if listPickerKind == "Era" {
-            eraLabel.text = controller.selectedItemName
+            
+            transact(text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
+            
         } else if listPickerKind == "Issue Number" {
-            issueNumberLabel.text = controller.selectedItemName
+            
+            transact(text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
+            
         } else if listPickerKind == "Legacy Issue Number" {
             
-            if controller.selectedItemName.isEmpty {
-                legacyIssueNumberLabel.text = "none"
-            } else {
-                legacyIssueNumberLabel.text = controller.selectedItemName
-            }
-            
+            transact(text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
         }
+        
+        print("dialPickerDidPickItem", transactionInfo ?? "")
     }
     
     // Unwind/exit segue from date picker to edit comic book view controller.
