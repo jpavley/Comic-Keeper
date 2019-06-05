@@ -25,7 +25,7 @@ enum TransactionChange: String {
 struct CKTransaction: CustomStringConvertible {
     
     var description: String {
-        return "field: \(fieldName), in: \(inputValue), out: \(outputValue), change: \(transactionChange)"
+        return "field: {\(fieldName)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
     }
     
     var fieldName: String
