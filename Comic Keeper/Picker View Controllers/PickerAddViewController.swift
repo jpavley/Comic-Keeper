@@ -47,12 +47,19 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         newItemTextField.becomeFirstResponder()
         newItemTextField.delegate = self
         
-        if pickerTitle.contains("Variant") {
+        guard let pickerTitle = pickerTitle else {
+            fatalError("pickerTitle in PickerAddViewControler is nil!")
+        }
+        
+        switch pickerTitle {
+            
+        case let name where name.contains("Variant"):
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .default
             newItemTextField.placeholder = ""
             newItemTextField.text = selectedItemName
-        } else if pickerTitle.contains("Purchase") {
+            
+        case let name where name.contains("Purchase"):
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .decimalPad
             
@@ -62,7 +69,8 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
                 newItemTextField.placeholder = ""
                 newItemTextField.text = selectedItemName
             }
-        } else if pickerTitle.contains("Sales") {
+
+        case let name where name.contains("Sales"):
             newItemTextField.autocapitalizationType = .none
             newItemTextField.keyboardType = .decimalPad
             
@@ -72,7 +80,8 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
                 newItemTextField.placeholder = ""
                 newItemTextField.text = selectedItemName
             }
-        } else {
+
+        default:
             newItemTextField.autocapitalizationType = .words
             newItemTextField.keyboardType = .default
             newItemTextField.placeholder = "Enter name"
