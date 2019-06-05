@@ -32,8 +32,7 @@ class EditComicBookViewController: UITableViewController {
     var currentIdentifier: String!
     var image: UIImage?
     var imageHeight: CGFloat = 260
-    var listPickerKind = "Publisher"
-        
+    
     let photoSection = 1
     let photoRow = 0
     
@@ -47,7 +46,6 @@ class EditComicBookViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateUI()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,39 +99,36 @@ class EditComicBookViewController: UITableViewController {
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
         func configureStandardPicker(kind: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
-            listPickerKind = kind
             let picker = segue.destination as! StandardPicker
             picker.itemList = pickerList
-            picker.pickerTitle = listPickerKind
+            picker.pickerTitle = kind
             picker.selectedItemName = selectedItem
             picker.hintText = currentComicBook!.identifier
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = CKTransaction(fieldName: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureAddPicker(kind: String, selectedItem: String) {
             let picker = segue.destination as! PickerAddViewController
-            listPickerKind = kind
-            picker.pickerTitle = listPickerKind
+            picker.pickerTitle = kind
             picker.hintText = currentComicBook!.identifier
             picker.selectedItemName = selectedItem
             
             // save info about this transaction
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = CKTransaction(fieldName: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureDatePicker(kind: String, date: Date) {
             let controller = segue.destination as! PickerDateViewController
-            listPickerKind = kind
-            controller.pickerTitle = listPickerKind
+            controller.pickerTitle = kind
             controller.hintText = currentComicBook!.identifier
             controller.selectedItemDate = date
             
             // save info about this transaction
             let selectedItemName = currentComicBook?.book.dateText(from: date)
-            transactionInfo = CKTransaction(fieldName: listPickerKind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
+            transactionInfo = CKTransaction(fieldName: kind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
         }
         
         switch segue.identifier {
@@ -292,15 +287,15 @@ class EditComicBookViewController: UITableViewController {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
-        if listPickerKind == "Publisher" {
+        if fieldName.contains("Publisher")  {
             
             transact(fieldName: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             
-        } else if listPickerKind == "Series" {
+        } else if fieldName.contains("Series") {
             
             transact(fieldName: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             
-        } else if listPickerKind == "Condition" {
+        } else if fieldName.contains("Condition"){
             
             transact(fieldName: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
         }
@@ -319,15 +314,15 @@ class EditComicBookViewController: UITableViewController {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
-        if listPickerKind == "Era" {
+        if fieldName.contains("Era") {
             
             transact(fieldName: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
             
-        } else if listPickerKind == "Issue Number" {
+        } else if fieldName.contains("Issue Number") {
             
             transact(fieldName: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
             
-        } else if listPickerKind == "Legacy Issue Number" {
+        } else if fieldName.contains("Legacy Issue Number") {
             
             transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
         }
@@ -346,11 +341,11 @@ class EditComicBookViewController: UITableViewController {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
 
-        if listPickerKind == "Purchase Date" {
+        if fieldName.contains("Purchase Date") {
             
             transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
             
-        } else if listPickerKind == "Sales Date" {
+        } else if fieldName.contains("Sales Date") {
             
             transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
         }
