@@ -42,6 +42,18 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     
     // MARK: - Helpers
     
+    private func configureTextFieldForNumbers(prompt: String) {
+        newItemTextField.autocapitalizationType = .none
+        newItemTextField.keyboardType = .decimalPad
+        
+        if selectedItemName.contains("none") {
+            newItemTextField.placeholder = prompt
+        } else {
+            newItemTextField.placeholder = ""
+            newItemTextField.text = selectedItemName
+        }
+    }
+    
     func configureNewItemTextField() {
         
         newItemTextField.becomeFirstResponder()
@@ -60,26 +72,10 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
             newItemTextField.text = selectedItemName
             
         case let name where name.contains("Purchase"):
-            newItemTextField.autocapitalizationType = .none
-            newItemTextField.keyboardType = .decimalPad
-            
-            if selectedItemName.contains("none") {
-                newItemTextField.placeholder = "Enter purchase amount"
-            } else {
-                newItemTextField.placeholder = ""
-                newItemTextField.text = selectedItemName
-            }
+            configureTextFieldForNumbers(prompt: "Enter purchase amount")
 
         case let name where name.contains("Sales"):
-            newItemTextField.autocapitalizationType = .none
-            newItemTextField.keyboardType = .decimalPad
-            
-            if selectedItemName.contains("none") {
-                newItemTextField.placeholder = "Enter sales amount"
-            } else {
-                newItemTextField.placeholder = ""
-                newItemTextField.text = selectedItemName
-            }
+            configureTextFieldForNumbers(prompt: "Enter sales amount")
 
         default:
             newItemTextField.autocapitalizationType = .words
