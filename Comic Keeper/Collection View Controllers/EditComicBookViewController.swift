@@ -205,53 +205,68 @@ class EditComicBookViewController: UITableViewController {
     // TODO: Detect navigtaion breaking change and prevent it from crashing app. If the currentComicBook can't be found because the publisher, series, issue number, or variant info changed, then alert user and pop back to the SeriesTableViewController.
     // TODO: Data validation
     
+    /// Updates the CKTransaction object and updates the UI.
+    /// Ensures output is unique and trims whitespace.
+    ///
+    /// - Parameters:
+    ///   - newText: Text the user entered
+    ///   - label: The UILabel that needs updating
+    ///   - transactionChange: Type of change
+    func transact(newText: String, label: UILabel, transactionChange: TransactionChange) {
+        transactionInfo?.outputValue = newText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if transactionInfo?.inputValue != transactionInfo?.outputValue {
+            label.text = transactionInfo?.outputValue
+            transactionInfo?.transactionChange = transactionChange
+        }
+    }
+    
     // Unwind/exit segue from AddItemViewController
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerAddViewController
         
-        print("addItemDidEditItem", transactionInfo ?? "")
-        
-        guard let newText = controller.newItemTextField.text else {
+        guard let rawText = controller.newItemTextField.text else {
             return
         }
         
+        let newText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         if controller.pickerTitle.contains("Variant") {
-            variantLabel.text = newText
+            
+            transact(newText: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
             
         } else if controller.pickerTitle.contains("Purchase") {
             
-            if newText.isEmpty {
-                purchasePriceLabel.text = "none"
-            } else {
-                purchasePriceLabel.text = newText
-            }
+            transact(newText: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
             
         } else if controller.pickerTitle.contains("Sales") {
             
-            if newText.isEmpty {
-                sellPriceLabel.text = "none"
-            } else {
-                sellPriceLabel.text = newText
-            }
+            transact(newText: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
             
         } else if controller.pickerTitle.contains("Publisher") {
             
             if !newText.isEmpty {
-                publisherLabel.text = newText
+                transact(newText: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             }
-
+            
         } else if controller.pickerTitle.contains("Series") {
             
             if !newText.isEmpty {
                 seriesLabel.text = newText
+                transactionInfo?.outputValue = newText
+                transactionInfo?.transactionChange = .navigationBreakingChange
             }
+            
             
         } else if controller.pickerTitle.contains("Condition") {
             
             if !newText.isEmpty {
                 conditionLabel.text = newText
+                transactionInfo?.outputValue = newText
+                transactionInfo?.transactionChange = .dataPropertyChange
             }
         }
+        
+        print("addItemDidEditItem", transactionInfo ?? "")
     }
     
     // Unwind/exit segue from list picker to edit comic book view controller.
