@@ -21,7 +21,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()
-        chooseSegueToPerform()
+        performSegue(withIdentifier: "EditedItem", sender: self)
     }
 
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newItemTextField.resignFirstResponder()
-        chooseSegueToPerform()
+        performSegue(withIdentifier: "EditedItem", sender: self)
         return true
     }
     
@@ -73,7 +73,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
             
         case let name where name.contains("Purchase"):
             configureTextFieldForNumbers(prompt: "Enter purchase amount")
-
+ 
         case let name where name.contains("Sales"):
             configureTextFieldForNumbers(prompt: "Enter sales amount")
 
@@ -81,21 +81,6 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
             newItemTextField.autocapitalizationType = .words
             newItemTextField.keyboardType = .default
             newItemTextField.placeholder = "Enter name"
-        }
-    }
-        
-    private func chooseSegueToPerform() {
-        
-        guard let pickerTitle = pickerTitle else {
-            fatalError("pickerTitle in PickerAddViewControler is nil!")
-        }
-        
-        switch pickerTitle {
-        case let name where name.contains("Purchase") || name.contains("Sales"):
-            performSegue(withIdentifier: "EditedItem", sender: self)
-
-        default:
-            performSegue(withIdentifier: "EditedItem", sender: self)
         }
     }
     
