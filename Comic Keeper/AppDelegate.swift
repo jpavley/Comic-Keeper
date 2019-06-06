@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    // MARK:- CoreData Implementation
+    
     /// Create and return an NSPersistentContainer.
     /// (Which will be used to generate a NSManagedObjectContect for the CKDataModel store.
     lazy var presistentContainer: NSPersistentContainer = {
@@ -31,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Create and return a NSManagedObjectContect Object.
     /// (From the NSPersistentContainer connected to the CKDataModel store.
     lazy var managedObjectContext: NSManagedObjectContext = self.presistentContainer.viewContext
+    
+    // MARK:- Dependency Injection Implementation
     
     let collectionNavigationIndex = 0
     let seriesTableIndex = 0
@@ -59,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    // MARK:- App Delegate Methods
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
