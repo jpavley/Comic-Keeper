@@ -84,14 +84,21 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         }
     }
     
+    private func validateData() {
+        // TODO: if data is supposed to represent a dollar amount, make sure it can be parsed and put it into the the 0.00 format.
+        // TODO: If the data can't be parsed then alert the user and ask her what to do: edit the value or leave it unchanged and go on to the next view.
+        
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        validateData()
+        
         if segue.identifier == "SectionHeadSegue" {
             let destination = segue.destination as! PickerHeaderViewController
             destination.hintText = hintText
         }
     }
-    
-
 }
