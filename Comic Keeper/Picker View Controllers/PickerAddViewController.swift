@@ -54,7 +54,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         }
     }
     
-    func configureNewItemTextField() {
+    private func configureNewItemTextField() {
         
         newItemTextField.becomeFirstResponder()
         newItemTextField.delegate = self
@@ -84,7 +84,16 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         }
     }
     
-    func chooseSegueToPerform() {
+    private func validateData() {
+        // Assumes data should be a money value with the format 00.00
+        if let rawNumber = Int(newItemTextField.text!) {
+            print("\(rawNumber)")
+        } else {
+            print("can't parse \(newItemTextField.text!)")
+        }
+    }
+    
+    private func chooseSegueToPerform() {
         
         guard let pickerTitle = pickerTitle else {
             fatalError("pickerTitle in PickerAddViewControler is nil!")
@@ -92,7 +101,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         
         switch pickerTitle {
         case let name where name.contains("Purchase") || name.contains("Sales"):
-            // validate data here
+            validateData()
             performSegue(withIdentifier: "EditedItem", sender: self)
 
         default:
