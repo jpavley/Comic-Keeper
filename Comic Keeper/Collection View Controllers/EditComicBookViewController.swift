@@ -10,6 +10,8 @@ import UIKit
 
 class EditComicBookViewController: UITableViewController {
     
+    // MARK:- Outlets
+    
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var eraLabel: UILabel!
     @IBOutlet weak var seriesLabel: UILabel!
@@ -28,20 +30,27 @@ class EditComicBookViewController: UITableViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    // MARK:- Properties
+    
     var comicBookCollection: ComicBookCollection!
     var currentIdentifier: String!
     var image: UIImage?
     var imageHeight: CGFloat = 260
+    var transactionInfo: CKTransaction?
+    
+    // MARK:- Constants
     
     let photoSection = 1
     let photoRow = 0
     
-    var transactionInfo: CKTransaction?
-
+    // MARK:- Actions
+    
     
     @IBAction func saveAction(_ sender: Any) {
         
     }
+    
+    // MARK:- View Controller
     
     override func viewWillAppear(_ animated: Bool) {
         updateUI()
@@ -80,7 +89,7 @@ class EditComicBookViewController: UITableViewController {
         sellDateLabel.text = currentComicBook?.book.sellDateText
     }
     
-    // MARK:- Table View
+    // MARK:- Table View Implementation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == photoSection && indexPath.row == photoRow {
