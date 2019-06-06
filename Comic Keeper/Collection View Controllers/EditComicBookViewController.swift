@@ -37,8 +37,15 @@ class EditComicBookViewController: UITableViewController {
     var currentIdentifier: String!
     var image: UIImage?
     var imageHeight: CGFloat = 260
-    var transactionInfo: CKTransaction?
     var managedObjectContext: NSManagedObjectContext!
+    
+    // MARK:- State/Data Management
+    
+    /// Tracks the current transaction.
+    var transactionInfo: CKTransaction?
+    
+    /// Once the navigation is broken, its broken forever
+    var navigationBroken: Bool!
     
     // MARK:- Constants
     
@@ -63,6 +70,7 @@ class EditComicBookViewController: UITableViewController {
         
         // initial state
         transactionInfo = CKTransaction(fieldName: "", inputValue: "", outputValue: "", transactionChange: .nochange)
+        navigationBroken = false
         updateUI()
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
@@ -169,7 +177,7 @@ class EditComicBookViewController: UITableViewController {
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configureStandardPicker(kind: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
+            configureStandardPicker(kind: "Legacy Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
@@ -224,16 +232,32 @@ class EditComicBookViewController: UITableViewController {
             return
         }
         
+        // Once the navigation is broken it is forever broken
+        if originalTransactionInfo.transactionChange == .navigationBreakingChange {
+            navigationBroken = true
+        }
+        
         let newText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let newTransactionInfo: CKTransaction
         if originalTransactionInfo.inputValue != newText {
-            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: transactionChange)
+            
+            // Has the navigation been broken before?
+            let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
+            
+            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            
             label.text = newTransactionInfo.outputValue
         } else {
-            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: .nochange)
+            
+            // Has the navigation been broken before?
+            let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
+            
+            newTransactionInfo = CKTransaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
         }
+        
         transactionInfo = newTransactionInfo
+        updateUI()
     }
     
     // Unwind/exit segue from AddItemViewController
@@ -324,11 +348,11 @@ class EditComicBookViewController: UITableViewController {
             
             transact(fieldName: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
             
-        } else if fieldName.contains("Issue Number") {
+        } else if fieldName.contains("Issue") {
             
             transact(fieldName: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
             
-        } else if fieldName.contains("Legacy Issue Number") {
+        } else if fieldName.contains("Legacy") {
             
             transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
         }
@@ -379,7 +403,7 @@ class EditComicBookViewController: UITableViewController {
             
         case .dataPropertyChange:
             saveButton.isEnabled = false
-            navigationItem.setHidesBackButton(true, animated: true)
+            navigationItem.setHidesBackButton(false, animated: true)
         }
     }
 }
