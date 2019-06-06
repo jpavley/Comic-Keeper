@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class IssuesTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentPublisherName: String!
     var currentSeriesTitle: String!
+    var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,14 +118,19 @@ class IssuesTableViewController: UITableViewController {
             
             let destination = segue.destination as! EditComicBookViewController
             destination.comicBookCollection = comicBookCollection
+            destination.managedObjectContext = managedObjectContext
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 
-                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
+                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
+                                                               publisherName: currentPublisherName)
+                
                 let currentIssueNumber = issues[selectedIndexPath.section]
 
+                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
+                                                                     seriesTitle: currentSeriesTitle,
+                                                                     publisherName: currentPublisherName)
                 
-                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber, seriesTitle: currentSeriesTitle, publisherName: currentPublisherName)
                 let variant = variants[selectedIndexPath.row]
                 
                 destination.currentIdentifier = "\(currentPublisherName!) \(currentSeriesTitle!) \(currentIssueNumber)\(variant)"

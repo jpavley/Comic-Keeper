@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SeriesTableViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
+    var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +105,7 @@ class SeriesTableViewController: UITableViewController {
         if segue.identifier == "SeriesSegue" {
             let destination = segue.destination as! IssuesTableViewController
             destination.comicBookCollection = comicBookCollection
+            destination.managedObjectContext = managedObjectContext
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 let publisherName = comicBookCollection.publisherNames[selectedIndexPath.section]

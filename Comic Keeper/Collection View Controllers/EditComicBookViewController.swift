@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditComicBookViewController: UITableViewController {
     
@@ -37,6 +38,7 @@ class EditComicBookViewController: UITableViewController {
     var image: UIImage?
     var imageHeight: CGFloat = 260
     var transactionInfo: CKTransaction?
+    var managedObjectContext: NSManagedObjectContext!
     
     // MARK:- Constants
     
