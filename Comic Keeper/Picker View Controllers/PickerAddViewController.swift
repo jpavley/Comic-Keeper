@@ -83,16 +83,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
             newItemTextField.placeholder = "Enter name"
         }
     }
-    
-    private func validateData() {
-        // Assumes data should be a money value with the format 00.00
-        if let rawNumber = Int(newItemTextField.text!) {
-            print("\(rawNumber)")
-        } else {
-            print("can't parse \(newItemTextField.text!)")
-        }
-    }
-    
+        
     private func chooseSegueToPerform() {
         
         guard let pickerTitle = pickerTitle else {
@@ -101,7 +92,6 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
         
         switch pickerTitle {
         case let name where name.contains("Purchase") || name.contains("Sales"):
-            validateData()
             performSegue(withIdentifier: "EditedItem", sender: self)
 
         default:
