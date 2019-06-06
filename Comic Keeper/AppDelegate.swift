@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let seriesTableViewController = seriesNavigationViewController.viewControllers[seriesTableIndex] as! SeriesTableViewController
             seriesTableViewController.comicBookCollection = comicBookCollection
+            seriesTableViewController.managedObjectContext = managedObjectContext
         }
         
         return true
