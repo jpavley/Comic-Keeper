@@ -25,10 +25,10 @@ enum TransactionChange: String {
 struct Transaction: CustomStringConvertible {
     
     var description: String {
-        return "field: {\(fieldName)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
+        return "field: {\(transactionID)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
     }
     
-    var fieldName: String
+    var transactionID: String
     var inputValue: String
     var outputValue: String
     var transactionChange: TransactionChange = .nochange

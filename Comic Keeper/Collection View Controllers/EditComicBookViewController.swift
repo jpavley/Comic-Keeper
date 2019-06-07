@@ -69,7 +69,7 @@ class EditComicBookViewController: UITableViewController {
         super.viewDidLoad()
         
         // initial state
-        transactionInfo = Transaction(fieldName: "", inputValue: "", outputValue: "", transactionChange: .nochange)
+        transactionInfo = Transaction(transactionID: "", inputValue: "", outputValue: "", transactionChange: .nochange)
         navigationBroken = false
         updateUI()
         
@@ -126,7 +126,7 @@ class EditComicBookViewController: UITableViewController {
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
-            transactionInfo = Transaction(fieldName: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureAddPicker(kind: String, selectedItem: String) {
@@ -136,7 +136,7 @@ class EditComicBookViewController: UITableViewController {
             picker.selectedItemName = selectedItem
             
             // save info about this transaction
-            transactionInfo = Transaction(fieldName: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
         func configureDatePicker(kind: String, date: Date) {
@@ -147,7 +147,7 @@ class EditComicBookViewController: UITableViewController {
             
             // save info about this transaction
             let selectedItemName = currentComicBook?.book.dateText(from: date)
-            transactionInfo = Transaction(fieldName: kind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
         }
         
         switch segue.identifier {
@@ -245,7 +245,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
             
-            newTransactionInfo = Transaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(transactionID: originalTransactionInfo.transactionID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
             
             if let label = label {
                 label.text = newTransactionInfo.outputValue
@@ -256,7 +256,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
             
-            newTransactionInfo = Transaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(transactionID: originalTransactionInfo.transactionID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
         }
         
         transactionInfo = newTransactionInfo
@@ -485,7 +485,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         let currentPhotoID = currentComicBook?.book.photoID ?? 0
         
-        let newTransaction = Transaction(fieldName: "Photo", inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange)
+        let newTransaction = Transaction(transactionID: "Photo", inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange)
         
         transactionInfo = newTransaction
     }
