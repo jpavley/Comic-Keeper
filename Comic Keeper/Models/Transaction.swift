@@ -8,6 +8,21 @@
 
 import Foundation
 
+enum TransactionIndentifiers: String {
+    case EditPublisher = "Publisher"
+    case EditSeries = "Series"
+    case EditEra = "Era"
+    case EditIssueNumber = "Issue Number"
+    case EditLegacyNumber = "Legacy Number"
+    case EditCondition = "Condition"
+    case EditVariantInfo = "Variant Info"
+    case EditPurchasePrice = "Purchase Price"
+    case EditSalesPrice = "Sales Price"
+    case EditPurchaseDate = "Purchase Date"
+    case EditSalesDate = "Sale Date"
+    case EditPhoto = "Photo"
+}
+
 enum TransactionChange: String {
     
     /// No properties were changed
