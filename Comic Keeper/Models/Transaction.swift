@@ -1,5 +1,5 @@
 //
-//  CKTransaction.swift
+//  Transaction.swift
 //  Comic Keeper
 //
 //  Created by John Pavley on 6/1/19.
@@ -22,7 +22,7 @@ enum TransactionChange: String {
 
 
 /// Stores infomation about user edits for use in determinating what, if anything, has changed.
-struct CKTransaction: CustomStringConvertible {
+struct Transaction: CustomStringConvertible {
     
     var description: String {
         return "field: {\(fieldName)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
