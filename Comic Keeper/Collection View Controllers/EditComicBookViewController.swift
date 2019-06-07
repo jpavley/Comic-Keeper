@@ -226,7 +226,7 @@ class EditComicBookViewController: UITableViewController {
     ///   - newText: Text the user entered
     ///   - label: The UILabel that needs updating
     ///   - transactionChange: Type of change
-    func transact(fieldName: String, text: String, label: UILabel, transactionChange: TransactionChange) {
+    func transact(fieldName: String, text: String, label: UILabel?, transactionChange: TransactionChange) {
         
         guard let originalTransactionInfo = transactionInfo else {
             return
@@ -247,7 +247,10 @@ class EditComicBookViewController: UITableViewController {
             
             newTransactionInfo = Transaction(fieldName: originalTransactionInfo.fieldName, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
             
-            label.text = newTransactionInfo.outputValue
+            if let label = label {
+                label.text = newTransactionInfo.outputValue
+            }
+            
         } else {
             
             // Has the navigation been broken before?
@@ -488,8 +491,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     private func completePhotoTransaction(newPhotoID: String) {
-        let dummyLabel = UILabel()
-        self.transact(fieldName: "Photo", text: newPhotoID, label: dummyLabel, transactionChange: .dataPropertyChange)
+        self.transact(fieldName: "Photo", text: newPhotoID, label:  nil, transactionChange: .dataPropertyChange)
         print("choosePhotoFromLibrary", self.transactionInfo ?? "")
     }
     
