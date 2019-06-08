@@ -34,6 +34,7 @@
 		B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */; };
 		B8CC0F27229C2542009368FD /* PickerTableSectionHead.xib in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */; };
 		B8CC0F29229C2BB3009368FD /* PickerTableSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */; };
+		B8CC5F2722AC2F060019B2D1 /* EditComicBookViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */; };
 		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
 		B8FDA5A5229DEA3B00CAD65D /* PickerHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */; };
@@ -69,6 +70,7 @@
 		B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAddViewController.swift; sourceTree = "<group>"; };
 		B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableSectionHead.xib; sourceTree = "<group>"; };
 		B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableSectionHeadView.swift; sourceTree = "<group>"; };
+		B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditComicBookViewController+Photo.swift"; sourceTree = "<group>"; };
 		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
 		B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerHeaderViewController.swift; sourceTree = "<group>"; };
@@ -142,13 +144,13 @@
 		B8FDA5A6229ED41700CAD65D /* Picker View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
 				B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */,
 				B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */,
 				B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */,
 				B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */,
 				B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */,
 				B848AA18228C55DA001B06E3 /* PickerTableViewController.swift */,
+				B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */,
 			);
 			path = "Picker View Controllers";
 			sourceTree = "<group>";
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
+				B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
 			);
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CC5F2722AC2F060019B2D1 /* EditComicBookViewController+Photo.swift in Sources */,
 				B8106A7A2282431300D0A2C2 /* ComicBookCollection.swift in Sources */,
 				B8106A762282407100D0A2C2 /* Book.swift in Sources */,
 				B8106A6E2281A52100D0A2C2 /* SeriesTableViewController.swift in Sources */,
