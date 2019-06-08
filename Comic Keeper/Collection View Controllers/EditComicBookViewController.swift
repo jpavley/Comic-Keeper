@@ -274,36 +274,37 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let rawText = controller.newItemTextField.text,
-            let fieldName = controller.pickerTitle else {
+            let fieldName = controller.pickerTitle,
+            let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         let newText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        switch fieldName {
+        switch viewID {
             
-        case let name where name.contains("Variant"):
-            transact(transactionID: name, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
+        case .variantInfo:
+            transact(transactionID: "", text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
             
-        case let name where name.contains("Purchase"):
-            transact(transactionID: name, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
+        case .purchasePrice:
+            transact(transactionID: "", text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
             
-        case let name where name.contains("Sales"):
-            transact(transactionID: name, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
+        case .salesPrice:
+            transact(transactionID: "", text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
 
-        case let name where name.contains("Publisher"):
+        case .publisher:
             if !newText.isEmpty {
-                transact(transactionID: name, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+                transact(transactionID: "", text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             }
 
-        case let name where name.contains("Series"):
+        case .series:
             if !newText.isEmpty {
-                transact(transactionID: name, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+                transact(transactionID: "", text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             }
             
-        case let name where name.contains("Condition"):
+        case .condition:
             if !newText.isEmpty {
-                transact(transactionID: name, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+                transact(transactionID: "", text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
             }
 
         default:
