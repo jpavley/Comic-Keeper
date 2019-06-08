@@ -237,6 +237,10 @@ class EditComicBookViewController: UITableViewController {
             return
         }
         
+        if originalTransactionInfo.viewID != viewID {
+            fatalError("opening transaction viewID doesn't match closing viewID")
+        }
+        
         // Once the navigation is broken it is forever broken
         if transactionChange == .navigationBreakingChange {
             navigationBroken = true
