@@ -181,7 +181,7 @@ class EditComicBookViewController: UITableViewController {
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
+            configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
