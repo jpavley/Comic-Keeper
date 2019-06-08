@@ -351,21 +351,23 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle else {
+            let fieldName = controller.pickerTitle,
+            let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
-        if fieldName.contains("Era") {
-            
+        switch viewID {
+        case .era:
             transact(transactionID: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
             
-        } else if fieldName.contains("Issue") {
-            
+        case .issueNumber:
             transact(transactionID: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
-            
-        } else if fieldName.contains("Legacy") {
-            
+
+        case .legacyNumber:
             transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
+
+        default:
+            fatalError("unexpected fieldName: \(fieldName)")
         }
         
         print("dialPickerDidPickItem", transactionInfo ?? "")
