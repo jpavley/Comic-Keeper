@@ -322,21 +322,23 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle else {
+            let fieldName = controller.pickerTitle,
+            let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
-        if fieldName.contains("Publisher")  {
-            
+        switch viewID {
+        case .publisher:
             transact(transactionID: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             
-        } else if fieldName.contains("Series") {
-            
+        case .series:
             transact(transactionID: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
-            
-        } else if fieldName.contains("Condition"){
-            
+        
+        case .condition:
             transact(transactionID: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+
+        default:
+            fatalError("unexpected fieldName: \(fieldName)")
         }
         
         print("listPickerDidPickItem", transactionInfo ?? "")
