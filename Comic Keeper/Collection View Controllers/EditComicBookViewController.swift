@@ -380,17 +380,20 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle else {
+            let fieldName = controller.pickerTitle,
+            let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
-
-        if fieldName.contains("Purchase Date") {
-            
+        
+        switch viewID {
+        case .purchaseDate:
             transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
             
-        } else if fieldName.contains("Sales Date") {
-            
+        case .salesDate:
             transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
+
+        default:
+            fatalError("unexpected fieldName: \(fieldName)")
         }
         
         print("datePickerDidPickDate", transactionInfo ?? "")
