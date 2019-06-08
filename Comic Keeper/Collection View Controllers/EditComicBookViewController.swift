@@ -238,7 +238,7 @@ class EditComicBookViewController: UITableViewController {
         }
         
         // Once the navigation is broken it is forever broken
-        if originalTransactionInfo.transactionChange == .navigationBreakingChange {
+        if transactionChange == .navigationBreakingChange {
             navigationBroken = true
         }
         
