@@ -20,6 +20,7 @@ class PickerDateViewController: UIViewController, StandardPicker {
     var hintText: String!
     var coverImage: UIImage!
     var noneButtonVisible: Bool!
+    var viewID: ViewIdentifer!
     
     @IBAction func doneButtonAction(_ sender: Any) {
         performSegue(withIdentifier: "DatePickedSegue", sender: self)

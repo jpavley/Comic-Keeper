@@ -69,7 +69,7 @@ class EditComicBookViewController: UITableViewController {
         super.viewDidLoad()
         
         // initial state
-        transactionInfo = Transaction(transactionID: "", inputValue: "", outputValue: "", transactionChange: .nochange)
+        transactionInfo = Transaction(viewID: .noView, inputValue: "", outputValue: "", transactionChange: .nochange)
         navigationBroken = false
         updateUI()
         
@@ -117,37 +117,40 @@ class EditComicBookViewController: UITableViewController {
         
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         
-        func configureStandardPicker(kind: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
+        func configureStandardPicker(viewID: ViewIdentifer, viewTitle: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
+            
             let picker = segue.destination as! StandardPicker
+            picker.viewID = viewID
             picker.itemList = pickerList
-            picker.pickerTitle = kind
+            picker.pickerTitle = viewTitle
             picker.selectedItemName = selectedItem
             picker.hintText = currentComicBook!.identifier
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
-            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
-        func configureAddPicker(kind: String, selectedItem: String) {
+        func configureAddPicker(viewID: ViewIdentifer, viewTitle: String, selectedItem: String) {
             let picker = segue.destination as! PickerAddViewController
-            picker.pickerTitle = kind
+            picker.pickerTitle = viewTitle
             picker.hintText = currentComicBook!.identifier
             picker.selectedItemName = selectedItem
+            picker.viewID = viewID
             
             // save info about this transaction
-            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
         }
         
-        func configureDatePicker(kind: String, date: Date) {
+        func configureDatePicker(viewID: ViewIdentifer, viewTitle: String, date: Date) {
             let controller = segue.destination as! PickerDateViewController
-            controller.pickerTitle = kind
+            controller.pickerTitle = viewTitle
             controller.hintText = currentComicBook!.identifier
             controller.selectedItemDate = date
             
             // save info about this transaction
             let selectedItemName = currentComicBook?.book.dateText(from: date)
-            transactionInfo = Transaction(transactionID: kind, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
         }
         
         switch segue.identifier {
@@ -157,57 +160,59 @@ class EditComicBookViewController: UITableViewController {
         case "ChoosePublisherSegue":
             let pl = comicBookCollection.publisherNames.sorted()
             let si = currentComicBook?.comic.publisher
-            configureStandardPicker(kind: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
             let pl = comicBookCollection.seriesNames.sorted()
             let si = currentComicBook?.comic.series
-            configureStandardPicker(kind: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseEraSegue":
             let pl = comicBookCollection.eras
             let si = currentComicBook?.seriesEra
-            configureStandardPicker(kind: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(viewID: .era, viewTitle: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         case "ChooseIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.issueNumber
-            configureStandardPicker(kind: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(viewID: .issueNumber, viewTitle: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+
             
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook?.comic.legacyIssueNumber
-            configureStandardPicker(kind: "Legacy Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
+            configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
             let si = currentComicBook?.book.condition
-            configureStandardPicker(kind: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            
+            configureStandardPicker(viewID: .condition, viewTitle: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
             
         // Picker Add Cases
         
         case "EditVariantSignifierSegue":
             let v = currentComicBook!.comic.variant // never nil
-            configureAddPicker(kind: "Variant Info", selectedItem: v)
+            configureAddPicker(viewID: .variantInfo, viewTitle: "Variant Info", selectedItem: v)
             
         case "EditPurchasePriceSegue":
             let p = currentComicBook!.book.purchasePriceText // never nil
-            configureAddPicker(kind: "Purchase Price", selectedItem: p)
+            configureAddPicker(viewID: .purchasePrice, viewTitle: "Purchase Price", selectedItem: p)
 
         case "EditSalesPriceSegue":
             let p = currentComicBook!.book.sellPriceText // never nil
-            configureAddPicker(kind: "Sales Price", selectedItem: p)
-            
+            configureAddPicker(viewID: .salesPrice, viewTitle: "Sales Price", selectedItem: p)
+
         // Picker Date Cases
         
         case "EditPurchaseDateSegue":
             let purchaseDate = currentComicBook?.book.purchaseDate ?? Date()
-            configureDatePicker(kind: "Purchase Date", date: purchaseDate)
+            configureDatePicker(viewID: .purchaseDate, viewTitle: "Purchase Date", date: purchaseDate)
             
         case "EditSalesDateSegue":
             let sellDate = currentComicBook?.book.sellDate ?? Date()
-            configureDatePicker(kind: "Sales Date", date: sellDate)
-            
+            configureDatePicker(viewID: .salesDate, viewTitle: "Sales Date", date: sellDate)
+
         default:
             fatalError("unsupported seque in EditComicBookViewController")
         }
@@ -226,7 +231,7 @@ class EditComicBookViewController: UITableViewController {
     ///   - newText: Text the user entered
     ///   - label: The UILabel that needs updating
     ///   - transactionChange: Type of change
-    func transact(fieldName: String, text: String, label: UILabel?, transactionChange: TransactionChange) {
+    func transact(transactionID: String, text: String, label: UILabel?, transactionChange: TransactionChange) {
         
         guard let originalTransactionInfo = transactionInfo else {
             return
@@ -245,7 +250,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
             
-            newTransactionInfo = Transaction(transactionID: originalTransactionInfo.transactionID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
             
             if let label = label {
                 label.text = newTransactionInfo.outputValue
@@ -256,7 +261,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
             
-            newTransactionInfo = Transaction(transactionID: originalTransactionInfo.transactionID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
         }
         
         transactionInfo = newTransactionInfo
@@ -278,27 +283,27 @@ class EditComicBookViewController: UITableViewController {
         switch fieldName {
             
         case let name where name.contains("Variant"):
-            transact(fieldName: name, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
+            transact(transactionID: name, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
             
         case let name where name.contains("Purchase"):
-            transact(fieldName: name, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: name, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
             
         case let name where name.contains("Sales"):
-            transact(fieldName: name, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: name, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
 
         case let name where name.contains("Publisher"):
             if !newText.isEmpty {
-                transact(fieldName: name, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+                transact(transactionID: name, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             }
 
         case let name where name.contains("Series"):
             if !newText.isEmpty {
-                transact(fieldName: name, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+                transact(transactionID: name, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             }
             
         case let name where name.contains("Condition"):
             if !newText.isEmpty {
-                transact(fieldName: name, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+                transact(transactionID: name, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
             }
 
         default:
@@ -322,15 +327,15 @@ class EditComicBookViewController: UITableViewController {
         
         if fieldName.contains("Publisher")  {
             
-            transact(fieldName: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+            transact(transactionID: fieldName, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
             
         } else if fieldName.contains("Series") {
             
-            transact(fieldName: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+            transact(transactionID: fieldName, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
             
         } else if fieldName.contains("Condition"){
             
-            transact(fieldName: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: fieldName, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
         }
         
         print("listPickerDidPickItem", transactionInfo ?? "")
@@ -349,15 +354,15 @@ class EditComicBookViewController: UITableViewController {
         
         if fieldName.contains("Era") {
             
-            transact(fieldName: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
+            transact(transactionID: fieldName, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
             
         } else if fieldName.contains("Issue") {
             
-            transact(fieldName: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
+            transact(transactionID: fieldName, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
             
         } else if fieldName.contains("Legacy") {
             
-            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
         }
         
         print("dialPickerDidPickItem", transactionInfo ?? "")
@@ -376,11 +381,11 @@ class EditComicBookViewController: UITableViewController {
 
         if fieldName.contains("Purchase Date") {
             
-            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
             
         } else if fieldName.contains("Sales Date") {
             
-            transact(fieldName: fieldName, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
+            transact(transactionID: fieldName, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
         }
         
         print("datePickerDidPickDate", transactionInfo ?? "")
@@ -485,13 +490,13 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         let currentPhotoID = currentComicBook?.book.photoID ?? 0
         
-        let newTransaction = Transaction(transactionID: "Photo", inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange)
+        let newTransaction = Transaction(viewID: .photo, inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange)
         
         transactionInfo = newTransaction
     }
     
     private func completePhotoTransaction(newPhotoID: String) {
-        self.transact(fieldName: "Photo", text: newPhotoID, label:  nil, transactionChange: .dataPropertyChange)
+        self.transact(transactionID: "Photo", text: newPhotoID, label:  nil, transactionChange: .dataPropertyChange)
         print("choosePhotoFromLibrary", self.transactionInfo ?? "")
     }
     

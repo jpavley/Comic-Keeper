@@ -8,19 +8,20 @@
 
 import Foundation
 
-enum TransactionIndentifiers: String {
-    case EditPublisher = "Publisher"
-    case EditSeries = "Series"
-    case EditEra = "Era"
-    case EditIssueNumber = "Issue Number"
-    case EditLegacyNumber = "Legacy Number"
-    case EditCondition = "Condition"
-    case EditVariantInfo = "Variant Info"
-    case EditPurchasePrice = "Purchase Price"
-    case EditSalesPrice = "Sales Price"
-    case EditPurchaseDate = "Purchase Date"
-    case EditSalesDate = "Sale Date"
-    case EditPhoto = "Photo"
+enum ViewIdentifer: String {
+    case publisher = "Publisher"
+    case series = "Series"
+    case era = "Era"
+    case issueNumber = "Issue Number"
+    case legacyNumber = "Legacy Number"
+    case condition = "Condition"
+    case variantInfo = "Variant Info"
+    case purchasePrice = "Purchase Price"
+    case salesPrice = "Sales Price"
+    case purchaseDate = "Purchase Date"
+    case salesDate = "Sale Date"
+    case photo = "Photo"
+    case noView = "No View"
 }
 
 enum TransactionChange: String {
@@ -40,10 +41,10 @@ enum TransactionChange: String {
 struct Transaction: CustomStringConvertible {
     
     var description: String {
-        return "field: {\(transactionID)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
+        return "field: {\(viewID)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
     }
     
-    var transactionID: String
+    var viewID: ViewIdentifer
     var inputValue: String
     var outputValue: String
     var transactionChange: TransactionChange = .nochange

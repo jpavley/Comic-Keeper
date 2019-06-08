@@ -20,6 +20,8 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     var hintText: String!
     var coverImage: UIImage!
     var noneButtonVisible: Bool!
+    var viewID: ViewIdentifer!
+
 
     override func viewDidLoad() {
         

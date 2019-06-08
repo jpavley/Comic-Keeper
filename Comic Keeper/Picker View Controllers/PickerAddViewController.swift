@@ -9,7 +9,6 @@
 import UIKit
 
 class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPicker {
-    
     @IBOutlet weak var newItemTextField: UITextField!
     
     var itemList: [String]!
@@ -18,6 +17,7 @@ class PickerAddViewController: UIViewController, UITextFieldDelegate, StandardPi
     var hintText: String!
     var coverImage: UIImage!
     var noneButtonVisible: Bool!
+    var viewID: ViewIdentifer!
     
     @IBAction func doneAction(_ sender: Any) {
         newItemTextField.resignFirstResponder()

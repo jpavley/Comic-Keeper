@@ -15,7 +15,6 @@ class PickerHeaderViewController: UIViewController {
     
     var hintText: String!
     var photoID: Int!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

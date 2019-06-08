@@ -15,4 +15,5 @@ protocol StandardPicker: class {
     var hintText: String! { get set }
     var coverImage: UIImage! { get set }
     var noneButtonVisible: Bool! { get set }
+    var viewID: ViewIdentifer! { get set }
 }
