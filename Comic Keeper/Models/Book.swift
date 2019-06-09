@@ -49,6 +49,18 @@ public class Book {
 
     }
     
+    public class func textDate(from text: String) -> Date? {
+        var result: Date?
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        result = dateFormatter.date(from: text)
+
+        return result
+    }
+    
     public var purchaseDateText: String {
         return dateText(from: purchaseDate)
     }
