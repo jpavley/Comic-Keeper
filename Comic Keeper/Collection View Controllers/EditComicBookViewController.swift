@@ -274,6 +274,7 @@ class EditComicBookViewController: UITableViewController {
         }
         
         transactionInfo = newTransactionInfo
+        transactionInfo?.commit(comicBookCollection: comicBookCollection, currentIdentifier: currentIdentifier)
         updateUI()
     }
     

@@ -41,7 +41,7 @@ enum TransactionChange: String {
 struct Transaction: CustomStringConvertible {
     
     var description: String {
-        return "field: {\(viewID)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
+        return "viewID: {\(viewID)}, in: {\(inputValue)}, out: {\(outputValue)}, change: {\(transactionChange)}"
     }
     
     var viewID: ViewIdentifer
@@ -49,7 +49,15 @@ struct Transaction: CustomStringConvertible {
     var outputValue: String
     var transactionChange: TransactionChange = .nochange
     
-    var valueChanged: Bool {
-        return inputValue == outputValue
+    func commit(comicBookCollection: ComicBookCollection, currentIdentifier: String) {
+                
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        
+        switch viewID {
+        case .variantInfo:
+            currentComicBook?.comic.variant = outputValue
+        default:
+            print("\(viewID) not yet supported for Transaction.commit()")
+        }
     }
 }
