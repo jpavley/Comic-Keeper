@@ -56,7 +56,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb2-5A-cmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="-342"/>
+            <point key="canvasLocation" x="2306" y="-51"/>
         </scene>
         <!--Issues-->
         <scene sceneID="71f-X8-CJo">
@@ -101,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jg-as-MAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3195" y="-342"/>
+            <point key="canvasLocation" x="3189" y="-1111"/>
         </scene>
         <!--Edit Comic Book-->
         <scene sceneID="jod-EM-d8R">
@@ -453,6 +453,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="6a5-1C-TEh">
                             <connections>
                                 <action selector="saveAction:" destination="MBk-Cu-HCP" id="NRT-ig-HhI"/>
+                                <segue destination="k3D-H3-4Xv" kind="show" identifier="SaveNavEditsSegue" id="t7Q-9r-TIC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -475,7 +476,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zq6-kF-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4134" y="-342"/>
+            <point key="canvasLocation" x="4076" y="-1111"/>
         </scene>
         <!--Picker Table-->
         <scene sceneID="uSh-2w-AaZ">
@@ -523,7 +524,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fr-Rv-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KqH-05-k1n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5374" y="-765"/>
+            <point key="canvasLocation" x="5374" y="-1187"/>
         </scene>
         <!--Picker Dial-->
         <scene sceneID="TOI-ij-l8g">
@@ -534,21 +535,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="232" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="188" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
-                                <rect key="frame" x="142" y="456" width="37" height="30"/>
+                                <rect key="frame" x="142" y="412" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-3X-GJ4">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="CgS-6Z-ZbV"/>
                                 </constraints>
@@ -587,7 +588,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncP-Xb-zGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cNt-4U-qHV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5373.75" y="116.19718309859155"/>
+            <point key="canvasLocation" x="5106" y="118"/>
         </scene>
         <!--Picker Date-->
         <scene sceneID="rth-vg-vnZ">
@@ -598,7 +599,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
-                                <rect key="frame" x="0.0" y="233" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="189" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="580414492.79634404">
                                     <!--2019-05-24 18:14:52 +0000-->
                                 </date>
@@ -607,14 +608,14 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-nc-6Je">
-                                <rect key="frame" x="142" y="457" width="37" height="30"/>
+                                <rect key="frame" x="142" y="413" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-pj-emI">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="pu0-j1-rBk"/>
                                 </constraints>
@@ -663,13 +664,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
-                                <rect key="frame" x="16" y="224" width="288" height="30"/>
+                                <rect key="frame" x="16" y="180" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXW-zO-e8y">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="A6Q-2x-w6g"/>
                                 </constraints>
@@ -1081,10 +1082,11 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="esz-NR-oHy"/>
-        <segue reference="sQE-aZ-6K4"/>
+        <segue reference="GV9-mA-zrH"/>
+        <segue reference="n8i-Re-5y0"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>
+        <segue reference="t7Q-9r-TIC"/>
     </inferredMetricsTieBreakers>
 </document>
