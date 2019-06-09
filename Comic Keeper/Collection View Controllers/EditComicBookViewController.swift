@@ -35,6 +35,7 @@ class EditComicBookViewController: UITableViewController {
     
     var comicBookCollection: ComicBookCollection!
     var currentIdentifier: String!
+    var comicBookUnderEdit: ComicBook?
     var image: UIImage?
     var imageHeight: CGFloat = 260
     var managedObjectContext: NSManagedObjectContext!
@@ -73,30 +74,32 @@ class EditComicBookViewController: UITableViewController {
         navigationBroken = false
         updateUI()
         
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
         
-        title = "#\(currentComicBook?.comic.issueNumber ?? "Edit Comicbook")\(currentComicBook?.comic.variant ?? "")"
-        
-        publisherLabel.text = currentComicBook?.publisherName
-        eraLabel.text = currentComicBook?.seriesEra
-        seriesLabel.text = currentComicBook?.seriesName
-        issueNumberLabel.text = currentComicBook?.comic.issueNumber
-        
-        if let legacyIssueNumberText = currentComicBook?.comic.legacyIssueNumber {
-            if legacyIssueNumberText.isEmpty {
-                legacyIssueNumberLabel.text = "none"
-            } else {
-                legacyIssueNumberLabel.text = legacyIssueNumberText
-            }
+        guard let currentComicBook = comicBookUnderEdit else {
+            fatalError("no ComicBook \(currentIdentifier!) to edit")
         }
         
-        variantLabel.text = currentComicBook?.comic.variant
+        title = "#\(currentComicBook.comic.issueNumber )\(currentComicBook.comic.variant )"
         
-        conditionLabel.text = currentComicBook?.book.condition
-        purchasePriceLabel.text = currentComicBook?.book.purchasePriceText
-        purchaseDateLabel.text = currentComicBook?.book.purchaseDateText
-        sellPriceLabel.text = currentComicBook?.book.sellPriceText
-        sellDateLabel.text = currentComicBook?.book.sellDateText
+        publisherLabel.text = currentComicBook.publisherName
+        eraLabel.text = currentComicBook.seriesEra
+        seriesLabel.text = currentComicBook.seriesName
+        issueNumberLabel.text = currentComicBook.comic.issueNumber
+        
+        if currentComicBook.comic.legacyIssueNumber.isEmpty {
+            legacyIssueNumberLabel.text = "none"
+        } else {
+            legacyIssueNumberLabel.text = currentComicBook.comic.legacyIssueNumber
+        }
+        
+        variantLabel.text = currentComicBook.comic.variant
+        
+        conditionLabel.text = currentComicBook.book.condition
+        purchasePriceLabel.text = currentComicBook.book.purchasePriceText
+        purchaseDateLabel.text = currentComicBook.book.purchaseDateText
+        sellPriceLabel.text = currentComicBook.book.sellPriceText
+        sellDateLabel.text = currentComicBook.book.sellDateText
     }
     
     // MARK:- Table View Implementation
@@ -115,7 +118,10 @@ class EditComicBookViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        guard let currentComicBook = comicBookUnderEdit else {
+            fatalError("no ComicBook to edit")
+        }
+        
         
         func configureStandardPicker(viewID: ViewIdentifer, viewTitle: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
             
@@ -124,7 +130,7 @@ class EditComicBookViewController: UITableViewController {
             picker.itemList = pickerList
             picker.pickerTitle = viewTitle
             picker.selectedItemName = selectedItem
-            picker.hintText = currentComicBook!.identifier
+            picker.hintText = currentComicBook.identifier
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
@@ -134,7 +140,7 @@ class EditComicBookViewController: UITableViewController {
         func configureAddPicker(viewID: ViewIdentifer, viewTitle: String, selectedItem: String) {
             let picker = segue.destination as! PickerAddViewController
             picker.pickerTitle = viewTitle
-            picker.hintText = currentComicBook!.identifier
+            picker.hintText = currentComicBook.identifier
             picker.selectedItemName = selectedItem
             picker.viewID = viewID
             
@@ -145,12 +151,12 @@ class EditComicBookViewController: UITableViewController {
         func configureDatePicker(viewID: ViewIdentifer, viewTitle: String, date: Date) {
             let controller = segue.destination as! PickerDateViewController
             controller.pickerTitle = viewTitle
-            controller.hintText = currentComicBook!.identifier
+            controller.hintText = currentComicBook.identifier
             controller.selectedItemDate = date
             
             // save info about this transaction
-            let selectedItemName = currentComicBook?.book.dateText(from: date)
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName!, outputValue: "", transactionChange: .nochange)
+            let selectedItemName = currentComicBook.book.dateText(from: date)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName, outputValue: "", transactionChange: .nochange)
         }
         
         switch segue.identifier {
@@ -159,58 +165,58 @@ class EditComicBookViewController: UITableViewController {
         
         case "ChoosePublisherSegue":
             let pl = comicBookCollection.publisherNames.sorted()
-            let si = currentComicBook?.comic.publisher
-            configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            let si = currentComicBook.comic.publisher
+            configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
             let pl = comicBookCollection.seriesNames.sorted()
-            let si = currentComicBook?.comic.series
-            configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            let si = currentComicBook.comic.series
+            configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseEraSegue":
             let pl = comicBookCollection.eras
-            let si = currentComicBook?.seriesEra
-            configureStandardPicker(viewID: .era, viewTitle: "Era", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            let si = currentComicBook.seriesEra
+            configureStandardPicker(viewID: .era, viewTitle: "Era", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
-            let si = currentComicBook?.comic.issueNumber
-            configureStandardPicker(viewID: .issueNumber, viewTitle: "Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            let si = currentComicBook.comic.issueNumber
+            configureStandardPicker(viewID: .issueNumber, viewTitle: "Issue Number", pickerList: pl, selectedItem: si, noneButtonVisible: false)
 
             
         case "ChooseLegacyIssueNumber":
             let pl = comicBookCollection.allPossibleIssueNumbers
-            let si = currentComicBook?.comic.legacyIssueNumber
-            configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Issue Number", pickerList: pl, selectedItem: si!, noneButtonVisible: true)
+            let si = currentComicBook.comic.legacyIssueNumber
+            configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Issue Number", pickerList: pl, selectedItem: si, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
             let pl = comicBookCollection.allPossibleConditions
-            let si = currentComicBook?.book.condition
+            let si = currentComicBook.book.condition
             
-            configureStandardPicker(viewID: .condition, viewTitle: "Condition", pickerList: pl, selectedItem: si!, noneButtonVisible: false)
+            configureStandardPicker(viewID: .condition, viewTitle: "Condition", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         // Picker Add Cases
         
         case "EditVariantSignifierSegue":
-            let v = currentComicBook!.comic.variant // never nil
+            let v = currentComicBook.comic.variant // never nil
             configureAddPicker(viewID: .variantInfo, viewTitle: "Variant Info", selectedItem: v)
             
         case "EditPurchasePriceSegue":
-            let p = currentComicBook!.book.purchasePriceText // never nil
+            let p = currentComicBook.book.purchasePriceText // never nil
             configureAddPicker(viewID: .purchasePrice, viewTitle: "Purchase Price", selectedItem: p)
 
         case "EditSalesPriceSegue":
-            let p = currentComicBook!.book.sellPriceText // never nil
+            let p = currentComicBook.book.sellPriceText // never nil
             configureAddPicker(viewID: .salesPrice, viewTitle: "Sales Price", selectedItem: p)
 
         // Picker Date Cases
         
         case "EditPurchaseDateSegue":
-            let purchaseDate = currentComicBook?.book.purchaseDate ?? Date()
+            let purchaseDate = currentComicBook.book.purchaseDate ?? Date()
             configureDatePicker(viewID: .purchaseDate, viewTitle: "Purchase Date", date: purchaseDate)
             
         case "EditSalesDateSegue":
-            let sellDate = currentComicBook?.book.sellDate ?? Date()
+            let sellDate = currentComicBook.book.sellDate ?? Date()
             configureDatePicker(viewID: .salesDate, viewTitle: "Sales Date", date: sellDate)
         
         case "SaveNavEditsSegue":
@@ -274,7 +280,11 @@ class EditComicBookViewController: UITableViewController {
         }
         
         transactionInfo = newTransactionInfo
-        transactionInfo?.commit(comicBookCollection: comicBookCollection, currentIdentifier: currentIdentifier)
+        
+        if let comicBookUnderEdit = comicBookUnderEdit {
+            transactionInfo?.commit(currentComicBook: comicBookUnderEdit)
+        }
+        
         updateUI()
     }
     
@@ -320,15 +330,12 @@ class EditComicBookViewController: UITableViewController {
         default:
             fatalError("unexpected fieldName: \(fieldName)")
         }
-        
-        print("addItemDidEditItem", transactionInfo ?? "")
     }
     
     // Unwind/exit segue from list picker to edit comic book view controller.
     @IBAction func listPickerDidPickItem(_ segue: UIStoryboardSegue) {
         
         let controller = segue.source as! PickerTableViewController
-        let _ = comicBookCollection.comicBook(from: currentIdentifier)
         
         guard
             let newText = controller.selectedItemName,
@@ -350,8 +357,6 @@ class EditComicBookViewController: UITableViewController {
         default:
             fatalError("unexpected fieldName: \(fieldName)")
         }
-        
-        print("listPickerDidPickItem", transactionInfo ?? "")
     }
     
     // Unwind/exit segue from dial picker to edit comic book view controller.
@@ -379,8 +384,6 @@ class EditComicBookViewController: UITableViewController {
         default:
             fatalError("unexpected fieldName: \(fieldName)")
         }
-        
-        print("dialPickerDidPickItem", transactionInfo ?? "")
     }
     
     // Unwind/exit segue from date picker to edit comic book view controller.
@@ -405,8 +408,6 @@ class EditComicBookViewController: UITableViewController {
         default:
             fatalError("unexpected fieldName: \(fieldName)")
         }
-        
-        print("datePickerDidPickDate", transactionInfo ?? "")
     }
     
     // MARK:- Helpers

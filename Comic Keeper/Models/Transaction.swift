@@ -49,47 +49,45 @@ struct Transaction: CustomStringConvertible {
     var outputValue: String
     var transactionChange: TransactionChange = .nochange
     
-    func commit(comicBookCollection: ComicBookCollection, currentIdentifier: String) {
-        
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+    func commit(currentComicBook: ComicBook) {
         
         switch viewID {
             
         case .publisher:
-            currentComicBook?.comic.publisher = outputValue
+            currentComicBook.comic.publisher = outputValue
 
             
         case .series:
-            currentComicBook?.comic.series = outputValue
+            currentComicBook.comic.series = outputValue
 
         case .era:
-            currentComicBook?.comic.era = outputValue
+            currentComicBook.comic.era = outputValue
 
         case .issueNumber:
-            currentComicBook?.comic.issueNumber = outputValue
+            currentComicBook.comic.issueNumber = outputValue
 
         case .legacyNumber:
-            currentComicBook?.comic.legacyIssueNumber = outputValue
+            currentComicBook.comic.legacyIssueNumber = outputValue
 
         case .condition:
-            currentComicBook?.book.condition = outputValue
+            currentComicBook.book.condition = outputValue
 
         case .variantInfo:
-            currentComicBook?.comic.variant = outputValue
+            currentComicBook.comic.variant = outputValue
 
         case .purchasePrice:
-            currentComicBook?.book.purchasePrice = 0 // TODO: transform String into Decimal
+            currentComicBook.book.purchasePrice = 0 // TODO: transform String into Decimal
        case .salesPrice:
-        currentComicBook?.book.sellPrice = 0 // TODO: transform String into Decimal
+        currentComicBook.book.sellPrice = 0 // TODO: transform String into Decimal
 
         case .purchaseDate:
-            currentComicBook?.book.purchaseDate = Book.textDate(from: outputValue)!
+            currentComicBook.book.purchaseDate = Book.textDate(from: outputValue)!
 
         case .salesDate:
-            currentComicBook?.book.sellDate = Book.textDate(from: outputValue)!
+            currentComicBook.book.sellDate = Book.textDate(from: outputValue)!
 
         case .photo:
-            currentComicBook?.book.photoID = 0 // TODO: transform String into Int
+            currentComicBook.book.photoID = 0 // TODO: transform String into Int
             
         case .noView:
             fatalError("Transact.Commit() encoundered noView case")
