@@ -56,7 +56,7 @@ class EditComicBookViewController: UITableViewController {
     
     
     @IBAction func saveAction(_ sender: Any) {
-        
+        // Touching save triggers the SaveNavEditsSegue segue which opens the SeriesTableViewController
     }
     
     // MARK:- View Controller
