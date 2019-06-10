@@ -48,6 +48,7 @@ struct Transaction: CustomStringConvertible {
     var inputValue: String
     var outputValue: String
     var transactionChange: TransactionChange = .nochange
+    var action: (()->())?
     
     func commit(currentComicBook: ComicBook) {
         

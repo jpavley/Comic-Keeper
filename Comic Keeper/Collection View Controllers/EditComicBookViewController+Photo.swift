@@ -82,7 +82,7 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
         let currentPhotoID = currentComicBook?.book.photoID ?? 0
         
-        let newTransaction = Transaction(viewID: .photo, inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange)
+        let newTransaction = Transaction(viewID: .photo, inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange, action: nil)
         
         transactionInfo = newTransaction
     }

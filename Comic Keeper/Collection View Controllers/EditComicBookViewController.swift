@@ -70,7 +70,8 @@ class EditComicBookViewController: UITableViewController {
         super.viewDidLoad()
         
         // initial state
-        transactionInfo = Transaction(viewID: .noView, inputValue: "", outputValue: "", transactionChange: .nochange)
+        transactionInfo = Transaction(viewID: .noView, inputValue: "", outputValue: "", transactionChange: .nochange, action: nil)
+        
         navigationBroken = false
         updateUI()
         
@@ -134,7 +135,7 @@ class EditComicBookViewController: UITableViewController {
             picker.noneButtonVisible = noneButtonVisible
             
             // save info about this transaction
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         func configureAddPicker(viewID: ViewIdentifer, viewTitle: String, selectedItem: String) {
@@ -145,7 +146,7 @@ class EditComicBookViewController: UITableViewController {
             picker.viewID = viewID
             
             // save info about this transaction
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         func configureDatePicker(viewID: ViewIdentifer, viewTitle: String, date: Date) {
@@ -156,7 +157,7 @@ class EditComicBookViewController: UITableViewController {
             
             // save info about this transaction
             let selectedItemName = currentComicBook.book.dateText(from: date)
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName, outputValue: "", transactionChange: .nochange)
+            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         switch segue.identifier {
@@ -265,7 +266,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
             
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: nil)
             
             if let label = label {
                 label.text = newTransactionInfo.outputValue
@@ -276,7 +277,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
             
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: nil)
         }
         
         transactionInfo = newTransactionInfo
