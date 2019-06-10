@@ -232,8 +232,6 @@ class EditComicBookViewController: UITableViewController {
     
     // MARK:- Unwind/Exit Segues
     
-    // TODO: Update data if changed
-    // TODO: Detect navigtaion breaking change and prevent it from crashing app. If the currentComicBook can't be found because the publisher, series, issue number, or variant info changed, then alert user and pop back to the SeriesTableViewController.
     // TODO: Data validation
     
     /// Updates the CKTransaction object and updates the UI.
