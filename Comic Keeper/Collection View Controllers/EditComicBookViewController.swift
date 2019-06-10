@@ -97,9 +97,9 @@ class EditComicBookViewController: UITableViewController {
         variantLabel.text = currentComicBook.comic.variant
         
         conditionLabel.text = currentComicBook.book.condition
-        purchasePriceLabel.text = currentComicBook.book.purchasePriceText
+        purchasePriceLabel.text = currentComicBook.book.purchasePriceText != "none" ? "$\(currentComicBook.book.purchasePriceText)" : "none"
         purchaseDateLabel.text = currentComicBook.book.purchaseDateText
-        sellPriceLabel.text = currentComicBook.book.sellPriceText
+        sellPriceLabel.text = currentComicBook.book.sellDateText != "none" ? "$\(currentComicBook.book.sellPriceText)" : "none"
         sellDateLabel.text = currentComicBook.book.sellDateText
     }
     
@@ -308,12 +308,12 @@ class EditComicBookViewController: UITableViewController {
             
         case .purchasePrice:
             transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.purchasePrice = Decimal(string: newText)
+                self.comicBookUnderEdit?.book.purchasePrice = self.transformTextIntoDecimal(newText: newText)
             }
             
         case .salesPrice:
             transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.sellPrice = Decimal(string: newText)
+                self.comicBookUnderEdit?.book.sellPrice = self.transformTextIntoDecimal(newText: newText)
             }
 
         case .publisher:
@@ -434,6 +434,20 @@ class EditComicBookViewController: UITableViewController {
     }
     
     // MARK:- Helpers
+    
+    /// newText should be in the format 0,000.00
+    func transformTextIntoDecimal(newText: String) -> Decimal {
+        
+        // remove from String: "$", ".", ","
+        var amountWithPrefix = newText
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, newText.count), withTemplate: "")
+        
+        // divdie by 100 and make it a Decimal
+        let double = (amountWithPrefix as NSString).doubleValue
+        let number = Decimal(double / 100)
+        return number
+    }
     
     func updateUI() {
         
