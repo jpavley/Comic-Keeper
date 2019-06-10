@@ -243,7 +243,7 @@ class EditComicBookViewController: UITableViewController {
     ///   - newText: Text the user entered
     ///   - label: The UILabel that needs updating
     ///   - transactionChange: Type of change
-    func transact(viewID: ViewIdentifer, text: String, label: UILabel?, transactionChange: TransactionChange) {
+    func transact(viewID: ViewIdentifer, text: String, label: UILabel?, transactionChange: TransactionChange, action: (()->Void)?) {
         
         guard let originalTransactionInfo = transactionInfo else {
             return
@@ -266,7 +266,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
             
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: nil)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: action)
             
             if let label = label {
                 label.text = newTransactionInfo.outputValue
@@ -277,7 +277,7 @@ class EditComicBookViewController: UITableViewController {
             // Has the navigation been broken before?
             let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
             
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: nil)
+            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: action)
         }
         
         transactionInfo = newTransactionInfo
@@ -305,27 +305,27 @@ class EditComicBookViewController: UITableViewController {
         switch viewID {
             
         case .variantInfo:
-            transact(viewID: .variantInfo, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange)
+            transact(viewID: .variantInfo, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange, action: nil)
             
         case .purchasePrice:
-            transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange, action: nil)
             
         case .salesPrice:
-            transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange, action: nil)
 
         case .publisher:
             if !newText.isEmpty {
-                transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+                transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange, action: nil)
             }
 
         case .series:
             if !newText.isEmpty {
-                transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+                transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange, action: nil)
             }
             
         case .condition:
             if !newText.isEmpty {
-                transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+                transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange, action: nil)
             }
 
         default:
@@ -347,13 +347,13 @@ class EditComicBookViewController: UITableViewController {
         
         switch viewID {
         case .publisher:
-            transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange)
+            transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange, action: nil)
             
         case .series:
-            transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange)
+            transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange, action: nil)
         
         case .condition:
-            transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange, action: nil)
 
         default:
             fatalError("unexpected fieldName: \(fieldName)")
@@ -374,13 +374,13 @@ class EditComicBookViewController: UITableViewController {
         
         switch viewID {
         case .era:
-            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange)
+            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange, action: nil)
             
         case .issueNumber:
-            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange)
+            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange, action: nil)
 
         case .legacyNumber:
-            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange, action: nil)
 
         default:
             fatalError("unexpected fieldName: \(fieldName)")
@@ -401,10 +401,10 @@ class EditComicBookViewController: UITableViewController {
         
         switch viewID {
         case .purchaseDate:
-            transact(viewID: .purchaseDate, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .purchaseDate, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange, action: nil)
             
         case .salesDate:
-            transact(viewID: .salesDate, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange)
+            transact(viewID: .salesDate, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange, action: nil)
 
         default:
             fatalError("unexpected fieldName: \(fieldName)")
