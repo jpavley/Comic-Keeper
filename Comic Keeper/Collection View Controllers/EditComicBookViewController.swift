@@ -295,7 +295,6 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let rawText = controller.newItemTextField.text,
-            let fieldName = controller.pickerTitle,
             let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
@@ -305,31 +304,43 @@ class EditComicBookViewController: UITableViewController {
         switch viewID {
             
         case .variantInfo:
-            transact(viewID: .variantInfo, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange, action: nil)
+            transact(viewID: .variantInfo, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange) {
+                self.comicBookUnderEdit?.comic.variant = newText
+            }
             
         case .purchasePrice:
-            transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.book.purchasePrice = Decimal(string: newText)
+            }
             
         case .salesPrice:
-            transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.book.sellPrice = Decimal(string: newText)
+            }
 
         case .publisher:
             if !newText.isEmpty {
-                transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange, action: nil)
+                transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange) {
+                    self.comicBookUnderEdit?.comic.publisher = newText
+                }
             }
 
         case .series:
             if !newText.isEmpty {
-                transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange, action: nil)
+                transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange) {
+                    self.comicBookUnderEdit?.comic.series = newText
+                }
             }
             
         case .condition:
             if !newText.isEmpty {
-                transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange, action: nil)
+                transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange) {
+                    self.comicBookUnderEdit?.book.condition = newText
+                }
             }
 
         default:
-            fatalError("unexpected fieldName: \(fieldName)")
+            fatalError("unexpected case: \(viewID)")
         }
     }
     
@@ -340,23 +351,28 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle,
             let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .publisher:
-            transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange, action: nil)
+            transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange) {
+                self.comicBookUnderEdit?.comic.publisher = newText
+            }
             
         case .series:
-            transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange, action: nil)
+            transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange) {
+                self.comicBookUnderEdit?.comic.series = newText
+            }
         
         case .condition:
-            transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.book.condition = newText
+            }
 
         default:
-            fatalError("unexpected fieldName: \(fieldName)")
+            fatalError("unexpected case: \(viewID)")
         }
     }
     
@@ -367,23 +383,28 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle,
             let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .era:
-            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange, action: nil)
+            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange) {
+                self.comicBookUnderEdit?.comic.era = newText
+            }
             
         case .issueNumber:
-            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange, action: nil)
+            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange) {
+                self.comicBookUnderEdit?.comic.issueNumber = newText
+            }
 
         case .legacyNumber:
-            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.comic.legacyIssueNumber = newText
+            }
 
         default:
-            fatalError("unexpected fieldName: \(fieldName)")
+            fatalError("unexpected case: \(viewID)")
         }
     }
     
@@ -394,20 +415,23 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let fieldName = controller.pickerTitle,
             let viewID = transactionInfo?.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .purchaseDate:
-            transact(viewID: .purchaseDate, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .purchaseDate, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.book.purchaseDate = Book.textDate(from: newText)
+            }
             
         case .salesDate:
-            transact(viewID: .salesDate, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange, action: nil)
+            transact(viewID: .salesDate, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange) {
+                self.comicBookUnderEdit?.book.sellDate = Book.textDate(from: newText)
+            }
 
         default:
-            fatalError("unexpected fieldName: \(fieldName)")
+            fatalError("unexpected case: \(viewID)")
         }
     }
     
