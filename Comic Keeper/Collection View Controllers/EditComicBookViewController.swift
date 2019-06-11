@@ -72,40 +72,14 @@ class EditComicBookViewController: UITableViewController {
         
         // initial state
         transactionInfo = Transaction(viewID: .noView, inputValue: "", outputValue: "", transactionChange: .nochange, action: nil)
-        
         navigationBroken = false
         updateUI()
         
         if currentIdentifier == emptyComicIdentifier {
-            comicBookUnderEdit = comicBookCollection.comicbooks[0]
+            loadDummyComicBook()
         } else {
-            comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
+            loadRealComicBooks()
         }
-        
-        guard let currentComicBook = comicBookUnderEdit else {
-            fatalError("no ComicBook \(currentIdentifier!) to edit")
-        }
-        
-        title = "#\(currentComicBook.comic.issueNumber )\(currentComicBook.comic.variant )"
-        
-        publisherLabel.text = currentComicBook.publisherName
-        eraLabel.text = currentComicBook.seriesEra
-        seriesLabel.text = currentComicBook.seriesName
-        issueNumberLabel.text = currentComicBook.comic.issueNumber
-        
-        if currentComicBook.comic.legacyIssueNumber.isEmpty {
-            legacyIssueNumberLabel.text = "none"
-        } else {
-            legacyIssueNumberLabel.text = currentComicBook.comic.legacyIssueNumber
-        }
-        
-        variantLabel.text = currentComicBook.comic.variant
-        
-        conditionLabel.text = currentComicBook.book.condition
-        purchasePriceLabel.text = currentComicBook.book.purchasePriceText != "none" ? "$\(currentComicBook.book.purchasePriceText)" : "none"
-        purchaseDateLabel.text = currentComicBook.book.purchaseDateText
-        sellPriceLabel.text = currentComicBook.book.sellDateText != "none" ? "$\(currentComicBook.book.sellPriceText)" : "none"
-        sellDateLabel.text = currentComicBook.book.sellDateText
     }
     
     // MARK:- Table View Implementation
@@ -440,10 +414,55 @@ class EditComicBookViewController: UITableViewController {
     
     private func loadDummyComicBook() {
         
+        if comicBookCollection.comicbooks.isEmpty {
+            fatalError("no comic book to edit!")
+        }
+        
+        comicBookUnderEdit = comicBookCollection.comicbooks[0]
+        
+        title = "Add Comic Book"
+        
+        publisherLabel.text = ""
+        eraLabel.text = ""
+        seriesLabel.text = ""
+        issueNumberLabel.text = ""
+        legacyIssueNumberLabel.text = ""
+        variantLabel.text = ""
+        conditionLabel.text = ""
+        purchasePriceLabel.text = ""
+        purchaseDateLabel.text = ""
+        sellPriceLabel.text = ""
+        sellDateLabel.text = ""
+
     }
     
     private func loadRealComicBooks() {
+        comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
         
+        guard let currentComicBook = comicBookUnderEdit else {
+            fatalError("no ComicBook \(currentIdentifier!) to edit")
+        }
+        
+        title = "#\(currentComicBook.comic.issueNumber )\(currentComicBook.comic.variant )"
+        
+        publisherLabel.text = currentComicBook.publisherName
+        eraLabel.text = currentComicBook.seriesEra
+        seriesLabel.text = currentComicBook.seriesName
+        issueNumberLabel.text = currentComicBook.comic.issueNumber
+        
+        if currentComicBook.comic.legacyIssueNumber.isEmpty {
+            legacyIssueNumberLabel.text = "none"
+        } else {
+            legacyIssueNumberLabel.text = currentComicBook.comic.legacyIssueNumber
+        }
+        
+        variantLabel.text = currentComicBook.comic.variant
+        
+        conditionLabel.text = currentComicBook.book.condition
+        purchasePriceLabel.text = currentComicBook.book.purchasePriceText != "none" ? "$\(currentComicBook.book.purchasePriceText)" : "none"
+        purchaseDateLabel.text = currentComicBook.book.purchaseDateText
+        sellPriceLabel.text = currentComicBook.book.sellDateText != "none" ? "$\(currentComicBook.book.sellPriceText)" : "none"
+        sellDateLabel.text = currentComicBook.book.sellDateText
     }
     
     /// newText should be in the format 0,000.00
