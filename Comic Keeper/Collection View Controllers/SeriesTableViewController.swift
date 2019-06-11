@@ -20,7 +20,7 @@ class SeriesTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        navigationItem.rightBarButtonItem = self.editButtonItem
+//        navigationItem.rightBarButtonItem = self.editButtonItem
         navigationItem.setHidesBackButton(true, animated: true)
         
         title = "Comicbooks"
@@ -29,35 +29,58 @@ class SeriesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return comicBookCollection.publisherNames.count
+        
+        if comicBookCollection.publisherNames.count == 0 {
+            return 1
+        } else {
+            return comicBookCollection.publisherNames.count
+
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return comicBookCollection.publisherNames[section]
+        
+        if comicBookCollection.publisherNames.isEmpty {
+            return "Collection Empty"
+        } else {
+            return comicBookCollection.publisherNames[section]
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let publisherName = comicBookCollection.publisherNames[section]
-        let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
-        return seriesTitles.count
+        
+        if comicBookCollection.publisherNames.isEmpty {
+            return 1
+        } else {
+            let publisherName = comicBookCollection.publisherNames[section]
+            let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
+            return seriesTitles.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SeriesCell", for: indexPath)
+        
+        if comicBookCollection.publisherNames.isEmpty {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCollectionCell", for: indexPath)
 
-        // Configure the cell...
-        let publisherName = comicBookCollection.publisherNames[indexPath.section]
+            cell.textLabel?.text = "Touch + to add a comic book!"
+            cell.detailTextLabel?.text = ""
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SeriesCell", for: indexPath)
+            
+            // Configure the cell...
+            let publisherName = comicBookCollection.publisherNames[indexPath.section]
+            let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
+            let seriesTitle = seriesTitles[indexPath.row]
+            let issueNumbers = comicBookCollection.issuesNumbers(seriesTitle: seriesTitle, publisherName: publisherName)
+            
+            cell.textLabel?.text = seriesTitle
+            cell.detailTextLabel?.text = "\(issueNumbers.count) issues"
+            return cell
+        }
         
-        let seriesTitles = comicBookCollection.seriesTitles(for: publisherName)
-        let seriesTitle = seriesTitles[indexPath.row]
-        
-        let issueNumbers = comicBookCollection.issuesNumbers(seriesTitle: seriesTitle, publisherName: publisherName)
-        
-        cell.textLabel?.text = seriesTitle
-        cell.detailTextLabel?.text = "\(issueNumbers.count) issues"
-
-        return cell
     }
 
     /*

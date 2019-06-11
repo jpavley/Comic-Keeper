@@ -46,13 +46,32 @@
                                     <segue destination="VVn-Xm-d3z" kind="show" identifier="SeriesSegue" id="6oD-aE-PGc"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCollectionCell" textLabel="fwl-gF-s31" style="IBUITableViewCellStyleDefault" id="ye8-mD-kyc">
+                                <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ye8-mD-kyc" id="JON-9a-57d">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwl-gF-s31">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="k3D-H3-4Xv" id="j30-Qr-MMO"/>
                             <outlet property="delegate" destination="k3D-H3-4Xv" id="IXE-uj-c3D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Series" id="FWY-P1-5N1"/>
+                    <navigationItem key="navigationItem" title="Series" largeTitleDisplayMode="always" id="FWY-P1-5N1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jYF-1q-MM0"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb2-5A-cmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -535,21 +554,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="188" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="232" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
-                                <rect key="frame" x="142" y="412" width="37" height="30"/>
+                                <rect key="frame" x="142" y="456" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-3X-GJ4">
-                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="CgS-6Z-ZbV"/>
                                 </constraints>
@@ -599,7 +618,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
-                                <rect key="frame" x="0.0" y="189" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="233" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="580414492.79634404">
                                     <!--2019-05-24 18:14:52 +0000-->
                                 </date>
@@ -608,14 +627,14 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-nc-6Je">
-                                <rect key="frame" x="142" y="413" width="37" height="30"/>
+                                <rect key="frame" x="142" y="457" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-pj-emI">
-                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="pu0-j1-rBk"/>
                                 </constraints>
@@ -664,13 +683,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
-                                <rect key="frame" x="16" y="180" width="288" height="30"/>
+                                <rect key="frame" x="16" y="224" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXW-zO-e8y">
-                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="A6Q-2x-w6g"/>
                                 </constraints>
@@ -1082,12 +1101,11 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6oD-aE-PGc"/>
         <segue reference="GV9-mA-zrH"/>
         <segue reference="n8i-Re-5y0"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>
-        <segue reference="t7Q-9r-TIC"/>
+        <segue reference="LSg-9Q-H7Z"/>
     </inferredMetricsTieBreakers>
 </document>
