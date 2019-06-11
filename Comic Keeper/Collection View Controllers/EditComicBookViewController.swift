@@ -438,6 +438,14 @@ class EditComicBookViewController: UITableViewController {
     
     // MARK:- Helpers
     
+    private func loadDummyComicBook() {
+        
+    }
+    
+    private func loadRealComicBooks() {
+        
+    }
+    
     /// newText should be in the format 0,000.00
     func transformTextIntoDecimal(newText: String) -> Decimal {
         
