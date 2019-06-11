@@ -232,8 +232,6 @@ class EditComicBookViewController: UITableViewController {
     
     // MARK:- Unwind/Exit Segues
     
-    // TODO: Data validation
-    
     /// Updates the CKTransaction object and updates the UI.
     /// Ensures output is unique and trims whitespace.
     ///
