@@ -75,7 +75,7 @@ class EditComicBookViewController: UITableViewController {
         navigationBroken = false
         updateUI()
         
-        if currentIdentifier == emptyComicIdentifier {
+        if comicBookCollection.comicbooks.isEmpty {
             loadDummyComicBook()
         } else {
             loadRealComicBooks()
@@ -413,11 +413,10 @@ class EditComicBookViewController: UITableViewController {
     // MARK:- Helpers
     
     private func loadDummyComicBook() {
-        
-        if comicBookCollection.comicbooks.isEmpty {
-            fatalError("no comic book to edit!")
-        }
-        
+                
+        let cb1 = ComicBookCollection.createComicBook("", "", "", "", "", "", nil, nil, nil, nil, "")
+        comicBookCollection.comicbooks = [cb1]
+        currentIdentifier = emptyComicIdentifier
         comicBookUnderEdit = comicBookCollection.comicbooks[0]
         
         title = "Add Comic Book"

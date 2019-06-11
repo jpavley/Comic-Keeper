@@ -145,18 +145,6 @@ class SeriesTableViewController: UITableViewController {
             let destination = segue.destination as! EditComicBookViewController
             destination.comicBookCollection = comicBookCollection
             destination.managedObjectContext = managedObjectContext
-            
-            // add a dummy comnic book for the user to edit
-            let currentSeriesTitle = ""
-            let currentPublisherName = ""
-            let currentIssueNumber = ""
-            let variant = ""
-            
-            let cb1 = ComicBookCollection.createComicBook("", "", "", "", "", "", nil, nil, nil, nil, "")
-            comicBookCollection.comicbooks = [cb1]
-            
-            destination.currentIdentifier = "\(currentPublisherName) \(currentSeriesTitle) \(currentIssueNumber)\(variant)"
-
         }
     }
 }
