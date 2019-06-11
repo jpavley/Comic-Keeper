@@ -69,8 +69,13 @@
                             <outlet property="delegate" destination="k3D-H3-4Xv" id="IXE-uj-c3D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Series" largeTitleDisplayMode="always" id="FWY-P1-5N1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jYF-1q-MM0"/>
+                    <navigationItem key="navigationItem" title="Series" id="FWY-P1-5N1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jYF-1q-MM0">
+                            <connections>
+                                <action selector="addButtonTouched:" destination="k3D-H3-4Xv" id="U0D-NH-KI5"/>
+                                <segue destination="MBk-Cu-HCP" kind="show" identifier="AddComicBookSegue" id="0Kg-6h-l3e"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb2-5A-cmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jg-as-MAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189" y="-1111"/>
+            <point key="canvasLocation" x="3092" y="-1139"/>
         </scene>
         <!--Edit Comic Book-->
         <scene sceneID="jod-EM-d8R">
@@ -554,21 +559,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-nV-VXi">
-                                <rect key="frame" x="0.0" y="232" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="279" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gE7-Jh-VJR" id="vcQ-Vx-44E"/>
                                     <outlet property="delegate" destination="gE7-Jh-VJR" id="YaM-o7-VQC"/>
                                 </connections>
                             </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-aa-A0V">
-                                <rect key="frame" x="142" y="456" width="37" height="30"/>
+                                <rect key="frame" x="142" y="503" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="gE7-Jh-VJR" eventType="touchUpInside" id="rgj-iR-a4P"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-3X-GJ4">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="CgS-6Z-ZbV"/>
                                 </constraints>
@@ -618,7 +623,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-tG-FBA">
-                                <rect key="frame" x="0.0" y="233" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="280" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="580414492.79634404">
                                     <!--2019-05-24 18:14:52 +0000-->
                                 </date>
@@ -627,14 +632,14 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-nc-6Je">
-                                <rect key="frame" x="142" y="457" width="37" height="30"/>
+                                <rect key="frame" x="142" y="504" width="37" height="30"/>
                                 <state key="normal" title="None"/>
                                 <connections>
                                     <action selector="noneButtonAction:" destination="9C6-6i-qZ2" eventType="touchUpInside" id="pvp-tS-vF6"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-pj-emI">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="pu0-j1-rBk"/>
                                 </constraints>
@@ -683,13 +688,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-an-xs1">
-                                <rect key="frame" x="16" y="224" width="288" height="30"/>
+                                <rect key="frame" x="16" y="271" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXW-zO-e8y">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="A6Q-2x-w6g"/>
                                 </constraints>
@@ -1106,6 +1111,7 @@
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>
+        <segue reference="0Kg-6h-l3e"/>
         <segue reference="LSg-9Q-H7Z"/>
     </inferredMetricsTieBreakers>
 </document>

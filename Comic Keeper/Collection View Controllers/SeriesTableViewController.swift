@@ -14,6 +14,10 @@ class SeriesTableViewController: UITableViewController {
     var comicBookCollection: ComicBookCollection!
     var managedObjectContext: NSManagedObjectContext!
     
+    @IBAction func addButtonTouched(_ sender: Any) {
+        // triggers "AddComicBookSegue"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -137,6 +141,22 @@ class SeriesTableViewController: UITableViewController {
                 destination.currentPublisherName = publisherName
                 destination.currentSeriesTitle = seriesTitles[selectedIndexPath.row]
             }
+        } else if segue.identifier == "AddComicBookSegue" {
+            let destination = segue.destination as! EditComicBookViewController
+            destination.comicBookCollection = comicBookCollection
+            destination.managedObjectContext = managedObjectContext
+            
+            // add a dummy comnic book for the user to edit
+            let currentSeriesTitle = ""
+            let currentPublisherName = ""
+            let currentIssueNumber = ""
+            let variant = ""
+            
+            let cb1 = ComicBookCollection.createComicBook("", "", "", "", "", "", nil, nil, nil, nil, "")
+            comicBookCollection.comicbooks = [cb1]
+            
+            destination.currentIdentifier = "\(currentPublisherName) \(currentSeriesTitle) \(currentIssueNumber)\(variant)"
+
         }
     }
 }

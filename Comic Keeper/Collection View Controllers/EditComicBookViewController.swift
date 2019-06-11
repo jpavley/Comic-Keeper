@@ -52,6 +52,7 @@ class EditComicBookViewController: UITableViewController {
     
     let photoSection = 1
     let photoRow = 0
+    let emptyComicIdentifier = "  "
     
     // MARK:- Actions
     
@@ -75,7 +76,11 @@ class EditComicBookViewController: UITableViewController {
         navigationBroken = false
         updateUI()
         
-        comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
+        if currentIdentifier == emptyComicIdentifier {
+            comicBookUnderEdit = comicBookCollection.comicbooks[0]
+        } else {
+            comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
+        }
         
         guard let currentComicBook = comicBookUnderEdit else {
             fatalError("no ComicBook \(currentIdentifier!) to edit")
