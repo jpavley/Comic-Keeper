@@ -1082,6 +1082,7 @@
         <image name="no-cover-thumb" width="248" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6oD-aE-PGc"/>
         <segue reference="GV9-mA-zrH"/>
         <segue reference="n8i-Re-5y0"/>
         <segue reference="VAD-ZH-fmC"/>

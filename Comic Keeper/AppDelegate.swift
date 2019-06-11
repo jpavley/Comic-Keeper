@@ -47,7 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // (Which in turn will inject ComicBookCollection data into each lower level view controller)
         
         let tabController = window!.rootViewController as! UITabBarController
-        let comicBookCollection = ComicBookCollection.createComicBookCollection()
+        
+        //let comicBookCollection = ComicBookCollection.createComicBookCollection()
+        let comicBookCollection = ComicBookCollection()
         
         if let tabViewControllers = tabController.viewControllers {
             
