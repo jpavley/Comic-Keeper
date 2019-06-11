@@ -413,7 +413,7 @@ class EditComicBookViewController: UITableViewController {
     // MARK:- Helpers
     
     private func loadDummyComicBook() {
-                
+        
         let cb1 = ComicBookCollection.createComicBook("", "", "", "", "", "", nil, nil, nil, nil, "")
         comicBookCollection.comicbooks = [cb1]
         currentIdentifier = emptyComicIdentifier
@@ -432,7 +432,6 @@ class EditComicBookViewController: UITableViewController {
         purchaseDateLabel.text = ""
         sellPriceLabel.text = ""
         sellDateLabel.text = ""
-
     }
     
     private func loadRealComicBooks() {

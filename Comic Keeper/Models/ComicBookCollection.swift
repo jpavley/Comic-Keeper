@@ -29,6 +29,10 @@ public class ComicBookCollection {
         return filteredNames
     }
     
+    public var starterPublisherNames: [String] {
+        return ["Dark Horse", "DC Comics", "Marvel Comics"]
+    }
+    
     public var seriesNames: [String] {
         let seriesNames = comicbooks.map {$0.comic.series}
         var filteredNames = [String]()
@@ -38,6 +42,10 @@ public class ComicBookCollection {
             }
         }
         return filteredNames
+    }
+    
+    public var starterSeriesNames: [String] {
+        return ["Batman", "Fantastic Four", "Spider Man", "Super Man", "Wonder Woman", "X-Men"]
     }
     
     public var eras: [String] {
