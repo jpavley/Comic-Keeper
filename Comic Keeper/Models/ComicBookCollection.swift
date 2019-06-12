@@ -21,11 +21,18 @@ public class ComicBookCollection {
     public var publisherNames: [String] {
         let publisherNames = comicbooks.map {$0.comic.publisher}
         var filteredNames = [String]()
+        
+        // early return if we have no actual publishers
+        if publisherNames.count == 1 && publisherNames[0] == " " {
+            return filteredNames
+        }
+        
         publisherNames.forEach { name in
             if !filteredNames.contains(name) {
                 filteredNames.append(name)
             }
         }
+        
         return filteredNames
     }
     
