@@ -138,6 +138,21 @@ class EditComicBookViewController: UITableViewController {
             transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
+        func calculatePickerListAndSelectedItem(existingNames: [String], starterNames: [String], selectedName: String) -> (pickerList: [String], selectedItem: String) {
+            let pl: [String]
+            let si: String
+            
+            if existingNames.isEmpty {
+                pl = starterNames
+                si = ""
+            } else {
+                pl = existingNames.sorted()
+                si = selectedName
+            }
+            
+            return (pickerList: pl, selectedItem: si)
+        }
+        
         switch segue.identifier {
         
         // Standard Picker Cases
