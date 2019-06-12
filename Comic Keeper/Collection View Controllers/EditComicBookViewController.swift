@@ -378,17 +378,20 @@ class EditComicBookViewController: UITableViewController {
         
         switch viewID {
         case .era:
-            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: .navigationBreakingChange) {
+            
+            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: newText.isEmpty ? .nochange : .navigationBreakingChange) {
                 self.comicBookUnderEdit?.comic.era = newText
             }
             
         case .issueNumber:
-            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: .navigationBreakingChange) {
+            
+            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: newText.isEmpty ? .nochange : .navigationBreakingChange) {
                 self.comicBookUnderEdit?.comic.issueNumber = newText
             }
 
         case .legacyNumber:
-            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: .dataPropertyChange) {
+            
+            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: newText.isEmpty ? .nochange : .dataPropertyChange) {
                 self.comicBookUnderEdit?.comic.legacyIssueNumber = newText
             }
 

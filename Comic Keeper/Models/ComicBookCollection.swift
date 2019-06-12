@@ -76,7 +76,7 @@ public class ComicBookCollection {
     }
     
     public var allPossibleIssueNumbers: [String] {
-        var result = [String]()
+        var result = [" "]
         
         for i in 1...9999 {
             result.append("\(i)")
