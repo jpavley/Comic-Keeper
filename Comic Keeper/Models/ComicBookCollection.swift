@@ -23,7 +23,7 @@ public class ComicBookCollection {
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
-        if publisherNames.count == 1 && publisherNames[0] == " " {
+        if publisherNames.isEmpty || publisherNames[0] == "" {
             return filteredNames
         }
         
