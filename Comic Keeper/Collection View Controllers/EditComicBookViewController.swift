@@ -159,33 +159,13 @@ class EditComicBookViewController: UITableViewController {
         
         case "ChoosePublisherSegue":
             
-            let pl: [String]
-            let si: String
-            
-            if comicBookCollection.publisherNames.isEmpty {
-                pl = comicBookCollection.starterPublisherNames
-                si = ""
-            } else {
-                pl = comicBookCollection.publisherNames.sorted()
-                si = currentComicBook.comic.publisher
-            }
-            
-            configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si, noneButtonVisible: false)
+            let plsi = calculatePickerListAndSelectedItem(existingNames: comicBookCollection.publisherNames, starterNames: comicBookCollection.starterPublisherNames, selectedName: currentComicBook.comic.publisher)
+            configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: plsi.pickerList, selectedItem: plsi.selectedItem, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
             
-            let pl: [String]
-            let si: String
-
-            if comicBookCollection.seriesNames.isEmpty {
-                pl = comicBookCollection.starterSeriesNames
-                si = ""
-            } else {
-                pl = comicBookCollection.seriesNames.sorted()
-                si = currentComicBook.comic.series
-            }
-            
-            configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: pl, selectedItem: si, noneButtonVisible: false)
+            let plsi = calculatePickerListAndSelectedItem(existingNames: comicBookCollection.seriesNames, starterNames: comicBookCollection.starterSeriesNames, selectedName: currentComicBook.comic.series)
+            configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: plsi.pickerList, selectedItem: plsi.selectedItem, noneButtonVisible: false)
             
         case "ChooseEraSegue":
             let pl = comicBookCollection.eras
