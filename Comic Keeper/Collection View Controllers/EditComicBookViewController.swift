@@ -158,8 +158,18 @@ class EditComicBookViewController: UITableViewController {
             configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
-            let pl = comicBookCollection.seriesNames.sorted()
-            let si = currentComicBook.comic.series
+            
+            let pl: [String]
+            let si: String
+
+            if comicBookCollection.seriesNames.isEmpty {
+                pl = comicBookCollection.starterSeriesNames
+                si = ""
+            } else {
+                pl = comicBookCollection.seriesNames.sorted()
+                si = currentComicBook.comic.series
+            }
+            
             configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseEraSegue":

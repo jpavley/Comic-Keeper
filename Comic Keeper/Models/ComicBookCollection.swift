@@ -43,6 +43,12 @@ public class ComicBookCollection {
     public var seriesNames: [String] {
         let seriesNames = comicbooks.map {$0.comic.series}
         var filteredNames = [String]()
+        
+        // early return if we have no actual publishers
+        if seriesNames.isEmpty || seriesNames[0] == "" {
+            return filteredNames
+        }
+        
         seriesNames.forEach { name in
             if !filteredNames.contains(name) {
                 filteredNames.append(name)
