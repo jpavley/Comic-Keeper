@@ -63,7 +63,7 @@ public class ComicBookCollection {
     
     public var eras: [String] {
         
-        var result = [String]()
+        var result = [" "]
         let now = Date()
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: now)
