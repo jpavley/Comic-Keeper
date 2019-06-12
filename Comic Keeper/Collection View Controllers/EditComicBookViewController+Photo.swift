@@ -60,36 +60,17 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func takePhotoWithCamera() {
-        startPhotoTransaction()
         let imagePicker = createImagePicker(kind: .camera)
         present(imagePicker, animated: true, completion: {
             // TODO: This is called before the photo is choosen!
-            self.completePhotoTransaction(newPhotoID: "0")
         })
     }
     
     func choosePhotoFromLibrary() {
-        startPhotoTransaction()
         let imagePicker = createImagePicker(kind: .photoLibrary)
         present(imagePicker, animated: true, completion: {
             // TODO: This is called before the photo is choosen!
-            self.completePhotoTransaction(newPhotoID: "0")
         })
-    }
-    
-    private func startPhotoTransaction() {
-        
-        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
-        let currentPhotoID = currentComicBook?.book.photoID ?? 0
-        
-        let newTransaction = Transaction(viewID: .photo, inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange, action: nil)
-        
-        transactionInfo = newTransaction
-    }
-    
-    private func completePhotoTransaction(newPhotoID: String) {
-        self.transact(viewID: .photo, text: newPhotoID, label:  nil, transactionChange: .dataPropertyChange, action: nil)
-        print("choosePhotoFromLibrary", self.transactionInfo ?? "")
     }
     
     // MARK:- Image Picker Delegates

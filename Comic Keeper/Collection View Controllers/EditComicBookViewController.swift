@@ -9,6 +9,22 @@
 import UIKit
 import CoreData
 
+enum ViewIdentifer: String {
+    case publisher = "Publisher"
+    case series = "Series"
+    case era = "Era"
+    case issueNumber = "Issue Number"
+    case legacyNumber = "Legacy Number"
+    case condition = "Condition"
+    case variantInfo = "Variant Info"
+    case purchasePrice = "Purchase Price"
+    case salesPrice = "Sales Price"
+    case purchaseDate = "Purchase Date"
+    case salesDate = "Sale Date"
+    case photo = "Photo"
+    case noView = "No View"
+}
+
 class EditComicBookViewController: UITableViewController {
     
     // MARK:- Outlets
@@ -42,9 +58,6 @@ class EditComicBookViewController: UITableViewController {
     
     // MARK:- State/Data Management
     
-    /// Tracks the current transaction.
-    var transactionInfo: Transaction?
-    
     /// Once the navigation is broken, its broken forever
     var navigationBroken: Bool!
     
@@ -71,7 +84,6 @@ class EditComicBookViewController: UITableViewController {
         super.viewDidLoad()
         
         // initial state
-        transactionInfo = Transaction(viewID: .noView, inputValue: "", outputValue: "", transactionChange: .nochange, action: nil)
         navigationBroken = false
         updateUI()
         
@@ -111,9 +123,6 @@ class EditComicBookViewController: UITableViewController {
             picker.selectedItemName = selectedItem
             picker.hintText = currentComicBook.identifier
             picker.noneButtonVisible = noneButtonVisible
-            
-            // save info about this transaction
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         func configureAddPicker(viewID: ViewIdentifer, viewTitle: String, selectedItem: String) {
@@ -122,9 +131,6 @@ class EditComicBookViewController: UITableViewController {
             picker.hintText = currentComicBook.identifier
             picker.selectedItemName = selectedItem
             picker.viewID = viewID
-            
-            // save info about this transaction
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItem, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         func configureDatePicker(viewID: ViewIdentifer, viewTitle: String, date: Date) {
@@ -132,10 +138,6 @@ class EditComicBookViewController: UITableViewController {
             controller.pickerTitle = viewTitle
             controller.hintText = currentComicBook.identifier
             controller.selectedItemDate = date
-            
-            // save info about this transaction
-            let selectedItemName = currentComicBook.book.dateText(from: date)
-            transactionInfo = Transaction(viewID: viewID, inputValue: selectedItemName, outputValue: "", transactionChange: .nochange, action: nil)
         }
         
         func calculatePickerListAndSelectedItem(existingNames: [String], starterNames: [String], selectedName: String) -> (pickerList: [String], selectedItem: String) {
@@ -158,21 +160,23 @@ class EditComicBookViewController: UITableViewController {
         // Standard Picker Cases
         
         case "ChoosePublisherSegue":
-            
+            navigationBroken = true
             let plsi = calculatePickerListAndSelectedItem(existingNames: comicBookCollection.publisherNames, starterNames: comicBookCollection.starterPublisherNames, selectedName: currentComicBook.comic.publisher)
             configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: plsi.pickerList, selectedItem: plsi.selectedItem, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":
-            
+            navigationBroken = true
             let plsi = calculatePickerListAndSelectedItem(existingNames: comicBookCollection.seriesNames, starterNames: comicBookCollection.starterSeriesNames, selectedName: currentComicBook.comic.series)
             configureStandardPicker(viewID: .series, viewTitle: "Series", pickerList: plsi.pickerList, selectedItem: plsi.selectedItem, noneButtonVisible: false)
             
         case "ChooseEraSegue":
+            navigationBroken = true
             let pl = comicBookCollection.eras
             let si = currentComicBook.seriesEra
             configureStandardPicker(viewID: .era, viewTitle: "Era", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseIssueNumber":
+            navigationBroken = true
             let pl = comicBookCollection.allPossibleIssueNumbers
             let si = currentComicBook.comic.issueNumber
             configureStandardPicker(viewID: .issueNumber, viewTitle: "Issue Number", pickerList: pl, selectedItem: si, noneButtonVisible: false)
@@ -192,6 +196,7 @@ class EditComicBookViewController: UITableViewController {
         // Picker Add Cases
         
         case "EditVariantSignifierSegue":
+            navigationBroken = true
             let v = currentComicBook.comic.variant // never nil
             configureAddPicker(viewID: .variantInfo, viewTitle: "Variant Info", selectedItem: v)
             
@@ -222,69 +227,14 @@ class EditComicBookViewController: UITableViewController {
             fatalError("unsupported seque in EditComicBookViewController")
         }
     }
-    
-    // MARK:- Unwind/Exit Segues
-    
-    /// Updates the CKTransaction object and updates the UI.
-    /// Ensures output is unique and trims whitespace.
-    ///
-    /// - Parameters:
-    ///   - newText: Text the user entered
-    ///   - label: The UILabel that needs updating
-    ///   - transactionChange: Type of change
-    func transact(viewID: ViewIdentifer, text: String, label: UILabel?, transactionChange: TransactionChange, action: (()->Void)?) {
         
-        guard let originalTransactionInfo = transactionInfo else {
-            return
-        }
-        
-        if originalTransactionInfo.viewID != viewID {
-            fatalError("opening transaction viewID doesn't match closing viewID")
-        }
-        
-        // Once the navigation is broken it is forever broken
-        if transactionChange == .navigationBreakingChange {
-            navigationBroken = true
-        }
-        
-        let newText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        let newTransactionInfo: Transaction
-        if originalTransactionInfo.inputValue != newText {
-            
-            // Has the navigation been broken before?
-            let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : transactionChange
-            
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: action)
-            
-            if let label = label {
-                label.text = newTransactionInfo.outputValue
-            }
-            
-        } else {
-            
-            // Has the navigation been broken before?
-            let tc: TransactionChange = navigationBroken ? .navigationBreakingChange : .nochange
-            
-            newTransactionInfo = Transaction(viewID: originalTransactionInfo.viewID, inputValue: originalTransactionInfo.inputValue, outputValue: newText, transactionChange: tc, action: action)
-        }
-        
-        transactionInfo = newTransactionInfo
-        
-        if let comicBookUnderEdit = comicBookUnderEdit {
-            transactionInfo?.commit(currentComicBook: comicBookUnderEdit)
-        }
-        
-        updateUI()
-    }
-    
     // Unwind/exit segue from AddItemViewController
     @IBAction func addItemDidEditItem(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! PickerAddViewController
         
         guard
             let rawText = controller.newItemTextField.text,
-            let viewID = transactionInfo?.viewID else {
+            let viewID = controller.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
@@ -293,40 +243,28 @@ class EditComicBookViewController: UITableViewController {
         switch viewID {
             
         case .variantInfo:
-            transact(viewID: .variantInfo, text: newText, label: variantLabel, transactionChange: .navigationBreakingChange) {
-                self.comicBookUnderEdit?.comic.variant = newText
-            }
+            variantLabel.text = newText
+            comicBookUnderEdit?.comic.variant = newText
             
         case .purchasePrice:
-            transact(viewID: .purchasePrice, text: newText.isEmpty ? "none" : newText, label: purchasePriceLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.purchasePrice = self.transformTextIntoDecimal(newText: newText)
-            }
+            purchasePriceLabel.text = newText
+            comicBookUnderEdit?.book.purchasePrice = transformTextIntoDecimal(newText: newText)
             
         case .salesPrice:
-            transact(viewID: .salesPrice, text: newText.isEmpty ? "none" : newText, label: sellPriceLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.sellPrice = self.transformTextIntoDecimal(newText: newText)
-            }
+            sellPriceLabel.text = newText
+            comicBookUnderEdit?.book.sellPrice = transformTextIntoDecimal(newText: newText)
 
         case .publisher:
-            if !newText.isEmpty {
-                transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange) {
-                    self.comicBookUnderEdit?.comic.publisher = newText
-                }
-            }
+            publisherLabel.text = newText
+            comicBookUnderEdit?.comic.publisher = newText
 
         case .series:
-            if !newText.isEmpty {
-                transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange) {
-                    self.comicBookUnderEdit?.comic.series = newText
-                }
-            }
+            seriesLabel.text = newText
+            comicBookUnderEdit?.comic.series = newText
             
         case .condition:
-            if !newText.isEmpty {
-                transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange) {
-                    self.comicBookUnderEdit?.book.condition = newText
-                }
-            }
+            conditionLabel.text = newText
+            comicBookUnderEdit?.book.condition = newText
 
         default:
             fatalError("unexpected case: \(viewID)")
@@ -340,25 +278,22 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let viewID = transactionInfo?.viewID else {
+            let viewID = controller.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .publisher:
-            transact(viewID: .publisher, text: newText, label: publisherLabel, transactionChange: .navigationBreakingChange) {
-                self.comicBookUnderEdit?.comic.publisher = newText
-            }
+            publisherLabel.text = newText
+            comicBookUnderEdit?.comic.publisher = newText
             
         case .series:
-            transact(viewID: .series, text: newText, label: seriesLabel, transactionChange: .navigationBreakingChange) {
-                self.comicBookUnderEdit?.comic.series = newText
-            }
+            seriesLabel.text = newText
+            comicBookUnderEdit?.comic.series = newText
         
         case .condition:
-            transact(viewID: .condition, text: newText, label: conditionLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.condition = newText
-            }
+            conditionLabel.text = newText
+            comicBookUnderEdit?.book.condition = newText
 
         default:
             fatalError("unexpected case: \(viewID)")
@@ -372,29 +307,23 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let viewID = transactionInfo?.viewID else {
+            let viewID = controller.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .era:
-            
-            transact(viewID: .era, text: newText, label: eraLabel, transactionChange: newText.isEmpty ? .nochange : .navigationBreakingChange) {
-                self.comicBookUnderEdit?.comic.era = newText
-            }
+            eraLabel.text = newText
+            comicBookUnderEdit?.comic.era = newText
             
         case .issueNumber:
+            issueNumberLabel.text = newText
+            comicBookUnderEdit?.comic.issueNumber = newText
             
-            transact(viewID: .issueNumber, text: newText, label: issueNumberLabel, transactionChange: newText.isEmpty ? .nochange : .navigationBreakingChange) {
-                self.comicBookUnderEdit?.comic.issueNumber = newText
-            }
-
         case .legacyNumber:
+            legacyIssueNumberLabel.text = newText
+            comicBookUnderEdit?.comic.legacyIssueNumber = newText
             
-            transact(viewID: .legacyNumber, text: newText.isEmpty ? "none" : newText, label: legacyIssueNumberLabel, transactionChange: newText.isEmpty ? .nochange : .dataPropertyChange) {
-                self.comicBookUnderEdit?.comic.legacyIssueNumber = newText
-            }
-
         default:
             fatalError("unexpected case: \(viewID)")
         }
@@ -407,21 +336,19 @@ class EditComicBookViewController: UITableViewController {
         
         guard
             let newText = controller.selectedItemName,
-            let viewID = transactionInfo?.viewID else {
+            let viewID = controller.viewID else {
                 fatalError("controller.newItemTextField.text and/or controller.pickerTitle is nil")
         }
         
         switch viewID {
         case .purchaseDate:
-            transact(viewID: .purchaseDate, text: newText.isEmpty ? "none" : newText, label: purchaseDateLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.purchaseDate = Book.textDate(from: newText)
-            }
+            purchaseDateLabel.text = newText
+            comicBookUnderEdit?.book.purchaseDate = Book.textDate(from: newText)
             
         case .salesDate:
-            transact(viewID: .salesDate, text: newText.isEmpty ? "none" : newText, label: sellDateLabel, transactionChange: .dataPropertyChange) {
-                self.comicBookUnderEdit?.book.sellDate = Book.textDate(from: newText)
-            }
-
+            sellDateLabel.text = newText
+            comicBookUnderEdit?.book.sellDate = Book.textDate(from: newText)
+            
         default:
             fatalError("unexpected case: \(viewID)")
         }
@@ -496,21 +423,10 @@ class EditComicBookViewController: UITableViewController {
     
     func updateUI() {
         
-        guard let transactionChange = transactionInfo?.transactionChange else {
-            return
-        }
-        
-        switch transactionChange {
-            
-        case .nochange:
-            saveButton.isEnabled = false
-            navigationItem.setHidesBackButton(false, animated: true)
-            
-        case .navigationBreakingChange:
+        if navigationBroken {
             saveButton.isEnabled = true
             navigationItem.setHidesBackButton(true, animated: true)
-            
-        case .dataPropertyChange:
+        } else {
             saveButton.isEnabled = false
             navigationItem.setHidesBackButton(false, animated: true)
         }
