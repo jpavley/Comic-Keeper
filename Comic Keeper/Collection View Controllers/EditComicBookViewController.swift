@@ -102,7 +102,6 @@ class EditComicBookViewController: UITableViewController {
             fatalError("no ComicBook to edit")
         }
         
-        
         func configureStandardPicker(viewID: ViewIdentifer, viewTitle: String, pickerList: [String], selectedItem: String, noneButtonVisible: Bool) {
             
             let picker = segue.destination as! StandardPicker
@@ -144,8 +143,18 @@ class EditComicBookViewController: UITableViewController {
         // Standard Picker Cases
         
         case "ChoosePublisherSegue":
-            let pl = comicBookCollection.publisherNames.sorted()
-            let si = currentComicBook.comic.publisher
+            
+            let pl: [String]
+            let si: String
+            
+            if comicBookCollection.publisherNames.isEmpty {
+                pl = comicBookCollection.starterPublisherNames
+                si = ""
+            } else {
+                pl = comicBookCollection.publisherNames.sorted()
+                si = currentComicBook.comic.publisher
+            }
+            
             configureStandardPicker(viewID: .publisher, viewTitle: "Publisher", pickerList: pl, selectedItem: si, noneButtonVisible: false)
             
         case "ChooseSeriesSegue":

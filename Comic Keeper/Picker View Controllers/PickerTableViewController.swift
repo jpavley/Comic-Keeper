@@ -36,8 +36,9 @@ class PickerTableViewController: UITableViewController, StandardPicker {
         tableView.register(PickerTableSectionHeadView.nib, forHeaderFooterViewReuseIdentifier: PickerTableSectionHeadView.reuseIdentifier)
 
         title = pickerTitle
-        let selectedItemRow = itemList.firstIndex(of: selectedItemName)
-        selectedItemIndex = IndexPath(row: selectedItemRow!, section: 0)
+        if let selectedItemRow = itemList.firstIndex(of: selectedItemName) {
+            selectedItemIndex = IndexPath(row: selectedItemRow, section: 0)
+        }
     }
         
     // MARK: - Table view data source
@@ -72,7 +73,7 @@ class PickerTableViewController: UITableViewController, StandardPicker {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row != selectedItemIndex.row {
+        if !selectedItemIndex.isEmpty && indexPath.row != selectedItemIndex.row {
             
             if let newCell = tableView.cellForRow(at: indexPath) {
                 newCell.accessoryType = .checkmark
