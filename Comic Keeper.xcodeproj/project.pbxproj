@@ -29,6 +29,7 @@
 		B878BB0E229F48DC00F78C7B /* CKDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B878BB0C229F48DC00F78C7B /* CKDataModel.xcdatamodeld */; };
 		B87BF1EA22986D0F002A0BDB /* PickerDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */; };
 		B8935B4622A3160100E4F4FB /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8935B4522A3160100E4F4FB /* Transaction.swift */; };
+		B8BC55DC22B2716200FA35BE /* EditComicBookViewController+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC55DB22B2716200FA35BE /* EditComicBookViewController+Segues.swift */; };
 		B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */; };
 		B8C772C62285116B00952F14 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
 		B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */; };
@@ -65,6 +66,7 @@
 		B878BB0D229F48DC00F78C7B /* CKDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CKDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B87BF1E922986D0F002A0BDB /* PickerDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDateViewController.swift; sourceTree = "<group>"; };
 		B8935B4522A3160100E4F4FB /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B8BC55DB22B2716200FA35BE /* EditComicBookViewController+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditComicBookViewController+Segues.swift"; sourceTree = "<group>"; };
 		B8BF61DA2291DC9E00AF63F4 /* PickerDialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialViewController.swift; sourceTree = "<group>"; };
 		B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComicBookCollection+Data.swift"; sourceTree = "<group>"; };
 		B8C98CAC228F3E8F00322A4D /* PickerAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAddViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
+				B8BC55DB22B2716200FA35BE /* EditComicBookViewController+Segues.swift */,
 				B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
@@ -311,6 +314,7 @@
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
 				B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */,
 				B8935B4622A3160100E4F4FB /* Transaction.swift in Sources */,
+				B8BC55DC22B2716200FA35BE /* EditComicBookViewController+Segues.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */,
 				B8BF61DB2291DC9E00AF63F4 /* PickerDialViewController.swift in Sources */,

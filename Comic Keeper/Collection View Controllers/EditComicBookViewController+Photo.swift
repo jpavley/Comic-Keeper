@@ -88,7 +88,6 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     private func completePhotoTransaction(newPhotoID: String) {
-        self.transact(viewID: .photo, text: newPhotoID, label:  nil, transactionChange: .dataPropertyChange, action: nil)
         print("choosePhotoFromLibrary", self.transactionInfo ?? "")
     }
     
