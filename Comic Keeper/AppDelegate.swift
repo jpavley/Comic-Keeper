@@ -48,8 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabController = window!.rootViewController as! UITabBarController
         
-        //let comicBookCollection = ComicBookCollection.createComicBookCollection()
-        let comicBookCollection = ComicBookCollection()
+        let comicBookCollection = ComicBookCollection.createComicBookCollection()
+        //let comicBookCollection = ComicBookCollection()
         
         if let tabViewControllers = tabController.viewControllers {
             
