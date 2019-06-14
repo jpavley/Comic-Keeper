@@ -73,6 +73,23 @@ extension EditComicBookViewController: UIImagePickerControllerDelegate, UINaviga
         })
     }
     
+<<<<<<< HEAD
+=======
+    private func startPhotoTransaction() {
+        
+        let currentComicBook = comicBookCollection.comicBook(from: currentIdentifier)
+        let currentPhotoID = currentComicBook?.book.photoID ?? 0
+        
+        let newTransaction = Transaction(viewID: .photo, inputValue: "\(currentPhotoID)", outputValue: "", transactionChange: .nochange, action: nil)
+        
+        transactionInfo = newTransaction
+    }
+    
+    private func completePhotoTransaction(newPhotoID: String) {
+        print("choosePhotoFromLibrary", self.transactionInfo ?? "")
+    }
+    
+>>>>>>> 7861313bdbfdde34c5ea57ca019ad080ae4ce3fb
     // MARK:- Image Picker Delegates
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
