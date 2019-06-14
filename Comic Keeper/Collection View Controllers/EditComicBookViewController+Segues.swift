@@ -140,14 +140,10 @@ extension EditComicBookViewController {
         case "EditSalesDateSegue":
             let sellDate = currentComicBook.book.sellDate ?? Date()
             configureDatePicker(viewID: .salesDate, viewTitle: "Sales Date", date: sellDate)
-            
-        case "SaveNavEditsSegue":
-            let destination = segue.destination as! SeriesTableViewController
-            destination.comicBookCollection = comicBookCollection
-            break
-            
+                        
         default:
-            fatalError("unsupported seque in EditComicBookViewController")
+            break
+            //fatalError("unsupported seque in EditComicBookViewController")
         }
     }
     

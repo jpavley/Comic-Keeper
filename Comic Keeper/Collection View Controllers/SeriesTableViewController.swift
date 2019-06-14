@@ -147,4 +147,13 @@ class SeriesTableViewController: UITableViewController {
             destination.managedObjectContext = managedObjectContext
         }
     }
+    
+    @IBAction func editComicBookDidBreakNavigation(_ segue: UIStoryboardSegue) {
+        
+        let segueSource = segue.source as! EditComicBookViewController
+        
+        comicBookCollection = segueSource.comicBookCollection
+        comicBookCollection.comicbooks.sort()
+        tableView.reloadData()
+    }
 }
