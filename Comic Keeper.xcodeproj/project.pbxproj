@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B803152822B3E22700083D04 /* EditComicBookView+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803152722B3E22700083D04 /* EditComicBookView+Segues.swift */; };
 		B8106A5A2280F65B00D0A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A592280F65B00D0A2C2 /* AppDelegate.swift */; };
 		B8106A5C2280F65B00D0A2C2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A5B2280F65B00D0A2C2 /* SummaryViewController.swift */; };
 		B8106A612280F65B00D0A2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8106A5F2280F65B00D0A2C2 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B803152722B3E22700083D04 /* EditComicBookView+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditComicBookView+Segues.swift"; sourceTree = "<group>"; };
 		B8106A562280F65B00D0A2C2 /* Comic Keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Comic Keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8106A592280F65B00D0A2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8106A5B2280F65B00D0A2C2 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */,
+				B803152722B3E22700083D04 /* EditComicBookView+Segues.swift */,
 				B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */,
 				B8106A712281B00400D0A2C2 /* IssuesTableViewController.swift */,
 				B8106A6D2281A52100D0A2C2 /* SeriesTableViewController.swift */,
@@ -306,6 +309,7 @@
 				B878BB0E229F48DC00F78C7B /* CKDataModel.xcdatamodeld in Sources */,
 				B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */,
 				B8106A722281B00400D0A2C2 /* IssuesTableViewController.swift in Sources */,
+				B803152822B3E22700083D04 /* EditComicBookView+Segues.swift in Sources */,
 				B8C98CAD228F3E8F00322A4D /* PickerAddViewController.swift in Sources */,
 				B8106A78228242A800D0A2C2 /* ComicBook.swift in Sources */,
 				B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */,
