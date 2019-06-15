@@ -506,10 +506,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="xGd-R4-MJr" secondAttribute="bottom" constant="6.5" id="FD9-fJ-oBT"/>
                                                 <constraint firstAttribute="bottom" secondItem="a4F-0z-H7F" secondAttribute="bottom" constant="6.5" id="Ge9-2H-lqo"/>
                                                 <constraint firstItem="iXD-Of-jKo" firstAttribute="top" secondItem="y0f-hl-oR1" secondAttribute="top" constant="7" id="ULI-Dq-oxy"/>
+                                                <constraint firstItem="xGd-R4-MJr" firstAttribute="leading" secondItem="iXD-Of-jKo" secondAttribute="trailing" constant="36.5" id="XAQ-Bd-Kqj"/>
                                                 <constraint firstItem="iXD-Of-jKo" firstAttribute="centerX" secondItem="y0f-hl-oR1" secondAttribute="centerX" id="g6s-9w-BFf"/>
                                                 <constraint firstAttribute="bottom" secondItem="iXD-Of-jKo" secondAttribute="bottom" constant="6.5" id="iyu-9K-QGX"/>
                                                 <constraint firstAttribute="trailing" secondItem="xGd-R4-MJr" secondAttribute="trailing" constant="16" id="ksD-GN-uUD"/>
                                                 <constraint firstItem="a4F-0z-H7F" firstAttribute="top" secondItem="y0f-hl-oR1" secondAttribute="top" constant="7" id="sSu-vQ-kPT"/>
+                                                <constraint firstItem="iXD-Of-jKo" firstAttribute="leading" relation="lessThanOrEqual" secondItem="a4F-0z-H7F" secondAttribute="trailing" constant="56.5" id="sV5-hn-jZr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
