@@ -58,7 +58,7 @@ public class ComicBookCollection {
     }
     
     public var starterSeriesNames: [String] {
-        return ["Batman", "Fantastic Four", "Spider Man", "Super Man", "Wonder Woman", "X-Men"].sorted()
+        return ["Concrete", "Bacchus", "Alien", "Predator","Aliens vs. Predator", "Terminator", "The Mask", "Nexus", "Grendel", "Hellboy", "Batman", "Fantastic Four", "Hulk", "Iron Man", "The Mighty Thor", "Wonder Woman", "The Amazing Spider-Man", "the X-Men", "Captain Ameria", "The Silver Surfer", "Daredevil", "Batman", "Superman", "The Green Lantern", "Wonder Woman", "Green Arrow"].sorted()
     }
     
     public var eras: [String] {
