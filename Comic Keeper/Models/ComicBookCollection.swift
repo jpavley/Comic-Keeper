@@ -33,11 +33,11 @@ public class ComicBookCollection {
             }
         }
         
-        return filteredNames
+        return filteredNames.sorted()
     }
     
     public var starterPublisherNames: [String] {
-        return ["Dark Horse", "DC Comics", "Marvel Comics"]
+        return ["Dark Horse", "DC Comics", "Marvel Comics", "Image Comics", "IDW Publishing", "Valiant Comics",].sorted()
     }
     
     public var seriesNames: [String] {
@@ -54,11 +54,11 @@ public class ComicBookCollection {
                 filteredNames.append(name)
             }
         }
-        return filteredNames
+        return filteredNames.sorted()
     }
     
     public var starterSeriesNames: [String] {
-        return ["Batman", "Fantastic Four", "Spider Man", "Super Man", "Wonder Woman", "X-Men"]
+        return ["Batman", "Fantastic Four", "Spider Man", "Super Man", "Wonder Woman", "X-Men"].sorted()
     }
     
     public var eras: [String] {

@@ -35,10 +35,26 @@
 		B8CC0F27229C2542009368FD /* PickerTableSectionHead.xib in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */; };
 		B8CC0F29229C2BB3009368FD /* PickerTableSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */; };
 		B8CC5F2722AC2F060019B2D1 /* EditComicBookViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */; };
+		B8D2A5EE22B555E8001A2E15 /* ComicBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5ED22B555E8001A2E15 /* ComicBookTests.swift */; };
+		B8D2A5F622B55774001A2E15 /* ComicBookCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A792282431300D0A2C2 /* ComicBookCollection.swift */; };
+		B8D2A5F722B55777001A2E15 /* ComicBookCollection+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C772C52285116B00952F14 /* ComicBookCollection+Data.swift */; };
+		B8D2A5F822B5577A001A2E15 /* ComicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A77228242A800D0A2C2 /* ComicBook.swift */; };
+		B8D2A5F922B5577D001A2E15 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A7322823ED100D0A2C2 /* Comic.swift */; };
+		B8D2A5FA22B55782001A2E15 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8106A752282407100D0A2C2 /* Book.swift */; };
 		B8E23D90229577BD007EBCF7 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */; };
 		B8EB262A22888C4F007F47F9 /* EditComicBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */; };
 		B8FDA5A5229DEA3B00CAD65D /* PickerHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B8D2A5F022B555E8001A2E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8106A4E2280F65B00D0A2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8106A552280F65B00D0A2C2;
+			remoteInfo = "Comic Keeper";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B803152722B3E22700083D04 /* EditComicBookViewController+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditComicBookViewController+Segues.swift"; sourceTree = "<group>"; };
@@ -71,6 +87,9 @@
 		B8CC0F26229C2542009368FD /* PickerTableSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableSectionHead.xib; sourceTree = "<group>"; };
 		B8CC0F28229C2BB2009368FD /* PickerTableSectionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableSectionHeadView.swift; sourceTree = "<group>"; };
 		B8CC5F2622AC2F060019B2D1 /* EditComicBookViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditComicBookViewController+Photo.swift"; sourceTree = "<group>"; };
+		B8D2A5EB22B555E8001A2E15 /* ComicBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComicBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D2A5ED22B555E8001A2E15 /* ComicBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBookTests.swift; sourceTree = "<group>"; };
+		B8D2A5EF22B555E8001A2E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8E23D8F229577BD007EBCF7 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		B8EB262922888C4F007F47F9 /* EditComicBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComicBookViewController.swift; sourceTree = "<group>"; };
 		B8FDA5A4229DEA3B00CAD65D /* PickerHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerHeaderViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +110,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8D2A5E822B555E8001A2E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -102,6 +128,7 @@
 				B85C0E652286318600AA444E /* Comic Keeper.playground */,
 				B8106A582280F65B00D0A2C2 /* Comic Keeper */,
 				B85C0E6C2286321600AA444E /* Comic Keeper Framework */,
+				B8D2A5EC22B555E8001A2E15 /* ComicBookTests */,
 				B8106A572280F65B00D0A2C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +138,7 @@
 			children = (
 				B8106A562280F65B00D0A2C2 /* Comic Keeper.app */,
 				B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */,
+				B8D2A5EB22B555E8001A2E15 /* ComicBookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +167,15 @@
 				B85C0E6E2286321600AA444E /* Info.plist */,
 			);
 			path = "Comic Keeper Framework";
+			sourceTree = "<group>";
+		};
+		B8D2A5EC22B555E8001A2E15 /* ComicBookTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2A5ED22B555E8001A2E15 /* ComicBookTests.swift */,
+				B8D2A5EF22B555E8001A2E15 /* Info.plist */,
+			);
+			path = ComicBookTests;
 			sourceTree = "<group>";
 		};
 		B8FDA5A6229ED41700CAD65D /* Picker View Controllers */ = {
@@ -238,6 +275,24 @@
 			productReference = B85C0E6B2286321600AA444E /* Comic_Keeper_Framework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B8D2A5EA22B555E8001A2E15 /* ComicBookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8D2A5F422B555E8001A2E15 /* Build configuration list for PBXNativeTarget "ComicBookTests" */;
+			buildPhases = (
+				B8D2A5E722B555E8001A2E15 /* Sources */,
+				B8D2A5E822B555E8001A2E15 /* Frameworks */,
+				B8D2A5E922B555E8001A2E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8D2A5F122B555E8001A2E15 /* PBXTargetDependency */,
+			);
+			name = ComicBookTests;
+			productName = ComicBookTests;
+			productReference = B8D2A5EB22B555E8001A2E15 /* ComicBookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,6 +308,10 @@
 					};
 					B85C0E6A2286321600AA444E = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					B8D2A5EA22B555E8001A2E15 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = B8106A552280F65B00D0A2C2;
 					};
 				};
 			};
@@ -271,6 +330,7 @@
 			targets = (
 				B8106A552280F65B00D0A2C2 /* Comic Keeper */,
 				B85C0E6A2286321600AA444E /* Comic Keeper Framework */,
+				B8D2A5EA22B555E8001A2E15 /* ComicBookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +347,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B85C0E692286321600AA444E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D2A5E922B555E8001A2E15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +404,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8D2A5E722B555E8001A2E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D2A5F822B5577A001A2E15 /* ComicBook.swift in Sources */,
+				B8D2A5F622B55774001A2E15 /* ComicBookCollection.swift in Sources */,
+				B8D2A5FA22B55782001A2E15 /* Book.swift in Sources */,
+				B8D2A5F922B5577D001A2E15 /* Comic.swift in Sources */,
+				B8D2A5F722B55777001A2E15 /* ComicBookCollection+Data.swift in Sources */,
+				B8D2A5EE22B555E8001A2E15 /* ComicBookTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8D2A5F122B555E8001A2E15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8106A552280F65B00D0A2C2 /* Comic Keeper */;
+			targetProxy = B8D2A5F022B555E8001A2E15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B8106A5F2280F65B00D0A2C2 /* Main.storyboard */ = {
@@ -567,6 +655,46 @@
 			};
 			name = Release;
 		};
+		B8D2A5F222B555E8001A2E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QZ7SMYA7GB;
+				INFOPLIST_FILE = ComicBookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pavley.ComicBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Comic Keeper.app/Comic Keeper";
+			};
+			name = Debug;
+		};
+		B8D2A5F322B555E8001A2E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QZ7SMYA7GB;
+				INFOPLIST_FILE = ComicBookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pavley.ComicBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Comic Keeper.app/Comic Keeper";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -593,6 +721,15 @@
 			buildConfigurations = (
 				B85C0E712286321600AA444E /* Debug */,
 				B85C0E722286321600AA444E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8D2A5F422B555E8001A2E15 /* Build configuration list for PBXNativeTarget "ComicBookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8D2A5F222B555E8001A2E15 /* Debug */,
+				B8D2A5F322B555E8001A2E15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
