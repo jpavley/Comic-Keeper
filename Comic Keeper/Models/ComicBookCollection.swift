@@ -149,13 +149,65 @@ public class ComicBookCollection {
         return variants
     }
     
+    // MARK:- ComicBook CRUD (Create, Read, Update, Delete)
+    
+    /// Get a comic book by navigation hierarchy components.
+    ///
+    /// - Parameters:
+    ///   - publisherName: top level navigation hierarchy component.
+    ///   - seriesName: navigation hierarchy component.
+    ///   - era: navigation hierarchy component.
+    ///   - issueNumber: navigation hierarchy component.
+    ///   - variantSignifier: bottom level navigation hierarchy component.
+    /// - Returns: the frist comicbook found with this navigation hierachy identifier or nothing.
     public func comicBook(publisherName: String, seriesName: String, era: String, issueNumber: String, variantSignifier: String) -> ComicBook? {
         let identifier = "\(publisherName) \(seriesName) \(era) \(issueNumber)\(variantSignifier)"
         return comicBook(from: identifier)
     }
     
+    /// Get a comic book by navigation hierarchy identifier
     public func comicBook(from identifier: String) -> ComicBook? {
         let comicBook = comicbooks.filter { $0.identifier == identifier }
         return comicBook.first
     }
+    
+    /// Get a comic book by globally unique ID
+    public func comicBook(from guid: UUID) -> ComicBook? {
+        let comicBook = comicbooks.filter { $0.guid == guid }
+        return comicBook.first
+    }
+    
+    public func createComicBook() -> ComicBook? {
+        // TODO: create a empty comic book
+        return nil
+    }
+    
+    public func createComicBook(publisherName: String, seriesName: String, era: String, issueNumber: String) -> ComicBook? {
+        // TODO: create a comic book for a specific location in the navigation hierachy to the issue number level
+        return nil
+    }
+    
+    public func createComicBook(publisherName: String, seriesName: String, era: String) -> ComicBook? {
+        // TODO: create a comic book for a specific location in the navigation hierachy to the ear level
+        return nil
+    }
+    
+    public func duplicationComicBook(with identifier: String) -> ComicBook? {
+        // TODO: duplicate the specified comic book
+        return nil
+    }
+    
+    public func duplicationComicBook(with guid: UUID) -> ComicBook? {
+        // TODO: duplicate the specified comic book
+        return nil
+    }
+    
+    public func deleteComicBook(with identifier: String) {
+        // TODO: delete the specified comic book
+    }
+    
+    public func deleteComicBook(with guid: UUID) {
+        // TODO: delete the specified comic book
+    }
+    
 }
