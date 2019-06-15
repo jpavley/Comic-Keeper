@@ -151,6 +151,8 @@ public class ComicBookCollection {
     
     // MARK:- ComicBook CRUD (Create, Read, Update, Delete)
     
+    // MARK:- Get Functions
+    
     /// Get a comic book by navigation hierarchy components.
     ///
     /// - Parameters:
@@ -177,6 +179,8 @@ public class ComicBookCollection {
         return comicBook.first
     }
     
+    // MARK:- Create Functions
+    
     public func createComicBook() -> ComicBook? {
         // TODO: create a empty comic book
         return nil
@@ -192,6 +196,8 @@ public class ComicBookCollection {
         return nil
     }
     
+    // MARK:- Delete Functions
+    
     public func duplicationComicBook(with identifier: String) -> ComicBook? {
         // TODO: duplicate the specified comic book
         return nil
@@ -201,6 +207,8 @@ public class ComicBookCollection {
         // TODO: duplicate the specified comic book
         return nil
     }
+    
+    // MARK:- Duplicate Functions
     
     public func deleteComicBook(with identifier: String) {
         // TODO: delete the specified comic book
