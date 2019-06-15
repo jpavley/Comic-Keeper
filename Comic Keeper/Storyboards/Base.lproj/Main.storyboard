@@ -132,7 +132,7 @@
             <objects>
                 <tableViewController id="MBk-Cu-HCP" customClass="EditComicBookViewController" customModule="Comic_Keeper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="lgw-Wh-I0u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1050"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -467,6 +467,54 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Editing" id="MXi-MK-gaO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kb8-5W-lmH">
+                                        <rect key="frame" x="0.0" y="974.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kb8-5W-lmH" id="y0f-hl-oR1">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-0z-H7F">
+                                                    <rect key="frame" x="16" y="7" width="65" height="30"/>
+                                                    <state key="normal" title="Duplicate"/>
+                                                    <connections>
+                                                        <action selector="duplicateAction:" destination="MBk-Cu-HCP" eventType="touchUpInside" id="hAk-gH-sfI"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXD-Of-jKo">
+                                                    <rect key="frame" x="137.5" y="7" width="45" height="30"/>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteAction:" destination="MBk-Cu-HCP" eventType="touchUpInside" id="zVG-cY-9Nd"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGd-R4-MJr">
+                                                    <rect key="frame" x="219" y="7" width="85" height="30"/>
+                                                    <state key="normal" title="Synchronize"/>
+                                                    <connections>
+                                                        <action selector="synchronizeAction:" destination="MBk-Cu-HCP" eventType="touchUpInside" id="Lzk-bS-4Rv"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xGd-R4-MJr" firstAttribute="top" secondItem="y0f-hl-oR1" secondAttribute="top" constant="7" id="1Yg-Tu-JVw"/>
+                                                <constraint firstItem="a4F-0z-H7F" firstAttribute="leading" secondItem="y0f-hl-oR1" secondAttribute="leading" constant="16" id="7yn-B3-F9r"/>
+                                                <constraint firstAttribute="bottom" secondItem="xGd-R4-MJr" secondAttribute="bottom" constant="6.5" id="FD9-fJ-oBT"/>
+                                                <constraint firstAttribute="bottom" secondItem="a4F-0z-H7F" secondAttribute="bottom" constant="6.5" id="Ge9-2H-lqo"/>
+                                                <constraint firstItem="iXD-Of-jKo" firstAttribute="top" secondItem="y0f-hl-oR1" secondAttribute="top" constant="7" id="ULI-Dq-oxy"/>
+                                                <constraint firstItem="iXD-Of-jKo" firstAttribute="centerX" secondItem="y0f-hl-oR1" secondAttribute="centerX" id="g6s-9w-BFf"/>
+                                                <constraint firstAttribute="bottom" secondItem="iXD-Of-jKo" secondAttribute="bottom" constant="6.5" id="iyu-9K-QGX"/>
+                                                <constraint firstAttribute="trailing" secondItem="xGd-R4-MJr" secondAttribute="trailing" constant="16" id="ksD-GN-uUD"/>
+                                                <constraint firstItem="a4F-0z-H7F" firstAttribute="top" secondItem="y0f-hl-oR1" secondAttribute="top" constant="7" id="sSu-vQ-kPT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="MBk-Cu-HCP" id="8an-Ww-vqQ"/>
@@ -480,7 +528,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="320" height="1050"/>
+                    <size key="freeformSize" width="320" height="1100"/>
                     <connections>
                         <outlet property="conditionLabel" destination="gyP-KJ-bW9" id="rrm-eN-TXd"/>
                         <outlet property="coverImage" destination="acj-Y9-wb3" id="Apu-rA-OeH"/>
@@ -501,7 +549,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zq6-kF-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RpD-qb-aWL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4076" y="-1111"/>
+            <point key="canvasLocation" x="4074.375" y="-1111.2676056338028"/>
         </scene>
         <!--Picker Table-->
         <scene sceneID="uSh-2w-AaZ">
@@ -1108,7 +1156,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GV9-mA-zrH"/>
-        <segue reference="n8i-Re-5y0"/>
+        <segue reference="9Qk-Vt-ARA"/>
         <segue reference="VAD-ZH-fmC"/>
         <segue reference="vWG-XK-eMz"/>
         <segue reference="EJW-N4-UEM"/>

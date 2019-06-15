@@ -53,9 +53,21 @@ class EditComicBookViewController: UITableViewController {
     
     // MARK:- Actions
     
-    
+    /// Manually executes unwind segue to series table view controller.
     @IBAction func saveAction(_ sender: Any) {
         performSegue(withIdentifier: "BrokenNavigationSegue", sender: self)
+    }
+    
+    /// Duplicates this comic book in this series for this publisher.
+    @IBAction func duplicateAction(_ sender: Any) {
+    }
+    
+    /// Removes this comic book and its data from the local and remote data store
+    @IBAction func deleteAction(_ sender: Any) {
+    }
+    
+    /// Updates the remote data store with this comic book's edits
+    @IBAction func synchronizeAction(_ sender: Any) {
     }
     
     // MARK:- View Controller
