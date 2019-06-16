@@ -17,13 +17,13 @@ class ComicBookTests: XCTestCase {
     
     let dummyDataPublisherCount = 3
     let dummyDataFirstPublisherName = "DC Comics"
-    let dummyDataStartPublisherCount = 6
-    let dummyDataLastStarterPublishername = "Valiant Comics"
+    let dummyDataStarterPublisherCount = 6
+    let dummyDataLastStarterPublisherName = "Valiant Comics"
     
     let dummyDataSeriesCount = 9
     let dummyDataFirstSeriesName = "Aliens"
-    let dummyDataStartSeriesCount = 26
-    let dummyDataLastStarterSeriesname = "Wonder Woman"
+    let dummyDataStarterSeriesCount = 26
+    let dummyDataLastStarterSeriesName = "Wonder Woman"
 
 
     override func setUp() {
@@ -57,8 +57,8 @@ class ComicBookTests: XCTestCase {
     
     func testStarterPublisherNames() {
         print(cbcUT.starterPublisherNames)
-        XCTAssertEqual(cbcUT.starterPublisherNames.count, dummyDataStartPublisherCount)
-        XCTAssertEqual(cbcUT.starterPublisherNames[dummyDataStartPublisherCount - 1], dummyDataLastStarterPublishername)
+        XCTAssertEqual(cbcUT.starterPublisherNames.count, dummyDataStarterPublisherCount)
+        XCTAssertEqual(cbcUT.starterPublisherNames[dummyDataStarterPublisherCount - 1], dummyDataLastStarterPublisherName)
     }
     
     func testSeriesNames() {
@@ -69,8 +69,8 @@ class ComicBookTests: XCTestCase {
 
     func testStarterSeriesNames() {
         print(cbcUT.starterSeriesNames)
-        XCTAssertEqual(cbcUT.starterSeriesNames.count, dummyDataStartSeriesCount)
-        XCTAssertEqual(cbcUT.starterSeriesNames[dummyDataStartSeriesCount - 1], dummyDataLastStarterSeriesname)
+        XCTAssertEqual(cbcUT.starterSeriesNames.count, dummyDataStarterSeriesCount)
+        XCTAssertEqual(cbcUT.starterSeriesNames[dummyDataStarterSeriesCount - 1], dummyDataLastStarterSeriesName)
     }
 
 }
