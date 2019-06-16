@@ -31,8 +31,11 @@ class ComicBookTests: XCTestCase {
     
     let dummyDataNumbersCount = 10_001
     let dummyDataFirstNumber = " " // First issue number is looks like an empty string
-    let dummyDataLastNumber = "9999" // This will break after 2019
-
+    let dummyDataLastNumber = "9999"
+    
+    let dummyDataConditionsCount = 7
+    let dummyDataFirstCondition = "Very Poor"
+    let dummyDataLastCondition = "Perfect"
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -87,11 +90,16 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(cbcUT.eras.last!, dummyDataLastEra)
     }
     
-    func testaAllPossibleIssueNumbers() {
+    func testAllPossibleIssueNumbers() {
         XCTAssertEqual(cbcUT.allPossibleIssueNumbers.count, dummyDataNumbersCount)
         XCTAssertEqual(cbcUT.allPossibleIssueNumbers.first!, dummyDataFirstNumber)
         XCTAssertEqual(cbcUT.allPossibleIssueNumbers.last!, dummyDataLastNumber)
     }
     
+    func testAllPossibleConditions() {
+        XCTAssertEqual(cbcUT.allPossibleConditions.count, dummyDataConditionsCount)
+        XCTAssertEqual(cbcUT.allPossibleConditions.first!, dummyDataFirstCondition)
+        XCTAssertEqual(cbcUT.allPossibleConditions.last!, dummyDataLastCondition)
+    }
 
 }

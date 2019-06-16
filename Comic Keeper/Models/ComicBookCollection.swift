@@ -80,7 +80,7 @@ public class ComicBookCollection {
         
         return result
     }
-        
+    
     public var allPossibleIssueNumbers: [String] {
         var result = [" "]
         
@@ -92,7 +92,8 @@ public class ComicBookCollection {
     }
     
     // TODO: allPossibleConditions should be starterConditions
-    // TODO: merge starterConditions with user added conditions
+    // TODO: Merge starterConditions with user added conditions
+    // TODO: First condition should be " " to signify no condition noted
     
     public var allPossibleConditions: [String] {
         return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
