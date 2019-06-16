@@ -16,6 +16,8 @@ public class ComicBookCollection {
         comicbooks = [ComicBook]()
     }
     
+    // TODO: Merge publisherNames with starterPublisherNames
+    
     /// The names of all the publishers in this collection.
     /// - No duplicates!
     public var publisherNames: [String] {
@@ -40,6 +42,8 @@ public class ComicBookCollection {
         return ["Dark Horse", "DC Comics", "Marvel Comics", "Image Comics", "IDW Publishing", "Valiant Comics",].sorted()
     }
     
+    // TODO: Merge seriesNames with starterSeriesNames
+    
     public var seriesNames: [String] {
         let seriesNames = comicbooks.map {$0.comic.series}
         var filteredNames = [String]()
@@ -61,6 +65,8 @@ public class ComicBookCollection {
         return ["Concrete", "Bacchus", "Alien", "Predator","Aliens vs. Predator", "Terminator", "The Mask", "Nexus", "Grendel", "Hellboy", "Batman", "Fantastic Four", "Hulk", "Iron Man", "The Mighty Thor", "Wonder Woman", "The Amazing Spider-Man", "The X-Men", "Captain Ameria", "The Silver Surfer", "Daredevil", "Batman", "Superman", "The Green Lantern", "Wonder Woman", "Green Arrow"].sorted()
     }
     
+    // TODO: Probably need to separate user created eras and all possible eras
+    
     public var eras: [String] {
         
         var result = [" "]
@@ -74,16 +80,19 @@ public class ComicBookCollection {
         
         return result
     }
-    
+        
     public var allPossibleIssueNumbers: [String] {
         var result = [" "]
         
-        for i in 1...9999 {
+        for i in 0...9999 {
             result.append("\(i)")
         }
         
         return result
     }
+    
+    // TODO: allPossibleConditions should be starterConditions
+    // TODO: merge starterConditions with user added conditions
     
     public var allPossibleConditions: [String] {
         return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
