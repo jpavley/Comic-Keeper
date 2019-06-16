@@ -22,6 +22,8 @@ class ComicBookTests: XCTestCase {
     
     let dummyDataSeriesCount = 9
     let dummyDataFirstSeriesName = "Aliens"
+    let dummyDataStartSeriesCount = 26
+    let dummyDataLastStarterSeriesname = "Wonder Woman"
 
 
     override func setUp() {
@@ -65,6 +67,10 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(cbcUT.seriesNames.first!, dummyDataFirstSeriesName)
     }
 
-
+    func testStarterSeriesNames() {
+        print(cbcUT.starterSeriesNames)
+        XCTAssertEqual(cbcUT.starterSeriesNames.count, dummyDataStartSeriesCount)
+        XCTAssertEqual(cbcUT.starterSeriesNames[dummyDataStartSeriesCount - 1], dummyDataLastStarterSeriesname)
+    }
 
 }
