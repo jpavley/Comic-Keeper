@@ -29,7 +29,9 @@ class ComicBookTests: XCTestCase {
     let dummyDataFirstEra = " " // First era is looks like an empty string
     let dummyDataLastEra = "2019" // This will break after 2019
     
-    
+    let dummyDataNumbersCount = 10_001
+    let dummyDataFirstNumber = " " // First issue number is looks like an empty string
+    let dummyDataLastNumber = "9999" // This will break after 2019
 
 
     override func setUp() {
@@ -84,5 +86,12 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(cbcUT.eras.first!, dummyDataFirstEra)
         XCTAssertEqual(cbcUT.eras.last!, dummyDataLastEra)
     }
+    
+    func testaAllPossibleIssueNumbers() {
+        XCTAssertEqual(cbcUT.allPossibleIssueNumbers.count, dummyDataNumbersCount)
+        XCTAssertEqual(cbcUT.allPossibleIssueNumbers.first!, dummyDataFirstNumber)
+        XCTAssertEqual(cbcUT.allPossibleIssueNumbers.last!, dummyDataLastNumber)
+    }
+    
 
 }
