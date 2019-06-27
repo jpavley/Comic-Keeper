@@ -175,6 +175,9 @@ public class ComicBookCollection {
     
     // MARK:- Get Functions
     
+    // TODO: Probably should return an array of comic books
+    // TODO: comicBook(publisherName:seriesName:era:issueNumber:variantSignifier:) is too vague! Should be getComicBookFrom(publisherName:seriesName:era:issueNumber:variantSignifier:)
+    
     /// Get a comic book by navigation hierarchy components.
     ///
     /// - Parameters:
@@ -188,6 +191,9 @@ public class ComicBookCollection {
         let identifier = "\(publisherName) \(seriesName) \(era) \(issueNumber)\(variantSignifier)"
         return comicBook(from: identifier)
     }
+    
+    // TODO: Probably should return an array of comic books
+    // TODO: comicBook(from:) is too vague! Should be getComicBookFrom(identifier:)
     
     /// Get a comic book by navigation hierarchy identifier
     public func comicBook(from identifier: String) -> ComicBook? {

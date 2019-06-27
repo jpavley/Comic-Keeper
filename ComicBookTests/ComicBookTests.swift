@@ -41,6 +41,8 @@ class ComicBookTests: XCTestCase {
     let dummyDataSeriesNames = ["Batman", "Wonder Woman"]
     let dummyDataIssueNumbers = ["100", "101", "102"]
     let dummyDataVariantSignifiers = ["a"]
+    
+    let dummyDataEra = "1950"
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -127,6 +129,16 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(cbcUT.variantSignifiers(issueNumber: dummyDataIssueNumbers.first!, seriesTitle: dummyDataSeriesTitles.first!, publisherName: dummyDataFirstPublisherName), dummyDataVariantSignifiers)
     }
     
+    func testGetComicBookByParameters() {
+        print(cbcUT.comicBook(publisherName: dummyDataFirstPublisherName, seriesName: dummyDataSeriesNames.first!, era: dummyDataEra, issueNumber: dummyDataIssueNumbers.first!, variantSignifier: dummyDataVariantSignifiers.first!)?.identifier ?? "")
+        
+        XCTAssertEqual(cbcUT.comicBook(publisherName: dummyDataFirstPublisherName, seriesName: dummyDataSeriesNames.first!, era: dummyDataEra, issueNumber: dummyDataIssueNumbers.first!, variantSignifier: dummyDataVariantSignifiers.first!)?.identifier ?? "", dummyDataComicBookFirstIdentifier)
+    }
     
+    func testGetComicBookByIdentifier() {
+        print(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.identifier ?? "")
+        
+        XCTAssertEqual(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.identifier ?? "", dummyDataComicBookFirstIdentifier)
+    }
 
 }
