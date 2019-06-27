@@ -10,6 +10,8 @@ import Foundation
 
 public class Book {
     
+    // TODO: Should var type just be a string? We don't need a lot of accuracy here and parsing dates and decimals is not hard...
+    
     public var purchasePrice: Decimal?
     public var purchaseDate: Date?
     public var sellPrice: Decimal?

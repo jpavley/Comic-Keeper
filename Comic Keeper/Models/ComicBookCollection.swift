@@ -98,6 +98,10 @@ public class ComicBookCollection {
     public var allPossibleConditions: [String] {
         return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
     }
+    
+    // TODO: seriesTitles(for:) is too vauge, change to seriesTitlesFor(publisher:)
+    // TODO: The fact that series titles is a list of seriesNames + eras is not obvious. Make it obvious
+    // TODO: Maybe get rind of seriesTitles as its easy to get name and era and concatenate!
         
     /// List of series titles for a publisher in this collection.
     /// - No duplicates!
@@ -115,6 +119,8 @@ public class ComicBookCollection {
         return filteredNames
     }
     
+    // TODO: seriesNames(for:) is too vauge, change to seriesNamesFor(publisher:)
+    
     public func seriesNames(for publisherName: String) -> [String] {
         let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesName : nil}
         var filteredNames = [String]()
@@ -125,6 +131,9 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
+    
+    // TODO: Change issuesNumbers(seriesTitle:publisherName:) to issuesNumbersFor(publisherName:seriesTitle:)
+    // TODO: Should it be issuesNumbersFor(publisher:series:era) ?
 
         
     /// List of issue numbers for a series in this collection.

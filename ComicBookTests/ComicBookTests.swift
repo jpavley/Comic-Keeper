@@ -36,6 +36,10 @@ class ComicBookTests: XCTestCase {
     let dummyDataConditionsCount = 7
     let dummyDataFirstCondition = "Very Poor"
     let dummyDataLastCondition = "Perfect"
+    
+    let dummyDataSeriesTitles = ["Batman 1950", "Wonder Woman 1970", "Wonder Woman 1980"]
+    let dummyDataSeriesNames = ["Batman", "Wonder Woman"]
+    let dummyDataIssueNumbers = ["100", "101", "102"]
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -100,6 +104,21 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(cbcUT.allPossibleConditions.count, dummyDataConditionsCount)
         XCTAssertEqual(cbcUT.allPossibleConditions.first!, dummyDataFirstCondition)
         XCTAssertEqual(cbcUT.allPossibleConditions.last!, dummyDataLastCondition)
+    }
+    
+    func testSeriesTitlesForPublisher() {
+        print(cbcUT.seriesTitles(for: dummyDataFirstPublisherName))
+        XCTAssertEqual(cbcUT.seriesTitles(for: dummyDataFirstPublisherName), dummyDataSeriesTitles)
+    }
+    
+    func testSeriesNamesForPublisher() {
+        print(cbcUT.seriesNames(for: dummyDataFirstPublisherName))
+        XCTAssertEqual(cbcUT.seriesNames(for: dummyDataFirstPublisherName), dummyDataSeriesNames)
+    }
+    
+    func testIssuesNumbers() {
+        print(cbcUT.issuesNumbers(seriesTitle: dummyDataSeriesTitles.first!, publisherName: dummyDataFirstPublisherName))
+        XCTAssertEqual(cbcUT.issuesNumbers(seriesTitle: dummyDataSeriesTitles.first!, publisherName: dummyDataFirstPublisherName), dummyDataIssueNumbers)
     }
 
 }
