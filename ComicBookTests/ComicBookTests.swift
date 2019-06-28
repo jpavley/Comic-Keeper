@@ -159,7 +159,19 @@ class ComicBookTests: XCTestCase {
         XCTAssertEqual(newComicBook!.book.purchasePrice, 0)
         XCTAssertEqual(newComicBook!.book.sellDate, nil)
         XCTAssertNotNil(newComicBook!.guid)
-
     }
-
+    
+    func testAddComicBook() {
+        // create a new comic book
+        if let newComicBook = cbcUT.createComicBook() {
+            XCTAssertNotNil(newComicBook)
+            
+            // make sure the comic book doesn't already exist in the collection
+            XCTAssertNil(cbcUT.comicBook(from: newComicBook.guid))
+            
+            // add the comic book and see if it exists in the collection
+            cbcUT.addComicBook(newComicBook: newComicBook)
+            XCTAssertNotNil(cbcUT.comicBook(from: newComicBook.guid))
+        }
+    }
 }

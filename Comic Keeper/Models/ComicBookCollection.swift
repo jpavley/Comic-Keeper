@@ -216,22 +216,18 @@ public class ComicBookCollection {
     
     // MARK:- Create Functions
     
+    // TODO: Rename createEmptyComicBook()
+    
     public func createComicBook() -> ComicBook? {
-        // TODO: create a empty comic book
         let comic = Comic(publisher: "", series: "", era: "", issueNumber: "", legacyIssueNumber: "", variant: "")
         let book = Book(condition: "", purchasePrice: 0, purchaseDate: nil, sellPrice: 0, sellDate: nil, photoID: nil)
         let comicBook = ComicBook(comic: comic, book: book)
         return comicBook
     }
     
-    public func createComicBook(publisherName: String, seriesName: String, era: String, issueNumber: String) -> ComicBook? {
-        // TODO: create a comic book for a specific location in the navigation hierachy to the issue number level
-        return nil
-    }
-    
-    public func createComicBook(publisherName: String, seriesName: String, era: String) -> ComicBook? {
-        // TODO: create a comic book for a specific location in the navigation hierachy to the ear level
-        return nil
+    public func addComicBook(newComicBook: ComicBook) {
+        self.comicbooks.append(newComicBook)
+        self.comicbooks.sort()
     }
     
     // MARK:- Delete Functions
