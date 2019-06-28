@@ -179,4 +179,10 @@ class ComicBookTests: XCTestCase {
         XCTAssertTrue(cbcUT.comicBookExists(guid: dummyDataGuid!))
     }
     
+    func testDeleteComicBook() {
+        XCTAssertTrue(cbcUT.comicBookExists(guid: dummyDataGuid!))
+        cbcUT.deleteComicBook(with: dummyDataGuid!)
+        XCTAssertFalse(cbcUT.comicBookExists(guid: dummyDataGuid!))
+    }
+    
 }

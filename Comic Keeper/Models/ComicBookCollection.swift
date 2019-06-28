@@ -233,7 +233,9 @@ public class ComicBookCollection {
     }
     
     public func deleteComicBook(with guid: UUID) {
-        // TODO: delete the specified comic book
+        let updatedComicBooks = self.comicbooks.filter { $0.guid != guid }
+        self.comicbooks = updatedComicBooks
+        self.comicbooks.sort()
     }
     
 }
