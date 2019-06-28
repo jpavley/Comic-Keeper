@@ -214,8 +214,6 @@ public class ComicBookCollection {
         return comicBook.first
     }
     
-    // MARK:- Create Functions
-    
     // TODO: Rename createEmptyComicBook()
     
     public func createComicBook() -> ComicBook? {
@@ -230,22 +228,8 @@ public class ComicBookCollection {
         self.comicbooks.sort()
     }
     
-    // MARK:- Delete Functions
-    
-    public func duplicateComicBook(with identifier: String) -> ComicBook? {
-        // TODO: duplicate the specified comic book
-        return nil
-    }
-    
-    public func duplicateComicBook(with guid: UUID) -> ComicBook? {
-        // TODO: duplicate the specified comic book
-        return nil
-    }
-    
-    // MARK:- Duplicate Functions
-    
-    public func deleteComicBook(with identifier: String) {
-        // TODO: delete the specified comic book
+    public func comicBookExists(guid: UUID) -> Bool {
+        return self.comicBook(from: guid) != nil
     }
     
     public func deleteComicBook(with guid: UUID) {

@@ -174,4 +174,9 @@ class ComicBookTests: XCTestCase {
             XCTAssertNotNil(cbcUT.comicBook(from: newComicBook.guid))
         }
     }
+    
+    func testComicBookExists() {
+        XCTAssertTrue(cbcUT.comicBookExists(guid: dummyDataGuid!))
+    }
+    
 }
