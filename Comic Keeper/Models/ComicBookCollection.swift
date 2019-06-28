@@ -11,6 +11,7 @@ import Foundation
 public class ComicBookCollection {
     
     public var comicbooks: [ComicBook]
+    public static let emptyComicIdentifier = ""
     
     init() {
         comicbooks = [ComicBook]()
@@ -217,7 +218,10 @@ public class ComicBookCollection {
     
     public func createComicBook() -> ComicBook? {
         // TODO: create a empty comic book
-        return nil
+        let comic = Comic(publisher: "", series: "", era: "", issueNumber: "", legacyIssueNumber: "", variant: "")
+        let book = Book(condition: "", purchasePrice: 0, purchaseDate: nil, sellPrice: 0, sellDate: nil, photoID: nil)
+        let comicBook = ComicBook(comic: comic, book: book)
+        return comicBook
     }
     
     public func createComicBook(publisherName: String, seriesName: String, era: String, issueNumber: String) -> ComicBook? {
@@ -237,7 +241,7 @@ public class ComicBookCollection {
         return nil
     }
     
-    public func duplicationComicBook(with guid: UUID) -> ComicBook? {
+    public func duplicateComicBook(with guid: UUID) -> ComicBook? {
         // TODO: duplicate the specified comic book
         return nil
     }

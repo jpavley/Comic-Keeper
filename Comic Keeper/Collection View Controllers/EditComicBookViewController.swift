@@ -49,7 +49,6 @@ class EditComicBookViewController: UITableViewController {
     
     let photoSection = 1
     let photoRow = 0
-    let emptyComicIdentifier = "  "
     
     // MARK:- Actions
     
@@ -105,7 +104,7 @@ class EditComicBookViewController: UITableViewController {
         
         let cb1 = ComicBookCollection.createComicBook("", "", "", "", "", "", nil, nil, nil, nil, "")
         comicBookCollection.comicbooks = [cb1]
-        currentIdentifier = emptyComicIdentifier
+        currentIdentifier = ComicBookCollection.emptyComicIdentifier
         comicBookUnderEdit = comicBookCollection.comicbooks[0]
         
         title = "Add Comic Book"

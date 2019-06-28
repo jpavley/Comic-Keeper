@@ -145,5 +145,21 @@ class ComicBookTests: XCTestCase {
     func testGetComicBookByGuid() {
         XCTAssertEqual(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.guid, dummyDataGuid)
     }
+    
+    func testCreateComicBook() {
+        // An empty comic book only has an guid value, all other properties are nil, 0, or ""
+        let newComicBook = cbcUT.createComicBook()
+        XCTAssertNotNil(newComicBook)
+        XCTAssertEqual(newComicBook!.identifier, ComicBookCollection.emptyComicIdentifier)
+        XCTAssertEqual(newComicBook!.publisherName, "")
+        XCTAssertEqual(newComicBook!.seriesName, "")
+        XCTAssertEqual(newComicBook!.seriesEra, "")
+        XCTAssertEqual(newComicBook!.seriesTitle, " ")
+        XCTAssertEqual(newComicBook!.book.condition, "")
+        XCTAssertEqual(newComicBook!.book.purchasePrice, 0)
+        XCTAssertEqual(newComicBook!.book.sellDate, nil)
+        XCTAssertNotNil(newComicBook!.guid)
+
+    }
 
 }

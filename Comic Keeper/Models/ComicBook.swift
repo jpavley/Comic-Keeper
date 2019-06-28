@@ -31,7 +31,15 @@ public class ComicBook {
     }
     
     public var identifier: String {
-        return "\(publisherName) \(seriesName) \(seriesEra) \(comic.issueNumber)\(comic.variant)"
+        
+        let i = "\(publisherName) \(seriesName) \(seriesEra) \(comic.issueNumber)\(comic.variant)"
+        let emptyIdentifier = String(repeating: " ", count: 3)
+        
+        if i == emptyIdentifier {
+            return ""
+        } else {
+            return i
+        }
     }
     
     init(comic: Comic, book: Book) {
