@@ -10,11 +10,11 @@ import Foundation
 
 public class ComicBookCollection {
     
-    public var comicbooks: [ComicBook]
+    public var comicBooks: [ComicBook]
     public static let emptyComicIdentifier = ""
     
     init() {
-        comicbooks = [ComicBook]()
+        comicBooks = [ComicBook]()
     }
     
     // TODO: Merge publisherNames with starterPublisherNames
@@ -22,7 +22,7 @@ public class ComicBookCollection {
     /// The names of all the publishers in this collection.
     /// - No duplicates!
     public var publisherNames: [String] {
-        let publisherNames = comicbooks.map {$0.comic.publisher}
+        let publisherNames = comicBooks.map {$0.comic.publisher}
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
@@ -46,7 +46,7 @@ public class ComicBookCollection {
     // TODO: Merge seriesNames with starterSeriesNames
     
     public var seriesNames: [String] {
-        let seriesNames = comicbooks.map {$0.comic.series}
+        let seriesNames = comicBooks.map {$0.comic.series}
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
@@ -110,7 +110,7 @@ public class ComicBookCollection {
     /// - Parameter publisherName: unique name of the publisher
     /// - Returns: list of series unique names (name + era)
     public func seriesTitles(for publisherName: String) -> [String] {
-        let seriesTitles = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesTitle : nil}
+        let seriesTitles = comicBooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesTitle : nil}
         var filteredNames = [String]()
         seriesTitles.forEach { name in
             if !filteredNames.contains(name) {
@@ -123,7 +123,7 @@ public class ComicBookCollection {
     // TODO: seriesNames(for:) is too vauge, change to seriesNamesFor(publisher:)
     
     public func seriesNames(for publisherName: String) -> [String] {
-        let seriesNames = comicbooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesName : nil}
+        let seriesNames = comicBooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesName : nil}
         var filteredNames = [String]()
         seriesNames.forEach { name in
             if !filteredNames.contains(name) {
@@ -147,7 +147,7 @@ public class ComicBookCollection {
     ///   - publisherName: unique name of the publisher
     /// - Returns: list of issues numbers as list of strings
     public func issuesNumbers(seriesTitle: String, publisherName: String) -> [String] {
-        let issueNumbers = comicbooks.compactMap {
+        let issueNumbers = comicBooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle ? $0.comic.issueNumber : nil
         }
         var filteredNumbers = [String]()
@@ -166,7 +166,7 @@ public class ComicBookCollection {
     // TODO: Should it be variantSignifiers(publisher:series:era:issueNUmber) ?
 
     public func variantSignifiers(issueNumber: String, seriesTitle: String, publisherName: String) -> [String] {
-        let variants = comicbooks.compactMap {
+        let variants = comicBooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
         }
         return variants
@@ -198,7 +198,7 @@ public class ComicBookCollection {
     
     /// Get a comic book by navigation hierarchy identifier
     public func comicBook(from identifier: String) -> ComicBook? {
-        let comicBook = comicbooks.filter { $0.identifier == identifier }
+        let comicBook = comicBooks.filter { $0.identifier == identifier }
         return comicBook.first
     }
     
@@ -210,7 +210,7 @@ public class ComicBookCollection {
     /// - UUIDs change with every run of an app.
     /// - Don't use UUIDs between sessions unless you manually persist and assign them
     public func comicBook(from guid: UUID) -> ComicBook? {
-        let comicBook = comicbooks.filter { $0.guid == guid }
+        let comicBook = comicBooks.filter { $0.guid == guid }
         return comicBook.first
     }
     
@@ -224,8 +224,8 @@ public class ComicBookCollection {
     }
     
     public func addComicBook(newComicBook: ComicBook) {
-        self.comicbooks.append(newComicBook)
-        self.comicbooks.sort()
+        self.comicBooks.append(newComicBook)
+        self.comicBooks.sort()
     }
     
     public func comicBookExists(guid: UUID) -> Bool {
@@ -233,9 +233,9 @@ public class ComicBookCollection {
     }
     
     public func deleteComicBook(with guid: UUID) {
-        let updatedComicBooks = self.comicbooks.filter { $0.guid != guid }
-        self.comicbooks = updatedComicBooks
-        self.comicbooks.sort()
+        let updatedComicBooks = self.comicBooks.filter { $0.guid != guid }
+        self.comicBooks = updatedComicBooks
+        self.comicBooks.sort()
     }
     
 }

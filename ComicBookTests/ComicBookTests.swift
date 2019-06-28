@@ -59,13 +59,13 @@ class ComicBookTests: XCTestCase {
     func testCreateComicBookCollection() {
         let localCbcUT = ComicBookCollection()
         XCTAssertNotNil(localCbcUT)
-        XCTAssertTrue(localCbcUT.comicbooks.count == 0)
+        XCTAssertTrue(localCbcUT.comicBooks.count == 0)
     }
     
     func testCreateComicBookCollectionWithData() {
         XCTAssertNotNil(cbcUT)
-        XCTAssertEqual(cbcUT.comicbooks.count, dummyDataComicBookCount)
-        XCTAssertEqual(cbcUT.comicbooks.first!.identifier, dummyDataComicBookFirstIdentifier)
+        XCTAssertEqual(cbcUT.comicBooks.count, dummyDataComicBookCount)
+        XCTAssertEqual(cbcUT.comicBooks.first!.identifier, dummyDataComicBookFirstIdentifier)
     }
     
     func testPublisherNames() {

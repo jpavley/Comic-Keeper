@@ -153,7 +153,7 @@ class SeriesTableViewController: UITableViewController {
         let segueSource = segue.source as! EditComicBookViewController
         
         comicBookCollection = segueSource.comicBookCollection
-        comicBookCollection.comicbooks.sort()
+        comicBookCollection.comicBooks.sort()
         tableView.reloadData()
     }
 }

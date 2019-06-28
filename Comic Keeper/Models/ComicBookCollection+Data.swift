@@ -97,9 +97,9 @@ public extension ComicBookCollection {
         let cb33 = createComicBook("Marvel Comics", "Fantastic Four", "1968", "101", "101", "x", nil, nil, nil, nil, "Very Goodf")
         
         
-        cbc.comicbooks = [cb11, cb12, cb13, cb14, cb15, cb16, cb17, cb18, cb19, cb20, cb21, cb22, cb23, cb24, cb25, cb26, cb27, cb28, cb29, cb30, cb31, cb32, cb33, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb2, cb1, cb3, cb4a, cb5a, cb6a, cb7a, cb4b, cb5b, cb6b, cb7b, cb16a, cb17a, cb28a, cb29b, cb30c]
+        cbc.comicBooks = [cb11, cb12, cb13, cb14, cb15, cb16, cb17, cb18, cb19, cb20, cb21, cb22, cb23, cb24, cb25, cb26, cb27, cb28, cb29, cb30, cb31, cb32, cb33, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb2, cb1, cb3, cb4a, cb5a, cb6a, cb7a, cb4b, cb5b, cb6b, cb7b, cb16a, cb17a, cb28a, cb29b, cb30c]
         
-        cbc.comicbooks = cbc.comicbooks.sorted()
+        cbc.comicBooks = cbc.comicBooks.sorted()
         
         return cbc
     }
