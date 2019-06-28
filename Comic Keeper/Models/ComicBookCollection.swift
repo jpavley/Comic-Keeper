@@ -17,20 +17,21 @@ public class ComicBookCollection {
         comicBooks = [ComicBook]()
     }
     
-    // TODO: Merge publisherNames with starterPublisherNames
-    
-    /// The names of all the publishers in this collection.
+    /// The names of all the publishers in this collection (including all the starter publisher names.
     /// - No duplicates!
+    /// - Sorted!
     public var publisherNames: [String] {
         let publisherNames = comicBooks.map {$0.comic.publisher}
+        let publisherNamesPlusStarterNames = publisherNames + starterPublisherNames
+        
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
-        if publisherNames.isEmpty || publisherNames[0] == "" {
+        if publisherNamesPlusStarterNames.isEmpty || publisherNamesPlusStarterNames[0] == "" {
             return filteredNames
         }
         
-        publisherNames.forEach { name in
+        publisherNamesPlusStarterNames.forEach { name in
             if !filteredNames.contains(name) {
                 filteredNames.append(name)
             }

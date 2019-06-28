@@ -15,7 +15,7 @@ class ComicBookTests: XCTestCase {
     let dummyDataComicBookCount = 46
     let dummyDataComicBookFirstIdentifier = "DC Comics Batman 1950 100a"
     
-    let dummyDataPublisherCount = 3
+    let dummyDataPublisherCount = 6
     let dummyDataFirstPublisherName = "DC Comics"
     let dummyDataStarterPublisherCount = 6
     let dummyDataLastStarterPublisherName = "Valiant Comics"
