@@ -20,14 +20,14 @@ class ComicBookTests: XCTestCase {
     let dummyDataStarterPublisherCount = 6
     let dummyDataLastStarterPublisherName = "Valiant Comics"
     
-    let dummyDataSeriesCount = 9
-    let dummyDataFirstSeriesName = "Aliens"
+    let dummyDataSeriesCount = 24
+    let dummyDataFirstSeriesName = "Alien"
     let dummyDataStarterSeriesCount = 26
     let dummyDataLastStarterSeriesName = "Wonder Woman"
     
-    let dummyDataErasCount = 121 // This will break after 2019
+    let dummyDataErasCount = 121 // TODO: This will break after 2019
     let dummyDataFirstEra = " " // First era is looks like an empty string
-    let dummyDataLastEra = "2019" // This will break after 2019
+    let dummyDataLastEra = "2019" // TODO: This will break after 2019
     
     let dummyDataNumbersCount = 10_001
     let dummyDataFirstNumber = " " // First issue number is looks like an empty string

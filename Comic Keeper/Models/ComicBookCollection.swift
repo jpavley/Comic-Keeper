@@ -23,7 +23,6 @@ public class ComicBookCollection {
     public var publisherNames: [String] {
         let publisherNames = comicBooks.map {$0.comic.publisher}
         let publisherNamesPlusStarterNames = publisherNames + starterPublisherNames
-        
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
@@ -40,22 +39,25 @@ public class ComicBookCollection {
         return filteredNames.sorted()
     }
     
+    /// A list of common publisher names.
     public var starterPublisherNames: [String] {
         return ["Dark Horse", "DC Comics", "Marvel Comics", "Image Comics", "IDW Publishing", "Valiant Comics",].sorted()
     }
-    
-    // TODO: Merge seriesNames with starterSeriesNames
-    
+        
+    /// The names of all the series in this collection (including all the starter series names.
+    /// - No duplicates!
+    /// - Sorted!
     public var seriesNames: [String] {
         let seriesNames = comicBooks.map {$0.comic.series}
+        let seriesNamesPlusStarterNames = seriesNames + starterSeriesNames
         var filteredNames = [String]()
         
         // early return if we have no actual publishers
-        if seriesNames.isEmpty || seriesNames[0] == "" {
+        if seriesNamesPlusStarterNames.isEmpty || seriesNamesPlusStarterNames[0] == "" {
             return filteredNames
         }
         
-        seriesNames.forEach { name in
+        seriesNamesPlusStarterNames.forEach { name in
             if !filteredNames.contains(name) {
                 filteredNames.append(name)
             }
@@ -63,6 +65,7 @@ public class ComicBookCollection {
         return filteredNames.sorted()
     }
     
+    /// A list of common series names.
     public var starterSeriesNames: [String] {
         return ["Concrete", "Bacchus", "Alien", "Predator","Aliens vs. Predator", "Terminator", "The Mask", "Nexus", "Grendel", "Hellboy", "Batman", "Fantastic Four", "Hulk", "Iron Man", "The Mighty Thor", "Wonder Woman", "The Amazing Spider-Man", "The X-Men", "Captain Ameria", "The Silver Surfer", "Daredevil", "Batman", "Superman", "The Green Lantern", "Wonder Woman", "Green Arrow"].sorted()
     }
