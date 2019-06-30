@@ -33,9 +33,9 @@ class ComicBookTests: XCTestCase {
     let dummyDataFirstNumber = " " // First issue number is looks like an empty string
     let dummyDataLastNumber = "9999"
     
-    let dummyDataConditionsCount = 7
-    let dummyDataFirstCondition = "Very Poor"
-    let dummyDataLastCondition = "Perfect"
+    let dummyDataConditionsCount = 8
+    let dummyDataFirstCondition = "Fine"
+    let dummyDataLastCondition = "Very Poor"
     
     let dummyDataSeriesTitles = ["Batman 1950", "Wonder Woman 1970", "Wonder Woman 1980"]
     let dummyDataSeriesNames = ["Batman", "Wonder Woman"]
@@ -105,9 +105,10 @@ class ComicBookTests: XCTestCase {
     }
     
     func testAllPossibleConditions() {
-        XCTAssertEqual(cbcUT.allPossibleConditions.count, dummyDataConditionsCount)
-        XCTAssertEqual(cbcUT.allPossibleConditions.first!, dummyDataFirstCondition)
-        XCTAssertEqual(cbcUT.allPossibleConditions.last!, dummyDataLastCondition)
+        print(cbcUT.conditions)
+        XCTAssertEqual(cbcUT.conditions.count, dummyDataConditionsCount)
+        XCTAssertEqual(cbcUT.conditions.first!, dummyDataFirstCondition)
+        XCTAssertEqual(cbcUT.conditions.last!, dummyDataLastCondition)
     }
     
     func testSeriesTitlesForPublisher() {

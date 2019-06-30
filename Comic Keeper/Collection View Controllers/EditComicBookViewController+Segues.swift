@@ -111,7 +111,7 @@ extension EditComicBookViewController {
             configureStandardPicker(viewID: .legacyNumber, viewTitle: "Legacy Issue Number", pickerList: pl, selectedItem: si, noneButtonVisible: true)
             
         case "ChooseConditionSegue":
-            let pl = comicBookCollection.allPossibleConditions
+            let pl = comicBookCollection.conditions
             let si = currentComicBook.book.condition
             
             configureStandardPicker(viewID: .condition, viewTitle: "Condition", pickerList: pl, selectedItem: si, noneButtonVisible: false)

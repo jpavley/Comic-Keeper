@@ -94,15 +94,11 @@ public class ComicBookCollection {
     
     public var conditions: [String] {
         let conditionNames = comicBooks.map {$0.book.condition}
-        return createFilteredNameListFrom(listA: conditionNames, listB: allPossibleConditions)
+        return createFilteredNameListFrom(listA: conditionNames, listB: standardConditions)
     }
     
-    // TODO: allPossibleConditions should be starterConditions
-    // TODO: Merge starterConditions with user added conditions
-    // TODO: First condition should be " " to signify no condition noted
-    
-    public var allPossibleConditions: [String] {
-        return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect"]
+    public var standardConditions: [String] {
+        return ["Very Poor", "Poor", "Good", "Very Good", "Fine", "Very Fine", "Perfect", "Unknown"]
     }
     
     // TODO: seriesTitles(for:) is too vauge, change to seriesTitlesFor(publisher:)
