@@ -17,60 +17,56 @@ public class ComicBookCollection {
         comicBooks = [ComicBook]()
     }
     
+    
+    /// Creates a single list by combining listA and listB and filtering out duplicate strings.
+    ///
+    /// - Parameters:
+    ///   - listA: an array of strings
+    ///   - listB: another array of strings
+    /// - Returns: a sorted array of strings, empty if listA and listB are empty or start with an empty string.
+    private func createFilteredNameListFrom(listA: [String], listB: [String]) -> [String] {
+        let combinedList = listA + listB
+        var filteredList = [String]()
+        
+        // early return if we have no actual items
+        if combinedList.isEmpty || combinedList[0] == "" {
+            return filteredList
+        }
+        
+        combinedList.forEach { s in
+            if !filteredList.contains(s) {
+                filteredList.append(s)
+            }
+        }
+        
+        return filteredList.sorted()
+    }
+    
     /// The names of all the publishers in this collection (including all the starter publisher names.
     /// - No duplicates!
     /// - Sorted!
     public var publisherNames: [String] {
         let publisherNames = comicBooks.map {$0.comic.publisher}
-        let publisherNamesPlusStarterNames = publisherNames + starterPublisherNames
-        var filteredNames = [String]()
-        
-        // early return if we have no actual publishers
-        if publisherNamesPlusStarterNames.isEmpty || publisherNamesPlusStarterNames[0] == "" {
-            return filteredNames
-        }
-        
-        publisherNamesPlusStarterNames.forEach { name in
-            if !filteredNames.contains(name) {
-                filteredNames.append(name)
-            }
-        }
-        
-        return filteredNames.sorted()
+        return createFilteredNameListFrom(listA: publisherNames, listB:starterPublisherNames)
     }
     
     /// A list of common publisher names.
     public var starterPublisherNames: [String] {
         return ["Dark Horse", "DC Comics", "Marvel Comics", "Image Comics", "IDW Publishing", "Valiant Comics",].sorted()
     }
-        
+    
     /// The names of all the series in this collection (including all the starter series names.
     /// - No duplicates!
     /// - Sorted!
     public var seriesNames: [String] {
         let seriesNames = comicBooks.map {$0.comic.series}
-        let seriesNamesPlusStarterNames = seriesNames + starterSeriesNames
-        var filteredNames = [String]()
-        
-        // early return if we have no actual publishers
-        if seriesNamesPlusStarterNames.isEmpty || seriesNamesPlusStarterNames[0] == "" {
-            return filteredNames
-        }
-        
-        seriesNamesPlusStarterNames.forEach { name in
-            if !filteredNames.contains(name) {
-                filteredNames.append(name)
-            }
-        }
-        return filteredNames.sorted()
+        return createFilteredNameListFrom(listA: seriesNames, listB: starterSeriesNames)
     }
     
     /// A list of common series names.
     public var starterSeriesNames: [String] {
         return ["Concrete", "Bacchus", "Alien", "Predator","Aliens vs. Predator", "Terminator", "The Mask", "Nexus", "Grendel", "Hellboy", "Batman", "Fantastic Four", "Hulk", "Iron Man", "The Mighty Thor", "Wonder Woman", "The Amazing Spider-Man", "The X-Men", "Captain Ameria", "The Silver Surfer", "Daredevil", "Batman", "Superman", "The Green Lantern", "Wonder Woman", "Green Arrow"].sorted()
     }
-    
-    // TODO: Probably need to separate user created eras and all possible eras
     
     public var eras: [String] {
         
@@ -94,6 +90,11 @@ public class ComicBookCollection {
         }
         
         return result
+    }
+    
+    public var conditions: [String] {
+        let conditionNames = comicBooks.map {$0.book.condition}
+        return createFilteredNameListFrom(listA: conditionNames, listB: allPossibleConditions)
     }
     
     // TODO: allPossibleConditions should be starterConditions
