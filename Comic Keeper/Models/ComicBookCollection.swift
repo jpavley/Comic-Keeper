@@ -17,7 +17,6 @@ public class ComicBookCollection {
         comicBooks = [ComicBook]()
     }
     
-    
     /// Creates a single list by combining listA and listB and filtering out duplicate strings.
     ///
     /// - Parameters:
@@ -159,10 +158,6 @@ public class ComicBookCollection {
         }
         return variants
     }
-    
-    // MARK:- ComicBook CRUD (Create, Read, Update, Delete)
-    
-    // MARK:- Get Functions
     
     /// Get a comic book by navigation hierarchy components.
     ///
