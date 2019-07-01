@@ -151,7 +151,7 @@ class ComicBookTests: XCTestCase {
     
     func testCreateComicBook() {
         // An empty comic book only has an guid value, all other properties are nil, 0, or ""
-        let newComicBook = cbcUT.createComicBook()
+        let newComicBook = cbcUT.createEmptyComicBook()
         XCTAssertNotNil(newComicBook)
         XCTAssertEqual(newComicBook!.identifier, ComicBookCollection.emptyComicIdentifier)
         XCTAssertEqual(newComicBook!.publisherName, "")
@@ -166,7 +166,7 @@ class ComicBookTests: XCTestCase {
     
     func testAddComicBook() {
         // create a new comic book
-        if let newComicBook = cbcUT.createComicBook() {
+        if let newComicBook = cbcUT.createEmptyComicBook() {
             XCTAssertNotNil(newComicBook)
             
             // make sure the comic book doesn't already exist in the collection

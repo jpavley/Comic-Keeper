@@ -188,7 +188,7 @@ public class ComicBookCollection {
         let identifiedComicBooks = comicBooks.filter { $0.identifier == identifier }
         return identifiedComicBooks
     }
-        
+    
     /// Get a comic book by globally unique ID
     ///
     /// - UUIDs change with every run of an app.
@@ -198,9 +198,7 @@ public class ComicBookCollection {
         return comicBook.first
     }
     
-    // TODO: Rename createEmptyComicBook()
-    
-    public func createComicBook() -> ComicBook? {
+    public func createEmptyComicBook() -> ComicBook? {
         let comic = Comic(publisher: "", series: "", era: "", issueNumber: "", legacyIssueNumber: "", variant: "")
         let book = Book(condition: "", purchasePrice: 0, purchaseDate: nil, sellPrice: 0, sellDate: nil, photoID: nil)
         let comicBook = ComicBook(comic: comic, book: book)
@@ -221,5 +219,4 @@ public class ComicBookCollection {
         self.comicBooks = updatedComicBooks
         self.comicBooks.sort()
     }
-    
 }
