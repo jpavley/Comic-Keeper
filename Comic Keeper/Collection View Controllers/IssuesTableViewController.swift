@@ -39,9 +39,9 @@ class IssuesTableViewController: UITableViewController {
         
         let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         let currentIssueNumber = issues[section]
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
-                                                             seriesTitle: currentSeriesTitle,
-                                                             publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiersFor(publisherName: currentPublisherName,
+                                                                seriesTitle: currentSeriesTitle,
+                                                                issueNumber: currentIssueNumber)
         return variants.count
     }
     
@@ -55,9 +55,9 @@ class IssuesTableViewController: UITableViewController {
         // get data for the cell
         let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         let currentIssueNumber = issues[indexPath.section]
-        let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
-                                                             seriesTitle: currentSeriesTitle,
-                                                             publisherName: currentPublisherName)
+        let variants = comicBookCollection.variantSignifiersFor(publisherName: currentPublisherName,
+                                                                seriesTitle: currentSeriesTitle,
+                                                                issueNumber: currentIssueNumber)
         let currentVariant = variants[indexPath.row]
         let currentIssue = issues[indexPath.section]
         
@@ -122,9 +122,9 @@ class IssuesTableViewController: UITableViewController {
                 
                 let currentIssueNumber = issues[selectedIndexPath.section]
 
-                let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
-                                                                     seriesTitle: currentSeriesTitle,
-                                                                     publisherName: currentPublisherName)
+                let variants = comicBookCollection.variantSignifiersFor(publisherName: currentPublisherName,
+                                                                        seriesTitle: currentSeriesTitle,
+                                                                        issueNumber: currentIssueNumber)
                 
                 let variant = variants[selectedIndexPath.row]
                 

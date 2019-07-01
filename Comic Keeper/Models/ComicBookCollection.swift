@@ -153,10 +153,7 @@ public class ComicBookCollection {
         return filteredNumbers
     }
     
-    // TODO: Change variantSignifiers(issueNumber:seriesTitle:publisherName:) to issuesNumbersFor(publisherName:seriesTitle:issueNumber)
-    // TODO: Should it be variantSignifiers(publisher:series:era:issueNUmber) ?
-
-    public func variantSignifiers(issueNumber: String, seriesTitle: String, publisherName: String) -> [String] {
+    public func variantSignifiersFor(publisherName: String, seriesTitle: String, issueNumber: String) -> [String] {
         let variants = comicBooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle && $0.comic.issueNumber == issueNumber ? $0.comic.variant : nil
         }
