@@ -188,15 +188,12 @@ public class ComicBookCollection {
         let identifiedComicBooks = comicBooks.filter { $0.identifier == identifier }
         return identifiedComicBooks
     }
-    
-    // TODO: Probably should return an array of comic books
-    // TODO: comicBook(from:) is too vague! Should be getComicBookFrom(guid:)
-    
+        
     /// Get a comic book by globally unique ID
     ///
     /// - UUIDs change with every run of an app.
     /// - Don't use UUIDs between sessions unless you manually persist and assign them
-    public func comicBook(from guid: UUID) -> ComicBook? {
+    public func comicBookFrom(guid: UUID) -> ComicBook? {
         let comicBook = comicBooks.filter { $0.guid == guid }
         return comicBook.first
     }
@@ -216,7 +213,7 @@ public class ComicBookCollection {
     }
     
     public func comicBookExists(guid: UUID) -> Bool {
-        return self.comicBook(from: guid) != nil
+        return self.comicBookFrom(guid: guid) != nil
     }
     
     public func deleteComicBook(with guid: UUID) {

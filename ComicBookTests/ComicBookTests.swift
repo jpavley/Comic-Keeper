@@ -170,11 +170,11 @@ class ComicBookTests: XCTestCase {
             XCTAssertNotNil(newComicBook)
             
             // make sure the comic book doesn't already exist in the collection
-            XCTAssertNil(cbcUT.comicBook(from: newComicBook.guid))
+            XCTAssertNil(cbcUT.comicBookFrom(guid: newComicBook.guid))
             
             // add the comic book and see if it exists in the collection
             cbcUT.addComicBook(newComicBook: newComicBook)
-            XCTAssertNotNil(cbcUT.comicBook(from: newComicBook.guid))
+            XCTAssertNotNil(cbcUT.comicBookFrom(guid: newComicBook.guid))
         }
     }
     
