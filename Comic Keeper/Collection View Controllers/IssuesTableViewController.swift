@@ -31,15 +31,13 @@ class IssuesTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
-                                                       publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         return issues.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
-                                                       publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         let currentIssueNumber = issues[section]
         let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
                                                              seriesTitle: currentSeriesTitle,
@@ -48,16 +46,14 @@ class IssuesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
-                                                       publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         return "Issue #\(issues[section])"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // get data for the cell
-        let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
-                                                       publisherName: currentPublisherName)
+        let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
         let currentIssueNumber = issues[indexPath.section]
         let variants = comicBookCollection.variantSignifiers(issueNumber: currentIssueNumber,
                                                              seriesTitle: currentSeriesTitle,
@@ -122,8 +118,7 @@ class IssuesTableViewController: UITableViewController {
             
             if let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 
-                let issues = comicBookCollection.issuesNumbers(seriesTitle: currentSeriesTitle,
-                                                               publisherName: currentPublisherName)
+                let issues = comicBookCollection.issuesNumbersFor(publisherName: currentPublisherName, seriesTitle: currentSeriesTitle)
                 
                 let currentIssueNumber = issues[selectedIndexPath.section]
 

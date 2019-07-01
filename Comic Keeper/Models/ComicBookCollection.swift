@@ -116,7 +116,7 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
-        
+    
     public func seriesNamesFor( publisherName: String) -> [String] {
         let seriesNames = comicBooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesName : nil}
         var filteredNames = [String]()
@@ -127,10 +127,6 @@ public class ComicBookCollection {
         }
         return filteredNames
     }
-    
-    // TODO: Change issuesNumbers(seriesTitle:publisherName:) to issuesNumbersFor(publisherName:seriesTitle:)
-    // TODO: Should it be issuesNumbersFor(publisher:series:era) ?
-
         
     /// List of issue numbers for a series in this collection.
     /// - *Why are issue numbers strings?* Publishers are creative in numbering and might create
@@ -138,10 +134,10 @@ public class ComicBookCollection {
     /// - No duplicates!
     ///
     /// - Parameters:
-    ///   - seriesName: series title (name + era)
     ///   - publisherName: unique name of the publisher
+    ///   - seriesTitle: series title (name + era)
     /// - Returns: list of issues numbers as list of strings
-    public func issuesNumbers(seriesTitle: String, publisherName: String) -> [String] {
+    public func issuesNumbersFor(publisherName: String, seriesTitle: String) -> [String] {
         let issueNumbers = comicBooks.compactMap {
             $0.comic.publisher == publisherName && $0.seriesTitle == seriesTitle ? $0.comic.issueNumber : nil
         }
