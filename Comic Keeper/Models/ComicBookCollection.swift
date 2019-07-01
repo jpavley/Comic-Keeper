@@ -110,7 +110,7 @@ public class ComicBookCollection {
     ///
     /// - Parameter publisherName: unique name of the publisher
     /// - Returns: list of series unique names (name + era)
-    public func seriesTitles(for publisherName: String) -> [String] {
+    public func seriesTitlesFor(publisherName: String) -> [String] {
         let seriesTitles = comicBooks.compactMap {$0.comic.publisher == publisherName ? $0.seriesTitle : nil}
         var filteredNames = [String]()
         seriesTitles.forEach { name in

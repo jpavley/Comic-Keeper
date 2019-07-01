@@ -112,8 +112,8 @@ class ComicBookTests: XCTestCase {
     }
     
     func testSeriesTitlesForPublisher() {
-        print(cbcUT.seriesTitles(for: dummyDataFirstPublisherName))
-        XCTAssertEqual(cbcUT.seriesTitles(for: dummyDataFirstPublisherName), dummyDataSeriesTitles)
+        print(cbcUT.seriesTitlesFor(publisherName: dummyDataFirstPublisherName))
+        XCTAssertEqual(cbcUT.seriesTitlesFor(publisherName: dummyDataFirstPublisherName), dummyDataSeriesTitles)
     }
     
     func testSeriesNamesForPublisher() {
