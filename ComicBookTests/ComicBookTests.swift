@@ -133,9 +133,9 @@ class ComicBookTests: XCTestCase {
     }
     
     func testGetComicBookByParameters() {
-        print(cbcUT.comicBook(publisherName: dummyDataFirstPublisherName, seriesName: dummyDataSeriesNames.first!, era: dummyDataEra, issueNumber: dummyDataIssueNumbers.first!, variantSignifier: dummyDataVariantSignifiers.first!)?.identifier ?? "")
-        
-        XCTAssertEqual(cbcUT.comicBook(publisherName: dummyDataFirstPublisherName, seriesName: dummyDataSeriesNames.first!, era: dummyDataEra, issueNumber: dummyDataIssueNumbers.first!, variantSignifier: dummyDataVariantSignifiers.first!)?.identifier ?? "", dummyDataComicBookFirstIdentifier)
+        let cbUT = cbcUT.comicBookFrom(publisherName: dummyDataFirstPublisherName, seriesName: dummyDataSeriesNames.first!, era: dummyDataEra, issueNumber: dummyDataIssueNumbers.first!, variantSignifier: dummyDataVariantSignifiers.first!)!.first!
+        print(cbUT.identifier)
+        XCTAssertEqual(cbUT.identifier, dummyDataComicBookFirstIdentifier)
     }
     
     func testGetComicBookByIdentifier() {

@@ -164,9 +164,6 @@ public class ComicBookCollection {
     
     // MARK:- Get Functions
     
-    // TODO: Probably should return an array of comic books
-    // TODO: comicBook(publisherName:seriesName:era:issueNumber:variantSignifier:) is too vague! Should be getComicBookFrom(publisherName:seriesName:era:issueNumber:variantSignifier:)
-    
     /// Get a comic book by navigation hierarchy components.
     ///
     /// - Parameters:
@@ -175,10 +172,15 @@ public class ComicBookCollection {
     ///   - era: navigation hierarchy component.
     ///   - issueNumber: navigation hierarchy component.
     ///   - variantSignifier: bottom level navigation hierarchy component.
-    /// - Returns: the frist comicbook found with this navigation hierachy identifier or nothing.
-    public func comicBook(publisherName: String, seriesName: String, era: String, issueNumber: String, variantSignifier: String) -> ComicBook? {
+    /// - Returns: all the comicbooks found with this navigation hierachy identifier or nothing.
+    public func comicBookFrom(publisherName: String,
+                              seriesName: String,
+                              era: String,
+                              issueNumber: String,
+                              variantSignifier: String) -> [ComicBook]? {
+        
         let identifier = "\(publisherName) \(seriesName) \(era) \(issueNumber)\(variantSignifier)"
-        return comicBookFrom(identifier: identifier)!.first!
+        return comicBookFrom(identifier: identifier)
     }
     
     /// Get a comic book by navigation hierarchy identifier
