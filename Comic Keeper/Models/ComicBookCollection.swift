@@ -178,16 +178,13 @@ public class ComicBookCollection {
     /// - Returns: the frist comicbook found with this navigation hierachy identifier or nothing.
     public func comicBook(publisherName: String, seriesName: String, era: String, issueNumber: String, variantSignifier: String) -> ComicBook? {
         let identifier = "\(publisherName) \(seriesName) \(era) \(issueNumber)\(variantSignifier)"
-        return comicBook(from: identifier)
+        return comicBookFrom(identifier: identifier)!.first!
     }
     
-    // TODO: Probably should return an array of comic books
-    // TODO: comicBook(from:) is too vague! Should be getComicBookFrom(identifier:)
-    
     /// Get a comic book by navigation hierarchy identifier
-    public func comicBook(from identifier: String) -> ComicBook? {
-        let comicBook = comicBooks.filter { $0.identifier == identifier }
-        return comicBook.first
+    public func comicBookFrom(identifier: String) -> [ComicBook]? {
+        let identifiedComicBooks = comicBooks.filter { $0.identifier == identifier }
+        return identifiedComicBooks
     }
     
     // TODO: Probably should return an array of comic books

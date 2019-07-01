@@ -123,32 +123,34 @@ class EditComicBookViewController: UITableViewController {
     }
     
     private func loadRealComicBooks() {
-        comicBookUnderEdit = comicBookCollection.comicBook(from: currentIdentifier)
         
-        guard let currentComicBook = comicBookUnderEdit else {
-            fatalError("no ComicBook \(currentIdentifier!) to edit")
+        guard let foundComicBook = comicBookCollection.comicBookFrom(identifier: currentIdentifier)?.first! else {
+            fatalError("no comicbook to edit")
         }
         
-        title = "#\(currentComicBook.comic.issueNumber )\(currentComicBook.comic.variant )"
-        
-        publisherLabel.text = currentComicBook.publisherName
-        eraLabel.text = currentComicBook.seriesEra
-        seriesLabel.text = currentComicBook.seriesName
-        issueNumberLabel.text = currentComicBook.comic.issueNumber
-        
-        if currentComicBook.comic.legacyIssueNumber.isEmpty {
-            legacyIssueNumberLabel.text = "none"
-        } else {
-            legacyIssueNumberLabel.text = currentComicBook.comic.legacyIssueNumber
+        comicBookUnderEdit = foundComicBook
+        if let comicBookUnderEdit = comicBookUnderEdit {
+            title = "#\(comicBookUnderEdit.comic.issueNumber )\(comicBookUnderEdit.comic.variant )"
+            
+            publisherLabel.text = comicBookUnderEdit.publisherName
+            eraLabel.text = comicBookUnderEdit.seriesEra
+            seriesLabel.text = comicBookUnderEdit.seriesName
+            issueNumberLabel.text = comicBookUnderEdit.comic.issueNumber
+            
+            if comicBookUnderEdit.comic.legacyIssueNumber.isEmpty {
+                legacyIssueNumberLabel.text = "none"
+            } else {
+                legacyIssueNumberLabel.text = comicBookUnderEdit.comic.legacyIssueNumber
+            }
+            
+            variantLabel.text = comicBookUnderEdit.comic.variant
+            
+            conditionLabel.text = comicBookUnderEdit.book.condition
+            purchasePriceLabel.text = comicBookUnderEdit.book.purchasePriceText != "none" ? "$\(comicBookUnderEdit.book.purchasePriceText)" : "none"
+            purchaseDateLabel.text = comicBookUnderEdit.book.purchaseDateText
+            sellPriceLabel.text = comicBookUnderEdit.book.sellDateText != "none" ? "$\(comicBookUnderEdit.book.sellPriceText)" : "none"
+            sellDateLabel.text = comicBookUnderEdit.book.sellDateText
         }
-        
-        variantLabel.text = currentComicBook.comic.variant
-        
-        conditionLabel.text = currentComicBook.book.condition
-        purchasePriceLabel.text = currentComicBook.book.purchasePriceText != "none" ? "$\(currentComicBook.book.purchasePriceText)" : "none"
-        purchaseDateLabel.text = currentComicBook.book.purchaseDateText
-        sellPriceLabel.text = currentComicBook.book.sellDateText != "none" ? "$\(currentComicBook.book.sellPriceText)" : "none"
-        sellDateLabel.text = currentComicBook.book.sellDateText
     }
     
     /// newText should be in the format 0,000.00

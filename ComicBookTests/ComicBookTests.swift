@@ -48,7 +48,8 @@ class ComicBookTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         cbcUT = ComicBookCollection.createComicBookCollection()
-        dummyDataGuid = cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.guid
+        let cb = cbcUT.comicBookFrom(identifier: dummyDataComicBookFirstIdentifier)!.first!
+        dummyDataGuid = cb.guid
     }
 
     override func tearDown() {
@@ -138,13 +139,14 @@ class ComicBookTests: XCTestCase {
     }
     
     func testGetComicBookByIdentifier() {
-        print(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.identifier ?? "")
-        
-        XCTAssertEqual(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.identifier ?? "", dummyDataComicBookFirstIdentifier)
+        let cb = cbcUT.comicBookFrom(identifier: dummyDataComicBookFirstIdentifier)!.first!
+        print(cb.identifier)
+        XCTAssertEqual(cb.identifier, dummyDataComicBookFirstIdentifier)
     }
     
     func testGetComicBookByGuid() {
-        XCTAssertEqual(cbcUT.comicBook(from: dummyDataComicBookFirstIdentifier)?.guid, dummyDataGuid)
+        let cb = cbcUT.comicBookFrom(identifier: dummyDataComicBookFirstIdentifier)!.first!
+        XCTAssertEqual(cb.guid, dummyDataGuid)
     }
     
     func testCreateComicBook() {
