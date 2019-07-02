@@ -34,29 +34,29 @@ class SeriesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        if comicBookCollection.publisherNames.count == 0 {
+        if comicBookCollection.collectedPublisherNames.count == 0 {
             return 1
         } else {
-            return comicBookCollection.publisherNames.count
+            return comicBookCollection.collectedPublisherNames.count
 
         }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if comicBookCollection.publisherNames.isEmpty {
+        if comicBookCollection.collectedPublisherNames.isEmpty {
             return "Collection Empty"
         } else {
-            return comicBookCollection.publisherNames[section]
+            return comicBookCollection.collectedPublisherNames[section]
         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if comicBookCollection.publisherNames.isEmpty {
+        if comicBookCollection.collectedPublisherNames.isEmpty {
             return 1
         } else {
-            let publisherName = comicBookCollection.publisherNames[section]
+            let publisherName = comicBookCollection.collectedPublisherNames[section]
             let seriesTitles = comicBookCollection.seriesTitlesFor(publisherName: publisherName)
             return seriesTitles.count
         }
@@ -75,7 +75,7 @@ class SeriesTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SeriesCell", for: indexPath)
             
             // Configure the cell...
-            let publisherName = comicBookCollection.publisherNames[indexPath.section]
+            let publisherName = comicBookCollection.collectedPublisherNames[indexPath.section]
             let seriesTitles = comicBookCollection.seriesTitlesFor(publisherName: publisherName)
             let seriesTitle = seriesTitles[indexPath.row]
             let issueNumbers = comicBookCollection.issuesNumbersFor(publisherName: publisherName, seriesTitle: seriesTitle)
