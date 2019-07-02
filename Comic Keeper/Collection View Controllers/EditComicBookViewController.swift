@@ -124,11 +124,17 @@ class EditComicBookViewController: UITableViewController {
     
     private func loadRealComicBooks() {
         
-        guard let foundComicBook = comicBookCollection.comicBookFrom(identifier: currentIdentifier)?.first! else {
-            fatalError("no comicbook to edit")
+        if let ci = currentIdentifier {
+            if let foundComicBook = comicBookCollection.comicBookFrom(identifier: ci)?.first! {
+                comicBookUnderEdit = foundComicBook
+            } else {
+                fatalError("can't find comicbook for identifier \(ci)")
+            }
+        } else {
+            comicBookUnderEdit = comicBookCollection.createEmptyComicBook()
+            currentIdentifier = ComicBookCollection.emptyComicIdentifier
         }
         
-        comicBookUnderEdit = foundComicBook
         if let comicBookUnderEdit = comicBookUnderEdit {
             title = "#\(comicBookUnderEdit.comic.issueNumber )\(comicBookUnderEdit.comic.variant )"
             
