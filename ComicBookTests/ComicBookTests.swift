@@ -44,6 +44,9 @@ class ComicBookTests: XCTestCase {
     
     let dummyDataEra = "1950"
     var dummyDataGuid: UUID?
+    
+    let dummyDataCollectedPublisherNamesCount = 3
+    let dummyDataCollectedPublisherLastname = "Marvel Comics"
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -186,6 +189,13 @@ class ComicBookTests: XCTestCase {
         XCTAssertTrue(cbcUT.comicBookExists(guid: dummyDataGuid!))
         cbcUT.deleteComicBook(with: dummyDataGuid!)
         XCTAssertFalse(cbcUT.comicBookExists(guid: dummyDataGuid!))
+    }
+    
+    func testCollectedPublisherNames() {
+        XCTAssertNotNil(cbcUT.collectedPublisherNames)
+        print(cbcUT.collectedPublisherNames)
+        XCTAssertEqual(cbcUT.collectedPublisherNames.count, dummyDataCollectedPublisherNamesCount)
+        XCTAssertEqual(cbcUT.collectedPublisherNames[dummyDataCollectedPublisherNamesCount - 1], dummyDataCollectedPublisherLastname)
     }
     
 }

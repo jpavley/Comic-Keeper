@@ -54,6 +54,12 @@ public class ComicBookCollection {
         return ["Dark Horse", "DC Comics", "Marvel Comics", "Image Comics", "IDW Publishing", "Valiant Comics",].sorted()
     }
     
+    public var collectedPublisherNames: [String] {
+        let publisherNames = comicBooks.map {$0.comic.publisher}
+        let listB = [String]()
+        return createFilteredNameListFrom(listA: publisherNames, listB: listB)
+    }
+    
     /// The names of all the series in this collection (including all the starter series names.
     /// - No duplicates!
     /// - Sorted!
